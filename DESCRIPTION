@@ -1,0 +1,18 @@
+Package: rbison
+Description: USGS Bison API
+Title: USGS Bison API
+Version: 0.1
+Date: 2013-05-08
+License: CC0
+URL: https://ropensci.github.com/rbison
+BugReports: https://github.com/ropensci/rbison/issues
+Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
+    email = "myrmecocystus@gmail.com"))
+Imports:
+    plyr,
+    httr
+Collate:
+    'bison_data.r'
+    'bison.r'
+    'bisonmap.r'
+    'zzz.r'
