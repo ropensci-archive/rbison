@@ -14,10 +14,19 @@
 #'    the search (using format: minx,miny,maxx,maxy). The coordinates are Spherical 
 #'    Mercator with a datum of WGS84. Example: -111.31,38.81,-110.57,39.21.
 #' @examples \dontrun{
-#' bison(species="Bison bison", type="scientific_name", start=0, count=10)
+#' out <- bison(species="Bison bison", count=50) # by default gets 10 results
+#' bison_data(out) # see summary
+#' bison_data(out, datatype="counties") # see county data
+#' bison_data(out, datatype="states") # see state data
+#' bisonmap(out, tomap = "county")
 #' }
 #' @export
-bison <- function(species, type, start, count, countyFips, aoi, aoibbox){
+bison <- function(species, type="scientific_name", start=NULL, count=10, countyFips=NULL, 
+                  aoi=NULL, aoibbox=NULL)
+{
+  if(!is.null(countyFips) | !is.null(aoi) | !is.null(aoibbox))
+    stop("That parameter isn't implemented yet, check back in a while, or send a pull request!")
+  
   url <- "http://bison.usgs.ornl.gov/api/search"
   args <- compact(list(species=species,type=type,start=start,count=count))
   out <- content(GET(url, query=args))

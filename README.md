@@ -23,7 +23,7 @@ library(rbison)
 #### Query for bison, then plot the points
 
 ```ruby
-out <- bison(species="Bison bison", type="scientific_name", start=0, count=50)
+out <- bison(species="Bison bison", count=50)
 bisonmap(input=out)
 ```
 

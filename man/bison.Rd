@@ -2,8 +2,9 @@
 \alias{bison}
 \title{Search for and collect data from the USGS Bison API.}
 \usage{
-  bison(species, type, start, count, countyFips, aoi,
-    aoibbox)
+  bison(species, type = "scientific_name", start = NULL,
+    count = 10, countyFips = NULL, aoi = NULL,
+    aoibbox = NULL)
 }
 \arguments{
   \item{species}{A species name.}
@@ -35,7 +36,11 @@
 }
 \examples{
 \dontrun{
-bison(species="Bison bison", type="scientific_name", start=0, count=10)
+out <- bison(species="Bison bison", count=50) # by default gets 10 results
+bison_data(out) # see summary
+bison_data(out, datatype="counties") # see county data
+bison_data(out, datatype="states") # see state data
+bisonmap(out, tomap = "county")
 }
 }
 
