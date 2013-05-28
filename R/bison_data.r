@@ -4,7 +4,7 @@
 #' @export
 bison_data <- function(input, ...) UseMethod("bison_data")
 
-#' Make a simple map to visualize GBIF data.
+#' Search for and collect BISON data.
 #' 
 #' @import ggplot2 maps
 #' @S3method bison_data default
@@ -16,6 +16,7 @@ bison_data <- function(input, ...) UseMethod("bison_data")
 #' out <- bison(species="Bison bison", type="scientific_name", start=0, count=10)
 #' class(out) # check right class
 #' bison_data(out) # summary of output
+#' bison_data(input=out, datatype="data") # point records, those returned from call
 #' bison_data(input=out, datatype="counties") # summary by counties
 #' bison_data(input=out, datatype="states") # summary of states
 #' }

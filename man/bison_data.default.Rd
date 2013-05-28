@@ -1,6 +1,6 @@
 \name{bison_data.default}
 \alias{bison_data.default}
-\title{Make a simple map to visualize GBIF data.}
+\title{Search for and collect BISON data.}
 \usage{
   bison_data.default(input = NULL, datatype = NULL)
 }
@@ -13,7 +13,7 @@
   A data.frame
 }
 \description{
-  Make a simple map to visualize GBIF data.
+  Search for and collect BISON data.
 }
 \examples{
 \dontrun{
@@ -21,6 +21,7 @@
 out <- bison(species="Bison bison", type="scientific_name", start=0, count=10)
 class(out) # check right class
 bison_data(out) # summary of output
+bison_data(input=out, datatype="data") # point records, those returned from call
 bison_data(input=out, datatype="counties") # summary by counties
 bison_data(input=out, datatype="states") # summary of states
 }

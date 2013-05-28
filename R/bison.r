@@ -1,4 +1,4 @@
-#' Search the USGS Bison API.
+#' Search for and collect data from the USGS Bison API.
 #' 
 #' @import plyr httr
 #' @param species A species name.

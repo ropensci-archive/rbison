@@ -1,6 +1,6 @@
 \name{bison}
 \alias{bison}
-\title{Search the USGS Bison API.}
+\title{Search for and collect data from the USGS Bison API.}
 \usage{
   bison(species, type, start, count, countyFips, aoi,
     aoibbox)
@@ -31,7 +31,7 @@
   -111.31,38.81,-110.57,39.21.}
 }
 \description{
-  Search the USGS Bison API.
+  Search for and collect data from the USGS Bison API.
 }
 \examples{
 \dontrun{

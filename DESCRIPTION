@@ -10,7 +10,10 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 Imports:
     plyr,
-    httr
+    httr,
+    mapproj,
+    ggplot2,
+    maps
 Collate:
     'bison_data.r'
     'bison.r'

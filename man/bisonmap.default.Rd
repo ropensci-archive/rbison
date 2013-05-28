@@ -2,16 +2,14 @@
 \alias{bisonmap.default}
 \title{Make a simple map to visualize GBIF data.}
 \usage{
-  bisonmap.default(input = NULL, mapdatabase = "world",
-    region = ".", geom = geom_point, jitter = NULL,
-    customize = NULL)
+  bisonmap.default(input = NULL, tomap = "points",
+    geom = geom_point, jitter = NULL, customize = NULL)
 }
 \arguments{
   \item{input}{Input bison object.}
 
-  \item{mapdatabase}{Base map layer to use.}
-
-  \item{region}{Defaults to world.}
+  \item{tomap}{One of points (occurrences), county (counts
+  by county), or state (counts by state).}
 
   \item{geom}{geom_point or geom_jitter, not quoted.}
 
