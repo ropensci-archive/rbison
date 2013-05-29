@@ -8,9 +8,10 @@ URL: https://ropensci.github.com/rbison
 BugReports: https://github.com/ropensci/rbison/issues
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
-Imports:
+Depends:
     plyr,
     httr,
+    rjson,
     mapproj,
     ggplot2,
     maps

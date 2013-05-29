@@ -19,6 +19,9 @@
 #' bison_data(out, datatype="counties") # see county data
 #' bison_data(out, datatype="states") # see state data
 #' bisonmap(out, tomap = "county")
+#' 
+#' # Search for a common name
+#' bison(species="Tufted Titmouse", type="common_name")
 #' }
 #' @export
 bison <- function(species, type="scientific_name", start=NULL, count=10, countyFips=NULL, 
