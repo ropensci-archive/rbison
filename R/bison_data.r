@@ -25,6 +25,7 @@ bison_data.default <- function(input = NULL, datatype=NULL)
 {
   if(!is.bison(input))
     stop("Input is not of class bison")
+  
   if(is.null(datatype)){
     data.frame(c(input[1], input$occurrences$legend))
   } else
@@ -39,6 +40,12 @@ bison_data.default <- function(input = NULL, datatype=NULL)
         return(df)
       } else
         if(datatype=="data"){
-          ldply(input$data, function(x) data.frame(x[c("id","name","longitude","latitude","provider")]))
+          withlatlong <- input$data[sapply(input$data, length, USE.NAMES=FALSE) == 8]
+          data_out <- ldply(withlatlong, function(x) data.frame(x[c("id","name","longitude","latitude","provider")]))
+          data_out$longitude <- as.numeric(as.character(data_out$longitude))
+          data_out$latitude <- as.numeric(as.character(data_out$latitude))
+#           nrow(data_out)
+          data_out <- data_out[data_out$latitude < 72 & data_out$latitude > 24.7433195 & data_out$longitude > -170 & data_out$longitude < -66.9513812, ]
+          return(data_out)
         }
 }
