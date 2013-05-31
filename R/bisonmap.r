@@ -29,12 +29,29 @@ bisonmap.default <- function(input = NULL, tomap="points", geom = geom_point, ji
   if(tomap=='points')
   {     
     tt <- bison_data(input, "data")
+    
+    # Make lat/long data numeric
     tt$latitude <- as.numeric(as.character(tt$latitude))
     tt$longitude <- as.numeric(as.character(tt$longitude))
     
+    # Remove points that are not physically possible
     tomap <- tt[complete.cases(tt$latitude, tt$latitude), ]
     tomap <- tt[-(which(tomap$latitude <=90 || tomap$longitude <=180)), ]
     
+#     # Check if points are inside the contintental US, or US+Alaska, or US+Alaska+Hawaii, or even farther
+#     if(any(tt$latitude > 49)){
+#       
+#     } else
+#       if(){
+#         
+#       } else
+#       {
+#         
+#       }
+#       
+#       
+#     data_out[data_out$latitude < 72 & data_out$latitude > 24.7433195 & data_out$longitude > -170 & data_out$longitude < -66.9513812, ]
+#     
 #     world <- map_data(map=mapdatabase, region=region, xlim=c(-160,-70), ylim=c(25,61)) # get world map data
     world <- map_data(map="world", region=c("Canada","USA")) # get world map data
     states <- map_data("state")
