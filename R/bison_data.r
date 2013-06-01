@@ -41,7 +41,10 @@ bison_data.default <- function(input = NULL, datatype=NULL)
       } else
         if(datatype=="data"){
           withlatlong <- input$data[sapply(input$data, length, USE.NAMES=FALSE) == 8]
-          data_out <- ldply(withlatlong, function(x) data.frame(x[c("id","name","longitude","latitude","provider")]))
+          data_out <- ldply(withlatlong, function(x){
+            x[sapply(x, is.null)] <- NA
+            data.frame(x[c("id","name","longitude","latitude","provider")])
+          })
           data_out$longitude <- as.numeric(as.character(data_out$longitude))
           data_out$latitude <- as.numeric(as.character(data_out$latitude))
 #           data_out <- data_out[data_out$latitude < 72 & data_out$latitude > 24.7433195 & data_out$longitude > -170 & data_out$longitude < -66.9513812, ]
