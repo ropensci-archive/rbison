@@ -1,13 +1,5 @@
-#' Plot a class of bison
-#' @param input Input data.frame
-#' @param ... Additional parameters passed on to bisonmap.default
-#' @export
-bisonmap <- function(input, ...) UseMethod("bisonmap")
-
-#' Make a simple map to visualize GBIF data.
+#' Make map to visualize BISON data.
 #' 
-#' @import ggplot2 maps mapproj
-#' @S3method bisonmap default
 #' @param input Input bison object.
 #' @param tomap One of points (occurrences), county (counts by county), or state 
 #'    (counts by state). 
@@ -16,11 +8,14 @@ bisonmap <- function(input, ...) UseMethod("bisonmap")
 #' @param customize Pass in more to the plot. 
 #' @return Map (using ggplot2 package) of points on a map.
 #' @examples \dontrun{
-#' out <- bison(species="Bison bison", type="scientific_name", start=0, count=50)
+#' out <- bison(species="Bison bison", type="scientific_name", count=50)
 #' bisonmap(input=out)
 #' bisonmap(input=out, geom=geom_jitter, jitter=position_jitter(width = 0.3, height = 0.3))
 #' }
 #' @export
+bisonmap <- function(input = NULL, tomap="points", geom = geom_point, jitter = NULL, customize = NULL) UseMethod("bisonmap")
+
+#' @S3method bisonmap default 
 bisonmap.default <- function(input = NULL, tomap="points", geom = geom_point, jitter = NULL, customize = NULL)
 {
   if(!is.bison(input))

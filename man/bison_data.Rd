@@ -18,7 +18,7 @@
 \examples{
 \dontrun{
 # output data
-out <- bison(species="Bison bison", type="scientific_name", start=0, count=10)
+out <- bison(species="Bison bison", type="scientific_name", count=10)
 class(out) # check right class
 bison_data(out) # summary of output
 bison_data(input=out, datatype="data") # point records, those returned from call
