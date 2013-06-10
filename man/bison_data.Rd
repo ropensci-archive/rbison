@@ -10,7 +10,7 @@
   \item{datatype}{One of counties, states, data, or NULL.}
 }
 \value{
-  A data.frame
+  A data.frame or list.
 }
 \description{
   Search for and collect BISON data.

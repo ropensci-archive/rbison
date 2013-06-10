@@ -2,7 +2,7 @@
 #' 
 #' @param input Output from bison function.
 #' @param datatype One of counties, states, data, or NULL.
-#' @return A data.frame
+#' @return A data.frame or list.
 #' @examples \dontrun{
 #' # output data
 #' out <- bison(species="Bison bison", type="scientific_name", count=10)
@@ -34,7 +34,7 @@ bison_data.default <- function(input = NULL, datatype=NULL)
         names(df)[c(1,3)] <- c("record_id","county_fips")
         return(df)
       } else
-        if(datatype=="data"){
+        if(datatype=="data_df"){
           withlatlong <- input$data[sapply(input$data, length, USE.NAMES=FALSE) == 8]
           data_out <- ldply(withlatlong, function(x){
             x[sapply(x, is.null)] <- NA
@@ -44,5 +44,16 @@ bison_data.default <- function(input = NULL, datatype=NULL)
           data_out$latitude <- as.numeric(as.character(data_out$latitude))
 #           data_out <- data_out[data_out$latitude < 72 & data_out$latitude > 24.7433195 & data_out$longitude > -170 & data_out$longitude < -66.9513812, ]
           return(data_out)
-        }
+        } else
+          if(datatype=="data_list"){
+            withlatlong <- input$data[sapply(input$data, length, USE.NAMES=FALSE) == 8]
+            data_out <- llply(withlatlong, function(x){
+              x[sapply(x, is.null)] <- NA
+              temp <- x[c("id","name","longitude","latitude","provider")]
+              temp$longitude <- as.numeric(as.character(temp$longitude))
+              temp$latitude <- as.numeric(as.character(temp$latitude))              
+              temp
+            })
+            return(data_out)
+          }
 }
