@@ -38,7 +38,7 @@ bisonmap.default <- function(input = NULL, tomap="points", geom = geom_point, ji
   
   if(tomap=='points')
   {     
-    tt <- bison_data(input, "data")
+    tt <- bison_data(input, "data_df")
     
     # Make lat/long data numeric
     tt$latitude <- as.numeric(as.character(tt$latitude))
