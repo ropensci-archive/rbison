@@ -10,7 +10,8 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 LazyLoad: yes
 LazyData: yes
-Depends:
+VignetteBuilder: knitr
+Imports:
     plyr,
     httr,
     rjson,
@@ -20,6 +21,8 @@ Depends:
     rgeos,
     rgdal,
     gridExtra
+Suggests:
+    knitr
 Collate:
     'bison_data.r'
     'bison.r'

@@ -1,0 +1,90 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{An R Markdown Vignette made with knitr}
+-->
+
+rbison vignette - wrapper to the USGS BISON API
+======
+
+### About the package
+
+XXXXXXX
+
+### Info
+
+See [here](http://bison.usgs.ornl.gov/services.html) for API docs for the BISON API.
+
+
+### Quick start
+
+#### Install rbison
+
+```{r install, comment=NA, warning=FALSE}
+# install.packages("devtools"); library(devtools); install_github("rbison", "ropensci")
+library(rbison); library(sp); library(plyr); library(httr); library(rjson); library(gridExtra)
+library(mapproj); library(ggplot2); library(maps); library(rgeos); library(rgdal)
+```
+
+Notice that the function `bisonmap` automagically selects the map extent to plot for you, 
+being one of the contiguous lower 48 states, or the lower 48 plus AK and HI, or a global map
+
+#### If some or all points outside the US, a global map is drawn, and throws a warning. . You may want to make sure the occurrence lat/long coordinates are correct.
+##### get data
+```{r one, fig.width=6, fig.height=4, comment=NA, warning=FALSE}
+out <- bison(species = "Helianthus annuus", count = 10)
+```
+
+##### inspect summary
+```{r two, fig.width=6, fig.height=4, comment=NA, warning=FALSE}
+bison_data(out)
+```
+
+##### map occurrences
+```{r}
+bisonmap(out)
+```
+
+
+#### All points within the US (including AK and HI)
+##### get data
+```{r four, fig.width=6, fig.height=4, comment=NA, warning=FALSE}
+out <- bison(species="Bison bison", count=600)
+```
+
+##### inspect summary
+```{r five, fig.width=6, fig.height=4, comment=NA, warning=FALSE}
+bison_data(out)
+```
+
+##### map occurrences
+```{r six, fig.width=6, fig.height=4, comment=NA, warning=FALSE}
+bisonmap(out)
+```
+
+####  All points within the contiguous 48 states
+##### get data
+```{r seven, fig.width=6, fig.height=4, comment=NA, warning=FALSE}
+out <- bison(species="Aquila chrysaetos", count=600)
+```
+
+##### inspect summary
+```{r eight, fig.width=6, fig.height=4, comment=NA, warning=FALSE}
+bison_data(out)
+```
+
+##### map occurrences
+```{r nine, fig.width=6, fig.height=4, comment=NA, warning=FALSE}
+bisonmap(out)
+```
+
+
+####  With any data returned from a `bison` call, you can choose to plot county or state level data
+##### Counties - using last data call for Aquila 
+```{r ten, fig.width=6, fig.height=4, comment=NA, warning=FALSE}
+bisonmap(out, tomap="county")
+```
+
+##### States - using last data call for Aquila 
+```{r eleven, fig.width=6, fig.height=4, comment=NA, warning=FALSE}
+bisonmap(out, tomap="state")
+```
