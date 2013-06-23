@@ -1,10 +1,10 @@
-\name{bison}
-\alias{bison}
-\title{Search for and collect data from the USGS Bison API.}
+\name{bison_occ}
+\alias{bison_occ}
+\title{Search for and collect data from the USGS Bison API using SOLR.}
 \usage{
-  bison(species, type = "scientific_name", start = NULL,
-    count = 10, countyFips = NULL, aoi = NULL,
-    aoibbox = NULL)
+  bison_occ(species, type = "scientific_name",
+    start = NULL, count = 10, countyFips = NULL,
+    aoi = NULL, aoibbox = NULL)
 }
 \arguments{
   \item{species}{A species name. (character)}
@@ -36,18 +36,13 @@
   -111.31,38.81,-110.57,39.21 (character)}
 }
 \description{
-  Search for and collect data from the USGS Bison API.
+  Search for and collect data from the USGS Bison API using
+  SOLR.
 }
 \examples{
 \dontrun{
-out <- bison(species="Bison bison", count=50) # by default gets 10 results
-bison_data(out) # see summary
-bison_data(out, datatype="counties") # see county data
-bison_data(out, datatype="states") # see state data
-bisonmap(out, tomap = "county")
-
 # Search for a common name
-bison(species="Tufted Titmouse", type="common_name")
+bison_solr(species="Tufted Titmouse", type="common_name")
 
 # Constrain search to a certain county, 49015 is Emery County in Utah
 bison(species="Helianthus annuus", countyFips = 49015)
