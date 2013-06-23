@@ -194,22 +194,60 @@ bisonmap(out, tomap = "state")
 ********************
 
 ####  Constrain search with county IDs or bounding boxes
-##### Constrain search to a certain county, 49015 is Emery County in Utah
+
+##### Constrain search to a certain county.
+
+Check out [this site](http://www.epa.gov/enviro/html/codes/state.html) to get state and county fips codes. Fips codes are like so: First two digits are the state code - last three are the county code. For example the *06* in  06037 is the state of California, and the *037* is the Los Angeles county.
+
 
 ```r
-out <- bison(species = "Helianthus annuus", countyFips = 49015)
+out <- bison(species = "Helianthus annuus", countyFips = 6037)
 
 # Inspect summary
 bison_data(out)
 ```
 
 ```
-  total literature unknown centroid
-1     2          1       1        1
+  total observation fossil specimen literature unknown centroid
+1    23           1      3       12          1       6        1
+```
+
+```r
+
+# By default, the query only returned 10 records
+bison_data(out, "data_df")
+```
+
+```
+          id              name longitude latitude
+1  225206595 Helianthus annuus      -118       34
+2  225206669 Helianthus annuus      -118       34
+3  225206949 Helianthus annuus      -118       34
+4  225207498 Helianthus annuus      -118       34
+5  225207520 Helianthus annuus      -118       34
+6  225207562 Helianthus annuus      -118       34
+7  225207687 Helianthus annuus      -118       34
+8  225207727 Helianthus annuus      -118       34
+9  225207875 Helianthus annuus      -118       34
+10 225207892 Helianthus annuus      -118       34
+                            provider
+1  Consortium of California Herbaria
+2  Consortium of California Herbaria
+3  Consortium of California Herbaria
+4  Consortium of California Herbaria
+5  Consortium of California Herbaria
+6  Consortium of California Herbaria
+7  Consortium of California Herbaria
+8  Consortium of California Herbaria
+9  Consortium of California Herbaria
+10 Consortium of California Herbaria
 ```
 
 
-##### Constrain search to a certain aoi, which turns out to be Emery County, Utah as well
+##### Constrain search to a amorphous area. 
+
+Check out the Wikipedia page [here](http://en.wikipedia.org/wiki/Well-known_text) for an in depth look at the options, terminology, etc.
+
 
 ```r
 out <- bison(species = "Helianthus annuus", aoi = "POLYGON((-111.06360117772908 38.84001566645886,-110.80542246679359 39.37707771107983,-110.20117441992392 39.17722368276862,-110.20666758398464 38.90844075244811,-110.63513438085685 38.67724220095734,-111.06360117772908 38.84001566645886))")
@@ -223,18 +261,63 @@ bison_data(out)
 1     1          1        1
 ```
 
+```r
 
-##### Constrain search to a certain aoibbox, which, you guessed it, is also Emery County, Utah
+# The data
+bison_data(out, "data_df")
+```
+
+```
+        id              name longitude latitude    provider
+1 32098012 Helianthus annuus    -110.7    38.99 USDA PLANTS
+```
+
+
+##### Constrain search to a certain aoibbox.
+
+An aoibbox uses the format minx,miny,maxx,maxy.
+
 
 ```r
-out <- bison(species = "Helianthus annuus", aoibbox = "-111.31,38.81,-110.57,39.21")
+out <- bison(species = "Helianthus annuus", aoibbox = "-120.31,35.81,-110.57,40.21")
 
 # Inspect summary
 bison_data(out)
 ```
 
 ```
-##   total literature centroid
-## 1     1          1        1
+  total observation fossil specimen literature unknown centroid
+1   145           6      8       34         25      72       25
+```
+
+```r
+
+# The data, by default, the query only returned 10 records
+bison_data(out, "data_df")
+```
+
+```
+           id              name longitude latitude
+1   101501039 Helianthus annuus    -113.3    36.74
+2   174839147 Helianthus annuus    -113.3    36.74
+3   101501043 Helianthus annuus    -113.6    36.75
+4   174839150 Helianthus annuus    -113.6    36.75
+5   174839116 Helianthus annuus    -112.9    36.88
+6   101501067 Helianthus annuus    -112.6    36.95
+7   174839120 Helianthus annuus    -112.3    36.60
+8   174839135 Helianthus annuus    -112.7    36.24
+9   174839134 Helianthus annuus    -112.7    36.25
+10 1000986531 Helianthus annuus    -112.1    37.18
+                                                                    provider
+1  Arizona State University, International Institute for Species Exploration
+2                                            University of Arizona Herbarium
+3  Arizona State University, International Institute for Species Exploration
+4                                            University of Arizona Herbarium
+5                                            University of Arizona Herbarium
+6  Arizona State University, International Institute for Species Exploration
+7                                            University of Arizona Herbarium
+8                                            University of Arizona Herbarium
+9                                            University of Arizona Herbarium
+10                                                                     BISON
 ```
 
