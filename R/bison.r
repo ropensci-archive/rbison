@@ -44,10 +44,31 @@
 bison <- function(species, type="scientific_name", start=NULL, count=10, 
                   countyFips=NULL, county=NULL, aoi=NULL, aoibbox=NULL)
 {
-  if(!is.null(county))
-    numbs <- fips[grep(county, fips$county),c("fips_state","fips_county")]
-    if(!nrow(numbs) == 0)
-      countyFips <- paste0(numbs,collapse="")
+  if(!is.null(county)){
+    numbs <- fips[grep(county, fips$county),]
+#     numbs <- fips[grep(county, fips$county),c("fips_state","fips_county")]
+    if(nrow(numbs) > 1){
+      message("\n\n")
+      print(numbs)
+      message("\nMore than one matching county found '", county, "'!\nEnter row number of county you want (other inputs will return 'NA'):\n") # prompt
+      take <- scan(n = 1, quiet = TRUE, what = 'raw')
+      
+      if(length(take) == 0)
+        take <- 'notake'
+      if(take %in% seq_len(nrow(numbs))){
+        take <- as.numeric(take)
+        message("Input accepted, took county '", as.character(numbs[take, "county"]), "'.\n")
+        countyFips <- paste0(numbs[take, c("fips_state","fips_county")],collapse="")
+      } else {
+        countyFips <- NA
+        message("\nReturned 'NA'!\n\n")
+      }
+    } else
+      if(nrow(numbs) == 1){
+        countyFips <- paste0(numbs[, c("fips_state","fips_county")],collapse="")
+      } else
+      { stop("a problem occurred...") }
+  }
   
   url <- "http://bison.usgs.ornl.gov/api/search"
   args <- compact(list(species=species,type=type,start=start,count=count,

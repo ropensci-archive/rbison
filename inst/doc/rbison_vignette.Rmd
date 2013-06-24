@@ -118,6 +118,24 @@ bison_data(out)
 bison_data(out, "data_df")
 ```
 
+Or specify county by its actual name - probably much easier. 
+
+```{r countyname, comment=NA, warning=FALSE}
+out <- bison(species="Helianthus annuus", county = "Los Angeles")
+
+# Inspect summary
+bison_data(out)
+
+# By default, the query only returned 10 records
+bison_data(out, "data_df")
+```
+
+`bison` will help you if you spell the name wrong, or use a partial name. The results are not printed below, but you would get a prompt asking you to pick between the two counties that start with *Los*.
+
+```{r countyname_wrong, eval=FALSE}
+bison(species="Helianthus annuus", county = "Los")
+```
+
 ##### Constrain search to a amorphous area. 
 
 Check out the Wikipedia page [here](http://en.wikipedia.org/wiki/Well-known_text) for an in depth look at the options, terminology, etc.
