@@ -3,8 +3,8 @@
 \title{Search for and collect data from the USGS Bison API.}
 \usage{
   bison(species, type = "scientific_name", start = NULL,
-    count = 10, countyFips = NULL, aoi = NULL,
-    aoibbox = NULL)
+    count = 10, countyFips = NULL, county = NULL,
+    aoi = NULL, aoibbox = NULL)
 }
 \arguments{
   \item{species}{A species name. (character)}
@@ -19,6 +19,11 @@
   \item{countyFips}{Specifies the county fips code to
   geographically constrain the search to one county. Eg:
   49015. (numeric)}
+
+  \item{county}{County name. As codes are a pain in the
+  ass, you can put in the county name here instead of
+  specifying a countyFips entry, and bison will attempt to
+  look up the countyFips code. (character)}
 
   \item{aoi}{Specifies a WKT (Well-Known Text) polygon to
   geographically constrain the search.  Eg.: c(-111.06
@@ -51,6 +56,9 @@ bison(species="Tufted Titmouse", type="common_name")
 
 # Constrain search to a certain county, 49015 is Emery County in Utah
 bison(species="Helianthus annuus", countyFips = 49015)
+
+# Constrain search to a certain county, specifying county name instead of code
+bison(species="Helianthus annuus", county = "Los Angeles")
 
 # Constrain search to a certain aoi, which turns out to be Emery County, Utah as well
 bison(species="Helianthus annuus", aoi = "POLYGON((-111.06360117772908 38.84001566645886,-110.80542246679359 39.37707771107983,-110.20117441992392 39.17722368276862,-110.20666758398464 38.90844075244811,-110.63513438085685 38.67724220095734,-111.06360117772908 38.84001566645886))")
