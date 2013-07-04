@@ -1,8 +1,10 @@
 #' Search for and collect BISON data.
 #' 
 #' @param input Output from bison function.
-#' @param datatype One of counties, states, data, or NULL.
+#' @param datatype One of counties, states, data_df, data_list, or NULL.
 #' @return A data.frame or list.
+#' @description datatype = data_df returns all data in a data.frame, while data_list
+#'    returns data in a list
 #' @examples \dontrun{
 #' # output data
 #' out <- bison(species="Bison bison", type="scientific_name", count=10)
