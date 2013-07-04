@@ -31,3 +31,4 @@ Collate:
     'bison_occ.r'
     'bison_spp.r'
     'rbison-package.r'
+    'togeojson.r'
