@@ -7,13 +7,15 @@
 \arguments{
   \item{input}{Output from bison function.}
 
-  \item{datatype}{One of counties, states, data, or NULL.}
+  \item{datatype}{One of counties, states, data_df,
+  data_list, or NULL.}
 }
 \value{
   A data.frame or list.
 }
 \description{
-  Search for and collect BISON data.
+  datatype = data_df returns all data in a data.frame,
+  while data_list returns data in a list
 }
 \examples{
 \dontrun{

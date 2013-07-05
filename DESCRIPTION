@@ -20,7 +20,8 @@ Imports:
     maps,
     rgeos,
     rgdal,
-    gridExtra
+    gridExtra,
+    maptools
 Suggests:
     knitr
 Collate:
