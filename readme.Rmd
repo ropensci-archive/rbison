@@ -86,3 +86,39 @@ bisonmap(out, tomap="county")
 ```{r}
 bisonmap(out, tomap="state")
 ```
+
+
+####  You can also query BISON via their SOLR interface
+##### The taxa service searches for and gives back taxonomic names
+
+```{r}
+bison_solr_tax(query="bear", method='common_name')
+```
+
+You can also do fuzzy searches like this (which you can't do using the `bison` function)
+
+```{r}
+bison_solr_tax(query="*bear")[1:2]
+```
+
+And you can search by scientific name
+
+```{r}
+bison_solr_tax(query="helianthus", method="scientific_name")
+```
+
+##### The occurrence service searches by scientific names and gives back occurrence data similar to data given back by the `bison` function
+
+Searching for data and looking at output
+
+```{r}
+out <- bison_solr_occ(scientific_name='"Ursus americanus"', state_code='"New Mexico"', rows=50, fl="occurrence_date,scientific_name")
+bison_data(input=out)
+```
+
+Mapping the data
+
+```{r}
+out <- bison_solr_occ(scientific_name='"Ursus americanus"', rows=200)
+bisonmap(out)
+```

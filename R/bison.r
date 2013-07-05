@@ -18,6 +18,7 @@
 #' @param aoibbox Specifies a four-sided bounding box to geographically constrain 
 #'    the search (using format: minx,miny,maxx,maxy). The coordinates are Spherical 
 #'    Mercator with a datum of WGS84. Example: -111.31,38.81,-110.57,39.21 (character)
+#' @seealso \code{\link{bison_solr_occ}} \code{\link{bison_solr_tax}}
 #' @examples \dontrun{
 #' out <- bison(species="Bison bison", count=50) # by default gets 10 results
 #' bison_data(out) # see summary
@@ -46,7 +47,6 @@ bison <- function(species, type="scientific_name", start=NULL, count=10,
 {
   if(!is.null(county)){
     numbs <- fips[grep(county, fips$county),]
-#     numbs <- fips[grep(county, fips$county),c("fips_state","fips_county")]
     if(nrow(numbs) > 1){
       message("\n\n")
       print(numbs)

@@ -67,4 +67,7 @@ bison(species="Helianthus annuus", aoi = "POLYGON((-111.06360117772908 38.840015
 bison(species="Helianthus annuus", aoibbox = '-111.31,38.81,-110.57,39.21')
 }
 }
+\seealso{
+  \code{\link{bison_solr_occ}} \code{\link{bison_solr_tax}}
+}
 

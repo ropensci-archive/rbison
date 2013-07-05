@@ -10,7 +10,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 LazyLoad: yes
 LazyData: yes
-VignetteBuilder: knitr
+# VignetteBuilder: knitr
 Imports:
     plyr,
     httr,
@@ -20,8 +20,11 @@ Imports:
     maps,
     rgeos,
     rgdal,
+    grid,
     gridExtra,
-    maptools
+    maptools,
+    sp,
+    assertthat
 Suggests:
     knitr
 Collate:
@@ -29,7 +32,7 @@ Collate:
     'bison.r'
     'bisonmap.r'
     'zzz.r'
-    'bison_occ.r'
-    'bison_spp.r'
     'rbison-package.r'
     'togeojson.r'
+    'bison_solr_occ.r'
+    'bison_solr_tax.r'

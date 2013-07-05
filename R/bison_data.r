@@ -1,24 +1,31 @@
 #' Search for and collect BISON data.
 #' 
+#' @import assertthat plyr
 #' @param input Output from bison function.
 #' @param datatype One of counties, states, data_df, data_list, or NULL.
 #' @return A data.frame or list.
 #' @description datatype = data_df returns all data in a data.frame, while data_list
-#'    returns data in a list
+#'    returns data in a list. If you are getting data from a call to \code{\link{bison_solr_occ}}
+#'    you must set datatype="data_df" - other options will throw an error. 
 #' @examples \dontrun{
 #' # output data
 #' out <- bison(species="Bison bison", type="scientific_name", count=10)
 #' class(out) # check right class
 #' bison_data(out) # summary of output
-#' bison_data(input=out, datatype="data") # point records, those returned from call
+#' bison_data(input=out, datatype="data_df") # as a data.frame
+#' bison_data(input=out, datatype="data_list") # as a list
 #' bison_data(input=out, datatype="counties") # summary by counties
 #' bison_data(input=out, datatype="states") # summary of states
+#' 
+#' # SOLR occurrences endpoint
+#' out <- bison_solr_occ(scientific_name='"Ursus americanus"')
+#' bison_data(input=out)
 #' }
 #' @export
 bison_data <- function(input = NULL, datatype=NULL) UseMethod("bison_data")
 
-#' @S3method bison_data default 
-bison_data.default <- function(input = NULL, datatype=NULL)
+#' @S3method bison_data bison
+bison_data.bison <- function(input = NULL, datatype=NULL)
 {
   if(!is.bison(input))
     stop("Input is not of class bison")
@@ -44,7 +51,6 @@ bison_data.default <- function(input = NULL, datatype=NULL)
           })
           data_out$longitude <- as.numeric(as.character(data_out$longitude))
           data_out$latitude <- as.numeric(as.character(data_out$latitude))
-#           data_out <- data_out[data_out$latitude < 72 & data_out$latitude > 24.7433195 & data_out$longitude > -170 & data_out$longitude < -66.9513812, ]
           return(data_out)
         } else
           if(datatype=="data_list"){
@@ -58,4 +64,14 @@ bison_data.default <- function(input = NULL, datatype=NULL)
             })
             return(data_out)
           }
+}
+
+#' @S3method bison_data bison_occ
+bison_data.bison_occ <- function(input = NULL, datatype="data_df")
+{
+  if(!is.bison_occ(input))
+    stop("Input is not of class bison_occ")
+  assert_that(datatype=="data_df")
+#   assert_that(is.list(input$records))
+  ldply(input$records, function(x) as.data.frame(x))
 }
