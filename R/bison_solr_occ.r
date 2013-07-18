@@ -19,7 +19,18 @@
 #' @param county County FIPS code conforming to standard FIPS 6-4 but with leading zeros removed.
 #' @param state_code The normalized case sensitive name. For example q=state_code:"New Mexico" will return all of the occurrences from New Mexico.
 #' @param scientific_name	The species scientific name that is searchable in a case insensitive way.
+#' @param ... Additional SOLR query arguments. See details.
 #' @return A list.
+#' @details The SOLR search parameters:
+#' \itemize{
+#'  \item{fl} {Fields to return in the query}
+#'  \item{rows} {Number of records to return}
+#'  \item{sort} {Field to sort by, see examples}
+#'  \item{facet} {Facet or not, logical}
+#'  \item{facet.fields} {Fields to facet by}
+#' }
+#' 
+#' For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 #' @seealso \code{\link{bison_solr_tax}} \code{\link{bison}}
 #' @examples \dontrun{
 #' out <- bison_solr_occ(scientific_name='"Ursus americanus"')
