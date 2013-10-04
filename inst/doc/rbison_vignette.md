@@ -36,43 +36,11 @@ library(plyr)
 library(httr)
 library(rjson)
 library(gridExtra)
-```
-
-```
-Loading required package: grid
-```
-
-```r
 library(mapproj)
-```
-
-```
-Loading required package: maps
-```
-
-```r
 library(ggplot2)
 library(maps)
 library(rgeos)
-```
-
-```
-rgeos version: 0.2-17, (SVN revision 392) GEOS runtime version:
-3.3.3-CAPI-1.7.4 Polygon checking: TRUE
-```
-
-```r
 library(rgdal)
-```
-
-```
-rgdal: version: 0.8-9, (SVN revision 470) Geospatial Data Abstraction
-Library extensions to R successfully loaded Loaded GDAL runtime: GDAL
-1.9.2, released 2012/10/08 Path to GDAL shared files:
-/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rgdal/gdal
-Loaded PROJ.4 runtime: Rel. 4.8.0, 6 March 2012, [PJ_VERSION: 480] Path to
-PROJ.4 shared files:
-/Library/Frameworks/R.framework/Versions/3.0/Resources/library/rgdal/proj
 ```
 
 
@@ -95,7 +63,7 @@ bison_data(out)
 
 ```
   total observation fossil specimen literature unknown living centroid
-1  4422          11    102     1303       1106    1892      8     1106
+1  4424          13    102     1303       1106    1892      8     1106
 ```
 
 
@@ -126,7 +94,7 @@ bison_data(out)
 
 ```
   total observation fossil specimen unknown
-1   761          30      4      709      18
+1   781          38      4      722      17
 ```
 
 
@@ -157,7 +125,7 @@ bison_data(out)
 
 ```
   total observation fossil specimen literature unknown centroid
-1 41731       39331     30     1618        118     634      904
+1 41780       39334     30     1664        118     634      904
 ```
 
 
@@ -220,27 +188,82 @@ bison_data(out, "data_df")
 
 ```
           id              name longitude latitude
-1  225206595 Helianthus annuus      -118       34
-2  225206669 Helianthus annuus      -118       34
-3  225206949 Helianthus annuus      -118       34
-4  225207498 Helianthus annuus      -118       34
-5  225207520 Helianthus annuus      -118       34
-6  225207562 Helianthus annuus      -118       34
-7  225207687 Helianthus annuus      -118       34
-8  225207727 Helianthus annuus      -118       34
-9  225207875 Helianthus annuus      -118       34
-10 225207892 Helianthus annuus      -118       34
-                            provider
-1  Consortium of California Herbaria
-2  Consortium of California Herbaria
-3  Consortium of California Herbaria
-4  Consortium of California Herbaria
-5  Consortium of California Herbaria
-6  Consortium of California Herbaria
-7  Consortium of California Herbaria
-8  Consortium of California Herbaria
-9  Consortium of California Herbaria
-10 Consortium of California Herbaria
+1  832095838 Helianthus annuus    -118.4    33.39
+2  687026030 Helianthus annuus    -118.2    34.09
+3   40886954 Helianthus annuus    -118.9    34.80
+4   40886955 Helianthus annuus    -118.9    34.80
+5   67195635 Helianthus annuus    -118.8    34.70
+6   67195791 Helianthus annuus    -118.5    34.30
+7   67195582 Helianthus annuus    -118.4    34.04
+8   40886953 Helianthus annuus    -118.1    34.70
+9   40886951 Helianthus annuus    -118.1    34.70
+10  40886950 Helianthus annuus    -118.1    34.70
+                             provider
+1                         USDA PLANTS
+2                     iNaturalist.org
+3  US National Plant Germplasm System
+4  US National Plant Germplasm System
+5                                <NA>
+6                                <NA>
+7                                <NA>
+8  US National Plant Germplasm System
+9  US National Plant Germplasm System
+10 US National Plant Germplasm System
+```
+
+
+Or specify county by its actual name - probably much easier. 
+
+
+```r
+out <- bison(species = "Helianthus annuus", county = "Los Angeles")
+
+# Inspect summary
+bison_data(out)
+```
+
+```
+  total observation fossil specimen literature unknown centroid
+1    23           1      3       12          1       6        1
+```
+
+```r
+
+# By default, the query only returned 10 records
+bison_data(out, "data_df")
+```
+
+```
+          id              name longitude latitude
+1  832095838 Helianthus annuus    -118.4    33.39
+2  687026030 Helianthus annuus    -118.2    34.09
+3   40886954 Helianthus annuus    -118.9    34.80
+4   40886955 Helianthus annuus    -118.9    34.80
+5   67195635 Helianthus annuus    -118.8    34.70
+6   67195791 Helianthus annuus    -118.5    34.30
+7   67195582 Helianthus annuus    -118.4    34.04
+8   40886953 Helianthus annuus    -118.1    34.70
+9   40886951 Helianthus annuus    -118.1    34.70
+10  40886950 Helianthus annuus    -118.1    34.70
+                             provider
+1                         USDA PLANTS
+2                     iNaturalist.org
+3  US National Plant Germplasm System
+4  US National Plant Germplasm System
+5                                <NA>
+6                                <NA>
+7                                <NA>
+8  US National Plant Germplasm System
+9  US National Plant Germplasm System
+10 US National Plant Germplasm System
+```
+
+
+`bison` will help you if you spell the name wrong, or use a partial name. The results are not printed below, but you would get a prompt asking you to pick between the two counties that start with *Los*.
+
+
+```r
+bison(species = "Helianthus annuus", county = "Los")
 ```
 
 
@@ -268,8 +291,8 @@ bison_data(out, "data_df")
 ```
 
 ```
-        id              name longitude latitude    provider
-1 32098012 Helianthus annuus    -110.7    38.99 USDA PLANTS
+         id              name longitude latitude    provider
+1 832098012 Helianthus annuus    -110.7    38.99 USDA PLANTS
 ```
 
 
@@ -297,27 +320,16 @@ bison_data(out, "data_df")
 ```
 
 ```
-           id              name longitude latitude
-1   101501039 Helianthus annuus    -113.3    36.74
-2   174839147 Helianthus annuus    -113.3    36.74
-3   101501043 Helianthus annuus    -113.6    36.75
-4   174839150 Helianthus annuus    -113.6    36.75
-5   174839116 Helianthus annuus    -112.9    36.88
-6   101501067 Helianthus annuus    -112.6    36.95
-7   174839120 Helianthus annuus    -112.3    36.60
-8   174839135 Helianthus annuus    -112.7    36.24
-9   174839134 Helianthus annuus    -112.7    36.25
-10 1000986531 Helianthus annuus    -112.1    37.18
-                                                                    provider
-1  Arizona State University, International Institute for Species Exploration
-2                                            University of Arizona Herbarium
-3  Arizona State University, International Institute for Species Exploration
-4                                            University of Arizona Herbarium
-5                                            University of Arizona Herbarium
-6  Arizona State University, International Institute for Species Exploration
-7                                            University of Arizona Herbarium
-8                                            University of Arizona Herbarium
-9                                            University of Arizona Herbarium
-10                                                                     BISON
+           id              name longitude latitude    provider
+1  1800986531 Helianthus annuus    -112.1    37.18       BISON
+2  1800986532 Helianthus annuus    -112.1    37.18       BISON
+3  1800986533 Helianthus annuus    -112.1    37.18       BISON
+4  1800986534 Helianthus annuus    -112.1    37.18       BISON
+5  1800986645 Helianthus annuus    -111.8    37.13       BISON
+6  1800986646 Helianthus annuus    -111.8    37.13       BISON
+7   832096828 Helianthus annuus    -118.4    38.54 USDA PLANTS
+8   832098025 Helianthus annuus    -111.8    38.75 USDA PLANTS
+9   832098012 Helianthus annuus    -110.7    38.99 USDA PLANTS
+10  832098018 Helianthus annuus    -113.1    39.05 USDA PLANTS
 ```
 

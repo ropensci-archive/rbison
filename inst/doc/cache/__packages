@@ -1,0 +1,13 @@
+base
+ggplot2
+gridExtra
+httr
+knitr
+mapproj
+maps
+plyr
+rbison
+rgdal
+rgeos
+rjson
+sp

@@ -34,12 +34,19 @@ bison_data.bison <- function(input = NULL, datatype=NULL)
     data.frame(c(input[1], input$occurrences$legend))
   } else
     if(datatype=="counties"){
-      df <- ldply(input$counties$data, function(x) as.data.frame(x))
+#       df <- ldply(input$counties$data, function(x) as.data.frame(x))
+      if(class(input$counties$data[[1]])=="character"){
+        df <- ldply(input$counties$data)
+      } else
+      {
+        df <- ldply(input$counties$data, function(x) data.frame(x))
+      }
       names(df)[c(1,3)] <- c("record_id","county_name")
       return(df)
     } else
       if(datatype=="states"){
-        df <- ldply(input$states$data, function(x) as.data.frame(x))
+#         df <- ldply(input$states$data, function(x) as.data.frame(x))
+        df <- ldply(input$states$data, function(x) data.frame(x))
         names(df)[c(1,3)] <- c("record_id","county_fips")
         return(df)
       } else

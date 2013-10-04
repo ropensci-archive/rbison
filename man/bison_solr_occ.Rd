@@ -51,6 +51,8 @@
 
   \item{scientific_name}{The species scientific name that
   is searchable in a case insensitive way.}
+
+  \item{...}{Additional SOLR query arguments. See details.}
 }
 \value{
   A list.
@@ -64,6 +66,16 @@
   instead of the OpenSearch interface at
   \url{http://bison.usgs.ornl.gov/api/search}, which
   \code{\link{bison}} uses.
+}
+\details{
+  The SOLR search parameters: \itemize{ \item{fl} {Fields
+  to return in the query} \item{rows} {Number of records to
+  return} \item{sort} {Field to sort by, see examples}
+  \item{facet} {Facet or not, logical} \item{facet.fields}
+  {Fields to facet by} }
+
+  For a tutorial see here
+  \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 }
 \examples{
 \dontrun{
