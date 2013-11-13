@@ -1,6 +1,6 @@
 #' Search for and collect BISON data.
 #' 
-#' @import assertthat plyr
+#' @import plyr
 #' @param input Output from bison function.
 #' @param datatype One of counties, states, data_df, data_list, or NULL.
 #' @return A data.frame or list.
@@ -78,7 +78,9 @@ bison_data.bison_occ <- function(input = NULL, datatype="data_df")
 {
   if(!is.bison_occ(input))
     stop("Input is not of class bison_occ")
-  assert_that(datatype=="data_df")
+# assert_that(datatype=="data_df")
+  if(!datatype=="data_df")
+    stop("datatype must equal data_df")
 #   assert_that(is.list(input$records))
   ldply(input$records, function(x) as.data.frame(x))
 }

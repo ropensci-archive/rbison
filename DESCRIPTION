@@ -10,7 +10,6 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 LazyLoad: yes
 LazyData: yes
-# VignetteBuilder: knitr
 Imports:
     plyr,
     httr,
@@ -23,8 +22,7 @@ Imports:
     grid,
     gridExtra,
     maptools,
-    sp,
-    assertthat
+    sp
 Suggests:
     knitr
 Collate:

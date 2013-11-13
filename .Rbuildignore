@@ -1,0 +1,13 @@
+.gitignore
+^Makefile$
+.travis.yml
+man-roxygen
+^.*\.Rproj$
+^\.Rproj\.user$
+vignettes/cache
+vignettes/figure
+vignettes/rbison_vignette.Rmd
+vignettes/rbison_vignette.md
+vignettes/margins.sty
+inst/assets
+tests/test-all.R

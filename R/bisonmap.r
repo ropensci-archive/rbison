@@ -91,6 +91,7 @@ bisonmap.bison_occ <- function(input = NULL, tomap="points", geom = geom_point, 
 {
   if(!is.bison_occ(input))
     stop("Input is not of class bison_occ")
-  assert_that(tomap=='points')
+  if(!tomap=='points')
+    stop("tomap must equal 'points'")
   bison_map_maker(x=input, geom = geom, jitter = jitter, customize = customize)
 }

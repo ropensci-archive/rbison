@@ -5,7 +5,7 @@
 #' or \url{http://bisonapi.usgs.ornl.gov/solr/occurrences/select/} instead of the OpenSearch interface
 #' at \url{http://bison.usgs.ornl.gov/api/search}, which \code{\link{bison}} uses.
 #' 
-#' @import assertthat httr plyr
+#' @import httr plyr
 #' @param query The thing to search for
 #' @param method The field to query by. See description below for details.
 #' @param ... Further arguments passed in to the SOLR query. See examples below
@@ -32,7 +32,9 @@ bison_solr_tax <- function(query=NULL, method='common_name', exact=FALSE, ...)
 {
   url <- "http://bisonapi.usgs.ornl.gov/solr/species/select/"
   method <- match.arg(method, choices=c('common_name', 'common_nameText', 'id', 'scientific_name'))
-  assert_that(length(method)==1)
+  if(!length(method)==1)
+  	stop("method can only be of length 1")
+#  assert_that(length(method)==1)
   if(exact){ qu_ <- paste0(method, ':"', query, '"') } else { qu_ <- paste0(method, ':', query) }
   args <- compact(list(q=qu_, wt="json", ...))
   out <- content(GET(url, query=args))
