@@ -1,8 +1,7 @@
-
-
-
 rbison
 ======
+
+[![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)
 
 Wrapper to the USGS Bison API. 
 

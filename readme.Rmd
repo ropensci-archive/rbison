@@ -5,8 +5,6 @@ opts_chunk$set(fig.path="inst/assets/img/", fig.width=6, fig.height=4, comment=N
 rbison
 ======
 
-[![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)
-
 Wrapper to the USGS Bison API. 
 
 ### Info
