@@ -10,12 +10,13 @@
 #' @return Map (using ggplot2 package) of points on a map.
 #' @examples \dontrun{
 #' # Using function bison
+#' library(ggplot2)
 #' out <- bison(species="Accipiter", type="scientific_name", count=300)
 #' bisonmap(input=out)
 #' bisonmap(input=out, geom=geom_jitter, jitter=position_jitter(width = 0.3, height = 0.3))
 #' 
 #' # Using function bison_solr_occ
-#' out <- bison_solr_occ(scientific_name='"Ursus americanus"', rows=200)
+#' out <- bison_solr(scientific_name='Ursus americanus', rows=200)
 #' bisonmap(out)
 #' }
 #' @export

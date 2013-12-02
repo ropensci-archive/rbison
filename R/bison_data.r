@@ -19,7 +19,7 @@
 #' bison_data(input=out, datatype="states") # summary of states
 #' 
 #' # SOLR occurrences endpoint
-#' out <- bison_solr_occ(scientific_name='"Ursus americanus"')
+#' out <- bison_solr(scientific_name='"Ursus americanus"')
 #' bison_data(input=out)
 #' }
 #' @export

@@ -16,10 +16,13 @@ See [here](http://bison.usgs.ornl.gov/services.html) for API docs for the BISON 
 
 #### Install rbison
 
+```{r eval=FALSE}
+install.packages("devtools")
+library(devtools)
+install_github("rbison", "ropensci")
+```
+
 ```{r}
-# install.packages("devtools")
-# library(devtools)
-# install_github("rbison", "ropensci")
 library(rbison)
 ```
 
@@ -92,19 +95,19 @@ bisonmap(out, tomap="state")
 ##### The taxa service searches for and gives back taxonomic names
 
 ```{r}
-bison_solr_tax(query="bear", method='common_name')
+bison_tax(query="bear", method='common_name')
 ```
 
 You can also do fuzzy searches like this (which you can't do using the `bison` function)
 
 ```{r}
-bison_solr_tax(query="*bear")[1:2]
+bison_tax(query="*bear")[1:2]
 ```
 
 And you can search by scientific name
 
 ```{r}
-bison_solr_tax(query="helianthus", method="scientific_name")
+bison_tax(query="helianthus", method="scientific_name")
 ```
 
 ##### The occurrence service searches by scientific names and gives back occurrence data similar to data given back by the `bison` function
@@ -112,13 +115,13 @@ bison_solr_tax(query="helianthus", method="scientific_name")
 Searching for data and looking at output
 
 ```{r}
-out <- bison_solr_occ(scientific_name='"Ursus americanus"', state_code='"New Mexico"', rows=50, fl="occurrence_date,scientific_name")
+out <- bison_solr(scientific_name='Ursus americanus', state_code='New Mexico', rows=50, fl="occurrence_date,scientific_name")
 bison_data(input=out)
 ```
 
 Mapping the data
 
 ```{r}
-out <- bison_solr_occ(scientific_name='"Ursus americanus"', rows=200)
+out <- bison_solr(scientific_name='Ursus americanus', rows=200)
 bisonmap(out)
 ```

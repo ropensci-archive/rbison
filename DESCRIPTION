@@ -21,7 +21,8 @@ Imports:
     sp,
     data.table
 Suggests:
-    knitr
+    knitr,
+    testthat
 Collate:
     'bison_data.r'
     'bison.r'

@@ -8,3 +8,4 @@ inst/stuff
 inst/assets
 tests/test-all.R
 .watsonrc
+readme.Rmd
