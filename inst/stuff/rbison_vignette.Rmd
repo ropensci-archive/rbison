@@ -1,0 +1,165 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{An R Markdown Vignette made with knitr}
+-->
+
+rbison vignette - wrapper to the USGS BISON API
+======
+
+### About the package
+
+`rbison` is an R package to search and retrieve data from the USGS BISON service. `rbison` wraps R code around the BISON API to allow you to talk to the BISON database from R. 
+
+BISON has occurrence data for the US only. 
+
+BISON is a node of the Global Biodiversity Information Facility (GBIF) - i.e., you can get data that's available in BISON via GBIF instead if you want. 
+
+********************
+
+### Info
+
+See [here](http://bison.usgs.ornl.gov/services.html) for API docs for the BISON API.
+
+********************
+
+### Quick start
+
+#### Install rbison
+
+```{r install, comment=NA, warning=FALSE, message=FALSE}
+# install.packages("devtools"); library(devtools); install_github("rbison", "ropensci")
+library(rbison); library(sp); library(plyr); library(httr); library(rjson); library(gridExtra)
+library(mapproj); library(ggplot2); library(maps); library(rgeos); library(rgdal)
+```
+
+Notice that the function `bisonmap` automagically selects the map extent to plot for you, 
+being one of the contiguous lower 48 states, or the lower 48 plus AK and HI, or a global map
+
+#### If some or all points outside the US, a global map is drawn, and throws a warning. . You may want to make sure the occurrence lat/long coordinates are correct.
+##### get data
+```{r one, message=FALSE, warning=FALSE, cache=TRUE}
+out <- bison(species = "Helianthus annuus", count = 10)
+```
+
+##### inspect summary
+```{r two, message=FALSE, warning=FALSE, cache=TRUE}
+bison_data(out)
+```
+
+##### map occurrences
+```{r, fig.width=6, fig.height=4, cache=TRUE}
+bisonmap(out)
+```
+
+********************
+
+#### All points within the US (including AK and HI)
+##### get data
+```{r four, message=FALSE, warning=FALSE, cache=TRUE}
+out <- bison(species="Bison bison", count=600)
+```
+
+##### inspect summary
+```{r five, message=FALSE, warning=FALSE, cache=TRUE}
+bison_data(out)
+```
+
+##### map occurrences
+```{r six, fig.width=6, fig.height=4, comment=NA, warning=FALSE, cache=TRUE}
+bisonmap(out)
+```
+
+********************
+
+####  All points within the contiguous 48 states
+##### get data
+```{r seven, message=FALSE, warning=FALSE, cache=TRUE}
+out <- bison(species="Aquila chrysaetos", count=600)
+```
+
+##### inspect summary
+```{r eight, message=FALSE, warning=FALSE, cache=TRUE}
+bison_data(out)
+```
+
+##### map occurrences
+```{r nine, fig.width=6, fig.height=4, warning=FALSE, cache=TRUE}
+bisonmap(out)
+```
+
+********************
+
+####  With any data returned from a `bison` call, you can choose to plot county or state level data
+##### Counties - using last data call for Aquila 
+```{r ten, fig.width=6, fig.height=4, comment=NA, warning=FALSE, cache=TRUE}
+bisonmap(out, tomap="county")
+```
+
+##### States - using last data call for Aquila 
+```{r eleven, fig.width=6, fig.height=4, comment=NA, warning=FALSE, cache=TRUE}
+bisonmap(out, tomap="state")
+```
+
+********************
+
+####  Constrain search with county IDs or bounding boxes
+
+##### Constrain search to a certain county.
+
+Check out [this site](http://www.epa.gov/enviro/html/codes/state.html) to get state and county fips codes. Fips codes are like so: First two digits are the state code - last three are the county code. For example the *06* in  06037 is the state of California, and the *037* is the Los Angeles county.
+
+```{r countyfips, message=FALSE, warning=FALSE, cache=TRUE}
+out <- bison(species="Helianthus annuus", countyFips = 06037)
+
+# Inspect summary
+bison_data(out)
+
+# By default, the query only returned 10 records
+bison_data(out, "data_df")
+```
+
+Or specify county by its actual name - probably much easier. 
+
+```{r countyname, message=FALSE, warning=FALSE, cache=TRUE}
+out <- bison(species="Helianthus annuus", county = "Los Angeles")
+
+# Inspect summary
+bison_data(out)
+
+# By default, the query only returned 10 records
+bison_data(out, "data_df")
+```
+
+`bison` will help you if you spell the name wrong, or use a partial name. The results are not printed below, but you would get a prompt asking you to pick between the two counties that start with *Los*.
+
+```{r countyname_wrong, eval=FALSE}
+bison(species="Helianthus annuus", county = "Los")
+```
+
+##### Constrain search to a amorphous area. 
+
+Check out the Wikipedia page [here](http://en.wikipedia.org/wiki/Well-known_text) for an in depth look at the options, terminology, etc.
+
+```{r wellknowntext, message=FALSE, warning=FALSE, cache=TRUE}
+out <- bison(species="Helianthus annuus", aoi = "POLYGON((-111.06360117772908 38.84001566645886,-110.80542246679359 39.37707771107983,-110.20117441992392 39.17722368276862,-110.20666758398464 38.90844075244811,-110.63513438085685 38.67724220095734,-111.06360117772908 38.84001566645886))")
+
+# Inspect summary
+bison_data(out)
+
+# The data
+bison_data(out, "data_df")
+```
+
+##### Constrain search to a certain aoibbox.
+
+An aoibbox uses the format minx, miny, maxx, maxy.
+
+```{r boundbox, message=FALSE, warning=FALSE, cache=TRUE}
+out <- bison(species="Helianthus annuus", aoibbox = '-120.31,35.81,-110.57,40.21')
+
+# Inspect summary
+bison_data(out)
+
+# The data, by default, the query only returned 10 records
+bison_data(out, "data_df")
+```
