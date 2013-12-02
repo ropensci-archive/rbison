@@ -76,11 +76,22 @@ bison_data.bison <- function(input = NULL, datatype=NULL)
 #' @S3method bison_data bison_occ
 bison_data.bison_occ <- function(input = NULL, datatype="data_df")
 {
+  rec=high=facets=NULL
   if(!is.bison_occ(input))
     stop("Input is not of class bison_occ")
-# assert_that(datatype=="data_df")
   if(!datatype=="data_df")
     stop("datatype must equal data_df")
-#   assert_that(is.list(input$records))
-  ldply(input$records, function(x) as.data.frame(x))
+  if(!length(input$num_found) == 0)
+    num_found <- input$num_found
+  if(!length(input$records) == 0)
+    rec <- do.call(rbind.fill, lapply(input$records, data.frame, stringsAsFactors=FALSE))
+  if(!length(input$highlight) == 0)
+    high <- do.call(rbind.fill, lapply(input$highlight, data.frame, stringsAsFactors=FALSE))
+  if(!length(input$facets) == 0)
+    fac <- lapply(input$facets$facet_fields, function(x){
+      data.frame(do.call(rbind, lapply(seq(1, length(x), by=2), function(y){
+        x[c(y, y+1)]
+      })), stringsAsFactors=FALSE)
+    })
+  list(num_found = num_found, records = rec, highlight = high, facets = fac)
 }

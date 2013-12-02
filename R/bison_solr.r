@@ -1,9 +1,9 @@
-#' Search for and collect occurrence data from the USGS Bison API using solr.
+#' Search for and collect occurrence data from the USGS Bison API using their solr endpoint.
 #' 
-#' This fxn is somewhat similar to \code{\link{bison}}, but interacts with the SOLR interface 
-#' at \url{http://bisonapi.usgs.ornl.gov/solr/species/select/}, 
-#' or \url{http://bisonapi.usgs.ornl.gov/solr/occurrences/select/} instead of the OpenSearch interface
-#' at \url{http://bison.usgs.ornl.gov/api/search}, which \code{\link{bison}} uses.
+#' This fxn is somewhat similar to \code{\link{bison}}, but interacts with the SOLR interface
+#' at \url{http://bisonapi.usgs.ornl.gov/solr/occurrences/select/} instead of the 
+#' OpenSearch interface at \url{http://bison.usgs.ornl.gov/api/search}, which 
+#' \code{\link{bison}} uses.
 #' 
 #' @import httr plyr
 #' @param latitude Geographic coordinate that specifies the north south position of a location on the Earth surface.
@@ -20,37 +20,46 @@
 #' @param state_code The normalized case sensitive name. For example q=state_code:"New Mexico" will return all of the occurrences from New Mexico.
 #' @param scientific_name	The species scientific name that is searchable in a case insensitive way.
 #' @param ... Additional SOLR query arguments. See details.
-#' @return A list.
-#' @details The SOLR search parameters:
+#' @return A list with slots for number of records found (num_found), records, highlight,
+#' or facets.
+#' @details Some SOLR search parameters:
 #' \itemize{
 #'  \item{fl} {Fields to return in the query}
 #'  \item{rows} {Number of records to return}
 #'  \item{sort} {Field to sort by, see examples}
 #'  \item{facet} {Facet or not, logical}
-#'  \item{facet.fields} {Fields to facet by}
+#'  \item{facet.field} {Fields to facet by}
 #' }
+#' 
+#' You can also use highlighting in solr search, but I'm not sure I see a use case for it
+#' with BISON data, though you can do it with this function.
 #' 
 #' For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 #' @seealso \code{\link{bison_solr_tax}} \code{\link{bison}}
 #' @examples \dontrun{
-#' out <- bison_solr_occ(scientific_name='"Ursus americanus"')
+#' out <- bison_solr(scientific_name='"Ursus americanus"')
 #' bison_data(input=out)
 #' 
-#' out <- bison_solr_occ(scientific_name='"Ursus americanus"', state_code='"New Mexico"', fl="scientific_name")
+#' out <- bison_solr(scientific_name='"Ursus americanus"', state_code='"New Mexico"', fl="scientific_name")
 #' bison_data(input=out)
 #' 
-#' out <- bison_solr_occ(scientific_name='"Ursus americanus"', state_code='"New Mexico"', rows=50, fl="occurrence_date,scientific_name")
+#' out <- bison_solr(scientific_name='"Ursus americanus"', state_code='"New Mexico"', rows=50, fl="occurrence_date,scientific_name")
 #' bison_data(input=out)
-#' 
+#'
 #' # Mapping
-#' out <- bison_solr_occ(scientific_name='"Ursus americanus"', rows=200)
+#' out <- bison_solr(scientific_name='"Ursus americanus"', rows=200)
 #' bisonmap(out)
 #' 
-#' out <- bison_solr_occ(scientific_name='"Helianthus annuus"', rows=800)
+#' out <- bison_solr(scientific_name='"Helianthus annuus"', rows=800)
 #' bisonmap(out)
+#' 
+#' # Using additional solr fields
+#' ## Faceting
+#' out <- bison_solr(scientific_name='"Helianthus annuus"', rows=0, facet='true', facet.field='state_code')
+#' bison_data(input=out)
 #' }
 #' @export
-bison_solr_occ <- function(latitude=NULL,longitude=NULL,iso_country_code=NULL,
+bison_solr <- function(latitude=NULL,longitude=NULL,iso_country_code=NULL,
   year=NULL,provider=NULL,pointPath_s=NULL,provider_id=NULL,resource=NULL,
   basis_of_record=NULL,occurrence_date=NULL,county=NULL,state_code=NULL,
   scientific_name=NULL, ...)
@@ -68,8 +77,16 @@ bison_solr_occ <- function(latitude=NULL,longitude=NULL,iso_country_code=NULL,
   stuff <- paste0(stuff,collapse="+")
   
   args <- compact(list(q=stuff, wt="json", ...))
-  out <- content(GET(url, query=args))
-  temp <- c(numFound = out$response$numFound, records = list(out$response$docs))
+  tt <- GET(url, query=args)
+  stop_for_status(tt)
+  out <- content(tt)
+  
+  temp <- list(
+    num_found = out$response$numFound, 
+    records = out$response$docs,
+    highlight = out$highlighting, 
+    facets = out$facet_counts
+  )
   class(temp) <- "bison_occ"
   return( temp )
 }

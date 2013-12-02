@@ -7,7 +7,7 @@
     aoi = NULL, aoibbox = NULL)
 }
 \arguments{
-  \item{species}{A species name. (character)}
+  \item{species}{(required) A species name. (character)}
 
   \item{type}{Type, one of scientific_name or common_name.
   (character)}
@@ -68,6 +68,6 @@ bison(species="Helianthus annuus", aoibbox = '-111.31,38.81,-110.57,39.21')
 }
 }
 \seealso{
-  \code{\link{bison_solr_occ}} \code{\link{bison_solr_tax}}
+  \code{\link{bison_solr}} \code{\link{bison_tax}}
 }
 

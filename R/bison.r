@@ -1,7 +1,7 @@
 #' Search for and collect data from the USGS Bison API.
 #' 
 #' @import plyr httr
-#' @param species A species name. (character)
+#' @param species (required) A species name. (character)
 #' @param type Type, one of scientific_name or common_name. (character)
 #' @param start Record to start at. (numeric)
 #' @param count Number of records to return. (numeric)
@@ -18,7 +18,7 @@
 #' @param aoibbox Specifies a four-sided bounding box to geographically constrain 
 #'    the search (using format: minx,miny,maxx,maxy). The coordinates are Spherical 
 #'    Mercator with a datum of WGS84. Example: -111.31,38.81,-110.57,39.21 (character)
-#' @seealso \code{\link{bison_solr_occ}} \code{\link{bison_solr_tax}}
+#' @seealso \code{\link{bison_solr}} \code{\link{bison_tax}}
 #' @examples \dontrun{
 #' out <- bison(species="Bison bison", count=50) # by default gets 10 results
 #' bison_data(out) # see summary
@@ -73,7 +73,9 @@ bison <- function(species, type="scientific_name", start=NULL, count=10,
   url <- "http://bison.usgs.ornl.gov/api/search"
   args <- compact(list(species=species,type=type,start=start,count=count,
                        countyFips=countyFips,aoi=aoi,aoibbox=aoibbox))
-  out <- content(GET(url, query=args))
+  tt <- GET(url, query=args)
+  stop_for_status(tt)
+  out <- content(tt)
   class(out) <- "bison"
   return( out )
 }

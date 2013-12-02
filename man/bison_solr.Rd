@@ -1,8 +1,8 @@
-\name{bison_solr_occ}
-\alias{bison_solr_occ}
-\title{Search for and collect occurrence data from the USGS Bison API using solr.}
+\name{bison_solr}
+\alias{bison_solr}
+\title{Search for and collect occurrence data from the USGS Bison API using their solr endpoint.}
 \usage{
-  bison_solr_occ(latitude = NULL, longitude = NULL,
+  bison_solr(latitude = NULL, longitude = NULL,
     iso_country_code = NULL, year = NULL, provider = NULL,
     pointPath_s = NULL, provider_id = NULL,
     resource = NULL, basis_of_record = NULL,
@@ -55,45 +55,53 @@
   \item{...}{Additional SOLR query arguments. See details.}
 }
 \value{
-  A list.
+  A list with slots for number of records found
+  (num_found), records, highlight, or facets.
 }
 \description{
   This fxn is somewhat similar to \code{\link{bison}}, but
   interacts with the SOLR interface at
-  \url{http://bisonapi.usgs.ornl.gov/solr/species/select/},
-  or
   \url{http://bisonapi.usgs.ornl.gov/solr/occurrences/select/}
   instead of the OpenSearch interface at
   \url{http://bison.usgs.ornl.gov/api/search}, which
   \code{\link{bison}} uses.
 }
 \details{
-  The SOLR search parameters: \itemize{ \item{fl} {Fields
+  Some SOLR search parameters: \itemize{ \item{fl} {Fields
   to return in the query} \item{rows} {Number of records to
   return} \item{sort} {Field to sort by, see examples}
-  \item{facet} {Facet or not, logical} \item{facet.fields}
+  \item{facet} {Facet or not, logical} \item{facet.field}
   {Fields to facet by} }
+
+  You can also use highlighting in solr search, but I'm not
+  sure I see a use case for it with BISON data, though you
+  can do it with this function.
 
   For a tutorial see here
   \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 }
 \examples{
 \dontrun{
-out <- bison_solr_occ(scientific_name='"Ursus americanus"')
+out <- bison_solr(scientific_name='"Ursus americanus"')
 bison_data(input=out)
 
-out <- bison_solr_occ(scientific_name='"Ursus americanus"', state_code='"New Mexico"', fl="scientific_name")
+out <- bison_solr(scientific_name='"Ursus americanus"', state_code='"New Mexico"', fl="scientific_name")
 bison_data(input=out)
 
-out <- bison_solr_occ(scientific_name='"Ursus americanus"', state_code='"New Mexico"', rows=50, fl="occurrence_date,scientific_name")
+out <- bison_solr(scientific_name='"Ursus americanus"', state_code='"New Mexico"', rows=50, fl="occurrence_date,scientific_name")
 bison_data(input=out)
 
 # Mapping
-out <- bison_solr_occ(scientific_name='"Ursus americanus"', rows=200)
+out <- bison_solr(scientific_name='"Ursus americanus"', rows=200)
 bisonmap(out)
 
-out <- bison_solr_occ(scientific_name='"Helianthus annuus"', rows=800)
+out <- bison_solr(scientific_name='"Helianthus annuus"', rows=800)
 bisonmap(out)
+
+# Using additional solr fields
+## Faceting
+out <- bison_solr(scientific_name='"Helianthus annuus"', rows=0, facet='true', facet.field='state_code')
+bison_data(input=out)
 }
 }
 \seealso{
