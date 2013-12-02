@@ -15,7 +15,7 @@
 #' bisonmap(input=out)
 #' bisonmap(input=out, geom=geom_jitter, jitter=position_jitter(width = 0.3, height = 0.3))
 #' 
-#' # Using function bison_solr_occ
+#' # Using function bison_solr
 #' out <- bison_solr(scientific_name='Ursus americanus', rows=200)
 #' bisonmap(out)
 #' }
