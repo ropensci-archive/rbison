@@ -11,3 +11,4 @@ vignettes/rbison_vignette.md
 vignettes/margins.sty
 inst/assets
 tests/test-all.R
+.watsonrc

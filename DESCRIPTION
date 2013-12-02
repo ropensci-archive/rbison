@@ -2,7 +2,7 @@ Package: rbison
 Description: USGS Bison API
 Title: USGS Bison API
 Version: 0.2.4
-Date: 2013-12-01
+Date: 2013-12-02
 License: CC0
 URL: https://ropensci.github.com/rbison
 BugReports: https://github.com/ropensci/rbison/issues
@@ -13,12 +13,8 @@ LazyData: yes
 Imports:
     plyr,
     httr,
-    rjson,
     mapproj,
     ggplot2,
-    maps,
-    rgeos,
-    rgdal,
     grid,
     gridExtra,
     maptools,

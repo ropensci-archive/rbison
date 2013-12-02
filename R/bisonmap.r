@@ -19,13 +19,20 @@
 #' bisonmap(out)
 #' }
 #' @export
-bisonmap <- function(input = NULL, tomap="points", geom = geom_point, jitter = NULL, customize = NULL) UseMethod("bisonmap")
-
-#' @S3method bisonmap bison
-#' @export
-#' @keywords internal
-bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point, jitter = NULL, customize = NULL)
+bisonmap <- function(input = NULL, tomap="points", geom = geom_point, 
+                     jitter = NULL, customize = NULL)
 {
+  UseMethod("bisonmap")
+}
+
+#' @method bisonmap bison
+#' @export
+#' @rdname bisonmap
+bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point, 
+                           jitter = NULL, customize = NULL)
+{
+  long=lat=group=total=NULL
+  
   if(!is.bison(input))
     stop("Input is not of class bison")
   
@@ -84,13 +91,14 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point, jitt
 }
 
 
-#' @S3method bisonmap bison_occ
+#' @method bisonmap bison_solr
 #' @export
-#' @keywords internal
-bisonmap.bison_occ <- function(input = NULL, tomap="points", geom = geom_point, jitter = NULL, customize = NULL)
+#' @rdname bisonmap
+bisonmap.bison_solr <- function(input = NULL, tomap="points", geom = geom_point, 
+                                jitter = NULL, customize = NULL)
 {
-  if(!is.bison_occ(input))
-    stop("Input is not of class bison_occ")
+  if(!is.bison_solr(input))
+    stop("Input is not of class bison_solr")
   if(!tomap=='points')
     stop("tomap must equal 'points'")
   bison_map_maker(x=input, geom = geom, jitter = jitter, customize = customize)

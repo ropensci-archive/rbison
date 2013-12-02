@@ -55,8 +55,9 @@
   \item{...}{Additional SOLR query arguments. See details.}
 }
 \value{
-  A list with slots for number of records found
-  (num_found), records, highlight, or facets.
+  An object of class bison_solr - which is a list with
+  slots for number of records found (num_found), records,
+  highlight, or facets.
 }
 \description{
   This fxn is somewhat similar to \code{\link{bison}}, but
@@ -82,29 +83,32 @@
 }
 \examples{
 \dontrun{
-out <- bison_solr(scientific_name='"Ursus americanus"')
+out <- bison_solr(scientific_name='Ursus americanus')
 bison_data(input=out)
 
-out <- bison_solr(scientific_name='"Ursus americanus"', state_code='"New Mexico"', fl="scientific_name")
+out <- bison_solr(scientific_name='Ursus americanus', state_code='New Mexico',
+ fl="scientific_name")
 bison_data(input=out)
 
-out <- bison_solr(scientific_name='"Ursus americanus"', state_code='"New Mexico"', rows=50, fl="occurrence_date,scientific_name")
+out <- bison_solr(scientific_name='Ursus americanus', state_code='New Mexico',
+ rows=50, fl="occurrence_date,scientific_name")
 bison_data(input=out)
 
 # Mapping
-out <- bison_solr(scientific_name='"Ursus americanus"', rows=200)
+out <- bison_solr(scientific_name='Ursus americanus', rows=200)
 bisonmap(out)
 
-out <- bison_solr(scientific_name='"Helianthus annuus"', rows=800)
+out <- bison_solr(scientific_name='Helianthus annuus', rows=800)
 bisonmap(out)
 
 # Using additional solr fields
 ## Faceting
-out <- bison_solr(scientific_name='"Helianthus annuus"', rows=0, facet='true', facet.field='state_code')
+out <- bison_solr(scientific_name='Helianthus annuus', rows=0, facet='true',
+ facet.field='state_code')
 bison_data(input=out)
 }
 }
 \seealso{
-  \code{\link{bison_solr_tax}} \code{\link{bison}}
+  \code{\link{bison_tax}} \code{\link{bison}}
 }
 

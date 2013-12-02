@@ -3,10 +3,10 @@
 #' @export
 is.bison <- function(x) inherits(x, "bison")
 
-#' Check if object is of class bison_occ
+#' Check if object is of class bison_solr
 #' @param x input
 #' @export
-is.bison_occ <- function(x) inherits(x, "bison_occ")
+is.bison_solr <- function(x) inherits(x, "bison_solr")
 
 #' Custom ggplot2 theme
 #' @export
@@ -35,8 +35,10 @@ blanktheme <- function(){
 #' @keywords internal 
 bison_map_maker <- function(x, geom, jitter, customize)
 {
-  tt <- bison_data(x, "data_df")
+  long=lat=group=longitude=latitude=region=NULL
   
+  if(is(x, "bison")){ tt <- bison_data(x, "data_df") } else { tt <- bison_data(x, "data_df")$records }
+
   # Make lat/long data numeric
   tt$latitude <- as.numeric(as.character(tt$latitude))
   tt$longitude <- as.numeric(as.character(tt$longitude))

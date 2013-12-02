@@ -5,8 +5,9 @@
 #' @param datatype One of counties, states, data_df, data_list, or NULL.
 #' @return A data.frame or list.
 #' @description datatype = data_df returns all data in a data.frame, while data_list
-#'    returns data in a list. If you are getting data from a call to \code{\link{bison_solr_occ}}
-#'    you must set datatype="data_df" - other options will throw an error. 
+#'    returns data in a list. If you are getting data from a call to 
+#'    \code{\link{bison_solr}} you must set datatype="data_df" - other options will 
+#'    throw an error. 
 #' @examples \dontrun{
 #' # output data
 #' out <- bison(species="Bison bison", type="scientific_name", count=10)
@@ -34,7 +35,6 @@ bison_data.bison <- function(input = NULL, datatype=NULL)
     data.frame(c(input[1], input$occurrences$legend))
   } else
     if(datatype=="counties"){
-#       df <- ldply(input$counties$data, function(x) as.data.frame(x))
       if(class(input$counties$data[[1]])=="character"){
         df <- ldply(input$counties$data)
       } else
@@ -45,7 +45,6 @@ bison_data.bison <- function(input = NULL, datatype=NULL)
       return(df)
     } else
       if(datatype=="states"){
-#         df <- ldply(input$states$data, function(x) as.data.frame(x))
         df <- ldply(input$states$data, function(x) data.frame(x))
         names(df)[c(1,3)] <- c("record_id","county_fips")
         return(df)
@@ -73,12 +72,13 @@ bison_data.bison <- function(input = NULL, datatype=NULL)
           }
 }
 
-#' @S3method bison_data bison_occ
-bison_data.bison_occ <- function(input = NULL, datatype="data_df")
+#' @S3method bison_data bison_solr
+bison_data.bison_solr <- function(input = NULL, datatype="data_df")
 {
-  rec=high=facets=NULL
-  if(!is.bison_occ(input))
-    stop("Input is not of class bison_occ")
+  num_found=rec=high=fac=NULL
+  
+  if(!is.bison_solr(input))
+    stop("Input is not of class bison_solr")
   if(!datatype=="data_df")
     stop("datatype must equal data_df")
   if(!length(input$num_found) == 0)

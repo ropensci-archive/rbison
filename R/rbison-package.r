@@ -3,3 +3,9 @@
 #' @docType data
 #' @keywords data
 NULL
+
+#' Data for a states map
+#' @name all_states
+#' @docType data
+#' @keywords data
+NULL

@@ -16,9 +16,9 @@
 \description{
   datatype = data_df returns all data in a data.frame,
   while data_list returns data in a list. If you are
-  getting data from a call to \code{\link{bison_solr_occ}}
-  you must set datatype="data_df" - other options will
-  throw an error.
+  getting data from a call to \code{\link{bison_solr}} you
+  must set datatype="data_df" - other options will throw an
+  error.
 }
 \examples{
 \dontrun{
