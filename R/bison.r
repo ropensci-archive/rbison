@@ -1,6 +1,7 @@
 #' Search for and collect data from the USGS Bison API.
 #' 
-#' @import plyr httr
+#' @import httr
+#' @importFrom plyr compact
 #' @param species (required) A species name. (character)
 #' @param type Type, one of scientific_name or common_name. (character)
 #' @param start Record to start at. (numeric)

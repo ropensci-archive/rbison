@@ -30,12 +30,15 @@ blanktheme <- function(){
 #' 
 #' @import maptools mapproj sp ggplot2 gridExtra grid
 #' @param x The input
+#' @param geom Geom to use, one of geom_point or geom_jitter.
+#' @param jitter Jitter points.
+#' @param customize Customize ggplot2 plot.
 #' @param ... Further parameters passed on to bisonmap function
 #' @export
 #' @keywords internal 
 bison_map_maker <- function(x, geom, jitter, customize)
 {
-  long=lat=group=longitude=latitude=region=NULL
+  long=lat=group=longitude=latitude=region=id=NULL
   
   if(is(x, "bison")){ tt <- bison_data(x, "data_df") } else { tt <- bison_data(x, "data_df")$records }
 

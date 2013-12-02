@@ -7,6 +7,13 @@
 \arguments{
   \item{x}{The input}
 
+  \item{geom}{Geom to use, one of geom_point or
+  geom_jitter.}
+
+  \item{jitter}{Jitter points.}
+
+  \item{customize}{Customize ggplot2 plot.}
+
   \item{...}{Further parameters passed on to bisonmap
   function}
 }

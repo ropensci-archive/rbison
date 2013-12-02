@@ -1,6 +1,6 @@
 #' Search for and collect BISON data.
 #' 
-#' @import plyr
+#' @importFrom plyr compact llply ldply rbind.fill
 #' @param input Output from bison function.
 #' @param datatype One of counties, states, data_df, data_list, or NULL.
 #' @return A data.frame or list.

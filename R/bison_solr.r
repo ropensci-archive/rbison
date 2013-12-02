@@ -5,7 +5,8 @@
 #' of the OpenSearch interface at \url{http://bison.usgs.ornl.gov/api/search}, which 
 #' \code{\link{bison}} uses.
 #' 
-#' @import httr plyr
+#' @import httr
+#' @importFrom plyr compact
 #' @param latitude Geographic coordinate that specifies the north south position 
 #' of a location on the Earth surface.
 #' @param longitude	Geographic coordinate that specifies the east-west position 
