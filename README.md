@@ -8,7 +8,7 @@ Wrapper to the USGS Bison API.
 
 ### Info
 
-See [here](http://bison.usgs.ornl.gov/services.html) for API docs for the BISON API.
+See [here](http://bison.usgs.ornl.gov/doc/services.jsp) for API docs for the BISON API.
 
 
 ### Quick start
