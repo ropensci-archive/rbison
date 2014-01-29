@@ -2,7 +2,7 @@
 \alias{bison_map_maker}
 \title{Function to make map form lat/long data}
 \usage{
-  bison_map_maker(x, geom, jitter, customize)
+bison_map_maker(x, geom, jitter, customize)
 }
 \arguments{
   \item{x}{The input}
@@ -18,7 +18,7 @@
   function}
 }
 \description{
-  Function to make map form lat/long data
+Function to make map form lat/long data
 }
 \keyword{internal}
 

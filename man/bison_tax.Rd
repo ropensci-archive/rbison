@@ -2,8 +2,8 @@
 \alias{bison_tax}
 \title{Search for and collect taxonomic name data from the USGS Bison API using solr.}
 \usage{
-  bison_tax(query = NULL, method = "common_name",
-    exact = FALSE, parsed = TRUE, ...)
+bison_tax(query = NULL, method = "common_name", exact = FALSE,
+  parsed = TRUE, ...)
 }
 \arguments{
   \item{query}{Name to search for. If left blank, the first
@@ -23,27 +23,27 @@
   See examples below.}
 }
 \value{
-  A list.
+A list.
 }
 \description{
-  See the SOLR documentation here
-  \url{http://lucene.apache.org/solr/} for other parameters
-  you can use.
+See the SOLR documentation here
+\url{http://lucene.apache.org/solr/} for other parameters
+you can use.
 
-  The following four methods are possible, as far as I know
-  you can only use one at a time:
+The following four methods are possible, as far as I know
+you can only use one at a time:
 
-  common_name The species specific common names that is
-  searchable in a case insensitive way. common_nameText The
-  species specific common names. id GBIF assigned
-  identifier that is not stable over time. scientific_name
-  The species scientific name that is associated with a
-  common name that is searchable in a case insensitive way.
+common_name The species specific common names that is
+searchable in a case insensitive way. common_nameText The
+species specific common names. id GBIF assigned identifier
+that is not stable over time. scientific_name The species
+scientific name that is associated with a common name that
+is searchable in a case insensitive way.
 }
 \details{
-  This fxn interacts with the SOLR interface for taxonomic
-  names at
-  \url{http://bisonapi.usgs.ornl.gov/solr/species/select/}.
+This fxn interacts with the SOLR interface for taxonomic
+names at
+\url{http://bisonapi.usgs.ornl.gov/solr/species/select/}.
 }
 \examples{
 \dontrun{
@@ -74,6 +74,6 @@ bison_tax(query="*bear", method="common_name", facet='true', facet.field='scient
 }
 }
 \seealso{
-  \code{\link{bison_solr}} \code{\link{bison}}
+\code{\link{bison_solr}} \code{\link{bison}}
 }
 

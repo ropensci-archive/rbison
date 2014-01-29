@@ -3,8 +3,7 @@
 \alias{all_states}
 \title{Data for a states map}
 \description{
-  Data for a states map
+Data for a states map
 }
 \keyword{data}
-\keyword{datasets}
 

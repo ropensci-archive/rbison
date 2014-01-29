@@ -2,12 +2,10 @@
 \alias{bison_solr}
 \title{Search for and collect occurrence data from the USGS Bison API using their solr endpoint.}
 \usage{
-  bison_solr(latitude = NULL, longitude = NULL,
-    iso_country_code = NULL, year = NULL, provider = NULL,
-    pointPath_s = NULL, provider_id = NULL,
-    resource = NULL, basis_of_record = NULL,
-    occurrence_date = NULL, county = NULL,
-    state_code = NULL, scientific_name = NULL, ...)
+bison_solr(latitude = NULL, longitude = NULL, iso_country_code = NULL,
+  year = NULL, provider = NULL, pointPath_s = NULL, provider_id = NULL,
+  resource = NULL, basis_of_record = NULL, occurrence_date = NULL,
+  county = NULL, state_code = NULL, scientific_name = NULL, ...)
 }
 \arguments{
   \item{latitude}{Geographic coordinate that specifies the
@@ -55,31 +53,31 @@
   \item{...}{Additional SOLR query arguments. See details.}
 }
 \value{
-  An object of class bison_solr - which is a list with
-  slots for number of records found (num_found), records,
-  highlight, or facets.
+An object of class bison_solr - which is a list with slots
+for number of records found (num_found), records,
+highlight, or facets.
 }
 \description{
-  This fxn is somewhat similar to \code{\link{bison}}, but
-  interacts with the SOLR interface at
-  \url{http://bisonapi.usgs.ornl.gov/solr/occurrences/select/}
-  instead of the OpenSearch interface at
-  \url{http://bison.usgs.ornl.gov/api/search}, which
-  \code{\link{bison}} uses.
+This fxn is somewhat similar to \code{\link{bison}}, but
+interacts with the SOLR interface at
+\url{http://bisonapi.usgs.ornl.gov/solr/occurrences/select/}
+instead of the OpenSearch interface at
+\url{http://bison.usgs.ornl.gov/api/search}, which
+\code{\link{bison}} uses.
 }
 \details{
-  Some SOLR search parameters: \itemize{ \item{fl} {Fields
-  to return in the query} \item{rows} {Number of records to
-  return} \item{sort} {Field to sort by, see examples}
-  \item{facet} {Facet or not, logical} \item{facet.field}
-  {Fields to facet by} }
+Some SOLR search parameters: \itemize{ \item{fl} {Fields to
+return in the query} \item{rows} {Number of records to
+return} \item{sort} {Field to sort by, see examples}
+\item{facet} {Facet or not, logical} \item{facet.field}
+{Fields to facet by} }
 
-  You can also use highlighting in solr search, but I'm not
-  sure I see a use case for it with BISON data, though you
-  can do it with this function.
+You can also use highlighting in solr search, but I'm not
+sure I see a use case for it with BISON data, though you
+can do it with this function.
 
-  For a tutorial see here
-  \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
+For a tutorial see here
+\url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 }
 \examples{
 \dontrun{
@@ -109,6 +107,6 @@ bison_data(input=out)
 }
 }
 \seealso{
-  \code{\link{bison_tax}} \code{\link{bison}}
+\code{\link{bison_tax}} \code{\link{bison}}
 }
 

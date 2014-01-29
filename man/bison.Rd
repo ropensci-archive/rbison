@@ -2,28 +2,38 @@
 \alias{bison}
 \title{Search for and collect data from the USGS Bison API.}
 \usage{
-  bison(species, type = "scientific_name", start = NULL,
-    count = 10, countyFips = NULL, county = NULL,
-    aoi = NULL, aoibbox = NULL)
+bison(species, type = "scientific_name", itis = FALSE, tsn = NULL,
+  start = NULL, count = 10, countyFips = NULL, county = NULL,
+  state = NULL, aoi = NULL, aoibbox = NULL)
 }
 \arguments{
   \item{species}{(required) A species name. (character)}
 
-  \item{type}{Type, one of scientific_name or common_name.
-  (character)}
+  \item{type}{(character) Type, one of scientific_name or
+  common_name.}
 
-  \item{start}{Record to start at. (numeric)}
+  \item{itis}{(logical) If TRUE, ITIS search is enabled. If
+  FALSE (default), not enabled.}
 
-  \item{count}{Number of records to return. (numeric)}
+  \item{tsn}{(numeric) Specifies the TSN to query by.
+  Example:162003}
 
-  \item{countyFips}{Specifies the county fips code to
-  geographically constrain the search to one county. Eg:
-  49015. (numeric)}
+  \item{start}{(numeric) Record to start at.}
 
-  \item{county}{County name. As codes are a pain in the
-  ass, you can put in the county name here instead of
-  specifying a countyFips entry, and bison will attempt to
-  look up the countyFips code. (character)}
+  \item{count}{(numeric) Number of records to return.}
+
+  \item{countyFips}{(numeric) Specifies the county fips
+  code to geographically constrain the search to one
+  county. Eg: 49015.}
+
+  \item{county}{(character) County name. As codes are a
+  pain in the ass, you can put in the county name here
+  instead of specifying a countyFips entry, and bison will
+  attempt to look up the countyFips code. (character)}
+
+  \item{state}{(character) Specifies the state name to
+  geographically constrain the search.  Example:
+  Tennessee.}
 
   \item{aoi}{Specifies a WKT (Well-Known Text) polygon to
   geographically constrain the search.  Eg.: c(-111.06
@@ -42,7 +52,7 @@
   -111.31,38.81,-110.57,39.21 (character)}
 }
 \description{
-  Search for and collect data from the USGS Bison API.
+Search for and collect data from the USGS Bison API.
 }
 \examples{
 \dontrun{
@@ -75,6 +85,6 @@ bison(species="Helianthus annuus", aoibbox = '-111.31,38.81,-110.57,39.21')
 }
 }
 \seealso{
-  \code{\link{bison_solr}} \code{\link{bison_tax}}
+\code{\link{bison_solr}} \code{\link{bison_tax}}
 }
 

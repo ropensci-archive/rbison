@@ -1,4 +1,0 @@
-%\VignetteIndexEntry{my title}
-\documentclass{article}
-\begin{document}
-\end{document}

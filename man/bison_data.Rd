@@ -2,7 +2,7 @@
 \alias{bison_data}
 \title{Search for and collect BISON data.}
 \usage{
-  bison_data(input = NULL, datatype = NULL)
+bison_data(input = NULL, datatype = NULL)
 }
 \arguments{
   \item{input}{Output from bison function.}
@@ -11,14 +11,13 @@
   data_list, or NULL.}
 }
 \value{
-  A data.frame or list.
+A data.frame or list.
 }
 \description{
-  datatype = data_df returns all data in a data.frame,
-  while data_list returns data in a list. If you are
-  getting data from a call to \code{\link{bison_solr}} you
-  must set datatype="data_df" - other options will throw an
-  error.
+datatype = data_df returns all data in a data.frame, while
+data_list returns data in a list. If you are getting data
+from a call to \code{\link{bison_solr}} you must set
+datatype="data_df" - other options will throw an error.
 }
 \examples{
 \dontrun{
