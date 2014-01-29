@@ -24,7 +24,8 @@ Imports:
     gridExtra,
     maptools,
     sp,
-    data.table
+    data.table,
+    rjson
 Suggests:
     knitr,
     testthat

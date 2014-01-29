@@ -4,7 +4,8 @@
 \usage{
 bison(species, type = "scientific_name", itis = FALSE, tsn = NULL,
   start = NULL, count = 10, countyFips = NULL, county = NULL,
-  state = NULL, aoi = NULL, aoibbox = NULL)
+  state = NULL, aoi = NULL, aoibbox = NULL, what = "all",
+  callopts = list())
 }
 \arguments{
   \item{species}{(required) A species name. (character)}
@@ -50,12 +51,22 @@ bison(species, type = "scientific_name", itis = FALSE, tsn = NULL,
   minx,miny,maxx,maxy). The coordinates are Spherical
   Mercator with a datum of WGS84. Example:
   -111.31,38.81,-110.57,39.21 (character)}
+
+  \item{callopts}{Further args passed on to httr::GET for
+  HTTP debugging/inspecting.}
 }
 \description{
 Search for and collect data from the USGS Bison API.
 }
 \examples{
 \dontrun{
+bison(species="Bison bison", count=50, what='summary')
+bison(species="Bison bison", count=50, what='points')
+bison(species="Bison bison", count=50, what='counties')
+bison(species="Bison bison", count=50, what='states')
+bison(species="Bison bison", count=50, what='raw')
+bison(species="Bison bison", count=50, what='list')
+
 out <- bison(species="Bison bison", count=50) # by default gets 10 results
 bison_data(out) # see summary
 bison_data(out, datatype="counties") # see county data
@@ -63,7 +74,7 @@ bison_data(out, datatype="states") # see state data
 bisonmap(out, tomap = "county")
 
 # Search for a common name
-bison(species="Tufted Titmouse", type="common_name")
+bison(species="Tufted Titmouse", type="common_name", what='summary')
 
 # Constrain search to a certain county, 49015 is Emery County in Utah
 bison(species="Helianthus annuus", countyFips = 49015)

@@ -2,53 +2,67 @@
 \alias{bison_solr}
 \title{Search for and collect occurrence data from the USGS Bison API using their solr endpoint.}
 \usage{
-bison_solr(latitude = NULL, longitude = NULL, iso_country_code = NULL,
-  year = NULL, provider = NULL, pointPath_s = NULL, provider_id = NULL,
-  resource = NULL, basis_of_record = NULL, occurrence_date = NULL,
-  county = NULL, state_code = NULL, scientific_name = NULL, ...)
+bison_solr(decimalLatitude = NULL, decimalLongitude = NULL, year = NULL,
+  BISONProviderID = NULL, BISONResourceID = NULL, pointPath = NULL,
+  basisOfRecord = NULL, occurrence_date = NULL, computedCountyFips = NULL,
+  computedStateFips = NULL, scientificName = NULL,
+  hierarchy_homonym_string = NULL, TSNs = NULL, collector = NULL,
+  occurrenceID = NULL, callopts = list(), ...)
 }
 \arguments{
-  \item{latitude}{Geographic coordinate that specifies the
-  north south position of a location on the Earth surface.}
+  \item{decimalLatitude}{Geographic coordinate that
+  specifies the north south position of a location on the
+  Earth surface.}
 
-  \item{longitude}{Geographic coordinate that specifies the
-  east-west position of a location on the Earth surface.}
-
-  \item{iso_country_code}{The ISO 3166 alpha-2 country code
-  which is always US.}
+  \item{decimallongitude}{Geographic coordinate that
+  specifies the east-west position of a location on the
+  Earth surface.}
 
   \item{year}{The year the collection was taken.}
 
-  \item{provider}{Provider name}
+  \item{BISONProviderID}{BISON provider id}
 
-  \item{pointPath_s}{A dynamic field that contains the
+  \item{BISONResourceID}{BISON resource id}
+
+  \item{pointPath}{A dynamic field that contains the
   location in longitude and latitude followed by the basis
   of record and an optional Geo (Spatial) precision. Geo
   (Spatial) precision is an added descriptor when the
   record is a county centroid.}
 
-  \item{provider_id}{Unique identifier assigned by GBIF as
-  we are working with them to make it persistent (stable)
-  over time.}
-
-  \item{resource}{Resource name}
-
-  \item{basis_of_record}{One of these enumerated values:
+  \item{basisOfRecord}{One of these enumerated values:
   Observation, Germplasm, Fossil, Specimen, Literature,
   Unknown, or Living.}
 
   \item{occurrence_date}{The date when the occurrence was
   recorded.}
 
-  \item{county}{County FIPS code conforming to standard
-  FIPS 6-4 but with leading zeros removed.}
+  \item{computedCountyFips}{County FIPS code conforming to
+  standard FIPS 6-4 but with leading zeros removed.}
 
-  \item{state_code}{The normalized case sensitive name. For
-  example q=state_code:"New Mexico" will return all of the
-  occurrences from New Mexico.}
+  \item{computedStateFips}{The normalized case sensitive
+  name. For example q=state_code:"New Mexico" will return
+  all of the occurrences from New Mexico.}
 
-  \item{scientific_name}{The species scientific name that
-  is searchable in a case insensitive way.}
+  \item{scientificName}{The species scientific name that is
+  searchable in a case insensitive way.}
+
+  \item{hierarchy_homonym_string}{hierarachy of the
+  accepted or valid species name starting at kingdom. If
+  the name is a taxonomic homonym more than one string is
+  provided seperated by ';'.}
+
+  \item{TSNs}{Accepted or valid name is provided. If the
+  name is a taxonmic homonym more than one TSN is
+  provided.}
+
+  \item{collector}{Individual responsible for the
+  scientific record.}
+
+  \item{occurrenceID}{Non-persistent unique identifier.}
+
+  \item{callopts}{Further args passed on to httr::GET for
+  HTTP debugging/inspecting.}
 
   \item{...}{Additional SOLR query arguments. See details.}
 }
@@ -81,28 +95,30 @@ For a tutorial see here
 }
 \examples{
 \dontrun{
-out <- bison_solr(scientific_name='Ursus americanus')
-bison_data(input=out)
+bison_solr(scientificName='Ursus americanus')
 
-out <- bison_solr(scientific_name='Ursus americanus', state_code='New Mexico',
- fl="scientific_name")
-bison_data(input=out)
+bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
+ fl="scientificName")
 
-out <- bison_solr(scientific_name='Ursus americanus', state_code='New Mexico',
- rows=50, fl="occurrence_date,scientific_name")
-bison_data(input=out)
+bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
+ rows=50, fl="occurrence_date,scientificName")
 
 # Mapping
-out <- bison_solr(scientific_name='Ursus americanus', rows=200)
+out <- bison_solr(scientificName='Ursus americanus', rows=200)
 bisonmap(out)
 
-out <- bison_solr(scientific_name='Helianthus annuus', rows=800)
+out <- bison_solr(scientificName='Helianthus annuus', rows=800)
 bisonmap(out)
 
 # Using additional solr fields
 ## Faceting
-out <- bison_solr(scientific_name='Helianthus annuus', rows=0, facet='true',
- facet.field='state_code')
+out <- bison_solr(scientificName='Helianthus annuus', rows=0, facet='true',
+ facet.field='computedStateFips')
+bison_data(input=out)
+
+## Highlighting
+out <- bison_solr(scientificName='Helianthus annuus', rows=10, hl='true',
+ hl.fl='scientificName')
 bison_data(input=out)
 }
 }

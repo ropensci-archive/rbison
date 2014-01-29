@@ -7,28 +7,32 @@
 #' 
 #' @import httr
 #' @importFrom plyr compact
-#' @param latitude Geographic coordinate that specifies the north south position 
+#' @param decimalLatitude Geographic coordinate that specifies the north south position 
 #' of a location on the Earth surface.
-#' @param longitude	Geographic coordinate that specifies the east-west position 
+#' @param decimallongitude	Geographic coordinate that specifies the east-west position 
 #' of a location on the Earth surface.
-#' @param iso_country_code The ISO 3166 alpha-2 country code which is always US.
 #' @param year The year the collection was taken.
-#' @param provider Provider name
-#' @param pointPath_s	A dynamic field that contains the location in longitude and 
+#' @param BISONProviderID BISON provider id
+#' @param BISONResourceID BISON resource id
+#' @param pointPath	A dynamic field that contains the location in longitude and 
 #' latitude followed by the basis of record and an optional Geo (Spatial) precision. 
 #' Geo (Spatial) precision is an added descriptor when the record is a county centroid.
-#' @param provider_id	Unique identifier assigned by GBIF as we are working with 
-#' them to make it persistent (stable) over time.
-#' @param resource Resource name
-#' @param basis_of_record	One of these enumerated values: Observation, Germplasm, 
+#' @param basisOfRecord	One of these enumerated values: Observation, Germplasm, 
 #' Fossil, Specimen, Literature, Unknown, or Living.
 #' @param occurrence_date	The date when the occurrence was recorded.
-#' @param county County FIPS code conforming to standard FIPS 6-4 but with leading 
+#' @param computedCountyFips County FIPS code conforming to standard FIPS 6-4 but with leading 
 #' zeros removed.
-#' @param state_code The normalized case sensitive name. For example q=state_code:"New Mexico"
-#' will return all of the occurrences from New Mexico.
-#' @param scientific_name	The species scientific name that is searchable in a case 
+#' @param computedStateFips The normalized case sensitive name. For example 
+#' q=state_code:"New Mexico" will return all of the occurrences from New Mexico.
+#' @param scientificName	The species scientific name that is searchable in a case 
 #' insensitive way.
+#' @param hierarchy_homonym_string hierarachy of the accepted or valid species name starting at 
+#' kingdom. If the name is a taxonomic homonym more than one string is provided seperated by ';'.
+#' @param TSNs Accepted or valid name is provided. If the name is a taxonmic homonym more 
+#' than one TSN is provided.
+#' @param collector Individual responsible for the scientific record.
+#' @param occurrenceID Non-persistent unique identifier.
+#' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting.
 #' @param ... Additional SOLR query arguments. See details.
 #' @return An object of class bison_solr - which is a list with slots for number of 
 #' records found (num_found), records, highlight, or facets.
@@ -46,42 +50,58 @@
 #' 
 #' For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 #' @seealso \code{\link{bison_tax}} \code{\link{bison}}
+#' @export
 #' @examples \dontrun{
-#' out <- bison_solr(scientific_name='Ursus americanus')
-#' bison_data(input=out)
+#' bison_solr(scientificName='Ursus americanus')
 #' 
-#' out <- bison_solr(scientific_name='Ursus americanus', state_code='New Mexico', 
-#'  fl="scientific_name")
-#' bison_data(input=out)
+#' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico', 
+#'  fl="scientificName")
 #' 
-#' out <- bison_solr(scientific_name='Ursus americanus', state_code='New Mexico', 
-#'  rows=50, fl="occurrence_date,scientific_name")
-#' bison_data(input=out)
+#' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico', 
+#'  rows=50, fl="occurrence_date,scientificName")
 #'
 #' # Mapping
-#' out <- bison_solr(scientific_name='Ursus americanus', rows=200)
+#' out <- bison_solr(scientificName='Ursus americanus', rows=200)
 #' bisonmap(out)
 #' 
-#' out <- bison_solr(scientific_name='Helianthus annuus', rows=800)
+#' out <- bison_solr(scientificName='Helianthus annuus', rows=800)
 #' bisonmap(out)
 #' 
 #' # Using additional solr fields
 #' ## Faceting
-#' out <- bison_solr(scientific_name='Helianthus annuus', rows=0, facet='true', 
-#'  facet.field='state_code')
+#' out <- bison_solr(scientificName='Helianthus annuus', rows=0, facet='true', 
+#'  facet.field='computedStateFips')
+#' bison_data(input=out)
+#' 
+#' ## Highlighting
+#' out <- bison_solr(scientificName='Helianthus annuus', rows=10, hl='true', 
+#'  hl.fl='scientificName')
 #' bison_data(input=out)
 #' }
-#' @export
-bison_solr <- function(latitude=NULL,longitude=NULL,iso_country_code=NULL,
-  year=NULL,provider=NULL,pointPath_s=NULL,provider_id=NULL,resource=NULL,
-  basis_of_record=NULL,occurrence_date=NULL,county=NULL,state_code=NULL,
-  scientific_name=NULL, ...)
+
+bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
+  year=NULL,BISONProviderID=NULL,BISONResourceID=NULL,pointPath=NULL,
+  basisOfRecord=NULL,occurrence_date=NULL,computedCountyFips=NULL,
+  computedStateFips=NULL,scientificName=NULL, 
+  hierarchy_homonym_string=NULL, TSNs=NULL, collector=NULL, occurrenceID=NULL, 
+  callopts=list(), ...)
 {
   url <- "http://bisonapi.usgs.ornl.gov/solr/occurrences/select/"
-  qu <- compact(list(latitude=latitude,longitude=longitude,iso_country_code=iso_country_code,
-               year=year,provider=provider,pointPath_s=pointPath_s,provider_id=provider_id,
-               resource=resource,basis_of_record=basis_of_record,occurrence_date=occurrence_date,
-               county=county,state_code=state_code,scientific_name=scientific_name))
+  qu <- compact(list(decimalLatitude=decimalLatitude,
+                     decimalLongitude=decimalLongitude,
+                     year=year,
+                     pointPath=pointPath,
+                     BISONProviderID=BISONProviderID,
+                     BISONResourceID=BISONResourceID,
+                     basisOfRecord=basisOfRecord,
+                     occurrence_date=occurrence_date,
+                     computedCountyFips=computedCountyFips,
+                     computedStateFips=computedStateFips,
+                     scientificName=scientificName,
+                     hierarchy_homonym_string=hierarchy_homonym_string,
+                     TSNs=TSNs,
+                     collector=collector,
+                     occurrenceID=occurrenceID))
   
   stuff <- list()
   for(i in seq_along(qu)){
@@ -90,16 +110,108 @@ bison_solr <- function(latitude=NULL,longitude=NULL,iso_country_code=NULL,
   stuff <- paste0(stuff,collapse="+")
   
   args <- compact(list(q=stuff, wt="json", ...))
-  tt <- GET(url, query=args)
+    
+  tt <- GET(url, query=args, callopts)
+  message(tt$url)
   stop_for_status(tt)
-  out <- content(tt)
+  out <- content(tt, as="text")
   
   temp <- list(
-    num_found = out$response$numFound, 
-    records = out$response$docs,
-    highlight = out$highlighting, 
-    facets = out$facet_counts
+    num_found = fromJSON(out)$response$numFound, 
+    records = solr_parse_search(out, "df"),
+    highlight = solr_parse_highlight(out), 
+    facets = solr_parse_facets(out)
   )
   class(temp) <- "bison_solr"
   return( temp )
+}
+
+solr_parse_facets <- function(input, parsetype=NULL, concat=',')
+{
+  input <- rjson::fromJSON(input)
+  
+  # Facet queries
+  fqdat <- input$facet_counts$facet_queries
+  if(length(fqdat)==0){
+    fqout <- NULL
+  } else
+  {
+    fqout <- data.frame(term=names(fqdat), value=do.call(c, fqdat), stringsAsFactors=FALSE)      
+  }
+  row.names(fqout) <- NULL
+  
+  # facet fields
+  ffout <- lapply(input$facet_counts$facet_fields, function(x){
+    data.frame(do.call(rbind, lapply(seq(1, length(x), by=2), function(y){
+      x[c(y, y+1)]
+    })), stringsAsFactors=FALSE)
+  })
+  
+  # Facet dates
+  if(length(input$facet_counts$facet_dates)==0){
+    datesout <- NULL
+  } else
+  {
+    datesout <- lapply(input$facet_counts$facet_dates, function(x){
+      x <- x[!names(x) %in% c('gap','start','end')]
+      x <- data.frame(date=names(x), value=do.call(c, x), stringsAsFactors=FALSE)
+      row.names(x) <- NULL
+      x
+    })
+  }
+  
+  # Facet ranges
+  if(length(input$facet_counts$facet_ranges)==0){
+    rangesout <- NULL
+  } else
+  {
+    rangesout <- lapply(input$facet_counts$facet_ranges, function(x){
+      x <- x[!names(x) %in% c('gap','start','end')]$counts
+      data.frame(do.call(rbind, lapply(seq(1, length(x), by=2), function(y){
+        x[c(y, y+1)]
+      })), stringsAsFactors=FALSE)
+    })
+  }
+  
+  # output
+  return( list(facet_queries = replacelen0(fqout), 
+               facet_fields = replacelen0(ffout), 
+               facet_dates = replacelen0(datesout), 
+               facet_ranges = replacelen0(rangesout)) )
+}
+
+solr_parse_highlight <- function(input, parsetype='list', concat=',')
+{
+  input <- rjson::fromJSON(input)
+  if(parsetype=='df'){
+    dat <- input$highlight
+    #       highout <- data.frame(term=names(dat), value=do.call(c, dat), stringsAsFactors=FALSE)
+    highout <- data.frame(cbind(names=names(dat), do.call(rbind, dat)))
+    row.names(highout) <- NULL
+  } else
+  {
+    highout <- input$highlight
+  }  
+  return( highout )
+}
+
+
+solr_parse_search <- function(input, parsetype='list', concat=',')
+{
+  input <- rjson::fromJSON(input)
+  if(parsetype=='df'){
+    dat <- input$response$docs
+    dat2 <- lapply(dat, function(x){
+      lapply(x, function(y){
+        if(length(y) > 1){
+          paste(y, collapse=concat)
+        } else { y  }
+      })
+    })
+    datout <- do.call(rbind.fill, lapply(dat2, data.frame, stringsAsFactors=FALSE))
+  } else
+  {
+    datout <- input
+  }
+  return( datout )
 }
