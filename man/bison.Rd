@@ -52,6 +52,12 @@ bison(species, type = "scientific_name", itis = FALSE, tsn = NULL,
   Mercator with a datum of WGS84. Example:
   -111.31,38.81,-110.57,39.21 (character)}
 
+  \item{what}{What to return?  One of 'all', 'summary',
+  'points', 'counties', 'states', 'raw', or 'list'. All
+  data is returned from the BISON API, but this parameter
+  lets you select just the parts you want, and the rest is
+  discarded before returning the result to you.}
+
   \item{callopts}{Further args passed on to httr::GET for
   HTTP debugging/inspecting.}
 }
@@ -72,6 +78,8 @@ out$summary # see summary
 out$counties # see county data
 out$states # see state data
 bisonmap(out, tomap = "points")
+bisonmap(out, tomap = "county")
+bisonmap(out, tomap = "state")
 
 # Search for a common name
 bison(species="Tufted Titmouse", type="common_name", what='summary')

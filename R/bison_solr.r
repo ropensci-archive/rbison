@@ -9,7 +9,7 @@
 #' @importFrom plyr compact
 #' @param decimalLatitude Geographic coordinate that specifies the north south position 
 #' of a location on the Earth surface.
-#' @param decimallongitude	Geographic coordinate that specifies the east-west position 
+#' @param decimalLongitude	Geographic coordinate that specifies the east-west position 
 #' of a location on the Earth surface.
 #' @param year The year the collection was taken.
 #' @param BISONProviderID BISON provider id

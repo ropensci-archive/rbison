@@ -1,10 +1,7 @@
 #' rbison is an interface to the USGS Bison API. 
 #' 
-#' @section Help
+#' To get started, see the vignette in \code{vignette(package="rbison")}
 #' 
-#' See the vignette in \code{vignette(package="rbison")}
-#' 
-#' @section Citing rbison and BISON
 #' 
 #' See [here](http://bison.usgs.ornl.gov/doc/services.jsp) for API docs for the BISON API.
 #' 

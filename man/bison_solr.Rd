@@ -14,7 +14,7 @@ bison_solr(decimalLatitude = NULL, decimalLongitude = NULL, year = NULL,
   specifies the north south position of a location on the
   Earth surface.}
 
-  \item{decimallongitude}{Geographic coordinate that
+  \item{decimalLongitude}{Geographic coordinate that
   specifies the east-west position of a location on the
   Earth surface.}
 
@@ -112,14 +112,12 @@ bisonmap(out)
 
 # Using additional solr fields
 ## Faceting
-out <- bison_solr(scientificName='Helianthus annuus', rows=0, facet='true',
+bison_solr(scientificName='Helianthus annuus', rows=0, facet='true',
  facet.field='computedStateFips')
-bison_data(input=out)
 
 ## Highlighting
-out <- bison_solr(scientificName='Helianthus annuus', rows=10, hl='true',
+bison_solr(scientificName='Helianthus annuus', rows=10, hl='true',
  hl.fl='scientificName')
-bison_data(input=out)
 }
 }
 \seealso{
