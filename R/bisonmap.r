@@ -37,12 +37,13 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
   if(!is.bison(input))
     stop("Input is not of class bison")
   
-  if(tomap=='points')
-  { bison_map_maker(x=input, geom=geom, jitter=jitter, customize=customize) } else
+  if(tomap=='points') { 
+    bison_map_maker(x=input, geom=geom, jitter=jitter, customize=customize)
+  } else
     if(tomap=='county'){
-      bycounty <- bison_data(input, datatype="counties")
+      bycounty <- input$counties
       bycounty$state <- tolower(bycounty$state)
-      bycounty$county_name <- tolower(bycounty$county_name)
+      bycounty$county_name <- gsub("\\scounty", "", tolower(bycounty$county_name))
       
       counties <- map_data("county")
       counties_plus <- merge(counties, bycounty, by.x='subregion', by.y='county_name', all.x=TRUE)
@@ -67,7 +68,7 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
         customize
     } else 
       if(tomap=='state'){
-        bystate <- bison_data(input, datatype="states")
+        bystate <- input$states
         bystate$record_id <- tolower(bystate$record_id)
         
         states <- map_data("state")

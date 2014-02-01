@@ -38,41 +38,41 @@ blanktheme <- function(){
 #' @keywords internal 
 bison_map_maker <- function(x, geom, jitter, customize)
 {
-  long=lat=group=longitude=latitude=region=id=NULL
+  long=lat=group=decimalLongitude=decimalLatitude=region=id=NULL
   
-  if(is(x, "bison")){ tt <- bison_data(x, "data_df") } else { tt <- bison_data(x, "data_df")$records }
+  if(is(x, "bison")){ tt <- x$points } else { tt <- bison_data(x, "data_df")$records }
 
   # Make lat/long data numeric
-  tt$latitude <- as.numeric(as.character(tt$latitude))
-  tt$longitude <- as.numeric(as.character(tt$longitude))
+  tt$decimalLatitude <- as.numeric(as.character(tt$decimalLatitude))
+  tt$decimalLongitude <- as.numeric(as.character(tt$decimalLongitude))
   
   # Remove points that are not physically possible
-  tt <- tt[complete.cases(tt$latitude, tt$latitude), ]
-  tt <- tt[-(which(tt$latitude <=90 || tt$longitude <=180)), ]
+  tt <- tt[complete.cases(tt$decimalLatitude, tt$decimalLatitude), ]
+  tt <- tt[-(which(tt$decimalLatitude <=90 || tt$decimalLongitude <=180)), ]
   
   # Check if points are inside the contintental US, or US+Alaska, or US+Alaska+Hawaii, or even farther
-  if(all(all(tt$latitude < 49) & all(tt$latitude > 24.7433195) & all(tt$longitude > -130) & all(tt$longitude < -66.9513812))){
+  if(all(all(tt$decimalLatitude < 49) & all(tt$decimalLatitude > 24.7433195) & all(tt$decimalLongitude > -130) & all(tt$decimalLongitude < -66.9513812))){
     # plot only contiguous USA
     contig_layer <- subset(all_states, id != "Alaska" & id != "Hawaii")
-    tt_contig <- tt[point.in.polygon(tt$longitude,tt$latitude,contig_layer$long,contig_layer$lat)==1,]
+    tt_contig <- tt[point.in.polygon(tt$decimalLongitude,tt$decimalLatitude,contig_layer$long,contig_layer$lat)==1,]
     
     p <- ggplot() +
       geom_polygon(aes(x=long, y=lat, group = group), colour = "black", fill = NA, size = 0.25) +
       coord_map(projection="azequalarea") +
       blanktheme()
     p %+% droplevels(subset(all_states, id != "Alaska" & id != "Hawaii")) +
-      geom_point(data=droplevels(tt_contig), aes(longitude, latitude), size=3, colour = "red", position=jitter) +
+      geom_point(data=droplevels(tt_contig), aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter) +
       scale_x_continuous(expand=c(0,0)) + scale_y_continuous(expand=c(0,0))
     
   } else
-    if(all(all(tt$latitude < 75) & all(tt$latitude > 15) & all(tt$longitude > -170) & all(tt$longitude < -66.9513812))){
+    if(all(all(tt$decimalLatitude < 75) & all(tt$decimalLatitude > 15) & all(tt$decimalLongitude > -170) & all(tt$decimalLongitude < -66.9513812))){
       # plot contiguous USA + Alaska + Hawaii
       contig_layer <- subset(all_states, id != "Alaska" & id != "Hawaii")
       AK_layer <- subset(all_states, id == "Alaska")
       HI_layer <- subset(all_states, id == "Hawaii")
-      tt_contig <- tt[point.in.polygon(tt$longitude,tt$latitude,contig_layer$long,contig_layer$lat)==1,]
-      tt_AK <- tt[point.in.polygon(tt$longitude,tt$latitude,AK_layer$long,AK_layer$lat)==1,]
-      tt_HI <- tt[point.in.polygon(tt$longitude,tt$latitude,HI_layer$long,HI_layer$lat)==1,]
+      tt_contig <- tt[point.in.polygon(tt$decimalLongitude,tt$decimalLatitude,contig_layer$long,contig_layer$lat)==1,]
+      tt_AK <- tt[point.in.polygon(tt$decimalLongitude,tt$decimalLatitude,AK_layer$long,AK_layer$lat)==1,]
+      tt_HI <- tt[point.in.polygon(tt$decimalLongitude,tt$decimalLatitude,HI_layer$long,HI_layer$lat)==1,]
       
       p <- ggplot() +
         geom_polygon(aes(x=long, y=lat, group = group), colour = "black", fill = NA, size = 0.25) +
@@ -82,12 +82,12 @@ bison_map_maker <- function(x, geom, jitter, customize)
         blanktheme()
       AK <- p %+% subset(all_states, id == "Alaska") + 
         theme(legend.position = "none") +
-        geom_point(data=tt_AK, aes(longitude, latitude), size=3, colour = "red", position=jitter)
+        geom_point(data=tt_AK, aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter)
       HI <- p %+% subset(all_states, id == "Hawaii") + 
         theme(legend.position = "none") +
-        geom_point(data=tt_HI, aes(longitude, latitude), size=3, colour = "red", position=jitter)
+        geom_point(data=tt_HI, aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter)
       contiguous <- p %+% subset(all_states, id != "Alaska" & id != "Hawaii") +
-        geom_point(data=tt_contig, aes(longitude, latitude), size=3, colour = "red", position=jitter)
+        geom_point(data=tt_contig, aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter)
       thing <- function(aa, bb, cc) {
         grid.newpage()
         vp <- viewport(width = 1.3, height = 1.3, y = 0.6)
@@ -108,7 +108,7 @@ bison_map_maker <- function(x, geom, jitter, customize)
       ggplot(world, aes(long, lat)) +
         geom_polygon(aes(group=group), fill="white", color="gray40", size=0.2) +
         #           coord_map(projection="mollweide") +
-        geom_point(data=tt, aes(longitude, latitude), size=3, colour = "red", position=jitter) +
+        geom_point(data=tt, aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter) +
         labs(x="", y="") +
         blanktheme() +
         customize

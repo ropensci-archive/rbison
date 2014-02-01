@@ -69,14 +69,12 @@
 #' 
 #' # Using additional solr fields
 #' ## Faceting
-#' out <- bison_solr(scientificName='Helianthus annuus', rows=0, facet='true', 
+#' bison_solr(scientificName='Helianthus annuus', rows=0, facet='true', 
 #'  facet.field='computedStateFips')
-#' bison_data(input=out)
 #' 
 #' ## Highlighting
-#' out <- bison_solr(scientificName='Helianthus annuus', rows=10, hl='true', 
+#' bison_solr(scientificName='Helianthus annuus', rows=10, hl='true', 
 #'  hl.fl='scientificName')
-#' bison_data(input=out)
 #' }
 
 bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
@@ -174,10 +172,10 @@ solr_parse_facets <- function(input, parsetype=NULL, concat=',')
   }
   
   # output
-  return( list(facet_queries = replacelen0(fqout), 
-               facet_fields = replacelen0(ffout), 
-               facet_dates = replacelen0(datesout), 
-               facet_ranges = replacelen0(rangesout)) )
+  return( list(facet_queries = replacelength0(fqout), 
+               facet_fields = replacelength0(ffout), 
+               facet_dates = replacelength0(datesout), 
+               facet_ranges = replacelength0(rangesout)) )
 }
 
 solr_parse_highlight <- function(input, parsetype='list', concat=',')
@@ -215,3 +213,6 @@ solr_parse_search <- function(input, parsetype='list', concat=',')
   }
   return( datout )
 }
+
+# small function to replace elements of length 0 with NULL
+replacelength0 <- function(x) if(length(x) < 1){ NULL } else { x }

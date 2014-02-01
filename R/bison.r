@@ -1,7 +1,7 @@
 #' Search for and collect data from the USGS Bison API.
 #' 
-#' @import httr
-#' @importFrom plyr compact
+#' @import httr rjson
+#' @importFrom plyr compact ldply
 #' @param species (required) A species name. (character)
 #' @param type (character) Type, one of scientific_name or common_name.
 #' @param itis (logical) If TRUE, ITIS search is enabled. If FALSE (default), not enabled.
@@ -40,10 +40,12 @@
 #' bison(species="Bison bison", count=50, what='list')
 #' 
 #' out <- bison(species="Bison bison", count=50) # by default gets 10 results
-#' bison_data(out) # see summary
-#' bison_data(out, datatype="counties") # see county data
-#' bison_data(out, datatype="states") # see state data
+#' out$summary # see summary
+#' out$counties # see county data
+#' out$states # see state data
+#' bisonmap(out, tomap = "points")
 #' bisonmap(out, tomap = "county")
+#' bisonmap(out, tomap = "state")
 #' 
 #' # Search for a common name
 #' bison(species="Tufted Titmouse", type="common_name", what='summary')
@@ -124,19 +126,24 @@ bison <- function(species, type="scientific_name", itis=FALSE, tsn=NULL, start=N
     raw=out,
     list=fromJSON(out)
   )
+  class(res) <- "bison"
   return( res )
 }
 
 bison_data <- function(input = NULL, datatype="summary")
 {
   if(datatype=='summary'){
-    data.frame(c(input[1], input$occurrences$legend))
+    tt <- data.frame(c(input[1], input$occurrences$legend))
+    list(summary=tt, states=NULL, counties=NULL, points=NULL)
   } else if(datatype=="counties"){
-    getcounties(input)
+    tt <- getcounties(input)
+    list(summary=NULL, states=NULL, counties=tt, points=NULL)
   } else if(datatype=="states"){
-    getstates(input)
+    tt <- getstates(input)
+    list(summary=NULL, states=tt, counties=NULL, points=NULL)
   } else if(datatype=="points"){
-    getpoints(input)
+    tt <- getpoints(input)
+    list(summary=NULL, states=NULL, counties=NULL, points=tt)
   } else if(datatype=="all"){
     summary=data.frame(c(input[1], input$occurrences$legend))
     counties=getcounties(input)

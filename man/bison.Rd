@@ -68,10 +68,10 @@ bison(species="Bison bison", count=50, what='raw')
 bison(species="Bison bison", count=50, what='list')
 
 out <- bison(species="Bison bison", count=50) # by default gets 10 results
-bison_data(out) # see summary
-bison_data(out, datatype="counties") # see county data
-bison_data(out, datatype="states") # see state data
-bisonmap(out, tomap = "county")
+out$summary # see summary
+out$counties # see county data
+out$states # see state data
+bisonmap(out, tomap = "points")
 
 # Search for a common name
 bison(species="Tufted Titmouse", type="common_name", what='summary')
