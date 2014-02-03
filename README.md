@@ -15,6 +15,14 @@ See [here](http://bison.usgs.ornl.gov/doc/services.jsp) for API docs for the BIS
 
 #### Install rbison
 
+From CRAN
+
+```r
+install.packages("rbison")
+library(rbison)
+```
+
+Or the development version from Github
 
 ```r
 install.packages("devtools")
@@ -23,11 +31,8 @@ install_github("rbison", "ropensci")
 library(rbison)
 ```
 
+Notice that the function `bisonmap` automagically selects the map extent to plot for you, being one of the contiguous lower 48 states, or the lower 48 plus AK and HI, or a global map. If some or all points outside the US, a global map is drawn, and throws a warning. . You may want to make sure the occurrence lat/long coordinates are correct.
 
-Notice that the function `bisonmap` automagically selects the map extent to plot for you, 
-being one of the contiguous lower 48 states, or the lower 48 plus AK and HI, or a global map
-
-#### If some or all points outside the US, a global map is drawn, and throws a warning. . You may want to make sure the occurrence lat/long coordinates are correct.
 ##### get data
 
 ```r
@@ -38,7 +43,7 @@ out <- bison(species = "Phocoenoides dalli dalli", count = 10)
 ##### inspect summary
 
 ```r
-bison_data(out)
+out$summary
 ```
 
 ```
@@ -72,7 +77,7 @@ out <- bison(species = "Bison bison", count = 600)
 ##### inspect summary
 
 ```r
-bison_data(out)
+out$summary
 ```
 
 ```
@@ -101,7 +106,7 @@ out <- bison(species = "Aquila chrysaetos", count = 600)
 ##### inspect summary
 
 ```r
-bison_data(out)
+out$summary
 ```
 
 ```
