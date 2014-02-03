@@ -103,5 +103,7 @@ bisonmap.bison_solr <- function(input = NULL, tomap="points", geom = geom_point,
     stop("Input is not of class bison_solr")
   if(!tomap=='points')
     stop("tomap must equal 'points'")
+  # remove NA's due to /null,null/specimen in pointPath field
+  input$points <- input$points[!input$points$pointPath == "/null,null/specimen",]
   bison_map_maker(x=input, geom = geom, jitter = jitter, customize = customize)
 }

@@ -1,6 +1,3 @@
-
-
-
 rbison
 ======
 
@@ -17,14 +14,14 @@ See [here](http://bison.usgs.ornl.gov/doc/services.jsp) for API docs for the BIS
 
 From CRAN
 
-```r
+```coffee
 install.packages("rbison")
 library(rbison)
 ```
 
 Or the development version from Github
 
-```r
+```coffee
 install.packages("devtools")
 library(devtools)
 install_github("rbison", "ropensci")
@@ -35,14 +32,14 @@ Notice that the function `bisonmap` automagically selects the map extent to plot
 
 ##### get data
 
-```r
+```coffee
 out <- bison(species = "Phocoenoides dalli dalli", count = 10)
 ```
 
 
 ##### inspect summary
 
-```r
+```coffee
 out$summary
 ```
 
@@ -54,7 +51,7 @@ out$summary
 
 ##### map occurrences
 
-```r
+```coffee
 bisonmap(out)
 ```
 
@@ -69,14 +66,14 @@ Some of your points are outside the US. Make sure the data is correct
 ####  All points within the US (including AK and HI)
 ##### get data
 
-```r
+```coffee
 out <- bison(species = "Bison bison", count = 600)
 ```
 
 
 ##### inspect summary
 
-```r
+```coffee
 out$summary
 ```
 
@@ -88,7 +85,7 @@ out$summary
 
 ##### map occurrences
 
-```r
+```coffee
 bisonmap(out)
 ```
 
@@ -98,14 +95,14 @@ bisonmap(out)
 ####  All points within the contiguous 48 states
 ##### get data
 
-```r
+```coffee
 out <- bison(species = "Aquila chrysaetos", count = 600)
 ```
 
 
 ##### inspect summary
 
-```r
+```coffee
 out$summary
 ```
 
@@ -117,7 +114,7 @@ out$summary
 
 ##### map occurrences
 
-```r
+```coffee
 bisonmap(out)
 ```
 
@@ -128,7 +125,7 @@ bisonmap(out)
 ####  With any data returned from a `bison` call, you can choose to plot county or state level data
 ##### Counties - using last data call for Aquila 
 
-```r
+```coffee
 bisonmap(out, tomap = "county")
 ```
 
@@ -137,7 +134,7 @@ bisonmap(out, tomap = "county")
 
 ##### States - using last data call for Aquila 
 
-```r
+```coffee
 bisonmap(out, tomap = "state")
 ```
 
@@ -149,7 +146,7 @@ bisonmap(out, tomap = "state")
 ##### The taxa service searches for and gives back taxonomic names
 
 
-```r
+```coffee
 bison_tax(query = "bear", method = "common_name")
 ```
 
@@ -174,7 +171,7 @@ NULL
 You can also do fuzzy searches like this (which you can't do using the `bison` function)
 
 
-```r
+```coffee
 bison_tax(query = "*bear")[1:2]
 ```
 
@@ -237,7 +234,7 @@ $names
 And you can search by scientific name
 
 
-```r
+```coffee
 bison_tax(query = "helianthus", method = "scientific_name")
 ```
 
@@ -264,7 +261,7 @@ NULL
 Searching for data and looking at output
 
 
-```r
+```coffee
 out <- bison_solr(scientific_name = "Ursus americanus", state_code = "New Mexico", rows = 50, fl = "occurrence_date,scientific_name")
 bison_data(input = out)
 ```
@@ -337,10 +334,41 @@ NULL
 Mapping the data
 
 
-```r
+```coffee
 out <- bison_solr(scientific_name = "Ursus americanus", rows = 200)
 bisonmap(out)
 ```
 
 ![plot of chunk unnamed-chunk-18](inst/assets/img/unnamed-chunk-18.png) 
 
+
+## Meta
+
+Please report any issues or bugs](https://github.com/ropensci/rbison/issues).
+
+License: CC0
+
+This package is part of the [rOpenSci](http://ropensci.org/packages) project.
+
+To cite package `rbison` in publications use:
+
+```coffee
+To cite package ‘rbison’ in publications use:
+
+  Scott Chamberlain (2014). rbison: R interface to the USGS BISON API. R package version 0.3.0.
+  https://ropensci.github.com/rbison
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {rbison: R interface to the USGS BISON API},
+    author = {Scott Chamberlain},
+    year = {2014},
+    note = {R package version 0.3.0},
+    url = {https://ropensci.github.com/rbison},
+  }
+```
+
+Get citation information for `rbison` in R doing `citation(package = 'rbison')`
+
+[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

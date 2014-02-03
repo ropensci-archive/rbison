@@ -116,7 +116,7 @@ bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
   
   temp <- list(
     num_found = fromJSON(out)$response$numFound, 
-    records = solr_parse_search(out, "df"),
+    points = solr_parse_search(out, "df"),
     highlight = solr_parse_highlight(out), 
     facets = solr_parse_facets(out)
   )

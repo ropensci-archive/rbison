@@ -2,7 +2,7 @@
 \alias{bison_tax}
 \title{Search for and collect taxonomic name data from the USGS Bison API using solr.}
 \usage{
-bison_tax(query = NULL, method = "common_name", exact = FALSE,
+bison_tax(query = NULL, method = "vernacularName", exact = FALSE,
   parsed = TRUE, ...)
 }
 \arguments{
@@ -31,14 +31,11 @@ See the SOLR documentation here
 you can use.
 
 The following four methods are possible, as far as I know
-you can only use one at a time:
-
-common_name The species specific common names that is
-searchable in a case insensitive way. common_nameText The
-species specific common names. id GBIF assigned identifier
-that is not stable over time. scientific_name The species
-scientific name that is associated with a common name that
-is searchable in a case insensitive way.
+you can only use one at a time: \itemize{ \item
+vernacularName The species specific common names that is
+searchable in a case insensitive way.  \item scientificName
+The species scientific name that is associated with a
+common name that is searchable in a case insensitive way. }
 }
 \details{
 This fxn interacts with the SOLR interface for taxonomic
@@ -48,29 +45,20 @@ names at
 \examples{
 \dontrun{
 # Some example calls
-bison_tax(query="bear", method='common_name')
+bison_tax(query="bear", method='vernacularName')
 bison_tax(query="*bear")
-bison_tax(query="black bear", method="common_nameText")
-bison_tax(query="helianthus", method="scientific_name")
-bison_tax(query="17149412", method="id")
+bison_tax(query="helianthus", method="scientificName")
 
 # Exact argument, here nothing found with latter call as '*bear' doesn't exist,
 # which makes sense
 bison_tax(query="*bear", exact=FALSE)
 bison_tax(query="*bear", exact=TRUE)
 
-# Using solr arguments
+# Using solr arguments (not all Solr arguments work)
 ## Return a certain number of rows
-bison_tax(query="*bear", method="common_name", rows=3)
+bison_tax(query="*bear", method="vernacularName", rows=3)
 ## Return certain fields
-bison_tax(query="*bear", method="common_name", fl='common_name')
-## Sort on a field. Here, sort on "id" in a descending fashion "desc"
-bison_tax(query="*bear", method="common_name", sort='id desc')
-## Filter (using argument 'fq') to get only scientific names matching 'Ursus*',
-## and return only scientific names.
-bison_tax(query="*bear", method="common_name", fq='scientific_name:Ursus*', fl='scientific_name')
-## Faceting
-bison_tax(query="*bear", method="common_name", facet='true', facet.field='scientific_name')
+bison_tax(query="*bear", method="vernacularName", fl='vernacularName')
 }
 }
 \seealso{
