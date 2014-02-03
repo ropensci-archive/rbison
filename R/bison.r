@@ -8,8 +8,9 @@
 #' @param tsn (numeric) Specifies the TSN to query by. Example:162003
 #' @param start (numeric) Record to start at.
 #' @param count (numeric) Number of records to return.
-#' @param countyFips (numeric) Specifies the county fips code to geographically constrain 
-#'    the search to one county. Eg: 49015.
+#' @param countyFips (character) Specifies the county fips code to geographically constrain 
+#'    the search to one county. Character must be supplied as a number starting 
+#'    with zero may lose the zero. Eg: "49015".
 #' @param county (character) County name. As codes are a pain in the ass, you can put in the 
 #'    county name here instead of specifying a countyFips entry, and bison will 
 #'    attempt to look up the countyFips code. (character)
@@ -55,7 +56,7 @@
 #' bison(species="Tufted Titmouse", type="common_name", what='summary')
 #' 
 #' # Constrain search to a certain county, 49015 is Emery County in Utah
-#' bison(species="Helianthus annuus", countyFips = 49015)
+#' bison(species="Helianthus annuus", countyFips = "49015")
 #' 
 #' # Constrain search to a certain county, specifying county name instead of code
 #' bison(species="Helianthus annuus", county = "Los Angeles")
@@ -158,30 +159,36 @@ bison_data <- function(input = NULL, datatype="summary")
 }
 
 getcounties <- function(x){
-  if(class(x$counties$data[[1]])=="character"){
-    df <- ldply(x$counties$data)
-  } else
-  {
-    df <- ldply(x$counties$data, function(y) data.frame(y))
+  if(x$counties$total == 0){ NULL } else {
+    if(class(x$counties$data[[1]])=="character"){
+      df <- ldply(x$counties$data)
+    } else
+    {
+      df <- ldply(x$counties$data, function(y) data.frame(y))
+    }
+    names(df)[c(1,3)] <- c("record_id","county_name")
+    return(df)
   }
-  names(df)[c(1,3)] <- c("record_id","county_name")
-  return(df)
 }
 
 getstates <- function(x){
-  df <- ldply(x$states$data, function(y) data.frame(y))
-  names(df)[c(1,3)] <- c("record_id","county_fips")
-  return(df) 
+  if(x$counties$total == 0){ NULL } else {
+    df <- ldply(x$states$data, function(y) data.frame(y))
+    names(df)[c(1,3)] <- c("record_id","county_fips")
+    return(df)
+  }
 }
 
 getpoints <- function(x){
-  withlatlong <- x$data[sapply(x$data, length, USE.NAMES=FALSE) == 8]
-  data_out <- ldply(withlatlong, function(y){
-    y[sapply(y, is.null)] <- NA
-    data.frame(y[c("name","decimalLongitude","decimalLatitude","occurrenceID",
-                   "provider","basis","common_name","geo")], stringsAsFactors=FALSE)
-  })
-  data_out$decimalLongitude <- as.numeric(as.character(data_out$decimalLongitude))
-  data_out$decimalLatitude <- as.numeric(as.character(data_out$decimalLatitude))
-  return(data_out) 
+  if(length(x$data) == 0){ NULL } else { 
+    withlatlong <- x$data[sapply(x$data, length, USE.NAMES=FALSE) == 8]
+    data_out <- ldply(withlatlong, function(y){
+      y[sapply(y, is.null)] <- NA
+      data.frame(y[c("name","decimalLongitude","decimalLatitude","occurrenceID",
+                     "provider","basis","common_name","geo")], stringsAsFactors=FALSE)
+    })
+    data_out$decimalLongitude <- as.numeric(as.character(data_out$decimalLongitude))
+    data_out$decimalLatitude <- as.numeric(as.character(data_out$decimalLatitude))
+    return(data_out) 
+  }
 }

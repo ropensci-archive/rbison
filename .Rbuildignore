@@ -1,11 +1,13 @@
 .gitignore
-^Makefile$
+Makefile
 .travis.yml
 man-roxygen
 ^.*\.Rproj$
 ^\.Rproj\.user$
 inst/stuff
 inst/assets
+inst/vign
+vignettes/margins.sty
 tests/test-all.R
 .watsonrc
 readme.Rmd

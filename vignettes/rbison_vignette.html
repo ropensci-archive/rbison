@@ -1,155 +1,232 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-<title>rbison vignette - wrapper to the USGS BISON API</title>
-
-
-
-
-
-<style type="text/css">
-body, td {
-   font-family: sans-serif;
-   background-color: white;
-   font-size: 12px;
-   margin: 8px;
-}
-
-tt, code, pre {
-   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
-}
-
-h1 { 
-   font-size:2.2em; 
-}
-
-h2 { 
-   font-size:1.8em; 
-}
-
-h3 { 
-   font-size:1.4em; 
-}
-
-h4 { 
-   font-size:1.0em; 
-}
-
-h5 { 
-   font-size:0.9em; 
-}
-
-h6 { 
-   font-size:0.8em; 
-}
-
-a:visited {
-   color: rgb(50%, 0%, 50%);
-}
-
-pre {	
-   margin-top: 0;
-   max-width: 95%;
-   border: 1px solid #ccc;
-   white-space: pre-wrap;
-}
-
-pre code {
-   display: block; padding: 0.5em;
-}
-
-code.r, code.cpp {
-   background-color: #F8F8F8;
-}
-
-table, td, th {
-  border: none;
-}
-
-blockquote {
-   color:#666666;
-   margin:0;
-   padding-left: 1em;
-   border-left: 0.5em #EEE solid;
-}
-
-hr {
-   height: 0px;
-   border-bottom: none;
-   border-top-width: thin;
-   border-top-style: dotted;
-   border-top-color: #999999;
-}
-
-@media print {
-   * { 
-      background: transparent !important; 
-      color: black !important; 
-      filter:none !important; 
-      -ms-filter: none !important; 
-   }
-
-   body { 
-      font-size:12pt; 
-      max-width:100%; 
-   }
-       
-   a, a:visited { 
-      text-decoration: underline; 
-   }
-
-   hr { 
-      visibility: hidden;
-      page-break-before: always;
-   }
-
-   pre, blockquote { 
-      padding-right: 1em; 
-      page-break-inside: avoid; 
-   }
-
-   tr, img { 
-      page-break-inside: avoid; 
-   }
-
-   img { 
-      max-width: 100% !important; 
-   }
-
-   @page :left { 
-      margin: 15mm 20mm 15mm 10mm; 
-   }
-     
-   @page :right { 
-      margin: 15mm 10mm 15mm 20mm; 
-   }
-
-   p, h2, h3 { 
-      orphans: 3; widows: 3; 
-   }
-
-   h2, h3 { 
-      page-break-after: avoid; 
-   }
-}
-</style>
-
-
-
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  \usepackage[vmargin=1in,hmargin=1in]{geometry}
 </head>
-
 <body>
 <!--
 %\VignetteEngine{knitr}
-%\VignetteIndexEntry{rbison vignette}
+%\VignetteIndexEntry{An R Markdown Vignette made with knitr}
 -->
 
-<h1>rbison vignette - wrapper to the USGS BISON API</h1>
+<h1 id="rbison-vignette---wrapper-to-the-usgs-bison-api">rbison vignette - wrapper to the USGS BISON API</h1>
+<h3 id="about-the-package">About the package</h3>
+<p><code>rbison</code> is an R package to search and retrieve data from the USGS BISON service. <code>rbison</code> wraps R code around the BISON API to allow you to talk to the BISON database from R.</p>
+<p>BISON has occurrence data for the US only.</p>
+<p>BISON is a node of the Global Biodiversity Information Facility (GBIF) - i.e., you can get data that's available in BISON via GBIF instead if you want.</p>
+<hr />
+<h3 id="info">Info</h3>
+<p>See <a href="http://bison.usgs.ornl.gov/services.html">here</a> for API docs for the BISON API.</p>
+<hr />
+<h3 id="quick-start">Quick start</h3>
+<h4 id="install-rbison">Install rbison</h4>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&#39;devtools&#39;); library(devtools); install_github(&#39;rbison&#39;,</span>
+<span class="co"># &#39;ropensci&#39;)</span>
+<span class="kw">library</span>(rbison)
+<span class="kw">library</span>(sp)
+<span class="kw">library</span>(plyr)
+<span class="kw">library</span>(httr)
+<span class="kw">library</span>(rjson)
+<span class="kw">library</span>(gridExtra)
+<span class="kw">library</span>(mapproj)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(maps)
+<span class="kw">library</span>(rgeos)
+<span class="kw">library</span>(rgdal)</code></pre>
+<p>Notice that the function <code>bisonmap</code> automagically selects the map extent to plot for you, being one of the contiguous lower 48 states, or the lower 48 plus AK and HI, or a global map</p>
+<h4 id="if-some-or-all-points-outside-the-us-a-global-map-is-drawn-and-throws-a-warning.-you-may-want-to-make-sure-the-occurrence-latlong-coordinates-are-correct.">If some or all points outside the US, a global map is drawn, and throws a warning. You may want to make sure the occurrence lat/long coordinates are correct.</h4>
+<h5 id="get-data">get data</h5>
+<pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">bison</span>(<span class="dt">species =</span> <span class="st">&quot;Helianthus annuus&quot;</span>, <span class="dt">count =</span> <span class="dv">10</span>)</code></pre>
+<h5 id="inspect-summary">inspect summary</h5>
+<pre class="sourceCode r"><code class="sourceCode r">out$summary</code></pre>
+<pre><code>##   total observation fossil specimen literature unknown living centroid
+## 1  4388          13    102     1267       1106    1892      8        1</code></pre>
+<h5 id="map-occurrences">map occurrences</h5>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(out$counties)</code></pre>
+<pre><code>##   record_id total      county_name         state
+## 1     20041     3 Dickinson County        Kansas
+## 2     54103     1    Wetzel County West Virginia
+## 3     40149     1   Washita County      Oklahoma
+## 4     54105     1      Wirt County West Virginia
+## 5     29025     1  Caldwell County      Missouri
+## 6     40143     2     Tulsa County      Oklahoma</code></pre>
+<hr />
+<h4 id="all-points-within-the-us-including-ak-and-hi">All points within the US (including AK and HI)</h4>
+<h5 id="get-data-1">get data</h5>
+<pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">bison</span>(<span class="dt">species =</span> <span class="st">&quot;Bison bison&quot;</span>, <span class="dt">count =</span> <span class="dv">600</span>)</code></pre>
+<h5 id="inspect-summary-1">inspect summary</h5>
+<pre class="sourceCode r"><code class="sourceCode r">out$summary</code></pre>
+<pre><code>##   total observation fossil specimen unknown centroid
+## 1   956          32    157      718      49        1</code></pre>
+<h5 id="map-occurrences-1">map occurrences</h5>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bisonmap</span>(out, <span class="dt">tomap =</span> <span class="st">&quot;state&quot;</span>)</code></pre>
+<div class="figure">
+<img src="figure/six.png" alt="plot of chunk six" /><p class="caption">plot of chunk six</p>
+</div>
+<hr />
+<h4 id="all-points-within-the-contiguous-48-states">All points within the contiguous 48 states</h4>
+<h5 id="get-data-2">get data</h5>
+<pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">bison</span>(<span class="dt">species =</span> <span class="st">&quot;Aquila chrysaetos&quot;</span>, <span class="dt">count =</span> <span class="dv">600</span>)</code></pre>
+<h5 id="inspect-summary-2">inspect summary</h5>
+<pre class="sourceCode r"><code class="sourceCode r">out$summary</code></pre>
+<pre><code>##   total observation fossil specimen literature unknown centroid
+## 1 52626       50896    105      799        118     708        1</code></pre>
+<h5 id="map-occurrences-2">map occurrences</h5>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bisonmap</span>(out, <span class="dt">tomap =</span> <span class="st">&quot;points&quot;</span>)</code></pre>
+<div class="figure">
+<img src="figure/nine.png" alt="plot of chunk nine" /><p class="caption">plot of chunk nine</p>
+</div>
+<hr />
+<h4 id="with-any-data-returned-from-a-bison-call-you-can-choose-to-plot-county-or-state-level-data">With any data returned from a <code>bison</code> call, you can choose to plot county or state level data</h4>
+<h5 id="counties---using-last-data-call-for-aquila">Counties - using last data call for Aquila</h5>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bisonmap</span>(out, <span class="dt">tomap =</span> <span class="st">&quot;county&quot;</span>)</code></pre>
+<div class="figure">
+<img src="figure/ten.png" alt="plot of chunk ten" /><p class="caption">plot of chunk ten</p>
+</div>
+<h5 id="states---using-last-data-call-for-aquila">States - using last data call for Aquila</h5>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bisonmap</span>(out, <span class="dt">tomap =</span> <span class="st">&quot;state&quot;</span>)</code></pre>
+<div class="figure">
+<img src="figure/eleven.png" alt="plot of chunk eleven" /><p class="caption">plot of chunk eleven</p>
+</div>
+<hr />
+<h4 id="constrain-search-with-county-ids-or-bounding-boxes">Constrain search with county IDs or bounding boxes</h4>
+<h5 id="constrain-search-to-a-certain-county.">Constrain search to a certain county.</h5>
+<p>Check out <a href="http://www.epa.gov/enviro/html/codes/state.html">this site</a> to get state and county fips codes. Fips codes are like so: First two digits are the state code - last three are the county code. For example the <em>06</em> in 06037 is the state of California, and the <em>037</em> is the Los Angeles county.</p>
+<pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">bison</span>(<span class="dt">species =</span> <span class="st">&quot;Helianthus annuus&quot;</span>, <span class="dt">countyFips =</span> <span class="st">&quot;06037&quot;</span>)
 
-<p>Check out the rbison vignette at the rOpenSci website here: <a href="http://ropensci.org/tutorials/rbison_tutorial.html">http://ropensci.org/tutorials/rbison_tutorial.html</a></p>
+<span class="co"># Inspect summary</span>
+out$summary</code></pre>
+<pre><code>##   total observation fossil specimen literature unknown centroid
+## 1    24           1      3       12          1       7        1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># By default, the query only returned 10 records</span>
+<span class="kw">head</span>(out$points)</code></pre>
+<pre><code>##                name decimalLongitude decimalLatitude occurrenceID
+## 1 Helianthus annuus           -118.4           33.39   1032095838
+## 2 Helianthus annuus           -118.3           34.20     45597818
+## 3 Helianthus annuus           -118.0           34.00    225207520
+## 4 Helianthus annuus           -118.0           34.00    225206595
+## 5 Helianthus annuus           -118.0           34.00    225207727
+## 6 Helianthus annuus           -118.0           34.00    225207562
+##                            provider      basis
+## 1              USDA PLANTS Database Literature
+## 2   University of California, Davis    Unknown
+## 3 Consortium of California Herbaria   Specimen
+## 4 Consortium of California Herbaria   Specimen
+## 5 Consortium of California Herbaria   Specimen
+## 6 Consortium of California Herbaria   Specimen
+##                                                     common_name geo
+## 1 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 2 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 3 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 4 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 5 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 6 sunflower, annual sunflower, common sunflower, wild sunflower Yes</code></pre>
+<p>Or specify county by its actual name - probably much easier.</p>
+<pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">bison</span>(<span class="dt">species =</span> <span class="st">&quot;Helianthus annuus&quot;</span>, <span class="dt">county =</span> <span class="st">&quot;Los Angeles&quot;</span>)
 
+<span class="co"># Inspect summary</span>
+out$summary</code></pre>
+<pre><code>##   total observation fossil specimen literature unknown centroid
+## 1    24           1      3       12          1       7        1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># By default, the query only returned 10 records</span>
+<span class="kw">head</span>(out$points)</code></pre>
+<pre><code>##                name decimalLongitude decimalLatitude occurrenceID
+## 1 Helianthus annuus           -118.4           33.39   1032095838
+## 2 Helianthus annuus           -118.3           34.20     45597818
+## 3 Helianthus annuus           -118.0           34.00    225207520
+## 4 Helianthus annuus           -118.0           34.00    225206595
+## 5 Helianthus annuus           -118.0           34.00    225207727
+## 6 Helianthus annuus           -118.0           34.00    225207562
+##                            provider      basis
+## 1              USDA PLANTS Database Literature
+## 2   University of California, Davis    Unknown
+## 3 Consortium of California Herbaria   Specimen
+## 4 Consortium of California Herbaria   Specimen
+## 5 Consortium of California Herbaria   Specimen
+## 6 Consortium of California Herbaria   Specimen
+##                                                     common_name geo
+## 1 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 2 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 3 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 4 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 5 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 6 sunflower, annual sunflower, common sunflower, wild sunflower Yes</code></pre>
+<p><code>bison</code> will help you if you spell the name wrong, or use a partial name. The results are not printed below, but you would get a prompt asking you to pick between the two counties that start with <em>Los</em>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bison</span>(<span class="dt">species =</span> <span class="st">&quot;Helianthus annuus&quot;</span>, <span class="dt">county =</span> <span class="st">&quot;Los&quot;</span>)</code></pre>
+<h5 id="constrain-search-to-a-amorphous-area.">Constrain search to a amorphous area.</h5>
+<p>Check out the Wikipedia page <a href="http://en.wikipedia.org/wiki/Well-known_text">here</a> for an in depth look at the options, terminology, etc.</p>
+<pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">bison</span>(<span class="dt">species =</span> <span class="st">&quot;Helianthus annuus&quot;</span>, <span class="dt">aoi =</span> <span class="st">&quot;POLYGON((-111.06360117772908 38.84001566645886,-110.80542246679359 39.37707771107983,-110.20117441992392 39.17722368276862,-110.20666758398464 38.90844075244811,-110.63513438085685 38.67724220095734,-111.06360117772908 38.84001566645886))&quot;</span>)
+
+<span class="co"># Inspect summary</span>
+out$summary</code></pre>
+<pre><code>##   total literature centroid
+## 1     1          1        1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># The data</span>
+<span class="kw">head</span>(out$points)</code></pre>
+<pre><code>##                name decimalLongitude decimalLatitude occurrenceID
+## 1 Helianthus annuus           -110.7           38.99   1032098012
+##               provider      basis
+## 1 USDA PLANTS Database Literature
+##                                                     common_name geo
+## 1 sunflower, annual sunflower, common sunflower, wild sunflower Yes</code></pre>
+<h5 id="constrain-search-to-a-certain-aoibbox.">Constrain search to a certain aoibbox.</h5>
+<p>An aoibbox uses the format minx, miny, maxx, maxy.</p>
+<pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">bison</span>(<span class="dt">species =</span> <span class="st">&quot;Helianthus annuus&quot;</span>, <span class="dt">aoibbox =</span> <span class="st">&quot;-120.31,35.81,-110.57,40.21&quot;</span>)
+
+<span class="co"># Inspect summary</span>
+out$summary</code></pre>
+<pre><code>##   total observation fossil specimen literature unknown centroid
+## 1   149           6      8       33         25      77        1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># The data, by default, the query only returned 10 records</span>
+<span class="kw">head</span>(out$points)</code></pre>
+<pre><code>##                name decimalLongitude decimalLatitude occurrenceID
+## 1 Helianthus annuus           -115.0           36.21    320466814
+## 2 Helianthus annuus           -111.8           35.83    320466028
+## 3 Helianthus annuus           -119.7           36.76     45598447
+## 4 Helianthus annuus           -119.7           36.76     45598264
+## 5 Helianthus annuus           -111.8           35.84   1032095762
+## 6 Helianthus annuus           -115.0           36.20   1032096818
+##                          provider      basis
+## 1       Missouri Botanical Garden   Specimen
+## 2       Missouri Botanical Garden   Specimen
+## 3 University of California, Davis    Unknown
+## 4 University of California, Davis    Unknown
+## 5            USDA PLANTS Database Literature
+## 6            USDA PLANTS Database Literature
+##                                                     common_name geo
+## 1 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 2 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 3 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 4 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 5 sunflower, annual sunflower, common sunflower, wild sunflower Yes
+## 6 sunflower, annual sunflower, common sunflower, wild sunflower Yes</code></pre>
 </body>
-
 </html>

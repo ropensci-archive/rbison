@@ -23,9 +23,10 @@ bison(species, type = "scientific_name", itis = FALSE, tsn = NULL,
 
   \item{count}{(numeric) Number of records to return.}
 
-  \item{countyFips}{(numeric) Specifies the county fips
+  \item{countyFips}{(character) Specifies the county fips
   code to geographically constrain the search to one
-  county. Eg: 49015.}
+  county. Character must be supplied as a number starting
+  with zero may lose the zero. Eg: "49015".}
 
   \item{county}{(character) County name. As codes are a
   pain in the ass, you can put in the county name here
@@ -85,7 +86,7 @@ bisonmap(out, tomap = "state")
 bison(species="Tufted Titmouse", type="common_name", what='summary')
 
 # Constrain search to a certain county, 49015 is Emery County in Utah
-bison(species="Helianthus annuus", countyFips = 49015)
+bison(species="Helianthus annuus", countyFips = "49015")
 
 # Constrain search to a certain county, specifying county name instead of code
 bison(species="Helianthus annuus", county = "Los Angeles")

@@ -8,11 +8,11 @@ out4 <- bison(species = "Phocoenoides dalli dalli", count = 10)
 out5 <- bison(species="Aquila chrysaetos", count=100)
 
 test_that("bison returns the correct value", {
-	expect_that(out1$species, equals("Bison bison"))
-	expect_that(out2$species, equals("Canis latrans"))
-	expect_that(out3$species, equals("Tufted Titmouse"))
-	expect_that(out4$species, equals("Phocoenoides dalli dalli"))
-	expect_that(out5$species, equals("Aquila chrysaetos"))
+	expect_that(out1$points$name[1], equals("Bison bison"))
+	expect_that(out2$points$name[1], equals("Canis latrans"))
+	expect_that(out3$points$name[1], equals("Baeolophus bicolor"))
+	expect_that(out4$points$name[1], equals("Phocoenoides dalli dalli"))
+	expect_that(out5$points$name[1], equals("Aquila chrysaetos"))
 })
 
 test_that("bison returns the correct class", {
@@ -21,4 +21,8 @@ test_that("bison returns the correct class", {
 	expect_that(out3, is_a("bison"))
 	expect_that(out4, is_a("bison"))
 	expect_that(out5, is_a("bison"))
+  
+	expect_that(out1$summary, is_a("data.frame"))
+	expect_that(out1$points, is_a("data.frame"))
+	expect_that(out4$counties, equals(NULL))
 })
