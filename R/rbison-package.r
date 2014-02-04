@@ -18,6 +18,12 @@
 #' of Vertebrate Zoology, University of Washington Burke Museum, and University of Turku 
 #' (Accessed through Biodiversity Information Serving our Nation (BISON), bison.usgs.ornl.gov, 
 #' 2013-04-22).
+#' @name rbison-package
+#' @aliases rbison
+#' @docType package
+#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @keywords package
+NULL
 
 #' Fips codes for states and counties
 #' @name fips

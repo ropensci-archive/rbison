@@ -1,3 +1,20 @@
+taxize 0.3.0
+===============
+
+NEW FEATURES
+
+* Added a vignette.
+* bison() function gains "what" parameter, to allow selection of the type of data to get back. All data is returned from the API (As there is no way to select subsets of data), but the what parameter lets you discard the things you don't want, saving on memory.
+* bison() function gains "callopts" parameter to pass on curl options to httr::GET
+* bison() function gains "itis" parameter. Setting to TRUE allows searches on ITIS taxonomic serial numbers (TSNs)
+* bison() function gains "tsn" parameter. Specify a 
+* New function bison_providers() to get metadata on data providers to BISON. 
+
+MINOR IMPROVEMENTS
+
+* bison_data() function removed. This function was used to get data back from a call to bison() or bison_solr(). Now those two functions simply give the data back immediately. 
+* A startup message added.
+
 taxize 0.2.4
 ===============
 
