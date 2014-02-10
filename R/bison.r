@@ -74,7 +74,7 @@
 #' bison(species="Helianthus annuus", aoibbox = '-111.31,38.81,-110.57,39.21')
 #' }
 
-bison <- function(species, type="scientific_name", itis=FALSE, tsn=NULL, start=NULL, count=10,
+bison <- function(species=NULL, type="scientific_name", itis=FALSE, tsn=NULL, start=NULL, count=10,
                   countyFips=NULL, county=NULL, state=NULL, aoi=NULL, aoibbox=NULL,
                   what='all', callopts=list())
 {

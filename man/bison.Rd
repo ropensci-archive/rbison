@@ -2,10 +2,10 @@
 \alias{bison}
 \title{Search for and collect data from the USGS Bison API.}
 \usage{
-bison(species, type = "scientific_name", itis = FALSE, tsn = NULL,
-  start = NULL, count = 10, countyFips = NULL, county = NULL,
-  state = NULL, aoi = NULL, aoibbox = NULL, what = "all",
-  callopts = list())
+bison(species = NULL, type = "scientific_name", itis = FALSE,
+  tsn = NULL, start = NULL, count = 10, countyFips = NULL,
+  county = NULL, state = NULL, aoi = NULL, aoibbox = NULL,
+  what = "all", callopts = list())
 }
 \arguments{
   \item{species}{(required) A species name. (character)}
