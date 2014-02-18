@@ -60,7 +60,7 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
         geom_path(data = states, colour = "grey", size = .4) +
         theme_bw(base_size=14) +
         labs(x="", y="") +
-        blanktheme() +
+        bison_blanktheme() +
         scale_x_continuous(expand=c(0,0)) + 
         scale_y_continuous(expand=c(0,0)) +
         theme(legend.position = "top") +
@@ -83,7 +83,7 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
           geom_path(data = states, colour = "grey", size = .4) +
           theme_bw(base_size=14) +
           labs(x="", y="") +
-          blanktheme() +
+          bison_blanktheme() +
           scale_x_continuous(expand=c(0,0)) + 
           scale_y_continuous(expand=c(0,0)) +
           theme(legend.position = "top") +

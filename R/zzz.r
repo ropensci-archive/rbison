@@ -11,7 +11,7 @@ is.bison_solr <- function(x) inherits(x, "bison_solr")
 #' Custom ggplot2 theme
 #' @export
 #' @keywords internal
-blanktheme <- function(){
+bison_blanktheme <- function(){
   theme(axis.line=element_blank(),
         axis.text.x=element_blank(),
         axis.text.y=element_blank(),
@@ -59,7 +59,7 @@ bison_map_maker <- function(x, geom, jitter, customize)
     p <- ggplot() +
       geom_polygon(aes(x=long, y=lat, group = group), colour = "black", fill = NA, size = 0.25) +
       coord_map(projection="azequalarea") +
-      blanktheme()
+      bison_blanktheme()
     p %+% droplevels(subset(all_states, id != "Alaska" & id != "Hawaii")) +
       geom_point(data=droplevels(tt_contig), aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter) +
       scale_x_continuous(expand=c(0,0)) + scale_y_continuous(expand=c(0,0))
@@ -79,7 +79,7 @@ bison_map_maker <- function(x, geom, jitter, customize)
         coord_map(projection="azequalarea") +
         scale_x_continuous(expand=c(0,0)) +
         scale_y_continuous(expand=c(0,0)) +
-        blanktheme()
+        bison_blanktheme()
       AK <- p %+% subset(all_states, id == "Alaska") + 
         theme(legend.position = "none") +
         geom_point(data=tt_AK, aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter)
@@ -110,7 +110,7 @@ bison_map_maker <- function(x, geom, jitter, customize)
         #           coord_map(projection="mollweide") +
         geom_point(data=tt, aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter) +
         labs(x="", y="") +
-        blanktheme() +
+        bison_blanktheme() +
         customize
     }
 }

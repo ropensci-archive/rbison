@@ -1,8 +1,8 @@
-\name{blanktheme}
-\alias{blanktheme}
+\name{bison_blanktheme}
+\alias{bison_blanktheme}
 \title{Custom ggplot2 theme}
 \usage{
-blanktheme()
+bison_blanktheme()
 }
 \description{
 Custom ggplot2 theme
