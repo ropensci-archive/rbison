@@ -1,3 +1,10 @@
+taxize 0.3.2
+===============
+
+BUG FIXES
+
+* Changed blanktheme() function to bison_blanktheme() to avoid namespace conflicts with the rgbif package.
+
 taxize 0.3.0
 ===============
 
