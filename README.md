@@ -1,7 +1,9 @@
 rbison
 ======
 
-Wrapper to the USGS Bison API. 
+[![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)
+
+Wrapper to the USGS Bison API.
 
 ### Info
 
@@ -59,7 +61,7 @@ bisonmap(out)
 Some of your points are outside the US. Make sure the data is correct
 ```
 
-![plot of chunk unnamed-chunk-5](inst/assets/img/unnamed-chunk-5.png) 
+![plot of chunk unnamed-chunk-5](inst/assets/img/unnamed-chunk-5.png)
 
 
 
@@ -89,7 +91,7 @@ out$summary
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-8](inst/assets/img/unnamed-chunk-8.png) 
+![plot of chunk unnamed-chunk-8](inst/assets/img/unnamed-chunk-8.png)
 
 
 ####  All points within the contiguous 48 states
@@ -118,27 +120,27 @@ out$summary
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-11](inst/assets/img/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-11](inst/assets/img/unnamed-chunk-11.png)
 
 
 
 ####  With any data returned from a `bison` call, you can choose to plot county or state level data
-##### Counties - using last data call for Aquila 
+##### Counties - using last data call for Aquila
 
 ```coffee
 bisonmap(out, tomap = "county")
 ```
 
-![plot of chunk unnamed-chunk-12](inst/assets/img/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-12](inst/assets/img/unnamed-chunk-12.png)
 
 
-##### States - using last data call for Aquila 
+##### States - using last data call for Aquila
 
 ```coffee
 bisonmap(out, tomap = "state")
 ```
 
-![plot of chunk unnamed-chunk-13](inst/assets/img/unnamed-chunk-13.png) 
+![plot of chunk unnamed-chunk-13](inst/assets/img/unnamed-chunk-13.png)
 
 
 
@@ -339,7 +341,7 @@ out <- bison_solr(scientific_name = "Ursus americanus", rows = 200)
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-18](inst/assets/img/unnamed-chunk-18.png) 
+![plot of chunk unnamed-chunk-18](inst/assets/img/unnamed-chunk-18.png)
 
 
 ## Meta
