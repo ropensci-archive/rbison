@@ -1,6 +1,6 @@
 #' Search for and collect data from the USGS Bison API.
 #' 
-#' @import httr rjson assertthat
+#' @import httr jsonlite assertthat
 #' @importFrom plyr compact ldply
 #' @export
 #' 

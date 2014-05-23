@@ -1,7 +1,9 @@
-#' Get information about .
+#' Get information about BISON data providers.
 #' 
 #' @import httr
 #' @importFrom plyr rbind.fill
+#' @export
+#' 
 #' @param details (logical) If TRUE, returns a list of data.frame's for each
 #' provider, including their resource details. If FALSE (default), only coarse
 #' grained data returned.
@@ -9,7 +11,7 @@
 #' details is forced to be FALSE. 
 #' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting.
 #' @return A data.frame or list of data.frame's
-#' @export
+#' 
 #' @examples \dontrun{
 #' bison_providers()
 #' bison_providers(details=TRUE)

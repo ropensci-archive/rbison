@@ -25,7 +25,7 @@ Imports:
     maptools,
     sp,
     data.table,
-    rjson,
+    jsonlite,
     assertthat
 Suggests:
     knitr,

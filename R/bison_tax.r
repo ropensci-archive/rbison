@@ -5,6 +5,7 @@
 #' 
 #' @import httr data.table
 #' @importFrom plyr compact
+#' @export
 #' @param query Name to search for. If left blank, the first ten results are returned
 #' using a more or less random search.
 #' @param method The field to query by. See description below for details.
@@ -43,7 +44,7 @@
 #' ## Return certain fields
 #' bison_tax(query="*bear", method="vernacularName", fl='vernacularName')
 #' }
-#' @export
+
 bison_tax <- function(query=NULL, method='vernacularName', exact=FALSE, parsed=TRUE, ...)
 {
   method <- match.arg(method, choices=c('vernacularName','scientificName'))

@@ -5,8 +5,9 @@
 #' of the OpenSearch interface at \url{http://bison.usgs.ornl.gov/api/search}, which 
 #' \code{\link{bison}} uses.
 #' 
-#' @import httr
+#' @import httr jsonlite
 #' @importFrom plyr compact
+#' @export
 #' @param decimalLatitude Geographic coordinate that specifies the north south position 
 #' of a location on the Earth surface.
 #' @param decimalLongitude	Geographic coordinate that specifies the east-west position 
@@ -50,7 +51,7 @@
 #' 
 #' For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 #' @seealso \code{\link{bison_tax}} \code{\link{bison}}
-#' @export
+#' 
 #' @examples \dontrun{
 #' bison_solr(scientificName='Ursus americanus')
 #' 
@@ -132,7 +133,7 @@ bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
 
 solr_parse_facets <- function(input, parsetype=NULL, concat=',')
 {
-  input <- rjson::fromJSON(input)
+  input <- fromJSON(input, simplifyVector = FALSE)
   
   # Facet queries
   fqdat <- input$facet_counts$facet_queries
@@ -186,7 +187,7 @@ solr_parse_facets <- function(input, parsetype=NULL, concat=',')
 
 solr_parse_highlight <- function(input, parsetype='list', concat=',')
 {
-  input <- rjson::fromJSON(input)
+  input <- fromJSON(input, simplifyVector = FALSE)
   if(parsetype=='df'){
     dat <- input$highlight
     #       highout <- data.frame(term=names(dat), value=do.call(c, dat), stringsAsFactors=FALSE)
@@ -202,7 +203,7 @@ solr_parse_highlight <- function(input, parsetype='list', concat=',')
 
 solr_parse_search <- function(input, parsetype='list', concat=',')
 {
-  input <- rjson::fromJSON(input)
+  input <- fromJSON(input, simplifyVector = FALSE)
   if(parsetype=='df'){
     dat <- input$response$docs
     dat2 <- lapply(dat, function(x){
