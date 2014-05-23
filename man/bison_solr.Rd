@@ -111,6 +111,9 @@ bison_solr(hierarchy_homonym_string = '-202423-914154-914156-158852-')
 ## -- This is a bit unwieldy, but you can find this string in the output of a call, like this
 (string <- bison_solr(scientificName='Ursus americanus', rows=1)$points$hierarchy_homonym_string)
 bison_solr(hierarchy_homonym_string = string)
+
+# The pointPath parameter
+bison_solr(pointPath = '/-110.0,45.0/specimen')
 }
 }
 \seealso{

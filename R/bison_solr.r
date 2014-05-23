@@ -82,6 +82,9 @@
 #' ## -- This is a bit unwieldy, but you can find this string in the output of a call, like this
 #' (string <- bison_solr(scientificName='Ursus americanus', rows=1)$points$hierarchy_homonym_string)
 #' bison_solr(hierarchy_homonym_string = string)
+#' 
+#' # The pointPath parameter
+#' bison_solr(pointPath = '/-110.0,45.0/specimen')
 #' }
 
 bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
