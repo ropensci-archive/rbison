@@ -114,3 +114,9 @@ bison_map_maker <- function(x, geom, jitter, customize)
         customize
     }
 }
+
+#' compact for bison
+#' 
+#' @export
+#' @param l List input
+bs_compact <- function (l) Filter(Negate(is.null), l)

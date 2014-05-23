@@ -2,10 +2,14 @@
 #' 
 #' @import httr rjson
 #' @importFrom plyr compact ldply
-#' @param species (required) A species name. (character)
+#' @export
+#' 
+#' @param species (character) A species name.
 #' @param type (character) Type, one of scientific_name or common_name.
 #' @param itis (logical) If TRUE, ITIS search is enabled. If FALSE (default), not enabled.
-#' @param tsn (numeric) Specifies the TSN to query by. Example:162003
+#' @param tsn (numeric) Specifies the TSN to query by. If you provide a tsn, itis param is forced 
+#' to be TRUE. If you supply a tsn it doesn't make sense ot supply a species name as well. 
+#' Example:162003. 
 #' @param start (numeric) Record to start at.
 #' @param count (numeric) Number of records to return.
 #' @param countyFips (character) Specifies the county fips code to geographically constrain 
@@ -34,8 +38,9 @@
 #'    you select just the parts you want, and the rest is discarded before returning the 
 #'    result to you. 
 #' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting.
+#' 
 #' @seealso \code{\link{bison_solr}} \code{\link{bison_tax}}
-#' @export
+#' 
 #' @examples \dontrun{
 #' bison(species="Bison bison", count=50, what='summary')
 #' bison(species="Bison bison", count=50, what='points')
@@ -72,12 +77,24 @@
 #' 
 #' # Constrain search to a certain aoibbox, which, you guessed it, is also Emery Co., Utah
 #' bison(species="Helianthus annuus", aoibbox = '-111.31,38.81,-110.57,39.21')
+#' 
+#' # Taxonomic serial number 
+#' bison(tsn=162003)
+#' ## If you don't have tsn's, search for a taxonomic serial number
+#' library('taxize')
+#' poa_tsn <- get_tsn('Poa annua')
+#' bison(tsn=poa_tsn)
+#' 
+#' # Curl debugging
+#' bison(tsn=162003, callopts=verbose(), count=1, what="points")
 #' }
 
 bison <- function(species=NULL, type="scientific_name", itis=FALSE, tsn=NULL, start=NULL, count=10,
-                  countyFips=NULL, county=NULL, state=NULL, aoi=NULL, aoibbox=NULL,
-                  what='all', callopts=list())
+  countyFips=NULL, county=NULL, state=NULL, aoi=NULL, aoibbox=NULL, what='all', callopts=list())
 {
+  assert_that(is.numeric(count))
+  assert_that(count >= 0)
+  
   if(!is.null(county)){
     numbs <- fips[grep(county, fips$county),]
     if(nrow(numbs) > 1){
@@ -103,34 +120,34 @@ bison <- function(species=NULL, type="scientific_name", itis=FALSE, tsn=NULL, st
       { stop("a problem occurred...") }
   }
   
-  if(itis){ 
-    itis <- 'itis' 
-    if(is.null(tsn)){
-      stop("If itis=TRUE, you must supply a tsn")
-    }
-  } else 
-  { 
-    itis <- tsn <- NULL
-  }
+  if(itis) itis <- 'itis'
+  if(!is.null(tsn)) itis <- 'itis'
   
-#   url <- "http://bison.usgs.ornl.gov/api/search"
   url <- "http://bison.usgs.ornl.gov/api/search.json"
-  args <- compact(list(species=species,type=type,itis=itis,tsn=tsn,start=start,count=count,
+  args <- bs_compact(list(species=species,type=type,itis=itis,tsn=tsn,start=start,count=count,
                        countyFips=countyFips,state=state,aoi=aoi,aoibbox=aoibbox))
   tt <- GET(url, query=args, callopts)
-  stop_for_status(tt)
-  out <- content(tt, as="text")
-#   class(out) <- "bison"
-  what <- match.arg(what, choices=c("summary", "counties", "states", "points", "all", "raw", "list"))
-  res <- switch(what,
-    summary=bison_data(fromJSON(out), "summary"),
-    all=bison_data(fromJSON(out), "all"),
-    counties=bison_data(fromJSON(out), "counties"),
-    states=bison_data(fromJSON(out), "states"),
-    points=bison_data(fromJSON(out), "points"),
-    raw=out,
-    list=fromJSON(out)
-  )
+  warn_for_status(tt)
+  if(tt$status_code > 201){
+    assert_that(tt$headers$`content-type` == "text/html;charset=utf-8")
+  } else {
+    assert_that(tt$headers$`content-type` == "application/json;charset=UTF-8")    
+  }
+  if(tt$status_code > 201){
+    res <- NA
+  } else {
+    out <- content(tt, as="text")
+    what <- match.arg(what, choices=c("summary", "counties", "states", "points", "all", "raw", "list"))
+    res <- switch(what,
+                  summary=bison_data(fromJSON(out), "summary"),
+                  all=bison_data(fromJSON(out), "all"),
+                  counties=bison_data(fromJSON(out), "counties"),
+                  states=bison_data(fromJSON(out), "states"),
+                  points=bison_data(fromJSON(out), "points"),
+                  raw=out,
+                  list=fromJSON(out)
+    )
+  }
   class(res) <- "bison"
   return( res )
 }

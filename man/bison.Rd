@@ -9,13 +9,15 @@ bison(species = NULL, type = "scientific_name", itis = FALSE,
   what = "all", callopts = list())
 }
 \arguments{
-\item{species}{(required) A species name. (character)}
+\item{species}{(character) A species name.}
 
 \item{type}{(character) Type, one of scientific_name or common_name.}
 
 \item{itis}{(logical) If TRUE, ITIS search is enabled. If FALSE (default), not enabled.}
 
-\item{tsn}{(numeric) Specifies the TSN to query by. Example:162003}
+\item{tsn}{(numeric) Specifies the TSN to query by. If you provide a tsn, itis param is forced
+to be TRUE. If you supply a tsn it doesn't make sense ot supply a species name as well.
+Example:162003.}
 
 \item{start}{(numeric) Record to start at.}
 
@@ -94,6 +96,16 @@ bison(species="Helianthus annuus",
 
 # Constrain search to a certain aoibbox, which, you guessed it, is also Emery Co., Utah
 bison(species="Helianthus annuus", aoibbox = '-111.31,38.81,-110.57,39.21')
+
+# Taxonomic serial number
+bison(tsn=162003)
+## If you don't have tsn's, search for a taxonomic serial number
+library('taxize')
+poa_tsn <- get_tsn('Poa annua')
+bison(tsn=poa_tsn)
+
+# Curl debugging
+bison(tsn=162003, callopts=verbose(), count=1, what="points")
 }
 }
 \seealso{
