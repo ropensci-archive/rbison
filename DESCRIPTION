@@ -25,7 +25,8 @@ Imports:
     maptools,
     sp,
     data.table,
-    rjson
+    rjson,
+    assertthat
 Suggests:
     knitr,
     testthat

@@ -1,15 +1,13 @@
 #' Search for and collect data from the USGS Bison API.
 #' 
-#' @import httr rjson
+#' @import httr rjson assertthat
 #' @importFrom plyr compact ldply
 #' @export
 #' 
 #' @param species (character) A species name.
 #' @param type (character) Type, one of scientific_name or common_name.
-#' @param itis (logical) If TRUE, ITIS search is enabled. If FALSE (default), not enabled.
-#' @param tsn (numeric) Specifies the TSN to query by. If you provide a tsn, itis param is forced 
-#' to be TRUE. If you supply a tsn it doesn't make sense ot supply a species name as well. 
-#' Example:162003. 
+#' @param tsn (numeric) Specifies the TSN to query by. If you supply a tsn it doesn't make sense to 
+#' supply a species name as well. Example:162003. 
 #' @param start (numeric) Record to start at.
 #' @param count (numeric) Number of records to return.
 #' @param countyFips (character) Specifies the county fips code to geographically constrain 
@@ -87,13 +85,34 @@
 #' 
 #' # Curl debugging
 #' bison(tsn=162003, callopts=verbose(), count=1, what="points")
+#' 
+#' # Params - the params function accepts a number of search terms
+#' ## Find the provider with ID 318. 
+#' bison(params='BISONProviderID:("318")')
+#' ## Find all resources with id of '318,1902' OR '318,9151', with values separated by spaces.
+#' bison(params='BISONResourceID:("318,1902" "318,9151" )')
+#' ## Criterion may be combined using the semicolon (';') character, which translates to a logical 
+#' ## AND operator. Note that field names and values are case sensitive. 
+#' bison(params='BISONProviderID:("408" "432");BISONResourceID("14027")')
+#' ## Search by basisOfRecord, for specimen types in this case
+#' bison(params='basisOfRecord:(specimen)')
+#' ## Search by computedStateFips, 01 for Alabama
+#' bison(params='computedStateFips:01')
+#' ## Search by hierarchy_homonym_string
+#' bison(params='hierarchy_homonym_string:202423;914154;914156;158852')
+#' ## Search by collector or occurrenceID or TSNs - none of these seem to work
 #' }
 
-bison <- function(species=NULL, type="scientific_name", itis=FALSE, tsn=NULL, start=NULL, count=10,
-  countyFips=NULL, county=NULL, state=NULL, aoi=NULL, aoibbox=NULL, what='all', callopts=list())
+bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, count=10,
+  countyFips=NULL, county=NULL, state=NULL, aoi=NULL, aoibbox=NULL, params=NULL, 
+  what='all', callopts=list())
 {
   assert_that(is.numeric(count))
   assert_that(count >= 0)
+  
+  if(is.null(species)){
+    count <- type <- NULL
+  }
   
   if(!is.null(county)){
     numbs <- fips[grep(county, fips$county),]
@@ -120,12 +139,15 @@ bison <- function(species=NULL, type="scientific_name", itis=FALSE, tsn=NULL, st
       { stop("a problem occurred...") }
   }
   
-  if(itis) itis <- 'itis'
-  if(!is.null(tsn)) itis <- 'itis'
+  if(!is.null(tsn)){
+    itis <- 'itis'
+    tsn <- as.numeric(as.character(tsn))
+    assert_that(is.numeric(tsn))
+  } else { itis <- NULL }
   
   url <- "http://bison.usgs.ornl.gov/api/search.json"
   args <- bs_compact(list(species=species,type=type,itis=itis,tsn=tsn,start=start,count=count,
-                       countyFips=countyFips,state=state,aoi=aoi,aoibbox=aoibbox))
+                       countyFips=countyFips,state=state,aoi=aoi,aoibbox=aoibbox,params=params))
   tt <- GET(url, query=args, callopts)
   warn_for_status(tt)
   if(tt$status_code > 201){

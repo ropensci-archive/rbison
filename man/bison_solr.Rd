@@ -105,6 +105,12 @@ bison_solr(scientificName='Helianthus annuus', rows=0, facet='true',
 ## Highlighting
 bison_solr(scientificName='Helianthus annuus', rows=10, hl='true',
  hl.fl='scientificName')
+
+## Use of hierarchy_homonym_string
+bison_solr(hierarchy_homonym_string = '-202423-914154-914156-158852-')
+## -- This is a bit unwieldy, but you can find this string in the output of a call, like this
+(string <- bison_solr(scientificName='Ursus americanus', rows=1)$points$hierarchy_homonym_string)
+bison_solr(hierarchy_homonym_string = string)
 }
 }
 \seealso{
