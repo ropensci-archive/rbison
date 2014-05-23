@@ -23,9 +23,10 @@ Get information about BISON data providers.
 }
 \examples{
 \dontrun{
-bison_providers()
-bison_providers(details=TRUE)
-bison_providers(provider_no=131)
+head(bison_providers())
+head(bison_providers(provider_no=131))
+out <- bison_providers(details=TRUE)
+out$National_Herbarium_of_New_South_Wales
 }
 }
 
