@@ -8,6 +8,4 @@ inst/stuff
 inst/assets
 inst/vign
 vignettes/margins.sty
-tests/test-all.R
-.watsonrc
 readme.Rmd

@@ -35,6 +35,8 @@
 #' @param occurrenceID Non-persistent unique identifier.
 #' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting.
 #' @param ... Additional SOLR query arguments. See details.
+#' @param verbose Print message with url (TRUE, default).
+#' 
 #' @return An object of class bison_solr - which is a list with slots for number of 
 #' records found (num_found), records, highlight, or facets.
 #' @details Some SOLR search parameters:
@@ -92,7 +94,7 @@ bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
   basisOfRecord=NULL,occurrence_date=NULL,computedCountyFips=NULL,
   computedStateFips=NULL,scientificName=NULL, 
   hierarchy_homonym_string=NULL, TSNs=NULL, collector=NULL, occurrenceID=NULL, 
-  callopts=list(), ...)
+  callopts=list(), verbose=TRUE, ...)
 {
   url <- "http://bisonapi.usgs.ornl.gov/solr/occurrences/select/"
   qu <- bs_compact(list(decimalLatitude=decimalLatitude,
@@ -120,7 +122,7 @@ bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
   args <- compact(list(q=stuff, wt="json", ...))
     
   tt <- GET(url, query=args, callopts)
-  message(tt$url)
+  mssg(verbose, tt$url)
   stop_for_status(tt)
   out <- content(tt, as="text")
   

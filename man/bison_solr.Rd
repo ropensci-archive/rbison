@@ -8,7 +8,7 @@ bison_solr(decimalLatitude = NULL, decimalLongitude = NULL, year = NULL,
   basisOfRecord = NULL, occurrence_date = NULL, computedCountyFips = NULL,
   computedStateFips = NULL, scientificName = NULL,
   hierarchy_homonym_string = NULL, TSNs = NULL, collector = NULL,
-  occurrenceID = NULL, callopts = list(), ...)
+  occurrenceID = NULL, callopts = list(), verbose = TRUE, ...)
 }
 \arguments{
 \item{decimalLatitude}{Geographic coordinate that specifies the north south position
@@ -54,6 +54,8 @@ than one TSN is provided.}
 \item{callopts}{Further args passed on to httr::GET for HTTP debugging/inspecting.}
 
 \item{...}{Additional SOLR query arguments. See details.}
+
+\item{verbose}{Print message with url (TRUE, default).}
 }
 \value{
 An object of class bison_solr - which is a list with slots for number of

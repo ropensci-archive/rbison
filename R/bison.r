@@ -31,6 +31,8 @@
 #' @param aoibbox Specifies a four-sided bounding box to geographically constrain 
 #'    the search (using format: minx,miny,maxx,maxy). The coordinates are Spherical 
 #'    Mercator with a datum of WGS84. Example: -111.31,38.81,-110.57,39.21 (character)
+#' @param params (character) String of parameters, one of BISONProviderID, BISONResourceID,
+#'    basisOfRecord, computedStateFips, hierarchy_homonym_string. See examples.
 #' @param what What to return?  One of 'all', 'summary', 'points', 'counties', 'states', 
 #'    'raw', or 'list'. All data is returned from the BISON API, but this parameter lets
 #'    you select just the parts you want, and the rest is discarded before returning the 
@@ -161,13 +163,13 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, co
     out <- content(tt, as="text")
     what <- match.arg(what, choices=c("summary", "counties", "states", "points", "all", "raw", "list"))
     res <- switch(what,
-                  summary=bison_data(fromJSON(out), "summary"),
-                  all=bison_data(fromJSON(out), "all"),
-                  counties=bison_data(fromJSON(out), "counties"),
-                  states=bison_data(fromJSON(out), "states"),
-                  points=bison_data(fromJSON(out), "points"),
+                  summary=bison_data(fromJSON(out, FALSE), "summary"),
+                  all=bison_data(fromJSON(out, FALSE), "all"),
+                  counties=bison_data(fromJSON(out, FALSE), "counties"),
+                  states=bison_data(fromJSON(out, FALSE), "states"),
+                  points=bison_data(fromJSON(out, FALSE), "points"),
                   raw=out,
-                  list=fromJSON(out)
+                  list=fromJSON(out, FALSE)
     )
   }
   class(res) <- "bison"

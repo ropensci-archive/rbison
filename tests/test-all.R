@@ -1,2 +1,2 @@
-library(testthat)
-test_package("rbison")
+library("testthat")
+test_check("rbison")

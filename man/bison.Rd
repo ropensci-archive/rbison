@@ -46,6 +46,9 @@ look at the options, terminology, etc. (character)}
 the search (using format: minx,miny,maxx,maxy). The coordinates are Spherical
 Mercator with a datum of WGS84. Example: -111.31,38.81,-110.57,39.21 (character)}
 
+\item{params}{(character) String of parameters, one of BISONProviderID, BISONResourceID,
+basisOfRecord, computedStateFips, hierarchy_homonym_string. See examples.}
+
 \item{what}{What to return?  One of 'all', 'summary', 'points', 'counties', 'states',
 'raw', or 'list'. All data is returned from the BISON API, but this parameter lets
 you select just the parts you want, and the rest is discarded before returning the
