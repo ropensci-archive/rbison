@@ -3,12 +3,12 @@
 \alias{bison_stats}
 \title{Get statistics about BISON downloads.}
 \usage{
-bison_stats(what = "stats", callopts = list())
+bison_stats(what = "stats", ...)
 }
 \arguments{
 \item{what}{(character) One of stats (default), search, downnload, or wms. See Details.}
 
-\item{callopts}{Further args passed on to httr::GET for HTTP debugging/inspecting.}
+\item{...}{Further args passed on to httr::GET. See examples in \code{bison}}
 }
 \value{
 A list of data frame's with names of the list the different data sources

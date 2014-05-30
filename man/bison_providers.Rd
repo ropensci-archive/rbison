@@ -3,7 +3,7 @@
 \alias{bison_providers}
 \title{Get information about BISON data providers.}
 \usage{
-bison_providers(details = FALSE, provider_no = NULL, callopts = list())
+bison_providers(details = FALSE, provider_no = NULL, ...)
 }
 \arguments{
 \item{details}{(logical) If TRUE, returns a list of data.frame's for each
@@ -13,7 +13,7 @@ grained data returned.}
 \item{provider_no}{(numeric) Provider number. If this parameter is provided,
 details is forced to be FALSE.}
 
-\item{callopts}{Further args passed on to httr::GET for HTTP debugging/inspecting.}
+\item{...}{Further args passed on to httr::GET. See examples in \code{bison}}
 }
 \value{
 A data.frame or list of data.frame's

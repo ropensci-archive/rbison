@@ -4,7 +4,7 @@
 #' @export
 #' 
 #' @param what (character) One of stats (default), search, downnload, or wms. See Details.
-#' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting.
+#' @param ... Further args passed on to httr::GET. See examples in \code{bison}
 #' @return A list of data frame's with names of the list the different data sources
 #' 
 #' @details
@@ -26,7 +26,7 @@
 #' out$ZooKeys
 #' }
 
-bison_stats <- function(what='stats', callopts=list())
+bison_stats <- function(what='stats', ...)
 {
   what <- match.arg(what, c('stats','search','download','wms'))
   pick <- switch(what, stats='all', search='search', download='download', wms='wms')
@@ -36,7 +36,7 @@ bison_stats <- function(what='stats', callopts=list())
                 download = 'http://bison.usgs.ornl.gov/api/statistics/download',
                 wms = 'http://bison.usgs.ornl.gov/api/statistics/wms')
   
-  out <- GET(url, callopts)
+  out <- GET(url, ...)
   stop_for_status(out)
   tt <- content(out, as = "text")
   res <- fromJSON(tt, simplifyVector = FALSE)
