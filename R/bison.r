@@ -37,7 +37,7 @@
 #'    'raw', or 'list'. All data is returned from the BISON API, but this parameter lets
 #'    you select just the parts you want, and the rest is discarded before returning the 
 #'    result to you. 
-#' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting.
+#' @param ... Further args passed on to httr::GET. See examples.
 #' 
 #' @seealso \code{\link{bison_solr}} \code{\link{bison_tax}}
 #' 
@@ -65,6 +65,7 @@
 #' 
 #' # Constrain search to a certain county, specifying county name instead of code
 #' bison(species="Helianthus annuus", county = "Los Angeles")
+#' bison(species="Helianthus annuus", county = "Los")
 #' 
 #' # Constrain search to a certain aoi, which turns out to be Emery County, Utah as well
 #' bison(species="Helianthus annuus", 
@@ -85,8 +86,18 @@
 #' poa_tsn <- get_tsn('Poa annua')
 #' bison(tsn=poa_tsn)
 #' 
-#' # Curl debugging
-#' bison(tsn=162003, callopts=verbose(), count=1, what="points")
+#' # Curl debugging and other httr options, some of these examples aren't that useful, but 
+#' # are given for demonstration purposes
+#' library("httr")
+#' ## get curl verbose output to see what's going on with your request
+#' bison(tsn=162003, count=1, what="points", config=verbose())
+#' ## set a timeout so that the call stops after time x, compare 1st to 2nd call
+#' bison(tsn=162003, count=1, what="points", config=timeout(seconds=1))
+#' bison(tsn=162003, count=1, what="points", config=timeout(seconds=0.1))
+#' ## set cookies
+#' bison(tsn=162003, count=1, what="points", config=set_cookies(a = 1, b = 2))
+#' ## set cookies
+#' bison(tsn=162003, count=1, what="points", config=user_agent("rbison"))
 #' 
 #' # Params - the params function accepts a number of search terms
 #' ## Find the provider with ID 318. 
@@ -107,39 +118,16 @@
 
 bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, count=10,
   countyFips=NULL, county=NULL, state=NULL, aoi=NULL, aoibbox=NULL, params=NULL, 
-  what='all', callopts=list())
+  what='all', ...)
 {
   assert_that(is.numeric(count))
   assert_that(count >= 0)
   
   if(is.null(species)){
-    count <- type <- NULL
+    type <- NULL
   }
   
-  if(!is.null(county)){
-    numbs <- fips[grep(county, fips$county),]
-    if(nrow(numbs) > 1){
-      message("\n\n")
-      print(numbs)
-      message("\nMore than one matching county found '", county, "'!\nEnter row number of county you want (other inputs will return 'NA'):\n") # prompt
-      take <- scan(n = 1, quiet = TRUE, what = 'raw')
-      
-      if(length(take) == 0)
-        take <- 'notake'
-      if(take %in% seq_len(nrow(numbs))){
-        take <- as.numeric(take)
-        message("Input accepted, took county '", as.character(numbs[take, "county"]), "'.\n")
-        countyFips <- paste0(numbs[take, c("fips_state","fips_county")],collapse="")
-      } else {
-        countyFips <- NA
-        message("\nReturned 'NA'!\n\n")
-      }
-    } else
-      if(nrow(numbs) == 1){
-        countyFips <- paste0(numbs[, c("fips_state","fips_county")],collapse="")
-      } else
-      { stop("a problem occurred...") }
-  }
+  countyFips <- county_handler(county)
   
   if(!is.null(tsn)){
     itis <- 'itis'
@@ -150,7 +138,7 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, co
   url <- "http://bison.usgs.ornl.gov/api/search.json"
   args <- bs_compact(list(species=species,type=type,itis=itis,tsn=tsn,start=start,count=count,
                        countyFips=countyFips,state=state,aoi=aoi,aoibbox=aoibbox,params=params))
-  tt <- GET(url, query=args, callopts)
+  tt <- GET(url, query=args, ...)
   warn_for_status(tt)
   if(tt$status_code > 201){
     assert_that(tt$headers$`content-type` == "text/html;charset=utf-8")
@@ -232,4 +220,32 @@ getpoints <- function(x){
     data_out$decimalLatitude <- as.numeric(as.character(data_out$decimalLatitude))
     return(data_out) 
   }
+}
+
+county_handler <- function(x){
+  if(!is.null(x)){
+    numbs <- fips[grep(x, fips$county),]
+    if(nrow(numbs) > 1){
+      message("\n\n")
+      print(numbs)
+      message("\nMore than one matching county found '", x, "'!\nEnter row number of county you want (other inputs will return 'NA'):\n") # prompt
+      take <- scan(n = 1, quiet = TRUE, what = 'raw')
+      
+      if(length(take) == 0)
+        take <- 'notake'
+      if(take %in% seq_len(nrow(numbs))){
+        take <- as.numeric(take)
+        message("Input accepted, took county '", as.character(numbs[take, "county"]), "'.\n")
+        countyFips <- paste0(numbs[take, c("fips_state","fips_county")],collapse="")
+      } else {
+        countyFips <- NA
+        message("\nReturned 'NA'!\n\n")
+      }
+    } else
+      if(nrow(numbs) == 1){
+        countyFips <- paste0(numbs[, c("fips_state","fips_county")],collapse="")
+      } else
+      { stop("a problem occurred finding the countyFips...") }
+  } else { countyFips <- NULL }
+  return( countyFips )
 }

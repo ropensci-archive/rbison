@@ -6,7 +6,7 @@
 bison(species = NULL, type = "scientific_name", tsn = NULL,
   start = NULL, count = 10, countyFips = NULL, county = NULL,
   state = NULL, aoi = NULL, aoibbox = NULL, params = NULL,
-  what = "all", callopts = list())
+  what = "all", ...)
 }
 \arguments{
 \item{species}{(character) A species name.}
@@ -54,7 +54,7 @@ basisOfRecord, computedStateFips, hierarchy_homonym_string. See examples.}
 you select just the parts you want, and the rest is discarded before returning the
 result to you.}
 
-\item{callopts}{Further args passed on to httr::GET for HTTP debugging/inspecting.}
+\item{...}{Further args passed on to httr::GET. See examples.}
 }
 \description{
 Search for and collect data from the USGS Bison API.
@@ -84,6 +84,7 @@ bison(species="Helianthus annuus", countyFips = "49015")
 
 # Constrain search to a certain county, specifying county name instead of code
 bison(species="Helianthus annuus", county = "Los Angeles")
+bison(species="Helianthus annuus", county = "Los")
 
 # Constrain search to a certain aoi, which turns out to be Emery County, Utah as well
 bison(species="Helianthus annuus",
@@ -104,8 +105,18 @@ library('taxize')
 poa_tsn <- get_tsn('Poa annua')
 bison(tsn=poa_tsn)
 
-# Curl debugging
-bison(tsn=162003, callopts=verbose(), count=1, what="points")
+# Curl debugging and other httr options, some of these examples aren't that useful, but
+# are given for demonstration purposes
+library("httr")
+## get curl verbose output to see what's going on with your request
+bison(tsn=162003, count=1, what="points", config=verbose())
+## set a timeout so that the call stops after time x, compare 1st to 2nd call
+bison(tsn=162003, count=1, what="points", config=timeout(seconds=1))
+bison(tsn=162003, count=1, what="points", config=timeout(seconds=0.1))
+## set cookies
+bison(tsn=162003, count=1, what="points", config=set_cookies(a = 1, b = 2))
+## set cookies
+bison(tsn=162003, count=1, what="points", config=user_agent("rbison"))
 
 # Params - the params function accepts a number of search terms
 ## Find the provider with ID 318.
