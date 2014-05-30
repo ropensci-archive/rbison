@@ -4,7 +4,7 @@
 \title{Search for and collect taxonomic name data from the USGS Bison API using solr.}
 \usage{
 bison_tax(query = NULL, method = "vernacularName", exact = FALSE,
-  parsed = TRUE, ...)
+  parsed = TRUE, callopts = list(), ...)
 }
 \arguments{
 \item{query}{Name to search for. If left blank, the first ten results are returned
@@ -16,6 +16,10 @@ using a more or less random search.}
 
 \item{parsed}{If TRUE (default) creates data.frame of names data output. Otherwise,
 a list.}
+
+\item{callopts}{Further args passed on to httr::GET for HTTP debugging/inspecting. In
+\code{bison}, \code{bison_providers}, and \code{bison_stats}, \code{...} is used instead of
+callopts, but \code{...} is used here to pass additional Solr params.}
 
 \item{...}{Further solr arguments passed in to the query. See examples below.}
 }
@@ -42,7 +46,6 @@ This fxn interacts with the SOLR interface for taxonomic names at
 \examples{
 \dontrun{
 # Some example calls
-bison_tax(query="bear", method='vernacularName')
 bison_tax(query="*bear")
 bison_tax(query="helianthus", method="scientificName")
 
@@ -56,6 +59,10 @@ bison_tax(query="*bear", exact=TRUE)
 bison_tax(query="*bear", method="vernacularName", rows=3)
 ## Return certain fields
 bison_tax(query="*bear", method="vernacularName", fl='vernacularName')
+
+# Curl options
+library("httr")
+bison_tax(query='*dolphin', callopts=verbose())
 }
 }
 \seealso{

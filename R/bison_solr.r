@@ -33,7 +33,9 @@
 #' than one TSN is provided.
 #' @param collector Individual responsible for the scientific record.
 #' @param occurrenceID Non-persistent unique identifier.
-#' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting.
+#' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting. In 
+#' \code{bison}, \code{bison_providers}, and \code{bison_stats}, \code{...} is used instead of 
+#' callopts, but \code{...} is used here to pass additional Solr params.
 #' @param ... Additional SOLR query arguments. See details.
 #' @param verbose Print message with url (TRUE, default).
 #' 
@@ -87,6 +89,10 @@
 #' 
 #' # The pointPath parameter
 #' bison_solr(pointPath = '/-110.0,45.0/specimen')
+#' 
+#' # Curl options
+#' library("httr")
+#' bison_solr(scientificName='Ursus americanus', callopts=verbose())
 #' }
 
 bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,

@@ -12,6 +12,9 @@
 #' @param exact Exact matching or not. See examples. Defaults to FALSE.
 #' @param parsed If TRUE (default) creates data.frame of names data output. Otherwise, 
 #' a list.
+#' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting. In 
+#' \code{bison}, \code{bison_providers}, and \code{bison_stats}, \code{...} is used instead of 
+#' callopts, but \code{...} is used here to pass additional Solr params.
 #' @param ... Further solr arguments passed in to the query. See examples below.
 #' @return A list.
 #' @description 
@@ -29,7 +32,6 @@
 #' @seealso \code{\link{bison_solr}} \code{\link{bison}}
 #' @examples \dontrun{
 #' # Some example calls
-#' bison_tax(query="bear", method='vernacularName')
 #' bison_tax(query="*bear")
 #' bison_tax(query="helianthus", method="scientificName")
 #' 
@@ -43,9 +45,14 @@
 #' bison_tax(query="*bear", method="vernacularName", rows=3)
 #' ## Return certain fields
 #' bison_tax(query="*bear", method="vernacularName", fl='vernacularName')
+#' 
+#' # Curl options
+#' library("httr")
+#' bison_tax(query='*dolphin', callopts=verbose())
 #' }
 
-bison_tax <- function(query=NULL, method='vernacularName', exact=FALSE, parsed=TRUE, ...)
+bison_tax <- function(query=NULL, method='vernacularName', exact=FALSE, parsed=TRUE, 
+  callopts=list(), ...)
 {
   method <- match.arg(method, choices=c('vernacularName','scientificName'))
   if(!length(method)==1)
@@ -53,7 +60,7 @@ bison_tax <- function(query=NULL, method='vernacularName', exact=FALSE, parsed=T
   url <- sprintf('http://bisonapi.usgs.ornl.gov/solr/%s/select', method)
   if(exact){ qu_ <- paste0('"', query, '"') } else { qu_ <- query }
   args <- compact(list(q=qu_, wt="json", ...))
-  tt <- GET(url, query=args)
+  tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt)
   temp <- list(
