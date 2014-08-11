@@ -2,7 +2,7 @@ rbison
 ======
 
 Linux: [![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)  
-Windows:  
+Windows:  [![Build status](https://ci.appveyor.com/api/projects/status/odh3k368he4xmyeq)](https://ci.appveyor.com/project/karthik/rbison)  
 
 Wrapper to the USGS Bison API.
 
