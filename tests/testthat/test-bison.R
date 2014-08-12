@@ -10,7 +10,7 @@ out5 <- bison(species="Aquila chrysaetos", count=100)
 test_that("bison returns the correct value", {
 	expect_that(out1$points$name[1], equals("Bison bison"))
 	expect_that(out2$points$name[1], equals("Canis latrans"))
-	expect_that(out3$points$name[1], equals("Baeolophus bicolor"))
+	expect_that(out3$points$name[1], equals("Parus bicolor"))
 	expect_that(out4$points$name[1], equals("Phocoenoides dalli dalli"))
 	expect_that(out5$points$name[1], equals("Aquila chrysaetos"))
 })
