@@ -9,3 +9,4 @@ inst/assets
 inst/vign
 vignettes/margins.sty
 readme.Rmd
+appveyor.yml
