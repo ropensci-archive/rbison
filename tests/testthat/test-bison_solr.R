@@ -19,5 +19,5 @@ test_that("bison returns the correct class", {
   expect_that(out_1, is_a("bison_solr"))
   expect_that(out_2, is_a("bison_solr"))
   expect_that(out_3, is_a("bison_solr"))
-  expect_that(out_5_map, is_a(c("gg", "ggplot")))
+  expect_that(out_5_map, is_a("list"))
 })
