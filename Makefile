@@ -1,12 +1,12 @@
-all: move pandoc rmd2md cleanup
+all: move rmd2md
 
-vignettes: 
+vignettes:
 		cd inst/vign;\
 		Rscript -e 'library(knitr); knit("rbison_vignette.Rmd")'
 
 move:
 		cp inst/vign/rbison_vignette.md vignettes/;\
-		mv inst/vign/figure/ vignettes/
+		cp -r inst/vign/figure/ vignettes/figure/
 
 pandoc:
 		cd vignettes;\
@@ -15,8 +15,8 @@ pandoc:
 
 rmd2md:
 		cd vignettes;\
-		cp rbison_vignette.md rbison_vignette.Rmd
+		mv rbison_vignette.md rbison_vignette.Rmd
 
 cleanup:
 		cd vignettes;\
-		rm -rf figure
+		rm rbison_vignette.md

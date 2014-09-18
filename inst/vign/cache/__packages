@@ -3,7 +3,6 @@ devtools
 ggplot2
 gridExtra
 httr
-knitr
 mapproj
 maps
 plyr
@@ -12,9 +11,7 @@ Rdocumentation
 rgdal
 rgeos
 rjson
-roxygen2
 sacbox
 slidify
 slidifyLibraries
 sp
-testthat

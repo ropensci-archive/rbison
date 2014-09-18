@@ -32,7 +32,7 @@ install.packages("rbison")
 
 Or install development version from Github
 
-```{r install, eval=FALSE}
+```{r install2, eval=FALSE}
 install.packages("devtools")
 library(devtools)
 install_github("rbison", "ropensci")
