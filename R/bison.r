@@ -149,7 +149,7 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, co
   check_params(params)
 
   url <- "http://bison.usgs.ornl.gov/api/search.json"
-  args <- bs_bison_compact(list(species=species,type=type,itis=itis,tsn=tsn,start=start,count=count,
+  args <- bison_compact(list(species=species,type=type,itis=itis,tsn=tsn,start=start,count=count,
                        countyFips=countyFips,state=state,aoi=aoi,aoibbox=aoibbox,params=params))
   tt <- GET(url, query=args, ...)
   warn_for_status(tt)
