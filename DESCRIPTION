@@ -24,7 +24,7 @@ Imports:
     gridExtra,
     maptools,
     sp,
-    data.table,
+    dplyr,
     jsonlite,
     assertthat
 Suggests:

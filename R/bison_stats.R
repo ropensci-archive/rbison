@@ -1,6 +1,7 @@
 #' Get statistics about BISON downloads.
 #' 
 #' @import httr jsonlite
+#' @importFrom dplyr rbind_all
 #' @export
 #' 
 #' @param what (character) One of stats (default), search, downnload, or wms. See Details.
@@ -41,9 +42,14 @@ bison_stats <- function(what='stats', ...)
   tt <- content(out, as = "text")
   res <- fromJSON(tt, simplifyVector = FALSE)
   output <- lapply(res$data, function(x){
-    df <- data.frame(do.call(rbind, x[[pick]]), stringsAsFactors = FALSE)
+    df <- rbind_all(lapply(x[[pick]], function(g) data.frame(null2na(g), stringsAsFactors = FALSE)))
     list(name=x$name, resources=do.call(c, x$resources), data=df)
   })
   names(output) <- gsub("\\s", "_", vapply(res$data, "[[", "", "name"))
   return( output )
+}
+
+null2na <- function(x){
+  x[ sapply(x, is.null, USE.NAMES = FALSE) ] <- NA
+  x
 }

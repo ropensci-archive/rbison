@@ -3,7 +3,7 @@
 #' This fxn interacts with the SOLR interface for taxonomic names at 
 #' \url{http://bisonapi.usgs.ornl.gov/solr/species/select/}.
 #' 
-#' @import httr data.table
+#' @import httr
 #' @importFrom plyr compact
 #' @export
 #' @param query Name to search for. If left blank, the first ten results are returned
