@@ -371,7 +371,15 @@ A BibTeX entry for LaTeX users is
     url = {https://ropensci.github.com/rbison},
   }
 ```
+---
+  
+This package is part of a richer suite called [SPOCC Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using SPOCC as the primary R interface to rbison unless your needs are limited to this single source.    
+
+---
+
 
 Get citation information for `rbison` in R doing `citation(package = 'rbison')`
+
+
 
 [![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
