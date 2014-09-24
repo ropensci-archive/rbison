@@ -39,7 +39,7 @@ bison_providers <- function(details=FALSE, provider_no=NULL, ...)
     names(df) <- c('id','name')
   } else if (details & is.null(provider_no)){
     df <- lapply(tt$providers, function(x) data.frame(provider_name=x$name, provider_url=url, 
-                                                      do.call(rbind.fill, lapply(x$resources, data.frame)), stringsAsFactors = FALSE))
+      do.call(rbind.fill, lapply(x$resources, data.frame, stringsAsFactors = FALSE)), stringsAsFactors = FALSE))
     names(df) <- gsub("\\s", "_", vapply(tt$providers, "[[", "", "name"))
   } else if (!details & !is.null(provider_no)){
     df <- do.call(rbind.fill, lapply(tt, function(x){
