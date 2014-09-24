@@ -47,7 +47,7 @@ This fxn interacts with the SOLR interface for taxonomic names at
 \dontrun{
 # Some example calls
 bison_tax(query="*bear")
-bison_tax(query="helianthus", method="scientificName")
+bison_tax(query="Helianthus", method="scientificName")
 
 # Exact argument, here nothing found with latter call as '*bear' doesn't exist,
 # which makes sense

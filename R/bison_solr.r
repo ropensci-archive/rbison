@@ -1,45 +1,44 @@
 #' Search for and collect occurrence data from the USGS Bison API using their solr endpoint.
-#' 
-#' This fxn is somewhat similar to \code{\link{bison}}, but interacts with the SOLR 
-#' interface at \url{http://bisonapi.usgs.ornl.gov/solr/occurrences/select/} instead 
-#' of the OpenSearch interface at \url{http://bison.usgs.ornl.gov/api/search}, which 
+#'
+#' This fxn is somewhat similar to \code{\link{bison}}, but interacts with the SOLR
+#' interface at \url{http://bisonapi.usgs.ornl.gov/solr/occurrences/select/} instead
+#' of the OpenSearch interface at \url{http://bison.usgs.ornl.gov/api/search}, which
 #' \code{\link{bison}} uses.
-#' 
-#' @import httr jsonlite
-#' @importFrom plyr compact
+#'
+#' @import httr
 #' @export
-#' @param decimalLatitude Geographic coordinate that specifies the north south position 
+#' @param decimalLatitude Geographic coordinate that specifies the north south position
 #' of a location on the Earth surface.
-#' @param decimalLongitude	Geographic coordinate that specifies the east-west position 
+#' @param decimalLongitude	Geographic coordinate that specifies the east-west position
 #' of a location on the Earth surface.
 #' @param year The year the collection was taken.
 #' @param BISONProviderID BISON provider id
 #' @param BISONResourceID BISON resource id
-#' @param pointPath	A dynamic field that contains the location in longitude and 
-#' latitude followed by the basis of record and an optional Geo (Spatial) precision. 
+#' @param pointPath	A dynamic field that contains the location in longitude and
+#' latitude followed by the basis of record and an optional Geo (Spatial) precision.
 #' Geo (Spatial) precision is an added descriptor when the record is a county centroid.
-#' @param basisOfRecord	One of these enumerated values: Observation, Germplasm, 
+#' @param basisOfRecord	One of these enumerated values: Observation, Germplasm,
 #' Fossil, Specimen, Literature, Unknown, or Living.
 #' @param occurrence_date	The date when the occurrence was recorded.
-#' @param computedCountyFips County FIPS code conforming to standard FIPS 6-4 but with leading 
+#' @param computedCountyFips County FIPS code conforming to standard FIPS 6-4 but with leading
 #' zeros removed.
-#' @param computedStateFips The normalized case sensitive name. For example 
+#' @param computedStateFips The normalized case sensitive name. For example
 #' q=state_code:"New Mexico" will return all of the occurrences from New Mexico.
-#' @param scientificName	The species scientific name that is searchable in a case 
+#' @param scientificName	The species scientific name that is searchable in a case
 #' insensitive way.
-#' @param hierarchy_homonym_string hierarachy of the accepted or valid species name starting at 
+#' @param hierarchy_homonym_string hierarachy of the accepted or valid species name starting at
 #' kingdom. If the name is a taxonomic homonym more than one string is provided seperated by ';'.
-#' @param TSNs Accepted or valid name is provided. If the name is a taxonmic homonym more 
+#' @param TSNs Accepted or valid name is provided. If the name is a taxonmic homonym more
 #' than one TSN is provided.
 #' @param collector Individual responsible for the scientific record.
 #' @param occurrenceID Non-persistent unique identifier.
-#' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting. In 
-#' \code{bison}, \code{bison_providers}, and \code{bison_stats}, \code{...} is used instead of 
+#' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting. In
+#' \code{bison}, \code{bison_providers}, and \code{bison_stats}, \code{...} is used instead of
 #' callopts, but \code{...} is used here to pass additional Solr params.
 #' @param ... Additional SOLR query arguments. See details.
 #' @param verbose Print message with url (TRUE, default).
-#' 
-#' @return An object of class bison_solr - which is a list with slots for number of 
+#'
+#' @return An object of class bison_solr - which is a list with slots for number of
 #' records found (num_found), records, highlight, or facets.
 #' @details Some SOLR search parameters:
 #' \itemize{
@@ -49,47 +48,47 @@
 #'  \item{facet} {Facet or not, logical}
 #'  \item{facet.field} {Fields to facet by}
 #' }
-#' 
+#'
 #' You can also use highlighting in solr search, but I'm not sure I see a use case for it
 #' with BISON data, though you can do it with this function.
-#' 
+#'
 #' For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 #' @seealso \code{\link{bison_tax}} \code{\link{bison}}
-#' 
+#'
 #' @examples \dontrun{
 #' bison_solr(scientificName='Ursus americanus')
-#' 
-#' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico', 
+#'
+#' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
 #'  fl="scientificName")
-#' 
-#' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico', 
+#'
+#' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
 #'  rows=50, fl="occurrence_date,scientificName")
 #'
 #' # Mapping
 #' out <- bison_solr(scientificName='Ursus americanus', rows=200)
 #' bisonmap(out)
-#' 
+#'
 #' out <- bison_solr(scientificName='Helianthus annuus', rows=800)
 #' bisonmap(out)
-#' 
+#'
 #' # Using additional solr fields
 #' ## Faceting
-#' bison_solr(scientificName='Helianthus annuus', rows=0, facet='true', 
+#' bison_solr(scientificName='Helianthus annuus', rows=0, facet='true',
 #'  facet.field='computedStateFips')
-#' 
+#'
 #' ## Highlighting
-#' bison_solr(scientificName='Helianthus annuus', rows=10, hl='true', 
+#' bison_solr(scientificName='Helianthus annuus', rows=10, hl='true',
 #'  hl.fl='scientificName')
-#'  
-#' ## Use of hierarchy_homonym_string 
+#'
+#' ## Use of hierarchy_homonym_string
 #' bison_solr(hierarchy_homonym_string = '-202423-914154-914156-158852-')
 #' ## -- This is a bit unwieldy, but you can find this string in the output of a call, like this
 #' (string <- bison_solr(scientificName='Ursus americanus', rows=1)$points$hierarchy_homonym_string)
 #' bison_solr(hierarchy_homonym_string = string)
-#' 
+#'
 #' # The pointPath parameter
 #' bison_solr(pointPath = '/-110.0,45.0/specimen')
-#' 
+#'
 #' # Curl options
 #' library("httr")
 #' bison_solr(scientificName='Ursus americanus', callopts=verbose())
@@ -98,12 +97,12 @@
 bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
   year=NULL,BISONProviderID=NULL,BISONResourceID=NULL,pointPath=NULL,
   basisOfRecord=NULL,occurrence_date=NULL,computedCountyFips=NULL,
-  computedStateFips=NULL,scientificName=NULL, 
-  hierarchy_homonym_string=NULL, TSNs=NULL, collector=NULL, occurrenceID=NULL, 
+  computedStateFips=NULL,scientificName=NULL,
+  hierarchy_homonym_string=NULL, TSNs=NULL, collector=NULL, occurrenceID=NULL,
   callopts=list(), verbose=TRUE, ...)
 {
   url <- "http://bisonapi.usgs.ornl.gov/solr/occurrences/select/"
-  qu <- bs_compact(list(decimalLatitude=decimalLatitude,
+  qu <- bs_bison_compact(list(decimalLatitude=decimalLatitude,
                      decimalLongitude=decimalLongitude,
                      year=year,
                      pointPath=pointPath,
@@ -118,24 +117,24 @@ bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
                      TSNs=TSNs,
                      collector=collector,
                      occurrenceID=occurrenceID))
-  
+
   stuff <- list()
   for(i in seq_along(qu)){
      stuff[i] <- paste0(names(qu)[[i]],':"', qu[[i]], '"')
   }
   stuff <- paste0(stuff,collapse="+")
-  
-  args <- compact(list(q=stuff, wt="json", ...))
-    
+
+  args <- bison_compact(list(q=stuff, wt="json", ...))
+
   tt <- GET(url, query=args, callopts)
   mssg(verbose, tt$url)
   stop_for_status(tt)
   out <- content(tt, as="text")
-  
+
   temp <- list(
-    num_found = fromJSON(out)$response$numFound, 
+    num_found = fromJSON(out)$response$numFound,
     points = solr_parse_search(out, "df"),
-    highlight = solr_parse_highlight(out), 
+    highlight = solr_parse_highlight(out),
     facets = solr_parse_facets(out)
   )
   class(temp) <- "bison_solr"
@@ -145,24 +144,24 @@ bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
 solr_parse_facets <- function(input, parsetype=NULL, concat=',')
 {
   input <- fromJSON(input, simplifyVector = FALSE)
-  
+
   # Facet queries
   fqdat <- input$facet_counts$facet_queries
   if(length(fqdat)==0){
     fqout <- NULL
   } else
   {
-    fqout <- data.frame(term=names(fqdat), value=do.call(c, fqdat), stringsAsFactors=FALSE)      
+    fqout <- data.frame(term=names(fqdat), value=do.call(c, fqdat), stringsAsFactors=FALSE)
   }
   row.names(fqout) <- NULL
-  
+
   # facet fields
   ffout <- lapply(input$facet_counts$facet_fields, function(x){
     data.frame(do.call(rbind, lapply(seq(1, length(x), by=2), function(y){
       x[c(y, y+1)]
     })), stringsAsFactors=FALSE)
   })
-  
+
   # Facet dates
   if(length(input$facet_counts$facet_dates)==0){
     datesout <- NULL
@@ -175,7 +174,7 @@ solr_parse_facets <- function(input, parsetype=NULL, concat=',')
       x
     })
   }
-  
+
   # Facet ranges
   if(length(input$facet_counts$facet_ranges)==0){
     rangesout <- NULL
@@ -188,11 +187,11 @@ solr_parse_facets <- function(input, parsetype=NULL, concat=',')
       })), stringsAsFactors=FALSE)
     })
   }
-  
+
   # output
-  return( list(facet_queries = replacelength0(fqout), 
-               facet_fields = replacelength0(ffout), 
-               facet_dates = replacelength0(datesout), 
+  return( list(facet_queries = replacelength0(fqout),
+               facet_fields = replacelength0(ffout),
+               facet_dates = replacelength0(datesout),
                facet_ranges = replacelength0(rangesout)) )
 }
 
@@ -207,7 +206,7 @@ solr_parse_highlight <- function(input, parsetype='list', concat=',')
   } else
   {
     highout <- input$highlight
-  }  
+  }
   return( highout )
 }
 

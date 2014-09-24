@@ -4,7 +4,6 @@
 #' \url{http://bisonapi.usgs.ornl.gov/solr/species/select/}.
 #' 
 #' @import httr
-#' @importFrom plyr compact
 #' @export
 #' @param query Name to search for. If left blank, the first ten results are returned
 #' using a more or less random search.
@@ -33,7 +32,7 @@
 #' @examples \dontrun{
 #' # Some example calls
 #' bison_tax(query="*bear")
-#' bison_tax(query="helianthus", method="scientificName")
+#' bison_tax(query="Helianthus", method="scientificName")
 #' 
 #' # Exact argument, here nothing found with latter call as '*bear' doesn't exist,
 #' # which makes sense
@@ -59,7 +58,7 @@ bison_tax <- function(query=NULL, method='vernacularName', exact=FALSE, parsed=T
   	stop("method can only be of length 1")
   url <- sprintf('http://bisonapi.usgs.ornl.gov/solr/%s/select', method)
   if(exact){ qu_ <- paste0('"', query, '"') } else { qu_ <- query }
-  args <- compact(list(q=qu_, wt="json", ...))
+  args <- bison_compact(list(q=qu_, wt="json", ...))
   tt <- GET(url, query=args, callopts)
   stop_for_status(tt)
   out <- content(tt)
@@ -71,7 +70,7 @@ bison_tax <- function(query=NULL, method='vernacularName', exact=FALSE, parsed=T
   )
   
   if(parsed){
-    data <- data.frame(rbindlist(lapply(out$response$docs, data.frame, stringsAsFactors=FALSE)))
+    data <- rbind_all(lapply(out$response$docs, data.frame, stringsAsFactors=FALSE))
     temp$names <- data
   }
   
