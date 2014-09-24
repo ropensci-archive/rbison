@@ -1,6 +1,8 @@
 rbison
 ======
 
+
+
 Linux: [![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)  
 Windows:  [![Build status](https://ci.appveyor.com/api/projects/status/odh3k368he4xmyeq)](https://ci.appveyor.com/project/karthik/rbison)  
 
@@ -17,17 +19,24 @@ See [here](http://bison.usgs.ornl.gov/doc/services.jsp) for API docs for the BIS
 
 From CRAN
 
-```coffee
+
+```r
 install.packages("rbison")
-library(rbison)
 ```
 
 Or the development version from Github
 
-```coffee
+
+```r
 install.packages("devtools")
-library(devtools)
-install_github("rbison", "ropensci")
+devtools::install_github("ropensci/rbison")
+library('rbison')
+```
+
+Load package
+
+
+```r
 library(rbison)
 ```
 
@@ -35,351 +44,302 @@ Notice that the function `bisonmap` automagically selects the map extent to plot
 
 ##### get data
 
-```coffee
+
+```r
 out <- bison(species = "Phocoenoides dalli dalli", count = 10)
 ```
 
 
 ##### inspect summary
 
-```coffee
+
+```r
 out$summary
 ```
 
 ```
-  total specimen
-1     7        7
+##   total specimen unknown
+## 1     7        6       1
 ```
-
 
 ##### map occurrences
 
-```coffee
+
+```r
 bisonmap(out)
 ```
 
 ```
-Some of your points are outside the US. Make sure the data is correct
+## Some of your points are outside the US. Make sure the data is correct
 ```
 
-![plot of chunk unnamed-chunk-5](inst/assets/img/unnamed-chunk-5.png)
-
-
+![plot of chunk unnamed-chunk-7](inst/readmeimg/unnamed-chunk-7.png) 
 
 ####  All points within the US (including AK and HI)
 ##### get data
 
-```coffee
+
+```r
 out <- bison(species = "Bison bison", count = 600)
 ```
 
 
 ##### inspect summary
 
-```coffee
+
+```r
 out$summary
 ```
 
 ```
-  total observation fossil specimen unknown
-1   781          38      4      722      17
+##   total observation fossil specimen unknown centroid
+## 1  1432         132    164      897     239        1
 ```
-
 
 ##### map occurrences
 
-```coffee
+
+```r
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-8](inst/assets/img/unnamed-chunk-8.png)
-
+![plot of chunk unnamed-chunk-10](inst/readmeimg/unnamed-chunk-10.png) 
 
 ####  All points within the contiguous 48 states
 ##### get data
 
-```coffee
+
+```r
 out <- bison(species = "Aquila chrysaetos", count = 600)
 ```
 
 
 ##### inspect summary
 
-```coffee
+
+```r
 out$summary
 ```
 
 ```
-  total observation fossil specimen literature unknown centroid
-1 41780       39334     30     1664        118     634      904
+##   total observation fossil specimen literature unknown centroid
+## 1 62862       51170    118      857        674   10043        1
 ```
 
 
 ##### map occurrences
 
-```coffee
+
+```r
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-11](inst/assets/img/unnamed-chunk-11.png)
-
+![plot of chunk unnamed-chunk-13](inst/readmeimg/unnamed-chunk-13.png) 
 
 
 ####  With any data returned from a `bison` call, you can choose to plot county or state level data
 ##### Counties - using last data call for Aquila
 
-```coffee
+
+```r
 bisonmap(out, tomap = "county")
 ```
 
-![plot of chunk unnamed-chunk-12](inst/assets/img/unnamed-chunk-12.png)
-
+![plot of chunk unnamed-chunk-14](inst/readmeimg/unnamed-chunk-14.png) 
 
 ##### States - using last data call for Aquila
 
-```coffee
+
+```r
 bisonmap(out, tomap = "state")
 ```
 
-![plot of chunk unnamed-chunk-13](inst/assets/img/unnamed-chunk-13.png)
-
+![plot of chunk unnamed-chunk-15](inst/readmeimg/unnamed-chunk-15.png) 
 
 
 ####  You can also query BISON via their SOLR interface
 ##### The taxa service searches for and gives back taxonomic names
 
 
-```coffee
-bison_tax(query = "bear", method = "common_name")
+```r
+bison_tax(query = "*bear")
 ```
 
 ```
-$numFound
-[1] 1
-
-$names
-        id scientific_name common_nameText common_name
-1 16282430         Ursidae            Bear        Bear
-2 16282430         Ursidae           Bears       Bears
-3 16282430         Ursidae        Ursídeos    Ursídeos
-
-$highlight
-NULL
-
-$facets
-NULL
+## $numFound
+## [1] 12
+## 
+## $names
+## Source: local data frame [10 x 3]
+## 
+##          vernacularName    lc_vernacularName X_version_
+## 1  Louisiana black bear Louisiana black bear  1.477e+18
+## 2          grizzly bear         grizzly bear  1.477e+18
+## 3    yellow woolly bear   yellow woolly bear  1.477e+18
+## 4   American black bear  American black bear  1.477e+18
+## 5            black bear           black bear  1.477e+18
+## 6              Sun bear             Sun bear  1.477e+18
+## 7     yellow woollybear    yellow woollybear  1.477e+18
+## 8     banded woollybear    banded woollybear  1.477e+18
+## 9    Asiatic black bear   Asiatic black bear  1.477e+18
+## 10          Kodiak bear          Kodiak bear  1.477e+18
+## 
+## $highlight
+## NULL
+## 
+## $facets
+## NULL
 ```
-
-
-You can also do fuzzy searches like this (which you can't do using the `bison` function)
-
-
-```coffee
-bison_tax(query = "*bear")[1:2]
-```
-
-```
-$numFound
-[1] 21
-
-$names
-         id      scientific_name       common_nameText           common_name
-1   6938279      Ailurus fulgens           Panda Chico           Panda Chico
-2   6938279      Ailurus fulgens            Panda Rojo            Panda Rojo
-3   6938279      Ailurus fulgens        Panda Éclatant        Panda Éclatant
-4   6938279      Ailurus fulgens           Petit Panda           Petit Panda
-5   6938279      Ailurus fulgens          Red Cat bear          Red Cat bear
-6   6938279      Ailurus fulgens             Red Panda             Red Panda
-7   6938279      Ailurus fulgens        Panda vermelho        Panda vermelho
-8  16419884       Arctodus simus              Arctodus              Arctodus
-9  16419884       Arctodus simus      Short faced bear      Short faced bear
-10  6939768  Helarctos malayanus      Malayan Sun Bear      Malayan Sun Bear
-11  6939768  Helarctos malayanus            Oso De Sol            Oso De Sol
-12  6939768  Helarctos malayanus            Oso Malayo            Oso Malayo
-13  6939768  Helarctos malayanus    Ours Des Cocotiers    Ours Des Cocotiers
-14  6939768  Helarctos malayanus           Ours malais           Ours malais
-15  6939768  Helarctos malayanus              Sun bear              Sun bear
-16  6939768  Helarctos malayanus           Urso malaio           Urso malaio
-17  6886968     Melursus ursinus          Oso Perezoso          Oso Perezoso
-18  6886968     Melursus ursinus  Ours Lippu De L'Inde  Ours Lippu De L'Inde
-19  6886968     Melursus ursinus   Ours Prochile Lippu   Ours Prochile Lippu
-20  6886968     Melursus ursinus            Ours lippu            Ours lippu
-21  6886968     Melursus ursinus          Urso beiçudo          Urso beiçudo
-22  6886968     Melursus ursinus            Sloth Bear            Sloth Bear
-23  6929840     Orycteropus afer               Antbear               Antbear
-24  6929840     Orycteropus afer            Oryctérope            Oryctérope
-25  6929840     Orycteropus afer              Aardvark              Aardvark
-26  6929840     Orycteropus afer     Oryctérope du Cap     Oryctérope du Cap
-27  7463441 Pyrrharctia isabella     banded woollybear     banded woollybear
-28  7463441 Pyrrharctia isabella         isia isabelle         isia isabelle
-29  7463444  Spilosoma virginica diacrisie de Virginie diacrisie de Virginie
-30  7463444  Spilosoma virginica     yellow woollybear     yellow woollybear
-31  6924909   Tremarctos ornatus           Andean Bear           Andean Bear
-32  6924909   Tremarctos ornatus       Oso De Anteojos       Oso De Anteojos
-33  6924909   Tremarctos ornatus          Oso Frontino          Oso Frontino
-34  6924909   Tremarctos ornatus              Oso Real              Oso Real
-35  6924909   Tremarctos ornatus            Ours Andin            Ours Andin
-36  6924909   Tremarctos ornatus       Ours À Lunettes       Ours À Lunettes
-37  6924909   Tremarctos ornatus       Ours à lunettes       Ours à lunettes
-38  6924909   Tremarctos ornatus        Urso de óculos        Urso de óculos
-39  6924909   Tremarctos ornatus       Spectacled Bear       Spectacled Bear
-40 16282430              Ursidae                  Bear                  Bear
-41 16282430              Ursidae                 Bears                 Bears
-42 16282430              Ursidae              Ursídeos              Ursídeos
-43 16204069                Ursus             Cave bear             Cave bear
-44 16204069                Ursus     Ours des cavernes     Ours des cavernes
-45 16204069                Ursus     Urso das cavernas     Urso das cavernas
-46 16204069                Ursus        Ursus etruscus        Ursus etruscus
-47 16204069                Ursus                 bears                 bears
-```
-
 
 And you can search by scientific name
 
 
-```coffee
-bison_tax(query = "helianthus", method = "scientific_name")
+```r
+bison_tax(query = "Helianthus*", method = "scientificName")
 ```
 
 ```
-$numFound
-[1] 1
-
-$names
-        id scientific_name common_nameText common_name
-1 10457086      Helianthus      sunflowers  sunflowers
-2 10457086      Helianthus       Hélianthe   Hélianthe
-3 10457086      Helianthus       sunflower   sunflower
-
-$highlight
-NULL
-
-$facets
-NULL
+## $numFound
+## [1] 179
+## 
+## $names
+## Source: local data frame [10 x 2]
+## 
+##                        scientificName X_version_
+## 1   Helianthus divaricatus latifolius  1.477e+18
+## 2              Helianthus decapetalus  1.477e+18
+## 3              Helianthus tenuifolius  1.477e+18
+## 4        Helianthus petiolaris phenax  1.477e+18
+## 5  Helianthus angustifolius nuttallii  1.477e+18
+## 6           Helianthus trachelifolius  1.477e+18
+## 7               Helianthus bracteatus  1.477e+18
+## 8              Helianthus deserticola  1.477e+18
+## 9               Helianthus chartaceus  1.477e+18
+## 10             Helianthus polyphyllus  1.477e+18
+## 
+## $highlight
+## NULL
+## 
+## $facets
+## NULL
 ```
-
 
 ##### The occurrence service searches by scientific names and gives back occurrence data similar to data given back by the `bison` function
 
 Searching for data and looking at output
 
 
-```coffee
-out <- bison_solr(scientific_name = "Ursus americanus", state_code = "New Mexico", rows = 50, fl = "occurrence_date,scientific_name")
-bison_data(input = out)
+```r
+bison_solr(scientificName = "Ursus americanus", state_code = "New Mexico", rows = 50, fl = "eventDate,scientificName")
 ```
 
 ```
-$num_found
-[1] 4166
-
-$records
-   occurrence_date  scientific_name
-1       2008-10-19 Ursus americanus
-2       2009-09-13 Ursus americanus
-3       2009-08-19 Ursus americanus
-4       2009-08-19 Ursus americanus
-5       2008-10-14 Ursus americanus
-6       2008-09-03 Ursus americanus
-7       2009-08-16 Ursus americanus
-8       2009-10-12 Ursus americanus
-9       2008-08-18 Ursus americanus
-10      2008-10-03 Ursus americanus
-11      2009-08-16 Ursus americanus
-12      2009-08-27 Ursus americanus
-13      2009-10-14 Ursus americanus
-14      2008-08-17 Ursus americanus
-15      2008-08-17 Ursus americanus
-16      2008-08-18 Ursus americanus
-17      2009-08-29 Ursus americanus
-18      2009-10-09 Ursus americanus
-19      2008-09-01 Ursus americanus
-20      2008-09-08 Ursus americanus
-21      2008-09-07 Ursus americanus
-22      2008-09-29 Ursus americanus
-23      2009-10-24 Ursus americanus
-24      2009-09-06 Ursus americanus
-25      2009-09-07 Ursus americanus
-26      2008-08-17 Ursus americanus
-27      2008-11-13 Ursus americanus
-28      2008-10-25 Ursus americanus
-29      2003-06-16 Ursus americanus
-30      2008-05-13 Ursus americanus
-31      2009-08-29 Ursus americanus
-32      2009-10-09 Ursus americanus
-33      2009-09-05 Ursus americanus
-34      2008-11-07 Ursus americanus
-35      2009-10-05 Ursus americanus
-36      2008-10-16 Ursus americanus
-37      2009-09-18 Ursus americanus
-38      2002-07-25 Ursus americanus
-39      2009-10-06 Ursus americanus
-40      2009-10-10 Ursus americanus
-41      2008-10-04 Ursus americanus
-42      2009-09-26 Ursus americanus
-43      1958-09-14 Ursus americanus
-44      2009-08-17 Ursus americanus
-45      2009-10-14 Ursus americanus
-46      2008-09-23 Ursus americanus
-47      2008-10-03 Ursus americanus
-48      2009-10-07 Ursus americanus
-49      2008-08-23 Ursus americanus
-50      2008-08-01 Ursus americanus
-
-$highlight
-NULL
-
-$facets
-NULL
+## http://bisonapi.usgs.ornl.gov/solr/occurrences/select/?q=scientificName%3A%22Ursus%20americanus%22&wt=json&state_code=New%20Mexico&rows=50&fl=eventDate%2CscientificName
 ```
 
+```
+## $num_found
+## [1] 5137
+## 
+## $points
+##      scientificName         eventDate
+## 1  Ursus americanus              <NA>
+## 2  Ursus americanus 1969-09-04T00:00Z
+## 3  Ursus americanus 1999-06-22T00:00Z
+## 4  Ursus americanus 1946-07-15T00:00Z
+## 5  Ursus americanus 1958-05-13T00:00Z
+## 6  Ursus americanus 1946-07-03T00:00Z
+## 7  Ursus americanus              <NA>
+## 8  Ursus americanus              <NA>
+## 9  Ursus americanus 1957-07-01T00:00Z
+## 10 Ursus americanus              <NA>
+## 11 Ursus americanus 2013-06-22T00:00Z
+## 12 Ursus americanus              <NA>
+## 13 Ursus americanus 2013-08-22T20:11Z
+## 14 Ursus americanus 1991-05-25T00:00Z
+## 15 Ursus americanus              <NA>
+## 16 Ursus americanus 2013-08-10T20:40Z
+## 17 Ursus americanus              <NA>
+## 18 Ursus americanus 2013-09-10T00:42Z
+## 19 Ursus americanus 1905-04-22T00:00Z
+## 20 Ursus americanus 1996-05-21T00:00Z
+## 21 Ursus americanus              <NA>
+## 22 Ursus americanus 2013-08-22T20:12Z
+## 23 Ursus americanus 1945-02-06T00:00Z
+## 24 Ursus americanus 1980-07-17T00:00Z
+## 25 Ursus americanus              <NA>
+## 26 Ursus americanus 1985-07-05T00:00Z
+## 27 Ursus americanus 2005-08-06T23:22Z
+## 28 Ursus americanus              <NA>
+## 29 Ursus americanus 1982-11-09T00:00Z
+## 30 Ursus americanus 2003-05-01T00:00Z
+## 31 Ursus americanus 1956-09-14T00:00Z
+## 32 Ursus americanus              <NA>
+## 33 Ursus americanus 1988-10-27T00:00Z
+## 34 Ursus americanus 1999-06-28T00:00Z
+## 35 Ursus americanus 1946-09-15T00:00Z
+## 36 Ursus americanus 1989-05-24T00:00Z
+## 37 Ursus americanus 1958-05-25T00:00Z
+## 38 Ursus americanus 1980-03-01T00:00Z
+## 39 Ursus americanus 1953-06-01T00:00Z
+## 40 Ursus americanus 1951-05-15T00:00Z
+## 41 Ursus americanus              <NA>
+## 42 Ursus americanus 1980-07-17T00:00Z
+## 43 Ursus americanus 1800-01-01T00:00Z
+## 44 Ursus americanus 1998-06-15T00:00Z
+## 45 Ursus americanus 1959-07-19T00:00Z
+## 46 Ursus americanus              <NA>
+## 47 Ursus americanus 1958-06-28T00:00Z
+## 48 Ursus americanus 2011-08-23T00:00Z
+## 49 Ursus americanus 1999-01-01T00:00Z
+## 50 Ursus americanus 2010-08-08T00:00Z
+## 
+## $highlight
+## NULL
+## 
+## $facets
+## $facets$facet_queries
+## NULL
+## 
+## $facets$facet_fields
+## NULL
+## 
+## $facets$facet_dates
+## NULL
+## 
+## $facets$facet_ranges
+## NULL
+## 
+## 
+## attr(,"class")
+## [1] "bison_solr"
+```
 
 Mapping the data
 
 
-```coffee
-out <- bison_solr(scientific_name = "Ursus americanus", rows = 200)
+
+```r
+out <- bison_solr(scientificName = "Ursus americanus", rows = 200)
+```
+
+```
+## http://bisonapi.usgs.ornl.gov/solr/occurrences/select/?q=scientificName%3A%22Ursus%20americanus%22&wt=json&rows=200
+```
+
+```r
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-18](inst/assets/img/unnamed-chunk-18.png)
-
+![plot of chunk unnamed-chunk-19](inst/readmeimg/unnamed-chunk-19.png) 
 
 ## Meta
 
-Please report any issues or bugs](https://github.com/ropensci/rbison/issues).
+* Please report any issues or bugs](https://github.com/ropensci/rbison/issues).
+* License: CC0
+* This package is part of the [rOpenSci](http://ropensci.org/packages) project.
+* Get citation information for `rbison` in R doing `citation(package = 'rbison')`
 
-License: CC0
-
-This package is part of the [rOpenSci](http://ropensci.org/packages) project.
-
-To cite package `rbison` in publications use:
-
-```coffee
-To cite package ‘rbison’ in publications use:
-
-  Scott Chamberlain (2014). rbison: R interface to the USGS BISON API. R package version 0.3.0.
-  https://ropensci.github.com/rbison
-
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {rbison: R interface to the USGS BISON API},
-    author = {Scott Chamberlain},
-    year = {2014},
-    note = {R package version 0.3.0},
-    url = {https://ropensci.github.com/rbison},
-  }
-```
----
-  
-This package is part of a richer suite called [SPOCC Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using SPOCC as the primary R interface to rbison unless your needs are limited to this single source.    
-
----
-
-
-Get citation information for `rbison` in R doing `citation(package = 'rbison')`
-
-
+This package is part of a richer suite called [SPOCC Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using SPOCC as the primary R interface to rbison unless your needs are limited to this single source.
 
 [![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
