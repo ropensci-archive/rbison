@@ -31,8 +31,12 @@
 #' @param aoibbox Specifies a four-sided bounding box to geographically constrain 
 #'    the search (using format: minx,miny,maxx,maxy). The coordinates are Spherical 
 #'    Mercator with a datum of WGS84. Example: -111.31,38.81,-110.57,39.21 (character)
-#' @param params (character) String of parameters, one of BISONProviderID, BISONResourceID,
-#'    basisOfRecord, computedStateFips, hierarchy_homonym_string. See examples.
+#' @param params (character) String of parameters, one of providerID, resourceID, basisOfRecord, 
+#'    catalogNumber, year, computedStateFips, hierarchy_homonym_string, TSNs, recordedBy, 
+#'    occurrenceID, collectorNumber, provider, ownerInstitutionCollectionCode, eventDate, 
+#'    providedScientificName, scientificName, ITISscientificName, providedCommonName, 
+#'    ITIScommonName, kingdom, ITIStsn, centroid, higherGeographyID, computedCountyFips, 
+#'    providedCounty, calculatedCounty, stateProvince, calculatedState, countryCode. See examples.
 #' @param what What to return?  One of 'all', 'summary', 'points', 'counties', 'states', 
 #'    'raw', or 'list'. All data is returned from the BISON API, but this parameter lets
 #'    you select just the parts you want, and the rest is discarded before returning the 
@@ -101,19 +105,24 @@
 #' 
 #' # Params - the params function accepts a number of search terms
 #' ## Find the provider with ID 318. 
-#' bison(params='BISONProviderID:("318")')
+#' bison(params='providerID:("318")')
 #' ## Find all resources with id of '318,1902' OR '318,9151', with values separated by spaces.
-#' bison(params='BISONResourceID:("318,1902" "318,9151" )')
+#' bison(params='resourceID:("318,1902" "318,9151")')
 #' ## Criterion may be combined using the semicolon (';') character, which translates to a logical 
 #' ## AND operator. Note that field names and values are case sensitive. 
-#' bison(params='BISONProviderID:("408" "432");BISONResourceID("14027")')
+#' bison(params='providerID:("408" "432");resourceID:("14027")')
 #' ## Search by basisOfRecord, for specimen types in this case
 #' bison(params='basisOfRecord:(specimen)')
 #' ## Search by computedStateFips, 01 for Alabama
 #' bison(params='computedStateFips:01')
 #' ## Search by hierarchy_homonym_string
 #' bison(params='hierarchy_homonym_string:202423;914154;914156;158852')
-#' ## Search by collector or occurrenceID or TSNs - none of these seem to work
+#' ## Search by ITIStsn
+#' bison(params='ITIStsn:162003')
+#' ## Search by countryCode
+#' bison(params='countryCode:US')
+#' ## Search by ITIScommonName
+#' bison(params='ITIScommonName:"Canada goose"')
 #' }
 
 bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, count=10,
@@ -134,6 +143,9 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, co
     tsn <- as.numeric(as.character(tsn))
     assert_that(is.numeric(tsn))
   } else { itis <- NULL }
+  
+  # check if param names are in the accepted list
+  check_params(params)
   
   url <- "http://bison.usgs.ornl.gov/api/search.json"
   args <- bs_compact(list(species=species,type=type,itis=itis,tsn=tsn,start=start,count=count,
@@ -162,6 +174,20 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, co
   }
   class(res) <- "bison"
   return( res )
+}
+
+check_params <- function(x){
+  if(!is.null(x)){
+    y <- strsplit(x, ";")[[1]]
+    z <- vapply(y, function(b) strsplit(b, ":")[[1]][[1]], "", USE.NAMES = FALSE)
+    check <- z %in% c('providerID','resourceID','basisOfRecord','catalogNumber','year','computedStateFips',
+                      'hierarchy_homonym_string','TSNs','recordedBy','occurrenceID','collectorNumber',
+                      'provider','ownerInstitutionCollectionCode','eventDate','providedScientificName',
+                      'scientificName','ITISscientificName','providedCommonName','ITIScommonName','kingdom',
+                      'ITIStsn','centroid','higherGeographyID','computedCountyFips','providedCounty',
+                      'calculatedCounty','stateProvince','calculatedState','countryCode')
+    if(!all(check)) stop("You used in an incorrect param field", call. = FALSE)
+  }
 }
 
 bison_data <- function(input = NULL, datatype="summary")
