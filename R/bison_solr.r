@@ -102,7 +102,7 @@ bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
   callopts=list(), verbose=TRUE, ...)
 {
   url <- "http://bisonapi.usgs.ornl.gov/solr/occurrences/select/"
-  qu <- bison_compact(list(decimalLatitude=decimalLatitude,
+  qu <- bs_compact(list(decimalLatitude=decimalLatitude,
                      decimalLongitude=decimalLongitude,
                      year=year,
                      pointPath=pointPath,
@@ -124,7 +124,7 @@ bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
   }
   stuff <- paste0(stuff,collapse="+")
 
-  args <- bison_compact(list(q=stuff, wt="json", ...))
+  args <- bs_compact(list(q=stuff, wt="json", ...))
 
   tt <- GET(url, query=args, callopts)
   mssg(verbose, tt$url)
