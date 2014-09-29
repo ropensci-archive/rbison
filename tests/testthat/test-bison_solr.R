@@ -15,7 +15,7 @@ test_that("bison returns the correct value", {
 
 test_that("bison returns the correct class", {
   expect_is(out_1$points, "data.frame")
-  expect_is(out_2$num_found, "integer")
+  expect_is(out_2$num_found, "numeric")
   expect_that(out_1, is_a("bison_solr"))
   expect_that(out_2, is_a("bison_solr"))
   expect_that(out_3, is_a("bison_solr"))
