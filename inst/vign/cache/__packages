@@ -11,7 +11,9 @@ Rdocumentation
 rgdal
 rgeos
 rjson
+roxygen2
 sacbox
 slidify
 slidifyLibraries
 sp
+testthat

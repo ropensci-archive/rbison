@@ -2,16 +2,14 @@ all: move rmd2md
 
 vignettes:
 		cd inst/vign;\
-		Rscript -e 'library(knitr); knit("rbison_vignette.Rmd")'
+		Rscript -e 'library(knitr); knit("rbison_vignette.Rmd"); knit("other_functions.Rmd")'
 
 move:
 		cp inst/vign/rbison_vignette.md vignettes/;\
-		cp -r inst/vign/figure/ vignettes/figure/;\
-		cp inst/vign/rbison_vignette.md inst/doc/;\
-		cp -r inst/vign/figure/ inst/doc/figure/
+		cp inst/vign/other_functions.md vignettes/;\
+		cp -r inst/vign/figure/ vignettes/figure/
 
 rmd2md:
 		cd vignettes;\
-		mv rbison_vignette.md rbison_vignette.Rmd
-		cd inst/doc;\
-		mv rbison_vignette.md rbison_vignette.Rmd
+		mv rbison_vignette.md rbison_vignette.Rmd;\
+		mv other_functions.md other_functions.Rmd
