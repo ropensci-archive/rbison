@@ -1,22 +1,37 @@
-taxize 0.4.3
+rbison 0.4.3
 ===============
+
+NEW FEATURES
+
++ New function `bison_stats()` to query the statistics about BISON downloads.
++ New function `citation_datause()` to get information on data use rules, and citation for using BISON data.
++ New vignette *other_functions* that goes over the other functions in `rbison`. The main vignette covers `bison()` only.
 
 BUG FIXES
 
-* asdfa
+* Changed output of all data to have `stringsAsFactors=FALSE`.
 
 MINOR IMPROVEMENTS
 
-* Changed all callopts parameters to ...
+* Changed all `callopts` parameters to `...`, so you can pass in named options to `httr::GET` calls instead of through `callopts`, except in functions that interact with a SOLR engine, in which case `...` is reserved for passing on additional SOLR parameters, and then `callopts` is still used.
+* No longer importing `data.table`, importing `dplyr` now, and `assertthat`
+* Changed to MIT license.
+* Changed to `jsonlite` from `rjson` for JSON parsing.
+* `bison()` loses parameter `itis`, as it only has one possible value; gains parameter `params` that accepts further parameters to modify the search; changed parameter `callopts` to `...`.
+* Add many examples of using the `params` parameter in the `bison()` function.
+* Changed parameter `callopts` to `...` in `bison_providers()`.
+Changed parameter `callopts` to `...` in `bison_tax()`.
+* In `bison_solr()`: `BISONProviderID` changed to `providerID`; `BISONResourceID` changed to `resourceID`; `occurrence_date` changed to `eventDate`; `collector` changed to `recordedBy`; gains parameters `catalogNumber`, `ITIScommonName`, `kingdom`, and `verbose`. Adde a bunch of examples.
+* Startup message contains reference to citation function.
 
-taxize 0.3.2
+rbison 0.3.2
 ===============
 
 BUG FIXES
 
 * Changed `blanktheme()` function to `bison_blanktheme()` to avoid namespace conflicts with the rgbif package.
 
-taxize 0.3.0
+rbison 0.3.0
 ===============
 
 NEW FEATURES
@@ -33,7 +48,7 @@ MINOR IMPROVEMENTS
 * `bison_data()` function removed. This function was used to get data back from a call to `bison()` or `bison_solr()`. Now those two functions simply give the data back immediately.
 * A startup message added.
 
-taxize 0.2.4
+rbison 0.2.4
 ===============
 
 NEW FEATURES
