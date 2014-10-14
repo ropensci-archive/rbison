@@ -6,17 +6,12 @@ vignettes:
 
 move:
 		cp inst/vign/rbison_vignette.md vignettes/;\
-		cp -r inst/vign/figure/ vignettes/figure/
-
-pandoc:
-		cd vignettes;\
-		pandoc -H margins.sty rbison_vignette.md -o rbison_vignette.pdf;\
-		pandoc -H margins.sty rbison_vignette.md -o rbison_vignette.html
+		cp -r inst/vign/figure/ vignettes/figure/;\
+		cp inst/vign/rbison_vignette.md inst/doc/;\
+		cp -r inst/vign/figure/ inst/doc/figure/
 
 rmd2md:
 		cd vignettes;\
 		mv rbison_vignette.md rbison_vignette.Rmd
-
-cleanup:
-		cd vignettes;\
-		rm rbison_vignette.md
+		cd inst/doc;\
+		mv rbison_vignette.md rbison_vignette.Rmd
