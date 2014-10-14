@@ -157,7 +157,7 @@ bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL, p
 
   temp <- list(
     num_found = fromJSON(out)$response$numFound,
-    points = solr_parse_search(out, "df"),
+    points = solr_parse_search(input = out, parsetype = "df"),
     highlight = solr_parse_highlight(out),
     facets = solr_parse_facets(out)
   )
@@ -237,17 +237,18 @@ solr_parse_highlight <- function(input, parsetype='list', concat=',')
 
 solr_parse_search <- function(input, parsetype='list', concat=',')
 {
-  input <- fromJSON(input, simplifyVector = FALSE)
+  input <- fromJSON(input, FALSE)
   if(parsetype=='df'){
     dat <- input$response$docs
     dat2 <- lapply(dat, function(x){
       lapply(x, function(y){
-        if(length(y) > 1){
+        if(length(y) > 1 || is(y, "list")){
           paste(y, collapse=concat)
         } else { y  }
       })
     })
     datout <- do.call(rbind.fill, lapply(dat2, data.frame, stringsAsFactors=FALSE))
+    datout$X_version_ <- NULL
   } else
   {
     datout <- input
