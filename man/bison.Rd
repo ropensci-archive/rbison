@@ -134,8 +134,6 @@ bison(params='providerID:("408" "432");resourceID:("14027")')
 bison(params='basisOfRecord:(specimen)')
 ## Search by computedStateFips, 01 for Alabama
 bison(params='computedStateFips:01')
-## Search by hierarchy_homonym_string
-bison(params='hierarchy_homonym_string:202423;914154;914156;158852')
 ## Search by ITIStsn
 bison(params='ITIStsn:162003')
 ## Search by countryCode

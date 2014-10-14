@@ -1,25 +1,25 @@
 #' Search for and collect occurrence data from the USGS Bison API using their solr endpoint.
 #'
 #' This fxn is somewhat similar to \code{\link{bison}}, but interacts with the SOLR
-#' interface at \url{http://bisonapi.usgs.ornl.gov/solr/occurrences/select/} instead
-#' of the OpenSearch interface at \url{http://bison.usgs.ornl.gov/api/search}, which
-#' \code{\link{bison}} uses.
+#' interface \url{http://bison.usgs.ornl.gov/doc/api.jsp#solr} instead of the OpenSearch interface 
+#' \url{http://bison.usgs.ornl.gov/doc/api.jsp#opensearch}, which \code{\link[rbison]{bison}} uses.
 #'
-#' @import httr
 #' @export
+#' 
 #' @param decimalLatitude Geographic coordinate that specifies the north south position
 #' of a location on the Earth surface.
 #' @param decimalLongitude	Geographic coordinate that specifies the east-west position
 #' of a location on the Earth surface.
 #' @param year The year the collection was taken.
-#' @param BISONProviderID BISON provider id
-#' @param BISONResourceID BISON resource id
+#' @param providerID (character) Unique identifier assigned by GBIF.
+#' @param resourceID (character) A unique identifier that is a concatentation of the provider 
+#' identifier and the resource id seperated by a comma.
 #' @param pointPath	A dynamic field that contains the location in longitude and
 #' latitude followed by the basis of record and an optional Geo (Spatial) precision.
 #' Geo (Spatial) precision is an added descriptor when the record is a county centroid.
 #' @param basisOfRecord	One of these enumerated values: Observation, Germplasm,
 #' Fossil, Specimen, Literature, Unknown, or Living.
-#' @param occurrence_date	The date when the occurrence was recorded.
+#' @param eventDate	The date when the occurrence was recorded.
 #' @param computedCountyFips County FIPS code conforming to standard FIPS 6-4 but with leading
 #' zeros removed.
 #' @param computedStateFips The normalized case sensitive name. For example
@@ -30,8 +30,12 @@
 #' kingdom. If the name is a taxonomic homonym more than one string is provided seperated by ';'.
 #' @param TSNs Accepted or valid name is provided. If the name is a taxonmic homonym more
 #' than one TSN is provided.
-#' @param collector Individual responsible for the scientific record.
+#' @param recordedBy Individual responsible for the scientific record.
 #' @param occurrenceID Non-persistent unique identifier.
+#' @param catalogNumber Unique key for every record (occurrence/row) within a dataset that is not 
+#' manipulated nor changed (nor generated, if not provided) during the data ingest.
+#' @param ITIScommonName Common name(s) from ITIS, e.g. "Canada goose"
+#' @param kingdom Kingdom name, from GBIF raw occurrence or BISON provider.
 #' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting. In
 #' \code{bison}, \code{bison_providers}, and \code{bison_stats}, \code{...} is used instead of
 #' callopts, but \code{...} is used here to pass additional Solr params.
@@ -54,6 +58,8 @@
 #'
 #' For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 #' @seealso \code{\link{bison_tax}} \code{\link{bison}}
+#' 
+#' The USGS BISON Solr installation version as of 2014-10-14 was 4.4.
 #'
 #' @examples \donttest{
 #' bison_solr(scientificName='Ursus americanus')
@@ -62,8 +68,24 @@
 #'  fl="scientificName")
 #'
 #' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
-#'  rows=50, fl="occurrence_date,scientificName")
+#'  rows=50, fl="eventDate,scientificName")
+#'  
+#' bison_solr(providerID = 220)
+#' bison_solr(resourceID = '220,200080')
+#' 
+#' bison_solr(eventDate = '2010-08-08T00:00Z')
+#' 
+#' bison_solr(TSNs = 174773)
+#' 
+#' bison_solr(occurrenceID = 576630651)
+#' 
+#' bison_solr(catalogNumber = 'OBS101299944')
+#' 
+#' bison_solr(ITIScommonName = "Canada goose")
 #'
+#' bison_solr(kingdom = "Animalia")
+#' bison_solr(kingdom = "Plantae")
+#' 
 #' # Mapping
 #' out <- bison_solr(scientificName='Ursus americanus', rows=200)
 #' bisonmap(out)
@@ -94,29 +116,31 @@
 #' bison_solr(scientificName='Ursus americanus', callopts=verbose())
 #' }
 
-bison_solr <- function(decimalLatitude=NULL,decimalLongitude=NULL,
-  year=NULL,BISONProviderID=NULL,BISONResourceID=NULL,pointPath=NULL,
-  basisOfRecord=NULL,occurrence_date=NULL,computedCountyFips=NULL,
-  computedStateFips=NULL,scientificName=NULL,
-  hierarchy_homonym_string=NULL, TSNs=NULL, collector=NULL, occurrenceID=NULL,
-  callopts=list(), verbose=TRUE, ...)
+bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL, providerID=NULL, 
+  resourceID=NULL, pointPath=NULL, basisOfRecord=NULL, eventDate=NULL, computedCountyFips=NULL,
+  computedStateFips=NULL, scientificName=NULL, hierarchy_homonym_string=NULL, TSNs=NULL, 
+  recordedBy=NULL, occurrenceID=NULL, catalogNumber=NULL, ITIScommonName=NULL, 
+  kingdom=NULL, callopts=list(), verbose=TRUE, ...)
 {
   url <- "http://bisonapi.usgs.ornl.gov/solr/occurrences/select/"
   qu <- bs_compact(list(decimalLatitude=decimalLatitude,
                      decimalLongitude=decimalLongitude,
                      year=year,
                      pointPath=pointPath,
-                     BISONProviderID=BISONProviderID,
-                     BISONResourceID=BISONResourceID,
+                     providerID=providerID,
+                     resourceID=resourceID,
                      basisOfRecord=basisOfRecord,
-                     occurrence_date=occurrence_date,
+                     eventDate=eventDate,
                      computedCountyFips=computedCountyFips,
                      computedStateFips=computedStateFips,
                      scientificName=scientificName,
                      hierarchy_homonym_string=hierarchy_homonym_string,
                      TSNs=TSNs,
-                     collector=collector,
-                     occurrenceID=occurrenceID))
+                     recordedBy=recordedBy,
+                     occurrenceID=occurrenceID,
+                     catalogNumber=catalogNumber,
+                     ITIScommonName=ITIScommonName,
+                     kingdom=kingdom))
 
   stuff <- list()
   for(i in seq_along(qu)){

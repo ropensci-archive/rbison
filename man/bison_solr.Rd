@@ -4,11 +4,12 @@
 \title{Search for and collect occurrence data from the USGS Bison API using their solr endpoint.}
 \usage{
 bison_solr(decimalLatitude = NULL, decimalLongitude = NULL, year = NULL,
-  BISONProviderID = NULL, BISONResourceID = NULL, pointPath = NULL,
-  basisOfRecord = NULL, occurrence_date = NULL, computedCountyFips = NULL,
+  providerID = NULL, resourceID = NULL, pointPath = NULL,
+  basisOfRecord = NULL, eventDate = NULL, computedCountyFips = NULL,
   computedStateFips = NULL, scientificName = NULL,
-  hierarchy_homonym_string = NULL, TSNs = NULL, collector = NULL,
-  occurrenceID = NULL, callopts = list(), verbose = TRUE, ...)
+  hierarchy_homonym_string = NULL, TSNs = NULL, recordedBy = NULL,
+  occurrenceID = NULL, catalogNumber = NULL, ITIScommonName = NULL,
+  kingdom = NULL, callopts = list(), verbose = TRUE, ...)
 }
 \arguments{
 \item{decimalLatitude}{Geographic coordinate that specifies the north south position
@@ -19,9 +20,10 @@ of a location on the Earth surface.}
 
 \item{year}{The year the collection was taken.}
 
-\item{BISONProviderID}{BISON provider id}
+\item{providerID}{(character) Unique identifier assigned by GBIF.}
 
-\item{BISONResourceID}{BISON resource id}
+\item{resourceID}{(character) A unique identifier that is a concatentation of the provider
+identifier and the resource id seperated by a comma.}
 
 \item{pointPath}{A dynamic field that contains the location in longitude and
 latitude followed by the basis of record and an optional Geo (Spatial) precision.
@@ -30,7 +32,7 @@ Geo (Spatial) precision is an added descriptor when the record is a county centr
 \item{basisOfRecord}{One of these enumerated values: Observation, Germplasm,
 Fossil, Specimen, Literature, Unknown, or Living.}
 
-\item{occurrence_date}{The date when the occurrence was recorded.}
+\item{eventDate}{The date when the occurrence was recorded.}
 
 \item{computedCountyFips}{County FIPS code conforming to standard FIPS 6-4 but with leading
 zeros removed.}
@@ -47,9 +49,16 @@ kingdom. If the name is a taxonomic homonym more than one string is provided sep
 \item{TSNs}{Accepted or valid name is provided. If the name is a taxonmic homonym more
 than one TSN is provided.}
 
-\item{collector}{Individual responsible for the scientific record.}
+\item{recordedBy}{Individual responsible for the scientific record.}
 
 \item{occurrenceID}{Non-persistent unique identifier.}
+
+\item{catalogNumber}{Unique key for every record (occurrence/row) within a dataset that is not
+manipulated nor changed (nor generated, if not provided) during the data ingest.}
+
+\item{ITIScommonName}{Common name(s) from ITIS, e.g. "Canada goose"}
+
+\item{kingdom}{Kingdom name, from GBIF raw occurrence or BISON provider.}
 
 \item{callopts}{Further args passed on to httr::GET for HTTP debugging/inspecting. In
 \code{bison}, \code{bison_providers}, and \code{bison_stats}, \code{...} is used instead of
@@ -65,9 +74,8 @@ records found (num_found), records, highlight, or facets.
 }
 \description{
 This fxn is somewhat similar to \code{\link{bison}}, but interacts with the SOLR
-interface at \url{http://bisonapi.usgs.ornl.gov/solr/occurrences/select/} instead
-of the OpenSearch interface at \url{http://bison.usgs.ornl.gov/api/search}, which
-\code{\link{bison}} uses.
+interface \url{http://bison.usgs.ornl.gov/doc/api.jsp#solr} instead of the OpenSearch interface
+\url{http://bison.usgs.ornl.gov/doc/api.jsp#opensearch}, which \code{\link[rbison]{bison}} uses.
 }
 \details{
 Some SOLR search parameters:
@@ -92,7 +100,23 @@ bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
  fl="scientificName")
 
 bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
- rows=50, fl="occurrence_date,scientificName")
+ rows=50, fl="eventDate,scientificName")
+
+bison_solr(providerID = 220)
+bison_solr(resourceID = '220,200080')
+
+bison_solr(eventDate = '2010-08-08T00:00Z')
+
+bison_solr(TSNs = 174773)
+
+bison_solr(occurrenceID = 576630651)
+
+bison_solr(catalogNumber = 'OBS101299944')
+
+bison_solr(ITIScommonName = "Canada goose")
+
+bison_solr(kingdom = "Animalia")
+bison_solr(kingdom = "Plantae")
 
 # Mapping
 out <- bison_solr(scientificName='Ursus americanus', rows=200)
@@ -126,5 +150,7 @@ bison_solr(scientificName='Ursus americanus', callopts=verbose())
 }
 \seealso{
 \code{\link{bison_tax}} \code{\link{bison}}
+
+The USGS BISON Solr installation version as of 2014-10-14 was 4.4.
 }
 

@@ -1,7 +1,7 @@
 #' Search for and collect taxonomic name data from the USGS Bison API using solr.
 #'
-#' @import httr
 #' @export
+#' 
 #' @param query Name to search for. If left blank, the first ten results are returned
 #' using a more or less random search.
 #' @param method The field to query by. See description below for details.
