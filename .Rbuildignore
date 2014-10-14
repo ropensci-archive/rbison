@@ -9,3 +9,4 @@ inst/assets
 inst/vign
 README.Rmd
 appveyor.yml
+cran-comments.md
