@@ -7,6 +7,5 @@ man-roxygen
 inst/stuff
 inst/assets
 inst/vign
-vignettes/margins.sty
-readme.Rmd
+README.Rmd
 appveyor.yml
