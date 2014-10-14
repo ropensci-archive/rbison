@@ -8,7 +8,7 @@
 To get started, see the vignette in \code{vignette(package="rbison")}
 }
 \details{
-See [here](http://bison.usgs.ornl.gov/doc/services.jsp) for API docs for the BISON API.
+See \url{http://bison.usgs.ornl.gov/doc/api.jsp} for API docs for the BISON API.
 
 To cite rbison, do \code{citation(package='rbison')}
 

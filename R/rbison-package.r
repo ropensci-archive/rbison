@@ -1,22 +1,22 @@
-#' rbison is an interface to the USGS Bison API. 
-#' 
+#' rbison is an interface to the USGS Bison API.
+#'
 #' To get started, see the vignette in \code{vignette(package="rbison")}
-#' 
-#' 
-#' See [here](http://bison.usgs.ornl.gov/doc/services.jsp) for API docs for the BISON API.
-#' 
+#'
+#'
+#' See \url{http://bison.usgs.ornl.gov/doc/api.jsp} for API docs for the BISON API.
+#'
 #' To cite rbison, do \code{citation(package='rbison')}
-#' 
+#'
 #' Use the following format to cite data retrieved from BISON:
-#' 
-#' Biodiversity occurrence data published by: (Accessed through Biodiversity Information 
+#'
+#' Biodiversity occurrence data published by: (Accessed through Biodiversity Information
 #' Serving our Nation (BISON), bison.usgs.ornl.gov, YYYY-MM-DD).
-#' 
+#'
 #' For example:
-#' 
-#' Biodiversity occurrence data published by: Field Museum of Natural History, Museum 
-#' of Vertebrate Zoology, University of Washington Burke Museum, and University of Turku 
-#' (Accessed through Biodiversity Information Serving our Nation (BISON), bison.usgs.ornl.gov, 
+#'
+#' Biodiversity occurrence data published by: Field Museum of Natural History, Museum
+#' of Vertebrate Zoology, University of Washington Burke Museum, and University of Turku
+#' (Accessed through Biodiversity Information Serving our Nation (BISON), bison.usgs.ornl.gov,
 #' 2013-04-22).
 #' @name rbison-package
 #' @aliases rbison
