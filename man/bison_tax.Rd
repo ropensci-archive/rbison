@@ -30,7 +30,7 @@ A list.
 See the SOLR documentation here \url{http://lucene.apache.org/solr/} for other
 parameters you can use.
 
-The following four methods are possible, as far as I know you can only use one at
+The following two methods are possible, as far as I know you can only use one at
 a time:
 \itemize{
   \item vernacularName	The species specific common names that is searchable in a case
@@ -39,12 +39,8 @@ a time:
   name that is searchable in a case insensitive way.
 }
 }
-\details{
-This fxn interacts with the SOLR interface for taxonomic names at
-\url{http://bisonapi.usgs.ornl.gov/solr/species/select/}.
-}
 \examples{
-\dontrun{
+\donttest{
 # Some example calls
 bison_tax(query="*bear")
 bison_tax(query="Helianthus", method="scientificName")

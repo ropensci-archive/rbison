@@ -85,7 +85,7 @@ with BISON data, though you can do it with this function.
 For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 }
 \examples{
-\dontrun{
+\donttest{
 bison_solr(scientificName='Ursus americanus')
 
 bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',

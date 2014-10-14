@@ -8,7 +8,7 @@
 #'    returns data in a list. If you are getting data from a call to 
 #'    \code{\link{bison_solr}} you must set datatype="data_df" - other options will 
 #'    throw an error. 
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # output data
 #' out <- bison(species="Bison bison", type="scientific_name", count=10)
 #' class(out) # check right class

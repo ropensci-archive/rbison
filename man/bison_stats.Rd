@@ -26,7 +26,7 @@ For the 'what' parameter:
 }
 }
 \examples{
-\dontrun{
+\donttest{
 out <- bison_stats()
 out <- bison_stats(what='search')
 out <- bison_stats(what='download')

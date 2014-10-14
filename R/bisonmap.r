@@ -9,7 +9,7 @@
 #' @param jitter jitter position, see ggplot2 help.
 #' @param customize Pass in more to the plot. 
 #' @return Map (using ggplot2 package) of points on a map.
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Using function bison
 #' library("ggplot2")
 #' out <- bison(species="Accipiter", type="scientific_name", count=300)

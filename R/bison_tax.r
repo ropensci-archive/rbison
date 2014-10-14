@@ -1,8 +1,5 @@
 #' Search for and collect taxonomic name data from the USGS Bison API using solr.
-#' 
-#' This fxn interacts with the SOLR interface for taxonomic names at 
-#' \url{http://bisonapi.usgs.ornl.gov/solr/species/select/}.
-#' 
+#'
 #' @import httr
 #' @export
 #' @param query Name to search for. If left blank, the first ten results are returned
@@ -20,7 +17,7 @@
 #' See the SOLR documentation here \url{http://lucene.apache.org/solr/} for other 
 #' parameters you can use.
 #' 
-#' The following four methods are possible, as far as I know you can only use one at 
+#' The following two methods are possible, as far as I know you can only use one at 
 #' a time:
 #' \itemize{
 #'   \item vernacularName	The species specific common names that is searchable in a case 
@@ -29,7 +26,7 @@
 #'   name that is searchable in a case insensitive way.
 #' }
 #' @seealso \code{\link{bison_solr}} \code{\link{bison}}
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # Some example calls
 #' bison_tax(query="*bear")
 #' bison_tax(query="Helianthus", method="scientificName")

@@ -46,7 +46,7 @@
 #'
 #' @seealso \code{\link{bison_solr}} \code{\link{bison_tax}}
 #'
-#' @examples \dontrun{
+#' @examples \donttest{
 #' bison(species="Bison bison", count=50, what='summary')
 #' bison(species="Bison bison", count=50, what='points')
 #' bison(species="Bison bison", count=50, what='counties')

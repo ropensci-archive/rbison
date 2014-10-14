@@ -55,7 +55,7 @@
 #' For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 #' @seealso \code{\link{bison_tax}} \code{\link{bison}}
 #'
-#' @examples \dontrun{
+#' @examples \donttest{
 #' bison_solr(scientificName='Ursus americanus')
 #'
 #' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
