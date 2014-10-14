@@ -92,11 +92,11 @@ bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
 ```
 
 ```{r}
-bison_solr(TSNs = 174773, rows=2)
+bison_solr(TSNs = 174670, rows=2)$points[,1:6]
 ```
 
 ```{r}
-bison_solr(kingdom = "Animalia", rows=2)
+bison_solr(kingdom = "Plantae", rows=2)$points[,1:6]
 ```
 
 Using additional solr fields - Faceting
