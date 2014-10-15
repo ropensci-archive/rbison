@@ -44,13 +44,13 @@ out$Arctos
 #> Source: local data frame [9 x 22]
 #> 
 #>   id type providerId todayTotals currentWeekTotals resourceId lastUpdated
-#> 1 NA  wms        177          77                98    177,973          NA
+#> 1 NA  wms        177         235               256    177,973          NA
 #> 2 NA  wms        177          77                98    177,988          NA
 #> 3 NA  wms        177          77                98  177,13472          NA
 #> 4 NA  wms        177          77                98  177,13468          NA
 #> 5 NA  wms        177          77                98  177,13474          NA
 #> 6 NA  wms        177           0                 0    177,976          NA
-#> 7 NA  wms        177          77                98    177,972          NA
+#> 7 NA  wms        177         109               130    177,972          NA
 #> 8 NA  wms        177          77                98    177,971          NA
 #> 9 NA  wms        177          77                98  177,14394          NA
 #> Variables not shown: yesterdayTotals (int), lastWeekTotals (int),
@@ -74,7 +74,7 @@ out$Harvard_University_Herbaria
 #> 
 #>   id type providerId todayTotals currentWeekTotals resourceId lastUpdated
 #> 1 NA  wms        214           0                 0   214,1829          NA
-#> 2 NA  wms        214         131               433   214,1827          NA
+#> 2 NA  wms        214         188               490   214,1827          NA
 #> Variables not shown: yesterdayTotals (int), lastWeekTotals (int),
 #>   janTotals (int), febTotals (int), marTotals (int), aprTotals (int),
 #>   mayTotals (int), junTotals (int), julTotals (int), augTotals (int),
@@ -349,120 +349,24 @@ bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
 
 
 ```r
-bison_solr(TSNs = 174773, rows=2)
-#> $num_found
-#> [1] 1044080
-#> 
-#> $points
+bison_solr(TSNs = 174670, rows=2)$points[,1:6]
 #>   computedCountyFips providerID catalogNumber basisOfRecord countryCode
-#> 1              16027        602  OBS101299944   observation          US
-#> 2              20163        602  OBS153056407   observation          US
-#>   ITISscientificName              latlon calculatedState decimalLongitude
-#> 1     Ardea herodias -116.55315,43.53494           Idaho          -116.55
-#> 2     Ardea herodias   -99.31812,39.3988          Kansas           -99.32
-#>   year ITIStsn
-#> 1 2010  174773
-#> 2 2012  174773
-#>                                                                       hierarchy_homonym_string
-#> 1 -202423-914154-914156-158852-331030-914179-914181-174371-174670-174771-823967-174772-174773-
-#> 2 -202423-914154-914156-158852-331030-914179-914181-174371-174670-174771-823967-174772-174773-
-#>     TSNs calculatedCounty                        pointPath
-#> 1 174773    Canyon County /-116.55315,43.53494/observation
-#> 2 174773     Rooks County   /-99.31812,39.3988/observation
-#>   computedStateFips providedCounty  kingdom decimalLatitude occurrenceID
-#> 1                16         Canyon Animalia           43.53    576630651
-#> 2                20          Rooks Animalia           39.40    820777443
-#>          providedScientificName         eventDate
-#> 1 Ardea herodias Linnaeus, 1758 2010-11-13T00:00Z
-#> 2 Ardea herodias Linnaeus, 1758 2012-05-15T00:00Z
-#>   ownerInstitutionCollectionCode                   provider ambiguous
-#> 1                          eBird Cornell Lab of Ornithology     FALSE
-#> 2                          eBird Cornell Lab of Ornithology     FALSE
-#>   resourceID stateProvince                            ITIScommonName
-#> 1     602,43         Idaho Garza morena;Grand Héron;Great Blue Heron
-#> 2     602,43        Kansas Garza morena;Grand Héron;Great Blue Heron
-#>   scientificName                institutionID
-#> 1 Ardea herodias http://www.birds.cornell.edu
-#> 2 Ardea herodias http://www.birds.cornell.edu
-#> 
-#> $highlight
-#> NULL
-#> 
-#> $facets
-#> $facets$facet_queries
-#> NULL
-#> 
-#> $facets$facet_fields
-#> NULL
-#> 
-#> $facets$facet_dates
-#> NULL
-#> 
-#> $facets$facet_ranges
-#> NULL
-#> 
-#> 
-#> attr(,"class")
-#> [1] "bison_solr"
+#> 1              06079        407        240245   observation          US
+#> 2              06087        535        168878        fossil          US
+#>   ITISscientificName
+#> 1     Pelecaniformes
+#> 2     Pelecaniformes
 ```
 
 
 ```r
-bison_solr(kingdom = "Animalia", rows=2)
-#> $num_found
-#> [1] 113944003
-#> 
-#> $points
-#>   computedCountyFips providerID catalogNumber basisOfRecord countryCode
-#> 1              16027        602  OBS101299944   observation          US
-#> 2              20163        602  OBS153056407   observation          US
-#>   ITISscientificName              latlon calculatedState decimalLongitude
-#> 1     Ardea herodias -116.55315,43.53494           Idaho          -116.55
-#> 2     Ardea herodias   -99.31812,39.3988          Kansas           -99.32
-#>   year ITIStsn
-#> 1 2010  174773
-#> 2 2012  174773
-#>                                                                       hierarchy_homonym_string
-#> 1 -202423-914154-914156-158852-331030-914179-914181-174371-174670-174771-823967-174772-174773-
-#> 2 -202423-914154-914156-158852-331030-914179-914181-174371-174670-174771-823967-174772-174773-
-#>     TSNs calculatedCounty                        pointPath
-#> 1 174773    Canyon County /-116.55315,43.53494/observation
-#> 2 174773     Rooks County   /-99.31812,39.3988/observation
-#>   computedStateFips providedCounty  kingdom decimalLatitude occurrenceID
-#> 1                16         Canyon Animalia           43.53    576630651
-#> 2                20          Rooks Animalia           39.40    820777443
-#>          providedScientificName         eventDate
-#> 1 Ardea herodias Linnaeus, 1758 2010-11-13T00:00Z
-#> 2 Ardea herodias Linnaeus, 1758 2012-05-15T00:00Z
-#>   ownerInstitutionCollectionCode                   provider ambiguous
-#> 1                          eBird Cornell Lab of Ornithology     FALSE
-#> 2                          eBird Cornell Lab of Ornithology     FALSE
-#>   resourceID stateProvince                            ITIScommonName
-#> 1     602,43         Idaho Garza morena;Grand Héron;Great Blue Heron
-#> 2     602,43        Kansas Garza morena;Grand Héron;Great Blue Heron
-#>   scientificName                institutionID
-#> 1 Ardea herodias http://www.birds.cornell.edu
-#> 2 Ardea herodias http://www.birds.cornell.edu
-#> 
-#> $highlight
-#> NULL
-#> 
-#> $facets
-#> $facets$facet_queries
-#> NULL
-#> 
-#> $facets$facet_fields
-#> NULL
-#> 
-#> $facets$facet_dates
-#> NULL
-#> 
-#> $facets$facet_ranges
-#> NULL
-#> 
-#> 
-#> attr(,"class")
-#> [1] "bison_solr"
+bison_solr(kingdom = "Plantae", rows=2)$points[,1:6]
+#>   providerID collectorNumber   catalogNumber basisOfRecord countryCode
+#> 1        220            3256 235754.10773092       unknown          US
+#> 2        114            <NA>             803      specimen          US
+#>   ITISscientificName
+#> 1           Argemone
+#> 2           Argemone
 ```
 
 Using additional solr fields - Faceting
