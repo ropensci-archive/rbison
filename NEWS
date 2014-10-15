@@ -20,7 +20,7 @@ MINOR IMPROVEMENTS
 * `bison()` loses parameter `itis`, as it only has one possible value; gains parameter `params` that accepts further parameters to modify the search; changed parameter `callopts` to `...`.
 * Add many examples of using the `params` parameter in the `bison()` function.
 * Changed parameter `callopts` to `...` in `bison_providers()`.
-Changed parameter `callopts` to `...` in `bison_tax()`.
+* Changed parameter `callopts` to `...` in `bison_tax()`.
 * In `bison_solr()`: `BISONProviderID` changed to `providerID`; `BISONResourceID` changed to `resourceID`; `occurrence_date` changed to `eventDate`; `collector` changed to `recordedBy`; gains parameters `catalogNumber`, `ITIScommonName`, `kingdom`, and `verbose`. Adde a bunch of examples.
 * Startup message contains reference to citation function.
 
