@@ -8,6 +8,6 @@ map3 <- bisonmap(out, tomap="state")
 
 test_that("bisonmap returns the correct class", {
   expect_is(map1$plot, "gg")
-	expect_is(map2, "gg")
-	expect_is(map3, "gg")
+  expect_is(map2, "gg")
+  expect_is(map3, "gg")
 })
