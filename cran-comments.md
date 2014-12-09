@@ -1,13 +1,10 @@
-R CMD CHECK passed on my local OS X install with R 3.1.1 and R development version, Ubuntu running on Travis-CI, and Win builder.
+R CMD CHECK passed on my local OS X install with R 3.1.2 and R development version, Ubuntu 
+running on Travis-CI, and Win builder.
 
-This submission fixes problem in which cran-comments.md file was not hidden in .Rbuildignore, but now is. 
+This submission fixes a problem in which a package was not declared in the 
+DESCRIPTION file, but now is declared. 
 
-In addition, a vignette had an error
-
-* checking package vignettes in ‘inst/doc’ ... WARNING
-  Non-ASCII package vignette without specified encoding:
-   ‘other_functions.Rmd’
-   
-That is now fixed.
+In addition, this version includes a fix for a test that Kurt Hornik reported
+today.
 
 Thanks! Scott Chamberlain
