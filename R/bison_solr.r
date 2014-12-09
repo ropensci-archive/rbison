@@ -61,9 +61,11 @@
 #'
 #' The USGS BISON Solr installation version as of 2014-10-14 was 4.4.
 #'
-#' @examples \dontrun{
+#' @examples \donttest{
 #' bison_solr(scientificName='Ursus americanus')
+#' }
 #'
+#' @examples \dontrun{
 #' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
 #'  fl="scientificName")
 #'
