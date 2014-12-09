@@ -10,3 +10,4 @@ inst/vign
 README.Rmd
 appveyor.yml
 cran-comments.md
+tests/test-all.R
