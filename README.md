@@ -3,8 +3,8 @@ rbison
 
 
 
-Linux: [![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)  
-Windows:  [![Build status](https://ci.appveyor.com/api/projects/status/odh3k368he4xmyeq)](https://ci.appveyor.com/project/karthik/rbison)  
+Linux: [![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)
+Windows:  [![Build status](https://ci.appveyor.com/api/projects/status/odh3k368he4xmyeq)](https://ci.appveyor.com/project/karthik/rbison)
 
 Wrapper to the USGS Bison API.
 
@@ -40,6 +40,15 @@ Load package
 library(rbison)
 ```
 
+```
+## 
+## 
+## New to rbison? Tutorial at http://ropensci.org/tutorials/rbison_tutorial.html 
+## citation(package='rbison') for the citation for rbison
+## bison_datause() for data use and bison_citation() for how to cite data from BISON
+## Use suppressPackageStartupMessages() to suppress these startup messages in the future
+```
+
 Notice that the function `bisonmap` automagically selects the map extent to plot for you, being one of the contiguous lower 48 states, or the lower 48 plus AK and HI, or a global map. If some or all points outside the US, a global map is drawn, and throws a warning. . You may want to make sure the occurrence lat/long coordinates are correct.
 
 ##### get data
@@ -73,7 +82,7 @@ bisonmap(out)
 ## Some of your points are outside the US. Make sure the data is correct
 ```
 
-![plot of chunk unnamed-chunk-7](inst/readmeimg/unnamed-chunk-7.png) 
+![plot of chunk unnamed-chunk-7](inst/readmeimg/unnamed-chunk-7-1.png) 
 
 ####  All points within the US (including AK and HI)
 ##### get data
@@ -93,7 +102,7 @@ out$summary
 
 ```
 ##   total observation fossil specimen unknown centroid
-## 1  1432         132    164      897     239        1
+## 1  1437         137    164      897     239        1
 ```
 
 ##### map occurrences
@@ -103,7 +112,7 @@ out$summary
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-10](inst/readmeimg/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-10](inst/readmeimg/unnamed-chunk-10-1.png) 
 
 ####  All points within the contiguous 48 states
 ##### get data
@@ -134,7 +143,7 @@ out$summary
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-13](inst/readmeimg/unnamed-chunk-13.png) 
+![plot of chunk unnamed-chunk-13](inst/readmeimg/unnamed-chunk-13-1.png) 
 
 
 ####  With any data returned from a `bison` call, you can choose to plot county or state level data
@@ -145,7 +154,7 @@ bisonmap(out)
 bisonmap(out, tomap = "county")
 ```
 
-![plot of chunk unnamed-chunk-14](inst/readmeimg/unnamed-chunk-14.png) 
+![plot of chunk unnamed-chunk-14](inst/readmeimg/unnamed-chunk-14-1.png) 
 
 ##### States - using last data call for Aquila
 
@@ -154,7 +163,7 @@ bisonmap(out, tomap = "county")
 bisonmap(out, tomap = "state")
 ```
 
-![plot of chunk unnamed-chunk-15](inst/readmeimg/unnamed-chunk-15.png) 
+![plot of chunk unnamed-chunk-15](inst/readmeimg/unnamed-chunk-15-1.png) 
 
 
 ####  You can also query BISON via their SOLR interface
@@ -170,19 +179,19 @@ bison_tax(query = "*bear")
 ## [1] 12
 ## 
 ## $names
-## Source: local data frame [10 x 3]
+## Source: local data frame [10 x 2]
 ## 
-##          vernacularName    lc_vernacularName X_version_
-## 1  Louisiana black bear Louisiana black bear  1.477e+18
-## 2          grizzly bear         grizzly bear  1.477e+18
-## 3    yellow woolly bear   yellow woolly bear  1.477e+18
-## 4   American black bear  American black bear  1.477e+18
-## 5            black bear           black bear  1.477e+18
-## 6              Sun bear             Sun bear  1.477e+18
-## 7     yellow woollybear    yellow woollybear  1.477e+18
-## 8     banded woollybear    banded woollybear  1.477e+18
-## 9    Asiatic black bear   Asiatic black bear  1.477e+18
-## 10          Kodiak bear          Kodiak bear  1.477e+18
+##          vernacularName    lc_vernacularName
+## 1  Louisiana black bear Louisiana black bear
+## 2          grizzly bear         grizzly bear
+## 3     banded woollybear    banded woollybear
+## 4    Asiatic black bear   Asiatic black bear
+## 5           Kodiak bear          Kodiak bear
+## 6      black-ended bear     black-ended bear
+## 7   American black bear  American black bear
+## 8     yellow woollybear    yellow woollybear
+## 9            black bear           black bear
+## 10   yellow woolly bear   yellow woolly bear
 ## 
 ## $highlight
 ## NULL
@@ -200,22 +209,22 @@ bison_tax(query = "Helianthus*", method = "scientificName")
 
 ```
 ## $numFound
-## [1] 179
+## [1] 182
 ## 
 ## $names
-## Source: local data frame [10 x 2]
+## Source: local data frame [10 x 1]
 ## 
-##                        scientificName X_version_
-## 1   Helianthus divaricatus latifolius  1.477e+18
-## 2              Helianthus decapetalus  1.477e+18
-## 3              Helianthus tenuifolius  1.477e+18
-## 4        Helianthus petiolaris phenax  1.477e+18
-## 5  Helianthus angustifolius nuttallii  1.477e+18
-## 6           Helianthus trachelifolius  1.477e+18
-## 7               Helianthus bracteatus  1.477e+18
-## 8              Helianthus deserticola  1.477e+18
-## 9               Helianthus chartaceus  1.477e+18
-## 10             Helianthus polyphyllus  1.477e+18
+##                       scientificName
+## 1                Helianthus parishii
+## 2              Helianthus floridanus
+## 3           Helianthus helianthoides
+## 4              Helianthus laciniatus
+## 5                 Helianthus glaucus
+## 6                         Helianthus
+## 7                  Helianthus niveus
+## 8             Helianthus divaricatus
+## 9             Helianthus arizonensis
+## 10 Helianthus divaricatus latifolius
 ## 
 ## $highlight
 ## NULL
@@ -239,60 +248,60 @@ bison_solr(scientificName = "Ursus americanus", state_code = "New Mexico", rows 
 
 ```
 ## $num_found
-## [1] 5137
+## [1] 5277
 ## 
 ## $points
-##      scientificName         eventDate
-## 1  Ursus americanus              <NA>
-## 2  Ursus americanus 1969-09-04T00:00Z
-## 3  Ursus americanus 1999-06-22T00:00Z
-## 4  Ursus americanus 1946-07-15T00:00Z
-## 5  Ursus americanus 1958-05-13T00:00Z
-## 6  Ursus americanus 1946-07-03T00:00Z
-## 7  Ursus americanus              <NA>
-## 8  Ursus americanus              <NA>
-## 9  Ursus americanus 1957-07-01T00:00Z
-## 10 Ursus americanus              <NA>
-## 11 Ursus americanus 2013-06-22T00:00Z
-## 12 Ursus americanus              <NA>
-## 13 Ursus americanus 2013-08-22T20:11Z
-## 14 Ursus americanus 1991-05-25T00:00Z
-## 15 Ursus americanus              <NA>
-## 16 Ursus americanus 2013-08-10T20:40Z
-## 17 Ursus americanus              <NA>
-## 18 Ursus americanus 2013-09-10T00:42Z
-## 19 Ursus americanus 1905-04-22T00:00Z
-## 20 Ursus americanus 1996-05-21T00:00Z
-## 21 Ursus americanus              <NA>
-## 22 Ursus americanus 2013-08-22T20:12Z
-## 23 Ursus americanus 1945-02-06T00:00Z
-## 24 Ursus americanus 1980-07-17T00:00Z
-## 25 Ursus americanus              <NA>
-## 26 Ursus americanus 1985-07-05T00:00Z
-## 27 Ursus americanus 2005-08-06T23:22Z
-## 28 Ursus americanus              <NA>
-## 29 Ursus americanus 1982-11-09T00:00Z
-## 30 Ursus americanus 2003-05-01T00:00Z
-## 31 Ursus americanus 1956-09-14T00:00Z
-## 32 Ursus americanus              <NA>
-## 33 Ursus americanus 1988-10-27T00:00Z
-## 34 Ursus americanus 1999-06-28T00:00Z
-## 35 Ursus americanus 1946-09-15T00:00Z
-## 36 Ursus americanus 1989-05-24T00:00Z
-## 37 Ursus americanus 1958-05-25T00:00Z
-## 38 Ursus americanus 1980-03-01T00:00Z
-## 39 Ursus americanus 1953-06-01T00:00Z
-## 40 Ursus americanus 1951-05-15T00:00Z
-## 41 Ursus americanus              <NA>
-## 42 Ursus americanus 1980-07-17T00:00Z
-## 43 Ursus americanus 1800-01-01T00:00Z
-## 44 Ursus americanus 1998-06-15T00:00Z
-## 45 Ursus americanus 1959-07-19T00:00Z
-## 46 Ursus americanus              <NA>
-## 47 Ursus americanus 1958-06-28T00:00Z
-## 48 Ursus americanus 2011-08-23T00:00Z
-## 49 Ursus americanus 1999-01-01T00:00Z
-## 50 Ursus americanus 2010-08-08T00:00Z
+##      scientificName
+## 1  Ursus americanus
+## 2  Ursus americanus
+## 3  Ursus americanus
+## 4  Ursus americanus
+## 5  Ursus americanus
+## 6  Ursus americanus
+## 7  Ursus americanus
+## 8  Ursus americanus
+## 9  Ursus americanus
+## 10 Ursus americanus
+## 11 Ursus americanus
+## 12 Ursus americanus
+## 13 Ursus americanus
+## 14 Ursus americanus
+## 15 Ursus americanus
+## 16 Ursus americanus
+## 17 Ursus americanus
+## 18 Ursus americanus
+## 19 Ursus americanus
+## 20 Ursus americanus
+## 21 Ursus americanus
+## 22 Ursus americanus
+## 23 Ursus americanus
+## 24 Ursus americanus
+## 25 Ursus americanus
+## 26 Ursus americanus
+## 27 Ursus americanus
+## 28 Ursus americanus
+## 29 Ursus americanus
+## 30 Ursus americanus
+## 31 Ursus americanus
+## 32 Ursus americanus
+## 33 Ursus americanus
+## 34 Ursus americanus
+## 35 Ursus americanus
+## 36 Ursus americanus
+## 37 Ursus americanus
+## 38 Ursus americanus
+## 39 Ursus americanus
+## 40 Ursus americanus
+## 41 Ursus americanus
+## 42 Ursus americanus
+## 43 Ursus americanus
+## 44 Ursus americanus
+## 45 Ursus americanus
+## 46 Ursus americanus
+## 47 Ursus americanus
+## 48 Ursus americanus
+## 49 Ursus americanus
+## 50 Ursus americanus
 ## 
 ## $highlight
 ## NULL
@@ -331,15 +340,14 @@ out <- bison_solr(scientificName = "Ursus americanus", rows = 200)
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-19](inst/readmeimg/unnamed-chunk-19.png) 
+![plot of chunk unnamed-chunk-19](inst/readmeimg/unnamed-chunk-19-1.png) 
 
 ## Meta
 
 * Please report any issues or bugs](https://github.com/ropensci/rbison/issues).
-* License: CC0
-* This package is part of the [rOpenSci](http://ropensci.org/packages) project.
+* License: MIT
 * Get citation information for `rbison` in R doing `citation(package = 'rbison')`
 
 This package is part of a richer suite called [SPOCC Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using SPOCC as the primary R interface to rbison unless your needs are limited to this single source.
 
-[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
