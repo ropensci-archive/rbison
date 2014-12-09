@@ -64,7 +64,7 @@ result to you.}
 Search for and collect data from the USGS Bison API.
 }
 \examples{
-\donttest{
+\dontrun{
 bison(species="Bison bison", count=50, what='summary')
 bison(species="Bison bison", count=50, what='points')
 bison(species="Bison bison", count=50, what='counties')

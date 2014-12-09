@@ -22,7 +22,7 @@ A data.frame or list of data.frame's
 Get information about BISON data providers.
 }
 \examples{
-\donttest{
+\dontrun{
 head(bison_providers())
 head(bison_providers(provider_no=131))
 out <- bison_providers(details=TRUE)

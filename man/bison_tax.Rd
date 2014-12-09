@@ -40,7 +40,7 @@ a time:
 }
 }
 \examples{
-\donttest{
+\dontrun{
 # Some example calls
 bison_tax(query="*bear")
 bison_tax(query="Helianthus", method="scientificName")

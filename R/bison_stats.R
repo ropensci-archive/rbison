@@ -17,7 +17,7 @@
 #'  \item wms - Retrieve data provider statistics for BISON OGC WMS tile requests.
 #' }
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' out <- bison_stats()
 #' out <- bison_stats(what='search')
 #' out <- bison_stats(what='download')

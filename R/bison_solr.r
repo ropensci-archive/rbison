@@ -1,18 +1,18 @@
 #' Search for and collect occurrence data from the USGS Bison API using their solr endpoint.
 #'
 #' This fxn is somewhat similar to \code{\link{bison}}, but interacts with the SOLR
-#' interface \url{http://bison.usgs.ornl.gov/doc/api.jsp#solr} instead of the OpenSearch interface 
+#' interface \url{http://bison.usgs.ornl.gov/doc/api.jsp#solr} instead of the OpenSearch interface
 #' \url{http://bison.usgs.ornl.gov/doc/api.jsp#opensearch}, which \code{\link[rbison]{bison}} uses.
 #'
 #' @export
-#' 
+#'
 #' @param decimalLatitude Geographic coordinate that specifies the north south position
 #' of a location on the Earth surface.
 #' @param decimalLongitude	Geographic coordinate that specifies the east-west position
 #' of a location on the Earth surface.
 #' @param year The year the collection was taken.
 #' @param providerID (character) Unique identifier assigned by GBIF.
-#' @param resourceID (character) A unique identifier that is a concatentation of the provider 
+#' @param resourceID (character) A unique identifier that is a concatentation of the provider
 #' identifier and the resource id seperated by a comma.
 #' @param pointPath	A dynamic field that contains the location in longitude and
 #' latitude followed by the basis of record and an optional Geo (Spatial) precision.
@@ -32,7 +32,7 @@
 #' than one TSN is provided.
 #' @param recordedBy Individual responsible for the scientific record.
 #' @param occurrenceID Non-persistent unique identifier.
-#' @param catalogNumber Unique key for every record (occurrence/row) within a dataset that is not 
+#' @param catalogNumber Unique key for every record (occurrence/row) within a dataset that is not
 #' manipulated nor changed (nor generated, if not provided) during the data ingest.
 #' @param ITIScommonName Common name(s) from ITIS, e.g. "Canada goose"
 #' @param kingdom Kingdom name, from GBIF raw occurrence or BISON provider.
@@ -58,10 +58,10 @@
 #'
 #' For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 #' @seealso \code{\link{bison_tax}} \code{\link{bison}}
-#' 
+#'
 #' The USGS BISON Solr installation version as of 2014-10-14 was 4.4.
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' bison_solr(scientificName='Ursus americanus')
 #'
 #' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
@@ -69,23 +69,23 @@
 #'
 #' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
 #'  rows=50, fl="eventDate,scientificName")
-#'  
+#'
 #' bison_solr(providerID = 220)
 #' bison_solr(resourceID = '220,200080')
-#' 
+#'
 #' bison_solr(eventDate = '2010-08-08T00:00Z')
-#' 
+#'
 #' bison_solr(TSNs = 174773)
-#' 
+#'
 #' bison_solr(occurrenceID = 576630651)
-#' 
+#'
 #' bison_solr(catalogNumber = 'OBS101299944')
-#' 
+#'
 #' bison_solr(ITIScommonName = "Canada goose")
 #'
 #' bison_solr(kingdom = "Animalia")
 #' bison_solr(kingdom = "Plantae")
-#' 
+#'
 #' # Mapping
 #' out <- bison_solr(scientificName='Ursus americanus', rows=200)
 #' bisonmap(out)
@@ -116,10 +116,10 @@
 #' bison_solr(scientificName='Ursus americanus', callopts=verbose())
 #' }
 
-bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL, providerID=NULL, 
+bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL, providerID=NULL,
   resourceID=NULL, pointPath=NULL, basisOfRecord=NULL, eventDate=NULL, computedCountyFips=NULL,
-  computedStateFips=NULL, scientificName=NULL, hierarchy_homonym_string=NULL, TSNs=NULL, 
-  recordedBy=NULL, occurrenceID=NULL, catalogNumber=NULL, ITIScommonName=NULL, 
+  computedStateFips=NULL, scientificName=NULL, hierarchy_homonym_string=NULL, TSNs=NULL,
+  recordedBy=NULL, occurrenceID=NULL, catalogNumber=NULL, ITIScommonName=NULL,
   kingdom=NULL, callopts=list(), verbose=TRUE, ...)
 {
   url <- "http://bisonapi.usgs.ornl.gov/solr/occurrences/select/"

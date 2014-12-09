@@ -33,7 +33,7 @@ Map (using ggplot2 package) of points on a map.
 Make map to visualize BISON data.
 }
 \examples{
-\donttest{
+\dontrun{
 # Using function bison
 library("ggplot2")
 out <- bison(species="Accipiter", type="scientific_name", count=300)
