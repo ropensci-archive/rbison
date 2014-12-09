@@ -28,4 +28,5 @@ Imports:
     jsonlite
 Suggests:
     knitr,
-    testthat
+    testthat,
+    taxize
