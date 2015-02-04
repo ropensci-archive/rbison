@@ -164,19 +164,19 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, co
     res <- NA
   } else {
     out <- content(tt, as="text")
+    json <- fromJSON(out, FALSE)
     what <- match.arg(what, choices=c("summary", "counties", "states", "points", "all", "raw", "list"))
     res <- switch(what,
-                  summary=bison_data(fromJSON(out, FALSE), "summary"),
-                  all=bison_data(fromJSON(out, FALSE), "all"),
-                  counties=bison_data(fromJSON(out, FALSE), "counties"),
-                  states=bison_data(fromJSON(out, FALSE), "states"),
-                  points=bison_data(fromJSON(out, FALSE), "points"),
+                  summary=bison_data(json, "summary"),
+                  all=bison_data(json, "all"),
+                  counties=bison_data(json, "counties"),
+                  states=bison_data(json, "states"),
+                  points=bison_data(json, "points"),
                   raw=out,
-                  list=fromJSON(out, FALSE)
+                  list=json
     )
   }
-  class(res) <- "bison"
-  return( res )
+  structure(res, class="bison")
 }
 
 check_params <- function(x){
@@ -217,28 +217,47 @@ bison_data <- function(input = NULL, datatype="summary")
 }
 
 getcounties <- function(x){
-  if(x$counties$total == 0){ NULL } else {
-    if(class(x$counties$data[[1]])=="character"){
-      df <- ldply(x$counties$data)
-    } else
-    {
-      df <- ldply(x$counties$data, function(y) data.frame(y))
+  tryx <- tryCatch(x$counties$total, error = function(e) e)
+  if(is(tryx, "simpleError") || is.null(tryx)){
+    NULL 
+  } else {
+    if(x$counties$total == 0){
+      NULL
+    } else {
+      if(class(x$counties$data[[1]])=="character"){
+        df <- ldply(x$counties$data)
+      } else
+      {
+        df <- ldply(x$counties$data, function(y) data.frame(y))
+      }
+      names(df)[c(1,3)] <- c("record_id","county_name")
+      return(df)
     }
-    names(df)[c(1,3)] <- c("record_id","county_name")
-    return(df)
   }
 }
 
 getstates <- function(x){
-  if(x$counties$total == 0){ NULL } else {
-    df <- ldply(x$states$data, function(y) data.frame(y))
-    names(df)[c(1,3)] <- c("record_id","county_fips")
-    return(df)
+  tryx <- tryCatch(x$states$total, error = function(e) e)
+  if(is(tryx, "simpleError") || is.null(tryx)){
+    NULL 
+  } else {
+    if(x$states$total == 0){
+      NULL
+    } else {
+      df <- ldply(x$states$data, function(y) data.frame(y))
+      names(df)[c(1,3)] <- c("record_id","county_fips")
+      return(df)
+    }
   }
 }
 
 getpoints <- function(x){
-  if(length(x$data) == 0){ NULL } else {
+  tryx <- tryCatch(x$data, error = function(e) e)
+  if(is(tryx, "simpleError")){
+    NULL
+  } else if(length(x$data) == 0){
+      NULL 
+  } else {
     withlatlong <- x$data[sapply(x$data, length, USE.NAMES=FALSE) == 8]
     data_out <- ldply(withlatlong, function(y){
       y[sapply(y, is.null)] <- NA
