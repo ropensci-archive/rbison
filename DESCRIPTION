@@ -5,8 +5,8 @@ Description: Interface to the USGS BISON API, a database for
     United States, from participating data providers. This package
     focuses mostly on getting data from BISON, via taxonomic and location
     based queries. A simple function is provided to help visualize data.
-Version: 0.4.5
-Date: 2014-12-09
+Version: 0.4.5.99
+Date: 2015-02-04
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/rbison
 BugReports: https://github.com/ropensci/rbison/issues
