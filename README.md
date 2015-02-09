@@ -102,7 +102,7 @@ out$summary
 
 ```
 ##   total observation fossil specimen unknown centroid
-## 1  1437         137    164      897     239        1
+## 1  1320         181    162      738     239        1
 ```
 
 ##### map occurrences
@@ -182,16 +182,16 @@ bison_tax(query = "*bear")
 ## Source: local data frame [10 x 2]
 ## 
 ##          vernacularName    lc_vernacularName
-## 1  Louisiana black bear Louisiana black bear
-## 2          grizzly bear         grizzly bear
+## 1   American black bear  American black bear
+## 2    Asiatic black bear   Asiatic black bear
 ## 3     banded woollybear    banded woollybear
-## 4    Asiatic black bear   Asiatic black bear
-## 5           Kodiak bear          Kodiak bear
-## 6      black-ended bear     black-ended bear
-## 7   American black bear  American black bear
-## 8     yellow woollybear    yellow woollybear
-## 9            black bear           black bear
-## 10   yellow woolly bear   yellow woolly bear
+## 4            black bear           black bear
+## 5      black-ended bear     black-ended bear
+## 6            brown bear           brown bear
+## 7          grizzly bear         grizzly bear
+## 8           Kodiak bear          Kodiak bear
+## 9  Louisiana black bear Louisiana black bear
+## 10             Sun bear             Sun bear
 ## 
 ## $highlight
 ## NULL
@@ -209,22 +209,22 @@ bison_tax(query = "Helianthus*", method = "scientificName")
 
 ```
 ## $numFound
-## [1] 182
+## [1] 183
 ## 
 ## $names
 ## Source: local data frame [10 x 1]
 ## 
-##                       scientificName
-## 1                Helianthus parishii
-## 2              Helianthus floridanus
-## 3           Helianthus helianthoides
-## 4              Helianthus laciniatus
-## 5                 Helianthus glaucus
-## 6                         Helianthus
-## 7                  Helianthus niveus
-## 8             Helianthus divaricatus
-## 9             Helianthus arizonensis
-## 10 Helianthus divaricatus latifolius
+##                        scientificName
+## 1   Helianthus divaricatus latifolius
+## 2              Helianthus decapetalus
+## 3                 Helianthus ambiguus
+## 4                Helianthus luxurians
+## 5                Helianthus arenicola
+## 6               Helianthus atrorubens
+## 7              Helianthus tenuifolius
+## 8        Helianthus petiolaris phenax
+## 9  Helianthus angustifolius nuttallii
+## 10          Helianthus trachelifolius
 ## 
 ## $highlight
 ## NULL
@@ -251,57 +251,57 @@ bison_solr(scientificName = "Ursus americanus", state_code = "New Mexico", rows 
 ## [1] 5277
 ## 
 ## $points
-##      scientificName
-## 1  Ursus americanus
-## 2  Ursus americanus
-## 3  Ursus americanus
-## 4  Ursus americanus
-## 5  Ursus americanus
-## 6  Ursus americanus
-## 7  Ursus americanus
-## 8  Ursus americanus
-## 9  Ursus americanus
-## 10 Ursus americanus
-## 11 Ursus americanus
-## 12 Ursus americanus
-## 13 Ursus americanus
-## 14 Ursus americanus
-## 15 Ursus americanus
-## 16 Ursus americanus
-## 17 Ursus americanus
-## 18 Ursus americanus
-## 19 Ursus americanus
-## 20 Ursus americanus
-## 21 Ursus americanus
-## 22 Ursus americanus
-## 23 Ursus americanus
-## 24 Ursus americanus
-## 25 Ursus americanus
-## 26 Ursus americanus
-## 27 Ursus americanus
-## 28 Ursus americanus
-## 29 Ursus americanus
-## 30 Ursus americanus
-## 31 Ursus americanus
-## 32 Ursus americanus
-## 33 Ursus americanus
-## 34 Ursus americanus
-## 35 Ursus americanus
-## 36 Ursus americanus
-## 37 Ursus americanus
-## 38 Ursus americanus
-## 39 Ursus americanus
-## 40 Ursus americanus
-## 41 Ursus americanus
-## 42 Ursus americanus
-## 43 Ursus americanus
-## 44 Ursus americanus
-## 45 Ursus americanus
-## 46 Ursus americanus
-## 47 Ursus americanus
-## 48 Ursus americanus
-## 49 Ursus americanus
-## 50 Ursus americanus
+##      scientificName         eventDate
+## 1  Ursus americanus              <NA>
+## 2  Ursus americanus 1916-06-07T00:00Z
+## 3  Ursus americanus 1998-09-02T00:00Z
+## 4  Ursus americanus              <NA>
+## 5  Ursus americanus              <NA>
+## 6  Ursus americanus              <NA>
+## 7  Ursus americanus              <NA>
+## 8  Ursus americanus 1916-11-27T00:00Z
+## 9  Ursus americanus 1958-12-14T00:00Z
+## 10 Ursus americanus              <NA>
+## 11 Ursus americanus 1976-06-14T00:00Z
+## 12 Ursus americanus              <NA>
+## 13 Ursus americanus 1916-09-12T00:00Z
+## 14 Ursus americanus 1956-06-20T00:00Z
+## 15 Ursus americanus 1999-05-12T00:00Z
+## 16 Ursus americanus              <NA>
+## 17 Ursus americanus 1980-08-02T00:00Z
+## 18 Ursus americanus              <NA>
+## 19 Ursus americanus              <NA>
+## 20 Ursus americanus 1971-10-23T00:00Z
+## 21 Ursus americanus              <NA>
+## 22 Ursus americanus 1916-09-12T00:00Z
+## 23 Ursus americanus 1917-07-09T00:00Z
+## 24 Ursus americanus 1995-08-08T00:00Z
+## 25 Ursus americanus              <NA>
+## 26 Ursus americanus 1916-07-18T00:00Z
+## 27 Ursus americanus 1911-10-17T00:00Z
+## 28 Ursus americanus              <NA>
+## 29 Ursus americanus 1995-05-07T00:00Z
+## 30 Ursus americanus 1951-11-01T00:00Z
+## 31 Ursus americanus 1898-05-13T00:00Z
+## 32 Ursus americanus 1927-10-26T00:00Z
+## 33 Ursus americanus 1883-11-15T00:00Z
+## 34 Ursus americanus 1999-05-21T00:00Z
+## 35 Ursus americanus 1996-06-12T00:00Z
+## 36 Ursus americanus 1977-09-03T00:00Z
+## 37 Ursus americanus 2009-07-02T00:00Z
+## 38 Ursus americanus              <NA>
+## 39 Ursus americanus 1997-05-26T00:00Z
+## 40 Ursus americanus 1995-06-04T00:00Z
+## 41 Ursus americanus              <NA>
+## 42 Ursus americanus 1903-06-20T00:00Z
+## 43 Ursus americanus 1958-09-11T00:00Z
+## 44 Ursus americanus 2012-05-20T00:00Z
+## 45 Ursus americanus 1905-04-26T00:00Z
+## 46 Ursus americanus 1910-06-29T00:00Z
+## 47 Ursus americanus 1894-01-18T00:00Z
+## 48 Ursus americanus 2014-05-29T02:58Z
+## 49 Ursus americanus 1901-07-10T00:00Z
+## 50 Ursus americanus 1918-05-17T00:00Z
 ## 
 ## $highlight
 ## NULL
@@ -350,4 +350,4 @@ bisonmap(out)
 
 This package is part of a richer suite called [SPOCC Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using SPOCC as the primary R interface to rbison unless your needs are limited to this single source.
 
-[![ropensci footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
