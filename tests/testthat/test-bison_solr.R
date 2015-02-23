@@ -15,8 +15,8 @@ test_that("bison returns the correct value", {
 
 test_that("bison returns the correct class", {
   expect_is(out_1$points, "data.frame")
-  expect_that(out_1, is_a("bison_solr"))
-  expect_that(out_2, is_a("bison_solr"))
-  expect_that(out_3, is_a("bison_solr"))
-  expect_that(out_5_map, is_a("list"))
+  expect_is(out_1, "bison_solr")
+  expect_is(out_2, "bison_solr")
+  expect_is(out_3, "bison_solr")
+  expect_is(out_5_map, "gg")
 })
