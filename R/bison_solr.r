@@ -124,7 +124,7 @@ bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL, p
   recordedBy=NULL, occurrenceID=NULL, catalogNumber=NULL, ITIScommonName=NULL,
   kingdom=NULL, callopts=list(), verbose=TRUE, ...)
 {
-  url <- "http://bisonapi.usgs.ornl.gov/solr/occurrences/select/"
+  url <- "http://bison.usgs.ornl.gov/solrstaging/occurrences/select/"
   qu <- bs_compact(list(decimalLatitude=decimalLatitude,
                      decimalLongitude=decimalLongitude,
                      year=year,
