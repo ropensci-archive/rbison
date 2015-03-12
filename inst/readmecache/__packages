@@ -1,16 +1,10 @@
 base
-datasets
 devtools
-graphics
-grDevices
 knitr
 mapproj
 maps
-methods
 rbison
 Rdocumentation
 sacbox
 slidify
 slidifyLibraries
-stats
-utils

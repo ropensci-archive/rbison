@@ -4,7 +4,7 @@ rbison
 
 
 Linux: [![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)
-Windows:  [![Build status](https://ci.appveyor.com/api/projects/status/odh3k368he4xmyeq)](https://ci.appveyor.com/project/karthik/rbison)
+Windows: [![Build status](https://ci.appveyor.com/api/projects/status/fue2n8wgmjptgoe6?svg=true)](https://ci.appveyor.com/project/sckott/rbison)
 
 Wrapper to the USGS Bison API.
 
@@ -132,7 +132,7 @@ out$summary
 
 ```
 ##   total observation fossil specimen literature unknown centroid
-## 1 62862       51170    118      857        674   10043        1
+## 1 80557       69657    118      785        556    9441        1
 ```
 
 
@@ -243,65 +243,65 @@ bison_solr(scientificName = "Ursus americanus", state_code = "New Mexico", rows 
 ```
 
 ```
-## http://bisonapi.usgs.ornl.gov/solr/occurrences/select/?q=scientificName%3A%22Ursus%20americanus%22&wt=json&state_code=New%20Mexico&rows=50&fl=eventDate%2CscientificName
+## http://bison.usgs.ornl.gov/solrstaging/occurrences/select/?q=scientificName%3A%22Ursus%20americanus%22&wt=json&state_code=New%20Mexico&rows=50&fl=eventDate%2CscientificName
 ```
 
 ```
 ## $num_found
-## [1] 5277
+## [1] 5372
 ## 
 ## $points
 ##      scientificName         eventDate
 ## 1  Ursus americanus              <NA>
-## 2  Ursus americanus 1916-06-07T00:00Z
-## 3  Ursus americanus 1998-09-02T00:00Z
-## 4  Ursus americanus              <NA>
-## 5  Ursus americanus              <NA>
-## 6  Ursus americanus              <NA>
-## 7  Ursus americanus              <NA>
-## 8  Ursus americanus 1916-11-27T00:00Z
-## 9  Ursus americanus 1958-12-14T00:00Z
-## 10 Ursus americanus              <NA>
-## 11 Ursus americanus 1976-06-14T00:00Z
-## 12 Ursus americanus              <NA>
-## 13 Ursus americanus 1916-09-12T00:00Z
-## 14 Ursus americanus 1956-06-20T00:00Z
-## 15 Ursus americanus 1999-05-12T00:00Z
-## 16 Ursus americanus              <NA>
-## 17 Ursus americanus 1980-08-02T00:00Z
-## 18 Ursus americanus              <NA>
-## 19 Ursus americanus              <NA>
-## 20 Ursus americanus 1971-10-23T00:00Z
-## 21 Ursus americanus              <NA>
-## 22 Ursus americanus 1916-09-12T00:00Z
-## 23 Ursus americanus 1917-07-09T00:00Z
-## 24 Ursus americanus 1995-08-08T00:00Z
-## 25 Ursus americanus              <NA>
-## 26 Ursus americanus 1916-07-18T00:00Z
-## 27 Ursus americanus 1911-10-17T00:00Z
-## 28 Ursus americanus              <NA>
-## 29 Ursus americanus 1995-05-07T00:00Z
-## 30 Ursus americanus 1951-11-01T00:00Z
-## 31 Ursus americanus 1898-05-13T00:00Z
-## 32 Ursus americanus 1927-10-26T00:00Z
-## 33 Ursus americanus 1883-11-15T00:00Z
-## 34 Ursus americanus 1999-05-21T00:00Z
-## 35 Ursus americanus 1996-06-12T00:00Z
-## 36 Ursus americanus 1977-09-03T00:00Z
-## 37 Ursus americanus 2009-07-02T00:00Z
-## 38 Ursus americanus              <NA>
-## 39 Ursus americanus 1997-05-26T00:00Z
-## 40 Ursus americanus 1995-06-04T00:00Z
-## 41 Ursus americanus              <NA>
-## 42 Ursus americanus 1903-06-20T00:00Z
-## 43 Ursus americanus 1958-09-11T00:00Z
-## 44 Ursus americanus 2012-05-20T00:00Z
-## 45 Ursus americanus 1905-04-26T00:00Z
-## 46 Ursus americanus 1910-06-29T00:00Z
-## 47 Ursus americanus 1894-01-18T00:00Z
-## 48 Ursus americanus 2014-05-29T02:58Z
-## 49 Ursus americanus 1901-07-10T00:00Z
-## 50 Ursus americanus 1918-05-17T00:00Z
+## 2  Ursus americanus 2012-10-09T00:00Z
+## 3  Ursus americanus 2013-10-06T06:26Z
+## 4  Ursus americanus 2013-10-06T08:24Z
+## 5  Ursus americanus 2013-10-06T08:04Z
+## 6  Ursus americanus 1956-01-01T00:00Z
+## 7  Ursus americanus 2012-09-09T00:00Z
+## 8  Ursus americanus 2012-09-09T00:00Z
+## 9  Ursus americanus 2012-09-09T00:00Z
+## 10 Ursus americanus 2012-08-23T00:00Z
+## 11 Ursus americanus 2013-12-13T07:39Z
+## 12 Ursus americanus 2013-10-02T00:00Z
+## 13 Ursus americanus 2008-09-04T00:00Z
+## 14 Ursus americanus 2013-09-02T21:59Z
+## 15 Ursus americanus 2009-09-23T00:00Z
+## 16 Ursus americanus 2009-09-23T00:00Z
+## 17 Ursus americanus 2014-10-16T00:00Z
+## 18 Ursus americanus 2009-07-02T00:00Z
+## 19 Ursus americanus 2005-08-07T06:22Z
+## 20 Ursus americanus 2012-08-25T00:00Z
+## 21 Ursus americanus 2012-09-07T00:00Z
+## 22 Ursus americanus 2012-07-21T00:00Z
+## 23 Ursus americanus 2014-11-13T11:41Z
+## 24 Ursus americanus 2012-08-18T00:00Z
+## 25 Ursus americanus 2009-10-11T00:00Z
+## 26 Ursus americanus 2013-09-13T00:00Z
+## 27 Ursus americanus 2012-09-02T00:00Z
+## 28 Ursus americanus 2012-09-10T00:00Z
+## 29 Ursus americanus 2012-09-10T00:00Z
+## 30 Ursus americanus 2012-07-31T00:00Z
+## 31 Ursus americanus 2012-09-30T00:00Z
+## 32 Ursus americanus 1990-08-21T00:00Z
+## 33 Ursus americanus 1990-10-15T00:00Z
+## 34 Ursus americanus 2005-08-04T07:33Z
+## 35 Ursus americanus 2012-08-16T00:00Z
+## 36 Ursus americanus 2012-08-16T00:00Z
+## 37 Ursus americanus 2012-08-17T00:00Z
+## 38 Ursus americanus 2008-10-09T00:00Z
+## 39 Ursus americanus 2012-08-22T00:00Z
+## 40 Ursus americanus 2012-09-26T00:00Z
+## 41 Ursus americanus 2013-06-04T02:36Z
+## 42 Ursus americanus 2008-08-25T00:00Z
+## 43 Ursus americanus 1800-01-01T00:00Z
+## 44 Ursus americanus              <NA>
+## 45 Ursus americanus 2009-09-16T00:00Z
+## 46 Ursus americanus 2009-09-16T00:00Z
+## 47 Ursus americanus 2009-09-07T00:00Z
+## 48 Ursus americanus 2009-09-10T00:00Z
+## 49 Ursus americanus 2003-10-17T00:00Z
+## 50 Ursus americanus 2003-10-17T00:00Z
 ## 
 ## $highlight
 ## NULL
@@ -333,7 +333,7 @@ out <- bison_solr(scientificName = "Ursus americanus", rows = 200)
 ```
 
 ```
-## http://bisonapi.usgs.ornl.gov/solr/occurrences/select/?q=scientificName%3A%22Ursus%20americanus%22&wt=json&rows=200
+## http://bison.usgs.ornl.gov/solrstaging/occurrences/select/?q=scientificName%3A%22Ursus%20americanus%22&wt=json&rows=200
 ```
 
 ```r
