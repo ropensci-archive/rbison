@@ -53,7 +53,7 @@ bison_tax <- function(query=NULL, method='vernacularName', exact=FALSE, parsed=T
   method <- match.arg(method, choices=c('vernacularName','scientificName'))
   if(!length(method)==1)
   	stop("method can only be of length 1")
-  url <- sprintf('http://bisonapi.usgs.ornl.gov/solr/%s/select', method)
+  url <- sprintf('http://bison.usgs.ornl.gov/solrstaging/%s/select', method)
   if(exact){ qu_ <- paste0('"', query, '"') } else { qu_ <- query }
   args <- bs_compact(list(q=qu_, wt="json", ...))
   tt <- GET(url, query=args, c(config(followlocation=1), callopts))
