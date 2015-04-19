@@ -6,6 +6,8 @@ rbison
 Linux: [![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)
 Windows:  [![Build status](https://ci.appveyor.com/api/projects/status/odh3k368he4xmyeq)](https://ci.appveyor.com/project/karthik/rbison)
 
+__NOTE (2015-04-19): BISON APIs have been completely down some days and off/on for many weeks. I'm trying to get this sorted out - sorry for the trouble__
+
 Wrapper to the USGS Bison API.
 
 ### Info
