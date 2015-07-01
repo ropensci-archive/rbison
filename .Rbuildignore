@@ -8,6 +8,8 @@ inst/stuff
 inst/assets
 inst/vign
 inst/img
+inst/readmeimg
+inst/readmecache
 README.Rmd
 appveyor.yml
 cran-comments.md
