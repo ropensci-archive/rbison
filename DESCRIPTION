@@ -1,19 +1,17 @@
 Package: rbison
-Title: R Interface to the USGS BISON API
-Description: Interface to the USGS BISON API, a database for
+Title: Interface to the 'USGS' 'BISON' 'API'
+Description: Interface to the 'USGS' 'BISON' 'API', a 'database' for
     species occurrence data on the web. Data comes from species in the
-    United States, from participating data providers. This package
-    focuses mostly on getting data from BISON, via taxonomic and location
-    based queries. A simple function is provided to help visualize data.
-Version: 0.4.7.99
-Date: 2015-03-13
+    United States from participating data providers. You can get
+    data via 'taxonomic' and location based queries. A simple function
+    is provided to help visualize data.
+Version: 0.4.7.9910
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/rbison
 BugReports: https://github.com/ropensci/rbison/issues
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
-LazyLoad: yes
-LazyData: yes
+LazyData: true
 VignetteBuilder: knitr
 Imports:
     plyr,
