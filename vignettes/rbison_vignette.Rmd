@@ -1,6 +1,7 @@
 <!--
 %\VignetteEngine{knitr}
 %\VignetteIndexEntry{rbison introduction}
+%\VignetteEncoding{UTF-8}
 -->
 
 
@@ -10,15 +11,15 @@ rbison introduction
 
 ## About the package
 
-`rbison` is an R package to search and retrieve data from the USGS BISON service. `rbison` wraps R code around the BISON API to allow you to talk to the BISON database from R. 
+`rbison` is an R package to search and retrieve data from the USGS BISON service. `rbison` wraps R code around the BISON API to allow you to talk to the BISON database from R.
 
-BISON has occurrence data for the US only. 
+BISON has occurrence data for the US only.
 
-BISON is a node of the Global Biodiversity Information Facility (GBIF) - i.e., you can get data that's available in BISON via GBIF instead if you want. 
+BISON is a node of the Global Biodiversity Information Facility (GBIF) - i.e., you can get data that's available in BISON via GBIF instead if you want.
 
 ## Info
 
-See [http://bison.usgs.ornl.gov/doc/api.jsp]() for API docs for the BISON API.
+See [http://bison.usgs.ornl.gov/doc/api.jsp](http://bison.usgs.ornl.gov/doc/api.jsp) for API docs for the BISON API.
 
 
 ## Install rbison
@@ -58,7 +59,7 @@ Inspect summary
 ```r
 out$summary
 #>   total observation fossil specimen unknown living centroid
-#> 1  5108          37    102     3499    1468      2        1
+#> 1  5365         192    102     3601    1468      2        1
 ```
 
 Map occurrences
@@ -90,7 +91,7 @@ Inspect summary
 ```r
 out$summary
 #>   total observation fossil specimen unknown centroid
-#> 1  1432         132    164      897     239        1
+#> 1  1320         181    162      738     239        1
 ```
 
 Map occurrences
@@ -100,7 +101,7 @@ Map occurrences
 bisonmap(out, tomap="state")
 ```
 
-![plot of chunk six](figure/six.png) 
+![plot of chunk six](figure/six-1.png) 
 
 ## All points within the contiguous 48 states
 
@@ -117,7 +118,7 @@ Inspect summary
 ```r
 out$summary
 #>   total observation fossil specimen literature unknown centroid
-#> 1 62862       51170    118      857        674   10043        1
+#> 1 91482       80582    118      785        556    9441        1
 ```
 
 Map occurrences
@@ -127,29 +128,29 @@ Map occurrences
 bisonmap(out, tomap="points")
 ```
 
-![plot of chunk nine](figure/nine.png) 
+![plot of chunk nine](figure/nine-1.png) 
 
-## Plot county or state 
+## Plot county or state
 
 With any data returned from a `bison` call, you can choose to plot county or state level data
 
-Counties - using last data call for Aquila 
+Counties - using last data call for Aquila
 
 
 ```r
 bisonmap(out, tomap="county")
 ```
 
-![plot of chunk ten](figure/ten.png) 
+![plot of chunk ten](figure/ten-1.png) 
 
-States - using last data call for Aquila 
+States - using last data call for Aquila
 
 
 ```r
 bisonmap(out, tomap="state")
 ```
 
-![plot of chunk eleven](figure/eleven.png) 
+![plot of chunk eleven](figure/eleven-1.png) 
 
 ## Constrain search with county IDs or bounding boxes
 
@@ -168,7 +169,7 @@ Inspect summary
 ```r
 out$summary
 #>   total observation fossil specimen unknown living centroid
-#> 1  5108          37    102     3499    1468      2        1
+#> 1  5365         192    102     3601    1468      2        1
 ```
 
 By default, the query only returned 10 records
@@ -177,29 +178,29 @@ By default, the query only returned 10 records
 ```r
 head(out$points)
 #>                name decimalLongitude decimalLatitude occurrenceID
-#> 1 Helianthus annuus           -122.6           38.11    868133992
-#> 2 Helianthus annuus           -120.0           34.54    866815899
-#> 3 Helianthus annuus           -108.6           39.06     40892504
-#> 4 Helianthus annuus           -117.2           34.15    867605379
-#> 5 Helianthus annuus           -101.2           38.48    176955508
-#> 6 Helianthus annuus           -118.2           35.05     40891663
+#> 1 Helianthus annuus        -72.51666        42.36666    415907013
+#> 2 Helianthus annuus       -103.23028        43.17889     40886844
+#> 3 Helianthus annuus       -102.20278        42.80472     40886841
+#> 4 Helianthus annuus       -112.33333        43.21667     40892620
+#> 5 Helianthus annuus        -99.71694        43.25963    240492543
+#> 6 Helianthus annuus       -103.82763        43.29724    176955413
 #>                                      provider    basis
-#> 1           Consortium of California Herbaria Specimen
-#> 2           Consortium of California Herbaria Specimen
+#> 1                   University of Connecticut Specimen
+#> 2          US National Plant Germplasm System  Unknown
 #> 3          US National Plant Germplasm System  Unknown
-#> 4           Consortium of California Herbaria Specimen
+#> 4          US National Plant Germplasm System  Unknown
 #> 5 University of Kansas Biodiversity Institute Specimen
-#> 6          US National Plant Germplasm System  Unknown
+#> 6 University of Kansas Biodiversity Institute Specimen
 #>                                                     common_name geo
-#> 1 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 2 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 3 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 4 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 5 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 6 common sunflower, wild sunflower, annual sunflower, sunflower Yes
+#> 1 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 2 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 3 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 4 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 5 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 6 annual sunflower, sunflower, common sunflower, wild sunflower Yes
 ```
 
-Or specify county by its actual name - probably much easier. 
+Or specify county by its actual name - probably much easier.
 
 
 ```r
@@ -212,7 +213,7 @@ Inspect summary
 ```r
 out$summary
 #>   total observation fossil specimen unknown centroid
-#> 1   115           1      3      104       7        1
+#> 1   138           2      3      126       7        1
 ```
 
 By default, the query only returned 10 records
@@ -221,26 +222,26 @@ By default, the query only returned 10 records
 ```r
 head(out$points)
 #>                name decimalLongitude decimalLatitude occurrenceID
-#> 1 Helianthus annuus           -118.4           34.06    919912581
-#> 2 Helianthus annuus           -118.1           34.70     40886950
-#> 3 Helianthus annuus           -117.8           34.45    867556726
-#> 4 Helianthus annuus           -118.3           34.20    867698751
-#> 5 Helianthus annuus           -118.3           34.20    868216748
-#> 6 Helianthus annuus           -118.3           34.20    867920608
-#>                             provider    basis
-#> 1  Consortium of California Herbaria Specimen
-#> 2 US National Plant Germplasm System  Unknown
-#> 3  Consortium of California Herbaria Specimen
-#> 4  Consortium of California Herbaria Specimen
-#> 5  Consortium of California Herbaria Specimen
-#> 6  Consortium of California Herbaria Specimen
+#> 1 Helianthus annuus        -118.1358        34.69806     40886951
+#> 2 Helianthus annuus        -118.1358        34.69806     40886952
+#> 3 Helianthus annuus        -118.8517        34.79611     40886954
+#> 4 Helianthus annuus        -118.1358        34.69806     40886950
+#> 5 Helianthus annuus        -118.1358        34.69806     40886953
+#> 6 Helianthus annuus        -118.8517        34.79611     40886955
+#>                             provider   basis
+#> 1 US National Plant Germplasm System Unknown
+#> 2 US National Plant Germplasm System Unknown
+#> 3 US National Plant Germplasm System Unknown
+#> 4 US National Plant Germplasm System Unknown
+#> 5 US National Plant Germplasm System Unknown
+#> 6 US National Plant Germplasm System Unknown
 #>                                                     common_name geo
-#> 1 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 2 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 3 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 4 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 5 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 6 common sunflower, wild sunflower, annual sunflower, sunflower Yes
+#> 1 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 2 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 3 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 4 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 5 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 6 annual sunflower, sunflower, common sunflower, wild sunflower Yes
 ```
 
 `bison` will help you if you spell the name wrong, or use a partial name. The results are not printed below, but you would get a prompt asking you to pick between the two counties that start with *Los*.
@@ -250,7 +251,7 @@ head(out$points)
 bison(species="Helianthus annuus", county = "Los")
 ```
 
-### Constrain search to a amorphous area. 
+### Constrain search to a amorphous area.
 
 Check out the Wikipedia page [here](http://en.wikipedia.org/wiki/Well-known_text) for an in depth look at the options, terminology, etc.
 
@@ -273,12 +274,12 @@ The data
 
 ```r
 out$points
-#>                name decimalLongitude decimalLatitude occurrenceID
-#> 1 Helianthus annuus           -110.7           39.01   2174803257
-#>               provider    basis
-#> 1 USDA PLANTS Database Specimen
-#>                                                     common_name geo
-#> 1 common sunflower, wild sunflower, annual sunflower, sunflower Yes
+#>                name decimalLongitude decimalLatitude occurrenceID provider
+#> 1 Helianthus annuus        -110.7211        39.00903   1052407111    BISON
+#>      basis                                                   common_name
+#> 1 Specimen annual sunflower, sunflower, common sunflower, wild sunflower
+#>   geo
+#> 1 Yes
 ```
 
 ### Constrain search to a certain aoibbox.
@@ -296,7 +297,7 @@ Inspect summary
 ```r
 out$summary
 #>   total observation fossil specimen unknown centroid
-#> 1   241           6      8      150      77        1
+#> 1   297          20      8      192      77        1
 ```
 
 The data, by default, the query only returned 10 records
@@ -305,24 +306,24 @@ The data, by default, the query only returned 10 records
 ```r
 head(out$points)
 #>                name decimalLongitude decimalLatitude occurrenceID
-#> 1 Helianthus annuus           -112.4           39.52     40892214
-#> 2 Helianthus annuus           -111.2           36.11     40892493
-#> 3 Helianthus annuus           -112.5           36.95     40892245
-#> 4 Helianthus annuus           -111.8           37.14     57033814
-#> 5 Helianthus annuus           -113.3           37.17     40892243
-#> 6 Helianthus annuus           -119.4           36.35     40892467
+#> 1 Helianthus annuus        -120.0972        36.53167     40891669
+#> 2 Helianthus annuus        -120.0972        36.53167     40891613
+#> 3 Helianthus annuus        -119.7990        38.61761   1020768729
+#> 4 Helianthus annuus        -114.0000        36.83333     40892242
+#> 5 Helianthus annuus        -112.5256        37.04750     40892490
+#> 6 Helianthus annuus        -120.0972        36.53167     40886964
 #>                             provider    basis
 #> 1 US National Plant Germplasm System  Unknown
 #> 2 US National Plant Germplasm System  Unknown
-#> 3 US National Plant Germplasm System  Unknown
-#> 4   Utah Valley State College (UVSC) Specimen
+#> 3  Consortium of California Herbaria Specimen
+#> 4 US National Plant Germplasm System  Unknown
 #> 5 US National Plant Germplasm System  Unknown
 #> 6 US National Plant Germplasm System  Unknown
 #>                                                     common_name geo
-#> 1 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 2 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 3 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 4 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 5 common sunflower, wild sunflower, annual sunflower, sunflower Yes
-#> 6 common sunflower, wild sunflower, annual sunflower, sunflower Yes
+#> 1 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 2 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 3 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 4 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 5 annual sunflower, sunflower, common sunflower, wild sunflower Yes
+#> 6 annual sunflower, sunflower, common sunflower, wild sunflower Yes
 ```
