@@ -68,6 +68,79 @@ Search for and collect data from the USGS Bison API.
 \dontrun{
 bison(species="Bison bison", count=50, what='summary')
 bison(species="Bison bison", count=50, what='points')
+bison(species="Bison bison", count=50, what='counties')
+bison(species="Bison bison", count=50, what='states')
+bison(species="Bison bison", count=50, what='raw')
+bison(species="Bison bison", count=50, what='list')
+
+out <- bison(species="Bison bison", count=50) # by default gets 10 results
+out$summary # see summary
+out$counties # see county data
+out$states # see state data
+bisonmap(out, tomap = "points")
+bisonmap(out, tomap = "county")
+bisonmap(out, tomap = "state")
+
+# Search for a common name
+bison(species="Tufted Titmouse", type="common_name", what='summary')
+
+# Constrain search to a certain county, 49015 is Emery County in Utah
+bison(species="Helianthus annuus", countyFips = "49015")
+
+# Constrain search to a certain county, specifying county name instead of code
+bison(species="Helianthus annuus", county = "Los Angeles")
+bison(species="Helianthus annuus", county = "Los")
+
+# Constrain search to a certain aoi, which turns out to be Emery County, Utah as well
+bison(species="Helianthus annuus",
+ aoi = "POLYGON((-111.06360117772908 38.84001566645886,
+                 -110.80542246679359 39.37707771107983,
+                 -110.20117441992392 39.17722368276862,
+                 -110.20666758398464 38.90844075244811,
+                 -110.63513438085685 38.67724220095734,
+                 -111.06360117772908 38.84001566645886))")
+
+# Constrain search to a certain aoibbox, which, you guessed it, is also Emery Co., Utah
+bison(species="Helianthus annuus", aoibbox = '-111.31,38.81,-110.57,39.21')
+
+# Taxonomic serial number
+bison(tsn=162003)
+## If you don't have tsn's, search for a taxonomic serial number
+library('taxize')
+poa_tsn <- get_tsn('Poa annua')
+bison(tsn=poa_tsn)
+
+# Curl debugging and other httr options, some of these examples aren't that useful, but
+# are given for demonstration purposes
+library("httr")
+## get curl verbose output to see what's going on with your request
+bison(tsn=162003, count=1, what="points", config=verbose())
+## set a timeout so that the call stops after time x, compare 1st to 2nd call
+bison(tsn=162003, count=1, what="points", config=timeout(seconds=1))
+bison(tsn=162003, count=1, what="points", config=timeout(seconds=0.1))
+## set cookies
+bison(tsn=162003, count=1, what="points", config=set_cookies(a = 1, b = 2))
+## set cookies
+bison(tsn=162003, count=1, what="points", config=user_agent("rbison"))
+
+# Params - the params function accepts a number of search terms
+## Find the provider with ID 318.
+bison(params='providerID:("318")')
+## Find all resources with id of '318,1902' OR '318,9151', with values separated by spaces.
+bison(params='resourceID:("318,1902" "318,9151")')
+## Criterion may be combined using the semicolon (';') character, which translates to a logical
+## AND operator. Note that field names and values are case sensitive.
+bison(params='providerID:("408" "432");resourceID:("14027")')
+## Search by basisOfRecord, for specimen types in this case
+bison(params='basisOfRecord:(specimen)')
+## Search by computedStateFips, 01 for Alabama
+bison(params='computedStateFips:01')
+## Search by ITIStsn
+bison(params='ITIStsn:162003')
+## Search by countryCode
+bison(params='countryCode:US')
+## Search by ITIScommonName
+bison(params='ITIScommonName:"Canada goose"')
 }
 }
 \seealso{

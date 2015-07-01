@@ -49,10 +49,6 @@
 #' @examples \dontrun{
 #' bison(species="Bison bison", count=50, what='summary')
 #' bison(species="Bison bison", count=50, what='points')
-#' }
-#' @examples \dontrun{
-#' bison(species="Bison bison", count=50, what='summary')
-#' bison(species="Bison bison", count=50, what='points')
 #' bison(species="Bison bison", count=50, what='counties')
 #' bison(species="Bison bison", count=50, what='states')
 #' bison(species="Bison bison", count=50, what='raw')

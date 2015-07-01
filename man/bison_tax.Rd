@@ -4,12 +4,11 @@
 \alias{bison_tax}
 \title{Search for and collect taxonomic name data from the USGS Bison API using solr.}
 \usage{
-bison_tax(query = NULL, method = "vernacularName", exact = FALSE,
-  parsed = TRUE, callopts = list(), ...)
+bison_tax(query, method = "vernacularName", exact = FALSE, parsed = TRUE,
+  callopts = list(), ...)
 }
 \arguments{
-\item{query}{Name to search for. If left blank, the first ten results are returned
-using a more or less random search.}
+\item{query}{Name to search for. Required.}
 
 \item{method}{The field to query by. See description below for details.}
 
@@ -42,6 +41,9 @@ a time:
 }
 \examples{
 \dontrun{
+# All taxa
+bison_tax("*:*")
+
 # Some example calls
 bison_tax(query="*bear")
 bison_tax(query="Helianthus", method="scientificName")
