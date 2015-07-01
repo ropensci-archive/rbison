@@ -61,7 +61,7 @@
 #'
 #' The USGS BISON Solr installation version as of 2014-10-14 was 4.4.
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' bison_solr(scientificName='Ursus americanus')
 #' }
 #'

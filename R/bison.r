@@ -46,7 +46,7 @@
 #'
 #' @seealso \code{\link{bison_solr}} \code{\link{bison_tax}}
 #'
-#' @examples \donttest{
+#' @examples \dontrun{
 #' bison(species="Bison bison", count=50, what='summary')
 #' bison(species="Bison bison", count=50, what='points')
 #' }
@@ -219,7 +219,7 @@ bison_data <- function(input = NULL, datatype="summary")
 getcounties <- function(x){
   tryx <- tryCatch(x$counties$total, error = function(e) e)
   if(is(tryx, "simpleError") || is.null(tryx)){
-    NULL 
+    NULL
   } else {
     if(x$counties$total == 0){
       NULL
@@ -239,7 +239,7 @@ getcounties <- function(x){
 getstates <- function(x){
   tryx <- tryCatch(x$states$total, error = function(e) e)
   if(is(tryx, "simpleError") || is.null(tryx)){
-    NULL 
+    NULL
   } else {
     if(x$states$total == 0){
       NULL
@@ -256,7 +256,7 @@ getpoints <- function(x){
   if(is(tryx, "simpleError")){
     NULL
   } else if(length(x$data) == 0){
-      NULL 
+      NULL
   } else {
     withlatlong <- x$data[sapply(x$data, length, USE.NAMES=FALSE) == 8]
     data_out <- ldply(withlatlong, function(y){
