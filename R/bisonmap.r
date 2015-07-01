@@ -5,6 +5,7 @@
 #' element_blank
 #' @importFrom grid grid.newpage viewport unit
 #' @importFrom sp point.in.polygon
+#' @import mapproj
 #' @export
 #' @param input Input bison object.
 #' @param tomap One of points (occurrences), county (counts by county), or state

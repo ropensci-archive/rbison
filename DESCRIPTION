@@ -19,6 +19,7 @@ Imports:
     plyr,
     httr,
     ggplot2,
+    mapproj,
     grid,
     sp,
     dplyr,
