@@ -18,6 +18,9 @@
 #' of Vertebrate Zoology, University of Washington Burke Museum, and University of Turku
 #' (Accessed through Biodiversity Information Serving our Nation (BISON), bison.usgs.ornl.gov,
 #' 2013-04-22).
+#' 
+#' @importFrom stats complete.cases
+#' @importFrom methods is
 #' @name rbison-package
 #' @aliases rbison
 #' @docType package

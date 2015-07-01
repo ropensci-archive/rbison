@@ -14,6 +14,8 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
 LazyData: true
 VignetteBuilder: knitr
 Imports:
+    methods,
+    stats,
     plyr,
     httr,
     mapproj,
