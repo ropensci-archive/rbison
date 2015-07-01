@@ -5,7 +5,7 @@ Description: Interface to the 'USGS' 'BISON' 'API', a 'database' for
     United States from participating data providers. You can get
     data via 'taxonomic' and location based queries. A simple function
     is provided to help visualize data.
-Version: 0.4.7.9910
+Version: 0.4.7.9930
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/rbison
 BugReports: https://github.com/ropensci/rbison/issues
