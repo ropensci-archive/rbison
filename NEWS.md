@@ -3,7 +3,9 @@ rbison 0.4.8
 
 ### MINOR IMPROVEMENTS
 
-* xx
+* Now explicitly importing all non-base R package functions that ship with R, in this case from `stats` and `methods` packages (#36)
+* `.Rbuildignore` the `vignettes/figure` directory (#37)
+* Using `@importFrom` across all package imports.
 
 
 rbison 0.4.5

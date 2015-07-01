@@ -1,6 +1,10 @@
 #' Make map to visualize BISON data.
 #'
-#' @import maptools mapproj sp ggplot2 gridExtra grid
+#' @importFrom ggplot2 map_data ggplot aes geom_polygon coord_map scale_fill_gradient2 geom_path 
+#' theme_bw labs scale_x_continuous scale_y_continuous guides guide_legend geom_point theme %+%
+#' element_blank
+#' @importFrom grid grid.newpage viewport unit
+#' @importFrom sp point.in.polygon
 #' @export
 #' @param input Input bison object.
 #' @param tomap One of points (occurrences), county (counts by county), or state

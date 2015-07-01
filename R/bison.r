@@ -1,6 +1,6 @@
 #' Search for and collect data from the USGS Bison API.
 #'
-#' @import httr
+#' @importFrom httr GET content warn_for_status stop_for_status config
 #' @importFrom jsonlite fromJSON
 #' @importFrom plyr ldply
 #' @export
@@ -97,8 +97,8 @@
 #' ## get curl verbose output to see what's going on with your request
 #' bison(tsn=162003, count=1, what="points", config=verbose())
 #' ## set a timeout so that the call stops after time x, compare 1st to 2nd call
-#' bison(tsn=162003, count=1, what="points", config=timeout(seconds=1))
-#' bison(tsn=162003, count=1, what="points", config=timeout(seconds=0.1))
+#' # bison(tsn=162003, count=1, what="points", config=timeout(seconds=1))
+#' # bison(tsn=162003, count=1, what="points", config=timeout(seconds=0.1))
 #' ## set cookies
 #' bison(tsn=162003, count=1, what="points", config=set_cookies(a = 1, b = 2))
 #' ## set cookies

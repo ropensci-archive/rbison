@@ -1,6 +1,5 @@
 #' Get statistics about BISON downloads.
 #'
-#' @import httr
 #' @importFrom dplyr rbind_all
 #' @export
 #'

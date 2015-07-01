@@ -8,9 +8,6 @@ is.bison <- function(x) inherits(x, "bison")
 #' @export
 is.bison_solr <- function(x) inherits(x, "bison_solr")
 
-#' Custom ggplot2 theme
-#' @export
-#' @keywords internal
 bison_blanktheme <- function(){
   theme(axis.line=element_blank(),
         axis.text.x=element_blank(),
@@ -26,16 +23,12 @@ bison_blanktheme <- function(){
         plot.margin = rep(unit(0,"null"),4))
 }
 
-#' Function to make map form lat/long data
-#' 
-#' @import maptools mapproj sp ggplot2 gridExtra grid
-#' @param x The input
-#' @param geom Geom to use, one of geom_point or geom_jitter.
-#' @param jitter Jitter points.
-#' @param customize Customize ggplot2 plot.
-#' @param ... Further parameters passed on to bisonmap function
-#' @export
-#' @keywords internal 
+# Function to make map form lat/long data
+# param x The input
+# param geom Geom to use, one of geom_point or geom_jitter.
+# param jitter Jitter points.
+# param customize Customize ggplot2 plot.
+# param ... Further parameters passed on to bisonmap function
 bison_map_maker <- function(x, geom, jitter, customize)
 {
   long=lat=group=decimalLongitude=decimalLatitude=region=id=NULL

@@ -1,6 +1,5 @@
 #' Get information about BISON data providers.
 #'
-#' @import httr
 #' @importFrom plyr rbind.fill
 #' @export
 #'
