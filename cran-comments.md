@@ -1,10 +1,9 @@
-R CMD CHECK passed on my local OS X install with R 3.1.2 and R development version, Ubuntu 
-running on Travis-CI, and Win builder.
+R CMD CHECK passed on my local OS X install with R 3.2.1 and R development version, Ubuntu running on Travis-CI, and Win builder.
 
-This submission fixes a problem in which a package was not declared in the 
-DESCRIPTION file, but now is declared. 
+This submission is mostly to fix a number of broken functions due to the
+recent update in httr on CRAN to v1.0.
 
-In addition, this version includes a fix for a test that Kurt Hornik reported
-today.
+In addition, this package now imports non-base functions explicitly as
+needed in accordance with R-devel changes.
 
 Thanks! Scott Chamberlain
