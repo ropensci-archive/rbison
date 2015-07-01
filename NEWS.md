@@ -1,7 +1,15 @@
+rbison 0.4.8
+===============
+
+### MINOR IMPROVEMENTS
+
+* xx
+
+
 rbison 0.4.5
 ===============
 
-MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Fixes for `\donttest`.
 * Removed dependency on `assertthat`. 
@@ -11,17 +19,17 @@ MINOR IMPROVEMENTS
 rbison 0.4.3
 ===============
 
-NEW FEATURES
+### NEW FEATURES
 
 + New function `bison_stats()` to query the statistics about BISON downloads.
 + New function `citation_datause()` to get information on data use rules, and citation for using BISON data.
 + New vignette *other_functions* that goes over the other functions in `rbison`. The main vignette covers `bison()` only.
 
-BUG FIXES
+### BUG FIXES
 
 * Changed output of all data to have `stringsAsFactors=FALSE`.
 
-MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * Changed all `callopts` parameters to `...`, so you can pass in named options to `httr::GET` calls instead of through `callopts`, except in functions that interact with a SOLR engine, in which case `...` is reserved for passing on additional SOLR parameters, and then `callopts` is still used.
 * No longer importing `data.table`, importing `dplyr` now, and `assertthat`
@@ -37,14 +45,14 @@ MINOR IMPROVEMENTS
 rbison 0.3.2
 ===============
 
-BUG FIXES
+### BUG FIXES
 
 * Changed `blanktheme()` function to `bison_blanktheme()` to avoid namespace conflicts with the rgbif package.
 
 rbison 0.3.0
 ===============
 
-NEW FEATURES
+### NEW FEATURES
 
 * Added a vignette.
 * `bison()` function gains "what" parameter, to allow selection of the type of data to get back. All data is returned from the API (As there is no way to select subsets of data), but the what parameter lets you discard the things you don't want, saving on memory.
@@ -53,7 +61,7 @@ NEW FEATURES
 * `bison()` function gains "tsn" parameter. Specify a
 * New function `bison_providers()` to get metadata on data providers to BISON.
 
-MINOR IMPROVEMENTS
+### MINOR IMPROVEMENTS
 
 * `bison_data()` function removed. This function was used to get data back from a call to `bison()` or `bison_solr()`. Now those two functions simply give the data back immediately.
 * A startup message added.
@@ -61,6 +69,6 @@ MINOR IMPROVEMENTS
 rbison 0.2.4
 ===============
 
-NEW FEATURES
+### NEW FEATURES
 
 * Pushed first version to CRAN.

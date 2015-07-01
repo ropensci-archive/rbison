@@ -10,3 +10,5 @@ inst/vign
 README.Rmd
 appveyor.yml
 cran-comments.md
+vignettes/figure
+NEWS.md
