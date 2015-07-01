@@ -22,8 +22,8 @@
 #' }
 
 bisonmap <- function(input = NULL, tomap="points", geom = geom_point,
-                     jitter = NULL, customize = NULL)
-{
+                     jitter = NULL, customize = NULL) {
+  
   UseMethod("bisonmap")
 }
 
@@ -31,66 +31,68 @@ bisonmap <- function(input = NULL, tomap="points", geom = geom_point,
 #' @export
 #' @rdname bisonmap
 bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
-                           jitter = NULL, customize = NULL)
-{
-  long=lat=group=total=NULL
+                           jitter = NULL, customize = NULL) {
+  
+  long = lat = group = total = NULL
 
-  if(!is.bison(input))
+  if (!is.bison(input)) {
     stop("Input is not of class bison")
+  }
 
-  if(tomap=='points') {
-    bison_map_maker(x=input, geom=geom, jitter=jitter, customize=customize)
+  if (tomap == 'points') {
+    bison_map_maker(x = input, geom = geom, jitter = jitter, customize = customize)
   } else
-    if(tomap=='county'){
+    if (tomap == 'county') {
       bycounty <- input$counties
       bycounty$state <- tolower(bycounty$state)
       bycounty$county_name <- gsub("\\scounty", "", tolower(bycounty$county_name))
 
       counties <- map_data("county")
-      counties_plus <- merge(counties, bycounty, by.x='subregion', by.y='county_name', all.x=TRUE)
+      counties_plus <- merge(counties, bycounty, by.x = 'subregion', by.y = 'county_name', all.x = TRUE)
       counties_plus <- counties_plus[order(counties_plus$order),]
       counties_plus$total <- as.numeric(counties_plus$total)
 
       states <- map_data("state")
 
-      ggplot(counties_plus, aes(long, lat, group=group)) +
-        geom_polygon(aes(fill=total)) +
-        coord_map(projection="azequalarea") +
-        scale_fill_gradient2("", na.value="white", low = "white", high = "steelblue") +
+      ggplot(counties_plus, aes(long, lat, group = group)) +
+        geom_polygon(aes(fill = total)) +
+        coord_map(projection = "azequalarea") +
+        scale_fill_gradient2("", na.value = "white", low = "white", high = "steelblue") +
         geom_path(data = counties, colour = "grey", size = .3, alpha = .4) +
         geom_path(data = states, colour = "grey", size = .4) +
-        theme_bw(base_size=14) +
-        labs(x="", y="") +
+        theme_bw(base_size = 14) +
+        labs(x = "", y = "") +
         bison_blanktheme() +
-        scale_x_continuous(expand=c(0,0)) +
-        scale_y_continuous(expand=c(0,0)) +
+        scale_x_continuous(expand = c(0,0)) +
+        scale_y_continuous(expand = c(0,0)) +
         theme(legend.position = "top") +
-        guides(guide_legend(direction="horizontal")) +
+        guides(guide_legend(direction = "horizontal")) +
         customize
-    } else
-      if(tomap=='state'){
+    } else if (tomap == 'state') {
         bystate <- input$states
         bystate$record_id <- tolower(bystate$record_id)
 
         states <- map_data("state")
-        states_plus <- merge(states, bystate, by.x='region', by.y='record_id', all.x=TRUE)
+        states_plus <- merge(states, bystate, by.x = 'region', by.y = 'record_id', all.x = TRUE)
         states_plus <- states_plus[order(states_plus$order),]
         states_plus$total <- as.numeric(states_plus$total)
 
-        ggplot(states_plus, aes(long, lat, group=group)) +
-          geom_polygon(aes(fill=total)) +
-          coord_map(projection="azequalarea") +
-          scale_fill_gradient2("", na.value="white", low = "white", high = "steelblue") +
+        ggplot(states_plus, aes(long, lat, group = group)) +
+          geom_polygon(aes(fill = total)) +
+          coord_map(projection = "azequalarea") +
+          scale_fill_gradient2("", na.value = "white", low = "white", high = "steelblue") +
           geom_path(data = states, colour = "grey", size = .4) +
-          theme_bw(base_size=14) +
-          labs(x="", y="") +
+          theme_bw(base_size = 14) +
+          labs(x = "", y = "") +
           bison_blanktheme() +
-          scale_x_continuous(expand=c(0,0)) +
-          scale_y_continuous(expand=c(0,0)) +
+          scale_x_continuous(expand = c(0,0)) +
+          scale_y_continuous(expand = c(0,0)) +
           theme(legend.position = "top") +
-          guides(guide_legend(direction="horizontal")) +
+          guides(guide_legend(direction = "horizontal")) +
           customize
-      } else { stop("tomap must be one of points, county, or state") }
+    } else { 
+      stop("tomap must be one of points, county, or state") 
+    }
 }
 
 
@@ -98,13 +100,15 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
 #' @export
 #' @rdname bisonmap
 bisonmap.bison_solr <- function(input = NULL, tomap="points", geom = geom_point,
-                                jitter = NULL, customize = NULL)
-{
-  if(!is.bison_solr(input))
+                                jitter = NULL, customize = NULL) {
+  
+  if (!is.bison_solr(input)) {
     stop("Input is not of class bison_solr")
-  if(!tomap=='points')
+  }
+  if (!tomap == 'points') {
     stop("tomap must equal 'points'")
+  }
   # remove NA's due to /null,null/specimen in pointPath field
   input$points <- input$points[!input$points$pointPath == "/null,null/specimen",]
-  bison_map_maker(x=input, geom = geom, jitter = jitter, customize = customize)
+  bison_map_maker(x = input, geom = geom, jitter = jitter, customize = customize)
 }
