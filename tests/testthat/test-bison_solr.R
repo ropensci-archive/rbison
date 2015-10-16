@@ -20,6 +20,6 @@ test_that("bison returns the correct value", {
   expect_is(out_1, "bison_solr")
   expect_is(out_2, "bison_solr")
   expect_is(out_3, "bison_solr")
-  expect_is(out_5_map, "list")
-  expect_is(out_5_map$plot, "gg")
+  expect_is(out_5_map, "gg")
+  expect_is(out_5_map$plot_env, "environment")
 })
