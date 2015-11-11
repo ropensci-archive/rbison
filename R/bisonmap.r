@@ -22,7 +22,7 @@
 
 bisonmap <- function(input = NULL, tomap="points", geom = geom_point,
                      jitter = NULL, customize = NULL) {
-  
+
   UseMethod("bisonmap")
 }
 
@@ -31,13 +31,13 @@ bisonmap <- function(input = NULL, tomap="points", geom = geom_point,
 #' @rdname bisonmap
 bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
                            jitter = NULL, customize = NULL) {
-  
+
   long = lat = group = total = NULL
 
   if (!is.bison(input)) {
     stop("Input is not of class bison")
   }
-  
+
   if (is.null(jitter)) {
     jitter <- position_jitter()
   }
@@ -93,8 +93,8 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
           theme(legend.position = "top") +
           guides(guide_legend(direction = "horizontal")) +
           customize
-    } else { 
-      stop("tomap must be one of points, county, or state") 
+    } else {
+      stop("tomap must be one of points, county, or state")
     }
 }
 
@@ -104,7 +104,7 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
 #' @rdname bisonmap
 bisonmap.bison_solr <- function(input = NULL, tomap="points", geom = geom_point,
                                 jitter = NULL, customize = NULL) {
-  
+
   if (!is.bison_solr(input)) {
     stop("Input is not of class bison_solr")
   }

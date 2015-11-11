@@ -32,23 +32,23 @@ bison_blanktheme <- function(){
 bison_map_maker <- function(x, geom, jitter, customize)
 {
   long=lat=group=decimalLongitude=decimalLatitude=region=id=NULL
-  
+
   if(is(x, "bison")){ tt <- x$points } else { tt <- x$points }
 
   # Make lat/long data numeric
   tt$decimalLatitude <- as.numeric(as.character(tt$decimalLatitude))
   tt$decimalLongitude <- as.numeric(as.character(tt$decimalLongitude))
-  
+
   # Remove points that are not physically possible
   tt <- tt[complete.cases(tt$decimalLatitude, tt$decimalLongitude), ]
   tt <- tt[-(which(tt$decimalLatitude <=90 || tt$decimalLongitude <=180)), ]
-  
+
   # Check if points are inside the contintental US, or US+Alaska, or US+Alaska+Hawaii, or even farther
   if(all(all(tt$decimalLatitude < 49) & all(tt$decimalLatitude > 24.7433195) & all(tt$decimalLongitude > -130) & all(tt$decimalLongitude < -66.9513812))){
     # plot only contiguous USA
     contig_layer <- subset(all_states, id != "Alaska" & id != "Hawaii")
     tt_contig <- tt[point.in.polygon(tt$decimalLongitude,tt$decimalLatitude,contig_layer$long,contig_layer$lat)==1,]
-    
+
     p <- ggplot() +
       geom_polygon(aes(x=long, y=lat, group = group), colour = "black", fill = NA, size = 0.25) +
       coord_map(projection="azequalarea") +
@@ -56,7 +56,7 @@ bison_map_maker <- function(x, geom, jitter, customize)
     p %+% droplevels(subset(all_states, id != "Alaska" & id != "Hawaii")) +
       geom_point(data=droplevels(tt_contig), aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter) +
       scale_x_continuous(expand=c(0,0)) + scale_y_continuous(expand=c(0,0))
-    
+
   } else
     if(all(all(tt$decimalLatitude < 75) & all(tt$decimalLatitude > 15) & all(tt$decimalLongitude > -170) & all(tt$decimalLongitude < -66.9513812))){
       # plot contiguous USA + Alaska + Hawaii
@@ -66,17 +66,17 @@ bison_map_maker <- function(x, geom, jitter, customize)
       tt_contig <- tt[point.in.polygon(tt$decimalLongitude,tt$decimalLatitude,contig_layer$long,contig_layer$lat)==1,]
       tt_AK <- tt[point.in.polygon(tt$decimalLongitude,tt$decimalLatitude,AK_layer$long,AK_layer$lat)==1,]
       tt_HI <- tt[point.in.polygon(tt$decimalLongitude,tt$decimalLatitude,HI_layer$long,HI_layer$lat)==1,]
-      
+
       p <- ggplot() +
         geom_polygon(aes(x=long, y=lat, group = group), colour = "black", fill = NA, size = 0.25) +
         coord_map(projection="azequalarea") +
         scale_x_continuous(expand=c(0,0)) +
         scale_y_continuous(expand=c(0,0)) +
         bison_blanktheme()
-      AK <- p %+% subset(all_states, id == "Alaska") + 
+      AK <- p %+% subset(all_states, id == "Alaska") +
         theme(legend.position = "none") +
         geom_point(data=tt_AK, aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter)
-      HI <- p %+% subset(all_states, id == "Hawaii") + 
+      HI <- p %+% subset(all_states, id == "Hawaii") +
         theme(legend.position = "none") +
         geom_point(data=tt_HI, aes(decimalLongitude, decimalLatitude), size=3, colour = "red", position=jitter)
       contiguous <- p %+% subset(all_states, id != "Alaska" & id != "Hawaii") +
@@ -91,9 +91,9 @@ bison_map_maker <- function(x, geom, jitter, customize)
         print(cc, vp = subvp2)
       }
       thing(contiguous, AK, HI)
-      
+
     } else
-    { 
+    {
       # plot world (minus Antarticta)
       world <- map_data(map="world") # get world map data
       world <- subset(world, region != "Antarctica") # remove Antarctica
