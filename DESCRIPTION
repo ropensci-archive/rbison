@@ -28,3 +28,4 @@ Suggests:
     knitr,
     testthat,
     taxize
+RoxygenNote: 5.0.1
