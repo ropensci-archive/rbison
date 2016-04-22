@@ -1,8 +1,6 @@
 #' Get statistics about BISON downloads.
 #'
-#' @importFrom dplyr rbind_all
 #' @export
-#'
 #' @param what (character) One of stats (default), search, downnload, or wms. See Details.
 #' @param ... Further args passed on to httr::GET. See examples in \code{bison}
 #' @return A list of data frame's with names of the list the different data sources
@@ -26,10 +24,9 @@
 #' out$ZooKeys
 #' }
 
-bison_stats <- function(what='stats', ...)
-{
+bison_stats <- function(what='stats', ...) {
   what <- match.arg(what, c('stats','search','download','wms'))
-  pick <- switch(what, stats='all', search='search', download='download', wms='wms')
+  pick <- switch(what, stats = 'all', search = 'search', download = 'download', wms = 'wms')
   url <- switch(what,
                 stats = 'http://bison.usgs.ornl.gov/api/statistics/all',
                 search = 'http://bison.usgs.ornl.gov/api/statistics/search',
@@ -41,8 +38,8 @@ bison_stats <- function(what='stats', ...)
   tt <- content(out, as = "text")
   res <- fromJSON(tt, simplifyVector = FALSE)
   output <- lapply(res$data, function(x){
-    df <- rbind_all(lapply(x[[pick]], function(g) data.frame(null2na(g), stringsAsFactors = FALSE)))
-    list(name=x$name, resources=do.call(c, x$resources), data=df)
+    df <- bind_rows(lapply(x[[pick]], function(g) data.frame(null2na(g), stringsAsFactors = FALSE)))
+    list(name = x$name, resources = do.call(c, x$resources), data = df)
   })
   names(output) <- gsub("\\s", "_", vapply(res$data, "[[", "", "name"))
   return( output )

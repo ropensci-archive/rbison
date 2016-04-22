@@ -74,7 +74,7 @@ bison_tax <- function(query, method='vernacularName', exact=FALSE, parsed=TRUE,
   )
 
   if (parsed) {
-    data <- rbind_all(lapply(out$response$docs, data.frame, stringsAsFactors = FALSE))
+    data <- bind_rows(lapply(out$response$docs, data.frame, stringsAsFactors = FALSE))
     data$X_version_ <- NULL
     temp$names <- data
   }

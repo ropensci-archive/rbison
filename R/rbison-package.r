@@ -27,6 +27,7 @@
 #' element_blank position_jitter
 #' @importFrom grid grid.newpage viewport unit
 #' @importFrom sp point.in.polygon
+#' @importFrom dplyr bind_rows
 #' @import mapproj
 #' @name rbison-package
 #' @aliases rbison
