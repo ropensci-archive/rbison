@@ -148,7 +148,7 @@ bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL, p
   for(i in seq_along(qu)){
      stuff[i] <- paste0(names(qu)[[i]],':"', qu[[i]], '"')
   }
-  stuff <- paste0(stuff,collapse="+")
+  stuff <- if (length(stuff) == 0) "*:*" else paste0(stuff,collapse="+")
 
   args <- bs_compact(list(q=stuff, wt="json", ...))
 
