@@ -85,17 +85,17 @@
 #' bison(species="Helianthus annuus", aoibbox = '-111.31,38.81,-110.57,39.21')
 #'
 #' # Taxonomic serial number
-#' bison(tsn=162003)
+#' bison(tsn = 162003)
 #' ## If you don't have tsn's, search for a taxonomic serial number
 #' library('taxize')
 #' poa_tsn <- get_tsn('Poa annua')
-#' bison(tsn=poa_tsn)
+#' bison(tsn = poa_tsn)
 #'
 #' # Curl debugging and other httr options, some of these examples aren't that useful, but
 #' # are given for demonstration purposes
 #' library("httr")
 #' ## get curl verbose output to see what's going on with your request
-#' bison(tsn=162003, count=1, what="points", config=verbose())
+#' bison(tsn = 162003, count=1, what="points", config=verbose())
 #' ## set a timeout so that the call stops after time x, compare 1st to 2nd call
 #' # bison(tsn=162003, count=1, what="points", config=timeout(seconds=1))
 #' # bison(tsn=162003, count=1, what="points", config=timeout(seconds=0.1))
@@ -146,17 +146,17 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, co
   # check if param names are in the accepted list
   check_params(params)
 
-  url <- "http://bison.usgs.ornl.gov/api/search.json"
+  url <- "https://bison.usgs.gov/api/search.json"
   args <- bs_compact(list(species=species,type=type,itis=itis,tsn=tsn,start=start,count=count,
                        countyFips=countyFips,state=state,aoi=aoi,aoibbox=aoibbox,params=params))
   tt <- GET(url, query=args, ...)
   warn_for_status(tt)
-  if(tt$status_code > 201){
+  if (tt$status_code > 201) {
     stopifnot(tt$headers$`content-type` == "text/html;charset=utf-8")
   } else {
     stopifnot(tt$headers$`content-type` == "application/json;charset=UTF-8")
   }
-  if(tt$status_code > 201){
+  if (tt$status_code > 201) {
     res <- NA
   } else {
     out <- content(tt, as="text")
