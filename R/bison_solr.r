@@ -244,7 +244,7 @@ solr_parse_search <- function(input, parsetype='list', concat=',')
     dat <- input$response$docs
     dat2 <- lapply(dat, function(x){
       lapply(x, function(y){
-        if(length(y) > 1 || is(y, "list")){
+        if(length(y) > 1 || inherits(y, "list")){
           paste(y, collapse=concat)
         } else { y  }
       })

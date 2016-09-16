@@ -214,7 +214,7 @@ bison_data <- function(input = NULL, datatype="summary")
 
 getcounties <- function(x){
   tryx <- tryCatch(x$counties$total, error = function(e) e)
-  if(is(tryx, "simpleError") || is.null(tryx)){
+  if(inherits(tryx, "simpleError") || is.null(tryx)){
     NULL
   } else {
     if(x$counties$total == 0){
@@ -234,7 +234,7 @@ getcounties <- function(x){
 
 getstates <- function(x){
   tryx <- tryCatch(x$states$total, error = function(e) e)
-  if(is(tryx, "simpleError") || is.null(tryx)){
+  if(inherits(tryx, "simpleError") || is.null(tryx)){
     NULL
   } else {
     if(x$states$total == 0){
@@ -249,7 +249,7 @@ getstates <- function(x){
 
 getpoints <- function(x){
   tryx <- tryCatch(x$data, error = function(e) e)
-  if(is(tryx, "simpleError")){
+  if(inherits(tryx, "simpleError")){
     NULL
   } else if(length(x$data) == 0){
       NULL

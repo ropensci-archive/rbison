@@ -14,17 +14,16 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
 LazyData: true
 VignetteBuilder: knitr
 Imports:
-    methods,
-    stats,
     plyr,
-    httr,
+    httr (>= 1.2.0),
     ggplot2,
     mapproj,
     grid,
     sp,
-    dplyr,
-    jsonlite
+    dplyr (>= 0.5.0),
+    jsonlite (>= 1.1)
 Suggests:
+    roxygen2 (>= 5.0.1),
     knitr,
     testthat,
     taxize,

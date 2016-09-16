@@ -104,17 +104,17 @@ bison(species="Helianthus annuus",
 bison(species="Helianthus annuus", aoibbox = '-111.31,38.81,-110.57,39.21')
 
 # Taxonomic serial number
-bison(tsn=162003)
+bison(tsn = 162003)
 ## If you don't have tsn's, search for a taxonomic serial number
 library('taxize')
 poa_tsn <- get_tsn('Poa annua')
-bison(tsn=poa_tsn)
+bison(tsn = poa_tsn)
 
 # Curl debugging and other httr options, some of these examples aren't that useful, but
 # are given for demonstration purposes
 library("httr")
 ## get curl verbose output to see what's going on with your request
-bison(tsn=162003, count=1, what="points", config=verbose())
+bison(tsn = 162003, count=1, what="points", config=verbose())
 ## set a timeout so that the call stops after time x, compare 1st to 2nd call
 # bison(tsn=162003, count=1, what="points", config=timeout(seconds=1))
 # bison(tsn=162003, count=1, what="points", config=timeout(seconds=0.1))

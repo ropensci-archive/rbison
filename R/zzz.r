@@ -33,14 +33,14 @@ bison_map_maker <- function(x, geom, jitter, customize)
 {
   long=lat=group=decimalLongitude=decimalLatitude=region=id=NULL
 
-  if(is(x, "bison")){ tt <- x$points } else { tt <- x$points }
+  if (inherits(x, "bison")){ tt <- x$points } else { tt <- x$points }
 
   # Make lat/long data numeric
   tt$decimalLatitude <- as.numeric(as.character(tt$decimalLatitude))
   tt$decimalLongitude <- as.numeric(as.character(tt$decimalLongitude))
 
   # Remove points that are not physically possible
-  tt <- tt[complete.cases(tt$decimalLatitude, tt$decimalLongitude), ]
+  tt <- tt[stats::complete.cases(tt$decimalLatitude, tt$decimalLongitude), ]
   tt <- tt[-(which(tt$decimalLatitude <=90 || tt$decimalLongitude <=180)), ]
 
   # Check if points are inside the contintental US, or US+Alaska, or US+Alaska+Hawaii, or even farther
