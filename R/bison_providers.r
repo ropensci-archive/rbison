@@ -18,12 +18,11 @@
 #' out$National_Herbarium_of_New_South_Wales
 #' }
 
-bison_providers <- function(details=FALSE, provider_no=NULL, ...)
-{
-  url <- 'http://bison.usgs.ornl.gov/api/providers/all'
-  if(details) url <- sub("all", "details", url)
-  if(!is.null(provider_no)){
-    url <- sprintf('http://bison.usgs.ornl.gov/api/providers/%s/resources', provider_no)
+bison_providers <- function(details=FALSE, provider_no=NULL, ...) {
+  url <- file.path(bison_base(), 'api/providers/all')
+  if (details) url <- sub("all", "details", url)
+  if (!is.null(provider_no)) {
+    url <- sprintf('%s/api/providers/%s/resources', bison_base(), provider_no)
     details <- FALSE
   }
 
@@ -33,17 +32,17 @@ bison_providers <- function(details=FALSE, provider_no=NULL, ...)
   tt <- fromJSON(temp, simplifyVector = FALSE)
 
   # parse
-  if(!details & is.null(provider_no)){
+  if (!details & is.null(provider_no)) {
     df <- do.call(rbind.fill, lapply(tt, function(x) data.frame(rbind(strsplit(x, ":")[[1]]), stringsAsFactors = FALSE)))
     names(df) <- c('id','name')
-  } else if (details & is.null(provider_no)){
-    df <- lapply(tt$providers, function(x) data.frame(provider_name=x$name, provider_url=url,
+  } else if (details & is.null(provider_no)) {
+    df <- lapply(tt$providers, function(x) data.frame(provider_name = x$name, provider_url = url,
       do.call(rbind.fill, lapply(x$resources, data.frame, stringsAsFactors = FALSE)), stringsAsFactors = FALSE))
     names(df) <- gsub("\\s", "_", vapply(tt$providers, "[[", "", "name"))
-  } else if (!details & !is.null(provider_no)){
+  } else if (!details & !is.null(provider_no)) {
     df <- do.call(rbind.fill, lapply(tt, function(x){
-      y=strsplit(x, ":")[[1]]
-      data.frame(id=y[1], name=paste(y[-1], collapse=" "), stringsAsFactors = FALSE)
+      y = strsplit(x, ":")[[1]]
+      data.frame(id = y[1], name = paste(y[-1], collapse = " "), stringsAsFactors = FALSE)
     }))
   }
   return( df )

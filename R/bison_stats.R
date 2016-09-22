@@ -28,12 +28,12 @@ bison_stats <- function(what='stats', ...) {
   what <- match.arg(what, c('stats','search','download','wms'))
   pick <- switch(what, stats = 'all', search = 'search', download = 'download', wms = 'wms')
   url <- switch(what,
-                stats = 'http://bison.usgs.ornl.gov/api/statistics/all',
-                search = 'http://bison.usgs.ornl.gov/api/statistics/search',
-                download = 'http://bison.usgs.ornl.gov/api/statistics/download',
-                wms = 'http://bison.usgs.ornl.gov/api/statistics/wms')
+                stats = 'api/statistics/all',
+                search = 'api/statistics/search',
+                download = 'api/statistics/download',
+                wms = 'api/statistics/wms')
 
-  out <- GET(url, ...)
+  out <- GET(file.path(bison_base(), url), ...)
   stop_for_status(out)
   tt <- content(out, as = "text")
   res <- fromJSON(tt, simplifyVector = FALSE)

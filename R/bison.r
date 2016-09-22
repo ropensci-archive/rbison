@@ -131,25 +131,26 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, co
   stopifnot(is.numeric(count))
   stopifnot(count >= 0)
 
-  if(is.null(species)){
+  if (is.null(species)) {
     type <- NULL
   }
 
   countyFips <- county_handler(county)
 
-  if(!is.null(tsn)){
+  if (!is.null(tsn)) {
     itis <- 'itis'
     tsn <- as.numeric(as.character(tsn))
     stopifnot(is.numeric(tsn))
-  } else { itis <- NULL }
+  } else { 
+    itis <- NULL 
+  }
 
   # check if param names are in the accepted list
   check_params(params)
 
-  url <- "https://bison.usgs.gov/api/search.json"
   args <- bs_compact(list(species=species,type=type,itis=itis,tsn=tsn,start=start,count=count,
                        countyFips=countyFips,state=state,aoi=aoi,aoibbox=aoibbox,params=params))
-  tt <- GET(url, query=args, ...)
+  tt <- GET(file.path(bison_base(), "api/search.json"), query=args, ...)
   warn_for_status(tt)
   if (tt$status_code > 201) {
     stopifnot(tt$headers$`content-type` == "text/html;charset=utf-8")
@@ -159,9 +160,9 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, co
   if (tt$status_code > 201) {
     res <- NA
   } else {
-    out <- content(tt, as="text")
+    out <- content(tt, as = "text")
     json <- fromJSON(out, FALSE)
-    what <- match.arg(what, choices=c("summary", "counties", "states", "points", "all", "raw", "list"))
+    what <- match.arg(what, choices = c("summary", "counties", "states", "points", "all", "raw", "list"))
     res <- switch(what,
                   summary=bison_data(json, "summary"),
                   all=bison_data(json, "all"),
@@ -189,8 +190,7 @@ check_params <- function(x){
   }
 }
 
-bison_data <- function(input = NULL, datatype="summary")
-{
+bison_data <- function(input = NULL, datatype="summary") {
   if(datatype=='summary'){
     tt <- data.frame(c(input[1], input$occurrences$legend))
     list(summary=tt, states=NULL, counties=NULL, points=NULL)
