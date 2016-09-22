@@ -9,7 +9,7 @@
 To get started, see the vignette \code{vignette(package="rbison")}
 }
 \details{
-See \url{https://bison.usgs.gov/doc/api.jsp} for API docs for the BISON API.
+See \url{https://bison.usgs.gov/#api} for API docs for the BISON API.
 
 To cite rbison, do \code{citation(package='rbison')}
 
