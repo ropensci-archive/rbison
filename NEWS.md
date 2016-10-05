@@ -1,24 +1,16 @@
 rbison 0.5.0
 ============
 
-### NEW FEATURES
-
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-
 ### MINOR IMPROVEMENTS
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-
+* Replace `dplyr::rbind_all()` with `dplyr::bind_rows()` (#39)
+* Base URLs changd for the BISON API (#34) (#43)
+* Fixed a URL in the docs (#44) thanks @esellers-usgs
 
 ### BUG FIXES
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* Fixes for a new `ggplot2` version in mapping function 
+`rbison::bisonmap()` (#38)
 
 
 rbison 0.4.8

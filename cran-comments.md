@@ -21,7 +21,8 @@ with no problems detected.
 
 -----
 
-This release includes xx
+This release includes some minor improvements, bug fixes, and 
+changed base URLs for the BISON API.
 
 Thanks! 
 Scott Chamberlain
