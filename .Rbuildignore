@@ -16,3 +16,4 @@ cran-comments.md
 vignettes/figure
 NEWS.md
 ^CONDUCT\.md$
+^cran-comments\.md$

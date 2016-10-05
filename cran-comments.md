@@ -1,9 +1,27 @@
-R CMD CHECK passed on my local OS X install with R 3.2.1 and R development version, Ubuntu running on Travis-CI, and Win builder.
+## Test environments
 
-This submission is mostly to fix a number of broken functions due to the
-recent update in httr on CRAN to v1.0.
+* local OS X install, R 3.3.1
+* ubuntu 12.04 (on travis-ci), R 3.3.1
+* win-builder (devel and release)
 
-In addition, this package now imports non-base functions explicitly as
-needed in accordance with R-devel changes.
+## R CMD check results
 
-Thanks! Scott Chamberlain
+0 errors | 0 warnings | 1 note
+
+   License components with restrictions and base license permitting such:
+     MIT + file LICENSE
+   File 'LICENSE':
+     YEAR: 2016
+     COPYRIGHT HOLDER: Scott Chamberlain
+
+## Reverse dependencies
+
+* I have run R CMD check on the 1 downstream dependency, 
+with no problems detected.
+
+-----
+
+This release includes xx
+
+Thanks! 
+Scott Chamberlain
