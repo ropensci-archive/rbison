@@ -7,14 +7,15 @@
 bison_providers(details = FALSE, provider_no = NULL, ...)
 }
 \arguments{
-\item{details}{(logical) If TRUE, returns a list of data.frame's for each
-provider, including their resource details. If FALSE (default), only coarse
-grained data returned.}
+\item{details}{(logical) If \code{TRUE}, returns a list of data.frame's 
+for each provider, including their resource details. If \code{FALSE} 
+(default),  only coarse grained data returned.}
 
 \item{provider_no}{(numeric) Provider number. If this parameter is provided,
-details is forced to be FALSE.}
+details is forced to be \code{FALSE}}
 
-\item{...}{Further args passed on to httr::GET. See examples in \code{bison}}
+\item{...}{Further args passed on to \code{\link[httr]{GET}}. 
+See examples in \code{\link{bison}}}
 }
 \value{
 A data.frame or list of data.frame's
@@ -30,4 +31,3 @@ out <- bison_providers(details=TRUE)
 out$National_Herbarium_of_New_South_Wales
 }
 }
-
