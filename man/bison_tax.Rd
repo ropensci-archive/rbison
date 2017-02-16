@@ -67,4 +67,3 @@ bison_tax(query='*dolphin', callopts=verbose())
 \seealso{
 \code{\link{bison_solr}} \code{\link{bison}}
 }
-

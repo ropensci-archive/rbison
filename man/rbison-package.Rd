@@ -2,8 +2,8 @@
 % Please edit documentation in R/rbison-package.R
 \docType{package}
 \name{rbison-package}
-\alias{rbison}
 \alias{rbison-package}
+\alias{rbison}
 \title{rbison is an interface to the USGS Bison API.}
 \description{
 To get started, see the vignette \code{vignette(package="rbison")}
@@ -31,4 +31,3 @@ Base URL for the BISON API: \code{https://bison.usgs.gov}
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{package}
-

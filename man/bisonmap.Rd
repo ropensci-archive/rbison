@@ -46,4 +46,3 @@ out <- bison_solr(scientificName='Ursus americanus', rows=200)
 bisonmap(out)
 }
 }
-

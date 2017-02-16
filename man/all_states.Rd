@@ -8,4 +8,3 @@
 Data for a states map
 }
 \keyword{data}
-

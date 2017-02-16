@@ -98,10 +98,61 @@ For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutor
 bison_solr(scientificName='Ursus americanus')
 }
 
+\dontrun{
+bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
+ fl="scientificName")
+
+bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
+ rows=50, fl="eventDate,scientificName")
+
+bison_solr(providerID = 220)
+bison_solr(resourceID = '220,200080')
+
+bison_solr(eventDate = '2010-08-08T00:00Z')
+
+bison_solr(TSNs = 174773)
+
+bison_solr(occurrenceID = 576630651)
+
+bison_solr(catalogNumber = 'OBS101299944')
+
+bison_solr(ITIScommonName = "Canada goose")
+
+bison_solr(kingdom = "Animalia")
+bison_solr(kingdom = "Plantae")
+
+# Mapping
+out <- bison_solr(scientificName='Ursus americanus', rows=200)
+bisonmap(out)
+
+out <- bison_solr(scientificName='Helianthus annuus', rows=800)
+bisonmap(out)
+
+# Using additional solr fields
+## Faceting
+bison_solr(scientificName='Helianthus annuus', rows=0, facet='true',
+ facet.field='computedStateFips')
+
+## Highlighting
+bison_solr(scientificName='Helianthus annuus', rows=10, hl='true',
+ hl.fl='scientificName')
+
+## Use of hierarchy_homonym_string
+bison_solr(hierarchy_homonym_string = '-202423-914154-914156-158852-')
+## -- This is a bit unwieldy, but you can find this string in the output of a call, like this
+(string <- bison_solr(scientificName='Ursus americanus', rows=1)$points$hierarchy_homonym_string)
+bison_solr(hierarchy_homonym_string = string)
+
+# The pointPath parameter
+bison_solr(pointPath = '/-110.0,45.0/specimen')
+
+# Curl options
+library("httr")
+bison_solr(scientificName='Ursus americanus', callopts=verbose())
+}
 }
 \seealso{
 \code{\link{bison_tax}} \code{\link{bison}}
 
 The USGS BISON Solr installation version as of 2014-10-14 was 4.4.
 }
-

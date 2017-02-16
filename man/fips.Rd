@@ -8,4 +8,3 @@
 Fips codes for states and counties
 }
 \keyword{data}
-

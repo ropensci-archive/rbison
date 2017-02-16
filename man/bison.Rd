@@ -146,4 +146,3 @@ bison(params='ITIScommonName:"Canada goose"')
 \seealso{
 \code{\link{bison_solr}} \code{\link{bison_tax}}
 }
-

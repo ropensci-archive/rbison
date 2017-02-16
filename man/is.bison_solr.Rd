@@ -12,4 +12,3 @@ is.bison_solr(x)
 \description{
 Check if object is of class bison_solr
 }
-
