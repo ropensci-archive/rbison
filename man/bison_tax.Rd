@@ -2,7 +2,8 @@
 % Please edit documentation in R/bison_tax.R
 \name{bison_tax}
 \alias{bison_tax}
-\title{Search for and collect taxonomic name data from the USGS Bison API using solr.}
+\title{Search for and collect taxonomic name data from the USGS Bison API
+using solr}
 \usage{
 bison_tax(query, method = "vernacularName", exact = FALSE, parsed = TRUE,
   callopts = list(), ...)
@@ -14,12 +15,13 @@ bison_tax(query, method = "vernacularName", exact = FALSE, parsed = TRUE,
 
 \item{exact}{Exact matching or not. See examples. Defaults to FALSE.}
 
-\item{parsed}{If TRUE (default) creates data.frame of names data output. Otherwise,
-a list.}
+\item{parsed}{If \code{TRUE} (default) creates data.frame of names data output.
+Otherwise, a list.}
 
-\item{callopts}{Further args passed on to httr::GET for HTTP debugging/inspecting. In
-\code{bison}, \code{bison_providers}, and \code{bison_stats}, \code{...} is used instead of
-callopts, but \code{...} is used here to pass additional Solr params.}
+\item{callopts}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}} for HTTP
+debugging/inspecting. In \code{bison}, \code{bison_providers}, and \code{bison_stats},
+\code{...} is used instead of callopts, but \code{...} is used here to pass additional
+Solr params.}
 
 \item{...}{Further solr arguments passed in to the query. See examples below.}
 }
@@ -30,13 +32,13 @@ A list.
 See the SOLR documentation here \url{http://lucene.apache.org/solr/} for other
 parameters you can use.
 
-The following two methods are possible, as far as I know you can only use one at
-a time:
+The following two methods are possible, as far as I know you can only use
+one at a time:
 \itemize{
-  \item vernacularName	The species specific common names that is searchable in a case
-  insensitive way.
-  \item scientificName	The species scientific name that is associated with a common
-  name that is searchable in a case insensitive way.
+\item vernacularName	The species specific common names that is searchable
+in a case insensitive way.
+\item scientificName	The species scientific name that is associated
+with a common name that is searchable in a case insensitive way.
 }
 }
 \examples{
@@ -48,8 +50,8 @@ bison_tax("*:*")
 bison_tax(query="*bear")
 bison_tax(query="Helianthus", method="scientificName")
 
-# Exact argument, here nothing found with latter call as '*bear' doesn't exist,
-# which makes sense
+# Exact argument, here nothing found with latter call as '*bear' 
+# doesn't exist, which makes sense
 bison_tax(query="*bear", exact=FALSE)
 bison_tax(query="*bear", exact=TRUE)
 
@@ -65,5 +67,5 @@ bison_tax(query='*dolphin', callopts=verbose())
 }
 }
 \seealso{
-\code{\link{bison_solr}} \code{\link{bison}}
+\code{\link[=bison_solr]{bison_solr()}}, \code{\link[=bison]{bison()}}
 }

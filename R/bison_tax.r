@@ -1,30 +1,31 @@
-#' Search for and collect taxonomic name data from the USGS Bison API using solr.
+#' Search for and collect taxonomic name data from the USGS Bison API 
+#' using solr
 #'
 #' @export
-#'
 #' @param query Name to search for. Required.
 #' @param method The field to query by. See description below for details.
 #' @param exact Exact matching or not. See examples. Defaults to FALSE.
-#' @param parsed If TRUE (default) creates data.frame of names data output. Otherwise,
-#' a list.
-#' @param callopts Further args passed on to httr::GET for HTTP debugging/inspecting. In
-#' \code{bison}, \code{bison_providers}, and \code{bison_stats}, \code{...} is used instead of
-#' callopts, but \code{...} is used here to pass additional Solr params.
+#' @param parsed If `TRUE` (default) creates data.frame of names data output. 
+#' Otherwise, a list.
+#' @param callopts Further args passed on to [crul::HttpClient()] for HTTP 
+#' debugging/inspecting. In `bison`, `bison_providers`, and `bison_stats`, 
+#' `...` is used instead of callopts, but `...` is used here to pass additional 
+#' Solr params.
 #' @param ... Further solr arguments passed in to the query. See examples below.
 #' @return A list.
 #' @description
-#' See the SOLR documentation here \url{http://lucene.apache.org/solr/} for other
+#' See the SOLR documentation here <http://lucene.apache.org/solr/> for other
 #' parameters you can use.
 #'
-#' The following two methods are possible, as far as I know you can only use one at
-#' a time:
+#' The following two methods are possible, as far as I know you can only use 
+#' one at a time:
 #' \itemize{
-#'   \item vernacularName	The species specific common names that is searchable in a case
-#'   insensitive way.
-#'   \item scientificName	The species scientific name that is associated with a common
-#'   name that is searchable in a case insensitive way.
+#'   \item vernacularName	The species specific common names that is searchable 
+#'   in a case insensitive way.
+#'   \item scientificName	The species scientific name that is associated 
+#'   with a common name that is searchable in a case insensitive way.
 #' }
-#' @seealso \code{\link{bison_solr}} \code{\link{bison}}
+#' @seealso [bison_solr()], [bison()]
 #' @examples \dontrun{
 #' # All taxa
 #' bison_tax("*:*")
@@ -33,8 +34,8 @@
 #' bison_tax(query="*bear")
 #' bison_tax(query="Helianthus", method="scientificName")
 #'
-#' # Exact argument, here nothing found with latter call as '*bear' doesn't exist,
-#' # which makes sense
+#' # Exact argument, here nothing found with latter call as '*bear' 
+#' # doesn't exist, which makes sense
 #' bison_tax(query="*bear", exact=FALSE)
 #' bison_tax(query="*bear", exact=TRUE)
 #'
@@ -74,7 +75,8 @@ bison_tax <- function(query, method='vernacularName', exact=FALSE, parsed=TRUE,
   )
 
   if (parsed) {
-    data <- bind_rows(lapply(out$response$docs, data.frame, stringsAsFactors = FALSE))
+    data <- bind_rows(lapply(out$response$docs, data.frame, 
+                             stringsAsFactors = FALSE))
     data$X_version_ <- NULL
     temp$names <- data
   }

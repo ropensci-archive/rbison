@@ -2,7 +2,8 @@
 % Please edit documentation in R/bison_solr.r
 \name{bison_solr}
 \alias{bison_solr}
-\title{Search for and collect occurrence data from the USGS Bison API using their solr endpoint.}
+\title{Search for and collect occurrence data from the USGS Bison API using
+their solr endpoint.}
 \usage{
 bison_solr(decimalLatitude = NULL, decimalLongitude = NULL, year = NULL,
   providerID = NULL, resourceID = NULL, pointPath = NULL,
@@ -13,85 +14,92 @@ bison_solr(decimalLatitude = NULL, decimalLongitude = NULL, year = NULL,
   kingdom = NULL, callopts = list(), verbose = TRUE, ...)
 }
 \arguments{
-\item{decimalLatitude}{Geographic coordinate that specifies the north south position
-of a location on the Earth surface.}
+\item{decimalLatitude}{Geographic coordinate that specifies the north south
+position of a location on the Earth surface.}
 
-\item{decimalLongitude}{Geographic coordinate that specifies the east-west position
-of a location on the Earth surface.}
+\item{decimalLongitude}{Geographic coordinate that specifies the
+east-west position of a location on the Earth surface.}
 
 \item{year}{The year the collection was taken.}
 
 \item{providerID}{(character) Unique identifier assigned by GBIF.}
 
-\item{resourceID}{(character) A unique identifier that is a concatentation of the provider
-identifier and the resource id seperated by a comma.}
+\item{resourceID}{(character) A unique identifier that is a concatentation
+of the provider identifier and the resource id seperated by a comma.}
 
 \item{pointPath}{A dynamic field that contains the location in longitude and
-latitude followed by the basis of record and an optional Geo (Spatial) precision.
-Geo (Spatial) precision is an added descriptor when the record is a county centroid.}
+latitude followed by the basis of record and an optional Geo (Spatial)
+precision. Geo (Spatial) precision is an added descriptor when the record
+is a county centroid.}
 
 \item{basisOfRecord}{One of these enumerated values: Observation, Germplasm,
 Fossil, Specimen, Literature, Unknown, or Living.}
 
 \item{eventDate}{The date when the occurrence was recorded.}
 
-\item{computedCountyFips}{County FIPS code conforming to standard FIPS 6-4 but with leading
-zeros removed.}
+\item{computedCountyFips}{County FIPS code conforming to standard FIPS 6-4
+but with leading zeros removed.}
 
 \item{computedStateFips}{The normalized case sensitive name. For example
-q=state_code:"New Mexico" will return all of the occurrences from New Mexico.}
+q=state_code:"New Mexico" will return all of the occurrences from
+New Mexico.}
 
-\item{scientificName}{The species scientific name that is searchable in a case
-insensitive way.}
+\item{scientificName}{The species scientific name that is searchable in
+a case insensitive way.}
 
-\item{hierarchy_homonym_string}{hierarachy of the accepted or valid species name starting at
-kingdom. If the name is a taxonomic homonym more than one string is provided seperated by ';'.}
+\item{hierarchy_homonym_string}{hierarachy of the accepted or valid species
+name starting at kingdom. If the name is a taxonomic homonym more than
+one string is provided seperated by ';'.}
 
-\item{TSNs}{Accepted or valid name is provided. If the name is a taxonmic homonym more
-than one TSN is provided.}
+\item{TSNs}{Accepted or valid name is provided. If the name is a taxonmic
+homonym more than one TSN is provided.}
 
 \item{recordedBy}{Individual responsible for the scientific record.}
 
 \item{occurrenceID}{Non-persistent unique identifier.}
 
-\item{catalogNumber}{Unique key for every record (occurrence/row) within a dataset that is not
-manipulated nor changed (nor generated, if not provided) during the data ingest.}
+\item{catalogNumber}{Unique key for every record (occurrence/row) within a
+dataset that is not manipulated nor changed (nor generated, if not provided)
+during the data ingest.}
 
 \item{ITIScommonName}{Common name(s) from ITIS, e.g. "Canada goose"}
 
 \item{kingdom}{Kingdom name, from GBIF raw occurrence or BISON provider.}
 
-\item{callopts}{Further args passed on to httr::GET for HTTP debugging/inspecting. In
-\code{bison}, \code{bison_providers}, and \code{bison_stats}, \code{...} is used instead of
+\item{callopts}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}} for HTTP
+debugging/inspecting. In \code{bison}, \code{bison_providers}, and
+\code{bison_stats}, \code{...} is used instead of
 callopts, but \code{...} is used here to pass additional Solr params.}
 
-\item{verbose}{Print message with url (TRUE, default).}
+\item{verbose}{Print message with url (\code{TRUE}, default).}
 
 \item{...}{Additional SOLR query arguments. See details.}
 }
 \value{
-An object of class bison_solr - which is a list with slots for number of
-records found (num_found), records, highlight, or facets.
+An object of class bison_solr - which is a list with slots for
+number of records found (num_found), records, highlight, or facets.
 }
 \description{
-This fxn is somewhat similar to \code{\link{bison}}, but interacts with the SOLR
-interface \url{http://bison.usgs.ornl.gov/doc/api.jsp#solr} instead of the OpenSearch interface
-\url{http://bison.usgs.ornl.gov/doc/api.jsp#opensearch}, which \code{\link[rbison]{bison}} uses.
+This fxn is somewhat similar to \code{\link[=bison]{bison()}}, but interacts with the SOLR
+interface \url{http://bison.usgs.ornl.gov/doc/api.jsp#solr} instead of the
+OpenSearch interface \url{http://bison.usgs.ornl.gov/doc/api.jsp#opensearch},
+which \code{\link[=bison]{bison()}} uses.
 }
 \details{
 Some SOLR search parameters:
 \itemize{
- \item{fl} {Fields to return in the query}
- \item{rows} {Number of records to return}
- \item{sort} {Field to sort by, see examples}
- \item{facet} {Facet or not, logical}
- \item{facet.field} {Fields to facet by}
+\item{fl} {Fields to return in the query}
+\item{rows} {Number of records to return}
+\item{sort} {Field to sort by, see examples}
+\item{facet} {Facet or not, logical}
+\item{facet.field} {Fields to facet by}
 }
 
-You can also use highlighting in solr search, but I'm not sure I see a use case for it
-with BISON data, though you can do it with this function.
+You can also use highlighting in solr search, but I'm not sure I see a
+use case for it with BISON data, though you can do it with this function.
 
-For a tutorial see here \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
+For a tutorial see here
+\url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 }
 \examples{
 \dontrun{
@@ -139,8 +147,10 @@ bison_solr(scientificName='Helianthus annuus', rows=10, hl='true',
 
 ## Use of hierarchy_homonym_string
 bison_solr(hierarchy_homonym_string = '-202423-914154-914156-158852-')
-## -- This is a bit unwieldy, but you can find this string in the output of a call, like this
-(string <- bison_solr(scientificName='Ursus americanus', rows=1)$points$hierarchy_homonym_string)
+## -- This is a bit unwieldy, but you can find this string in the output 
+## of a call, like this
+x <- bison_solr(scientificName='Ursus americanus', rows=1)
+string <- x$points$hierarchy_homonym_string
 bison_solr(hierarchy_homonym_string = string)
 
 # The pointPath parameter
@@ -152,7 +162,7 @@ bison_solr(scientificName='Ursus americanus', callopts=verbose())
 }
 }
 \seealso{
-\code{\link{bison_tax}} \code{\link{bison}}
+\code{\link[=bison_tax]{bison_tax()}}, \code{\link[=bison]{bison()}}
 
 The USGS BISON Solr installation version as of 2014-10-14 was 4.4.
 }

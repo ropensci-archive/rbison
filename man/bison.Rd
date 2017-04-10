@@ -14,52 +14,55 @@ bison(species = NULL, type = "scientific_name", tsn = NULL,
 
 \item{type}{(character) Type, one of scientific_name or common_name.}
 
-\item{tsn}{(numeric) Specifies the TSN to query by. If you supply a tsn it doesn't make sense to
-supply a species name as well. Example:162003.}
+\item{tsn}{(numeric) Specifies the TSN to query by. If you supply a tsn it
+doesn't make sense to supply a species name as well. Example:162003.}
 
 \item{start}{(numeric) Record to start at.}
 
 \item{count}{(numeric) Number of records to return.}
 
-\item{countyFips}{(character) Specifies the county fips code to geographically constrain
-the search to one county. Character must be supplied as a number starting
-with zero may lose the zero. Eg: "49015".}
+\item{countyFips}{(character) Specifies the county fips code to
+geographically constrain the search to one county. Character must be
+supplied as a number starting with zero may lose the zero. Eg: "49015".}
 
-\item{county}{(character) County name. As codes are a pain in the ass, you can put in the
-county name here instead of specifying a countyFips entry, and bison will
-attempt to look up the countyFips code. (character)}
+\item{county}{(character) County name. As codes are a pain in the ass, you
+can put in the county name here instead of specifying a countyFips entry,
+and bison will attempt to look up the countyFips code. (character)}
 
-\item{state}{(character) Specifies the state name to geographically constrain the search.
-Example: Tennessee.}
+\item{state}{(character) Specifies the state name to geographically
+constrain the search. Example: Tennessee.}
 
-\item{aoi}{Specifies a WKT (Well-Known Text) polygon to geographically constrain the search.
-Eg.: c(-111.06 38.84,
-       -110.80 39.377,
-       -110.20 39.17,
-       -110.20 38.90,
-       -110.63 38.67,
-       -111.06 38.84),
-which calls up the occurrences within the specified area. Check out the Wikipedia
-page here \url{http://en.wikipedia.org/wiki/Well-known_text} for an in depth
-look at the options, terminology, etc. (character)}
+\item{aoi}{(character) Specifies a WKT (Well-Known Text) polygon to
+geographically  constrain the search.Eg.: c(-111.06 38.84,
+-110.80 39.377,
+-110.20 39.17,
+-110.20 38.90,
+-110.63 38.67,
+-111.06 38.84),
+which calls up the occurrences within the specified area. Check out
+the Wikipedia page here \url{http://en.wikipedia.org/wiki/Well-known_text}
+for an in depth look at the options, terminology, etc.}
 
-\item{aoibbox}{Specifies a four-sided bounding box to geographically constrain
-the search (using format: minx,miny,maxx,maxy). The coordinates are Spherical
-Mercator with a datum of WGS84. Example: -111.31,38.81,-110.57,39.21 (character)}
+\item{aoibbox}{(character) Specifies a four-sided bounding box to
+geographically constrain the search (using format: minx,miny,maxx,maxy).
+The coordinates are Spherical Mercator with a datum of WGS84. Example:
+-111.31,38.81,-110.57,39.21}
 
-\item{params}{(character) String of parameters, one of providerID, resourceID, basisOfRecord,
-catalogNumber, year, computedStateFips, hierarchy_homonym_string, TSNs, recordedBy,
-occurrenceID, collectorNumber, provider, ownerInstitutionCollectionCode, eventDate,
-providedScientificName, scientificName, ITISscientificName, providedCommonName,
-ITIScommonName, kingdom, ITIStsn, centroid, higherGeographyID, computedCountyFips,
-providedCounty, calculatedCounty, stateProvince, calculatedState, countryCode. See examples.}
+\item{params}{(character) String of parameters, one of providerID,
+resourceID, basisOfRecord, catalogNumber, year, computedStateFips,
+hierarchy_homonym_string, TSNs, recordedBy, occurrenceID, collectorNumber,
+provider, ownerInstitutionCollectionCode, eventDate, providedScientificName,
+scientificName, ITISscientificName, providedCommonName, ITIScommonName,
+kingdom, ITIStsn, centroid, higherGeographyID, computedCountyFips,
+providedCounty, calculatedCounty, stateProvince, calculatedState,
+countryCode. See examples.}
 
-\item{what}{What to return?  One of 'all', 'summary', 'points', 'counties', 'states',
-'raw', or 'list'. All data is returned from the BISON API, but this parameter lets
-you select just the parts you want, and the rest is discarded before returning the
-result to you.}
+\item{what}{What to return?  One of 'all', 'summary', 'points', 'counties',
+'states', 'raw', or 'list'. All data is returned from the BISON API, but
+this parameter lets you select just the parts you want, and the rest is
+discarded before returning the result to you.}
 
-\item{...}{Further args passed on to httr::GET. See examples.}
+\item{...}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}. See examples.}
 }
 \description{
 Search for and collect data from the USGS Bison API.
@@ -87,11 +90,13 @@ bison(species="Tufted Titmouse", type="common_name", what='summary')
 # Constrain search to a certain county, 49015 is Emery County in Utah
 bison(species="Helianthus annuus", countyFips = "49015")
 
-# Constrain search to a certain county, specifying county name instead of code
+# Constrain search to a certain county, specifying county name instead of 
+# code
 bison(species="Helianthus annuus", county = "Los Angeles")
 bison(species="Helianthus annuus", county = "Los")
 
-# Constrain search to a certain aoi, which turns out to be Emery County, Utah as well
+# Constrain search to a certain aoi, which turns out to be Emery County, 
+# Utah as well
 bison(species="Helianthus annuus",
  aoi = "POLYGON((-111.06360117772908 38.84001566645886,
                  -110.80542246679359 39.37707771107983,
@@ -100,7 +105,8 @@ bison(species="Helianthus annuus",
                  -110.63513438085685 38.67724220095734,
                  -111.06360117772908 38.84001566645886))")
 
-# Constrain search to a certain aoibbox, which, you guessed it, is also Emery Co., Utah
+# Constrain search to a certain aoibbox, which, you guessed it, is also 
+# Emery Co., Utah
 bison(species="Helianthus annuus", aoibbox = '-111.31,38.81,-110.57,39.21')
 
 # Taxonomic serial number
@@ -110,8 +116,8 @@ library('taxize')
 poa_tsn <- get_tsn('Poa annua')
 bison(tsn = poa_tsn)
 
-# Curl debugging and other httr options, some of these examples aren't that useful, but
-# are given for demonstration purposes
+# Curl debugging and other httr options, some of these examples aren't 
+# that useful, but are given for demonstration purposes
 library("httr")
 ## get curl verbose output to see what's going on with your request
 bison(tsn = 162003, count=1, what="points", config=verbose())
@@ -126,10 +132,12 @@ bison(tsn=162003, count=1, what="points", config=user_agent("rbison"))
 # Params - the params function accepts a number of search terms
 ## Find the provider with ID 318.
 bison(params='providerID:("318")')
-## Find all resources with id of '318,1902' OR '318,9151', with values separated by spaces.
+## Find all resources with id of '318,1902' OR '318,9151', with values 
+## separated by spaces.
 bison(params='resourceID:("318,1902" "318,9151")')
-## Criterion may be combined using the semicolon (';') character, which translates to a logical
-## AND operator. Note that field names and values are case sensitive.
+## Criterion may be combined using the semicolon (';') character, which 
+## translates to a logical AND operator. Note that field names and values 
+## are case sensitive.
 bison(params='providerID:("408" "432");resourceID:("14027")')
 ## Search by basisOfRecord, for specimen types in this case
 bison(params='basisOfRecord:(specimen)')
@@ -144,5 +152,5 @@ bison(params='ITIScommonName:"Canada goose"')
 }
 }
 \seealso{
-\code{\link{bison_solr}} \code{\link{bison_tax}}
+\code{\link[=bison_solr]{bison_solr()}} \code{\link[=bison_tax]{bison_tax()}}
 }

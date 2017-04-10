@@ -1,11 +1,11 @@
 #' rbison is an interface to the USGS Bison API.
 #'
-#' To get started, see the vignette \code{vignette(package="rbison")}
+#' To get started, see the vignette `vignette(package="rbison")`
 #'
 #'
-#' See \url{https://bison.usgs.gov/#api} for API docs for the BISON API.
+#' See <https://bison.usgs.gov/#api> for API docs for the BISON API.
 #'
-#' To cite rbison, do \code{citation(package='rbison')}
+#' To cite rbison, do `citation(package='rbison')`
 #'
 #' Use the following format to cite data retrieved from BISON:
 #'
@@ -19,7 +19,7 @@
 #' University of Turku (Accessed through Biodiversity Information Serving our 
 #' Nation (BISON), bison.usgs.ornl.gov, 2013-04-22).
 #' 
-#' Base URL for the BISON API: \code{https://bison.usgs.gov}
+#' Base URL for the BISON API: <https://bison.usgs.gov>
 #'
 #' @importFrom ggplot2 map_data ggplot aes geom_polygon coord_map
 #' scale_fill_gradient2 geom_path theme_bw labs scale_x_continuous

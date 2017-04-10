@@ -13,6 +13,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 LazyData: true
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
 Imports:
     plyr,
     httr (>= 1.2.0),

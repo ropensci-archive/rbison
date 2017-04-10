@@ -3,13 +3,13 @@
 #' @importFrom plyr rbind.fill
 #' @export
 #'
-#' @param details (logical) If \code{TRUE}, returns a list of data.frame's 
-#' for each provider, including their resource details. If \code{FALSE} 
+#' @param details (logical) If `TRUE`, returns a list of data.frame's 
+#' for each provider, including their resource details. If `FALSE`
 #' (default),  only coarse grained data returned.
 #' @param provider_no (numeric) Provider number. If this parameter is provided,
-#' details is forced to be \code{FALSE}
-#' @param ... Further args passed on to \code{\link[httr]{GET}}. 
-#' See examples in \code{\link{bison}}
+#' details is forced to be `FALSE`
+#' @param ... Further args passed on to [crul::HttpClient()] 
+#' See examples in [bison()]
 #' @return A data.frame or list of data.frame's
 #'
 #' @examples \dontrun{

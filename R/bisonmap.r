@@ -13,7 +13,8 @@
 #' library("ggplot2")
 #' out <- bison(species="Accipiter", type="scientific_name", count=300)
 #' bisonmap(input=out)
-#' bisonmap(input=out, geom=geom_jitter, jitter=position_jitter(width = 0.3, height = 0.3))
+#' bisonmap(input=out, geom=geom_jitter, jitter=position_jitter(width = 0.3, 
+#'   height = 0.3))
 #'
 #' # Using function bison_solr
 #' out <- bison_solr(scientificName='Ursus americanus', rows=200)
@@ -43,15 +44,18 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
   }
 
   if (tomap == 'points') {
-    bison_map_maker(x = input, geom = geom, jitter = jitter, customize = customize)
+    bison_map_maker(x = input, geom = geom, jitter = jitter, 
+                    customize = customize)
   } else
     if (tomap == 'county') {
       bycounty <- input$counties
       bycounty$state <- tolower(bycounty$state)
-      bycounty$county_name <- gsub("\\scounty", "", tolower(bycounty$county_name))
+      bycounty$county_name <- gsub("\\scounty", "", 
+                                   tolower(bycounty$county_name))
 
       counties <- map_data("county")
-      counties_plus <- merge(counties, bycounty, by.x = 'subregion', by.y = 'county_name', all.x = TRUE)
+      counties_plus <- merge(counties, bycounty, by.x = 'subregion', 
+                             by.y = 'county_name', all.x = TRUE)
       counties_plus <- counties_plus[order(counties_plus$order),]
       counties_plus$total <- as.numeric(counties_plus$total)
 
@@ -60,7 +64,8 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
       ggplot(counties_plus, aes(long, lat, group = group)) +
         geom_polygon(aes(fill = total)) +
         coord_map(projection = "azequalarea") +
-        scale_fill_gradient2("", na.value = "white", low = "white", high = "steelblue") +
+        scale_fill_gradient2("", na.value = "white", low = "white", 
+                             high = "steelblue") +
         geom_path(data = counties, colour = "grey", size = .3, alpha = .4) +
         geom_path(data = states, colour = "grey", size = .4) +
         theme_bw(base_size = 14) +
@@ -76,14 +81,16 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
         bystate$record_id <- tolower(bystate$record_id)
 
         states <- map_data("state")
-        states_plus <- merge(states, bystate, by.x = 'region', by.y = 'record_id', all.x = TRUE)
+        states_plus <- merge(states, bystate, by.x = 'region', 
+                             by.y = 'record_id', all.x = TRUE)
         states_plus <- states_plus[order(states_plus$order),]
         states_plus$total <- as.numeric(states_plus$total)
 
         ggplot(states_plus, aes(long, lat, group = group)) +
           geom_polygon(aes(fill = total)) +
           coord_map(projection = "azequalarea") +
-          scale_fill_gradient2("", na.value = "white", low = "white", high = "steelblue") +
+          scale_fill_gradient2("", na.value = "white", low = "white", 
+                               high = "steelblue") +
           geom_path(data = states, colour = "grey", size = .4) +
           theme_bw(base_size = 14) +
           labs(x = "", y = "") +
@@ -116,5 +123,6 @@ bisonmap.bison_solr <- function(input = NULL, tomap="points", geom = geom_point,
   }
   # remove NA's due to /null,null/specimen in pointPath field
   input$points <- input$points[!input$points$pointPath == "/null,null/specimen",]
-  bison_map_maker(x = input, geom = geom, jitter = jitter, customize = customize)
+  bison_map_maker(x = input, geom = geom, jitter = jitter, 
+                  customize = customize)
 }

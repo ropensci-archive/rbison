@@ -7,12 +7,15 @@
 bison_stats(what = "stats", ...)
 }
 \arguments{
-\item{what}{(character) One of stats (default), search, downnload, or wms. See Details.}
+\item{what}{(character) One of stats (default), search, downnload, or wms.
+See Details.}
 
-\item{...}{Further args passed on to httr::GET. See examples in \code{bison}}
+\item{...}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}. See examples
+in \code{bison}}
 }
 \value{
-A list of data frame's with names of the list the different data sources
+A list of data frame's with names of the list the different data
+sources
 }
 \description{
 Get statistics about BISON downloads.
@@ -20,10 +23,12 @@ Get statistics about BISON downloads.
 \details{
 For the 'what' parameter:
 \itemize{
- \item stats - Retrieve all data provider accumulated statistics.
- \item search - Retrieve data provider statistics for BISON searches.
- \item download - Retrieve data provider statistics for data downloads from BISON.
- \item wms - Retrieve data provider statistics for BISON OGC WMS tile requests.
+\item stats - Retrieve all data provider accumulated statistics.
+\item search - Retrieve data provider statistics for BISON searches.
+\item download - Retrieve data provider statistics for data downloads
+from BISON.
+\item wms - Retrieve data provider statistics for BISON OGC WMS
+tile requests.
 }
 }
 \examples{
