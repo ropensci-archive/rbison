@@ -116,18 +116,17 @@ library('taxize')
 poa_tsn <- get_tsn('Poa annua')
 bison(tsn = poa_tsn)
 
-# Curl debugging and other httr options, some of these examples aren't 
+# Curl debugging and some of these examples aren't 
 # that useful, but are given for demonstration purposes
-library("httr")
 ## get curl verbose output to see what's going on with your request
-bison(tsn = 162003, count=1, what="points", config=verbose())
+bison(tsn = 162003, count=1, what="points", verbose = TRUE)
 ## set a timeout so that the call stops after time x, compare 1st to 2nd call
-# bison(tsn=162003, count=1, what="points", config=timeout(seconds=1))
-# bison(tsn=162003, count=1, what="points", config=timeout(seconds=0.1))
+# bison(tsn=162003, count=1, what="points", timeout_ms = 1)
 ## set cookies
-bison(tsn=162003, count=1, what="points", config=set_cookies(a = 1, b = 2))
-## set cookies
-bison(tsn=162003, count=1, what="points", config=user_agent("rbison"))
+bison(tsn=162003, count=1, what="points", cookie = "a=1;b=2")
+## user agent and verbose 
+bison(tsn=162003, count=1, what="points", useragent = "rbison", 
+  verbose = TRUE)
 
 # Params - the params function accepts a number of search terms
 ## Find the provider with ID 318.

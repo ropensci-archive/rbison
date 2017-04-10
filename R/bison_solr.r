@@ -125,8 +125,7 @@
 #' bison_solr(pointPath = '/-110.0,45.0/specimen')
 #'
 #' # Curl options
-#' library("httr")
-#' bison_solr(scientificName='Ursus americanus', callopts=verbose())
+#' bison_solr(scientificName='Ursus americanus', callopts=list(verbose = TRUE))
 #' }
 
 bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL, 
@@ -162,16 +161,24 @@ bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL,
   stuff <- if (length(stuff) == 0) "*:*" else paste0(stuff,collapse = "+")
 
   args <- bs_compact(list(q = stuff, wt = "json", ...))
+  
+  cli <- crul::HttpClient$new(
+    url = file.path(bison_base(), "solr/occurrences/select/"),
+    opts = c(followlocation = 1, callopts)
+  )
+  tt <- cli$get(query = args)
+  tt$raise_for_status()
+  out <- tt$parse("UTF-8")
 
-  tt <- GET(file.path(bison_base(), "solr/occurrences/select/"), 
-            query = args, 
-            c(config(followlocation = 1), callopts))
+  # tt <- GET(file.path(bison_base(), "solr/occurrences/select/"), 
+  #           query = args, 
+  #           c(config(followlocation = 1), callopts))
   mssg(verbose, tt$url)
-  stop_for_status(tt)
-  out <- content(tt, as = "text")
+  # stop_for_status(tt)
+  # out <- content(tt, as = "text")
 
   temp <- list(
-    num_found = fromJSON(out)$response$numFound,
+    num_found = jsonlite::fromJSON(out)$response$numFound,
     points = solr_parse_search(input = out, parsetype = "df"),
     highlight = solr_parse_highlight(out),
     facets = solr_parse_facets(out)
@@ -181,7 +188,7 @@ bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL,
 }
 
 solr_parse_facets <- function(input, parsetype = NULL, concat = ',') {
-  input <- fromJSON(input, simplifyVector = FALSE)
+  input <- jsonlite::fromJSON(input, simplifyVector = FALSE)
 
   # Facet queries
   fqdat <- input$facet_counts$facet_queries
@@ -233,7 +240,7 @@ solr_parse_facets <- function(input, parsetype = NULL, concat = ',') {
 }
 
 solr_parse_highlight <- function(input, parsetype='list', concat=',') {
-  input <- fromJSON(input, simplifyVector = FALSE)
+  input <- jsonlite::fromJSON(input, simplifyVector = FALSE)
   if (parsetype == 'df') {
     dat <- input$highlight
     highout <- data.frame(cbind(names = names(dat), do.call(rbind, dat)))
@@ -245,7 +252,7 @@ solr_parse_highlight <- function(input, parsetype='list', concat=',') {
 }
 
 solr_parse_search <- function(input, parsetype='list', concat=',') {
-  input <- fromJSON(input, FALSE)
+  input <- jsonlite::fromJSON(input, FALSE)
   if (parsetype == 'df') {
     dat <- input$response$docs
     dat2 <- lapply(dat, function(x){

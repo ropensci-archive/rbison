@@ -157,8 +157,7 @@ bison_solr(hierarchy_homonym_string = string)
 bison_solr(pointPath = '/-110.0,45.0/specimen')
 
 # Curl options
-library("httr")
-bison_solr(scientificName='Ursus americanus', callopts=verbose())
+bison_solr(scientificName='Ursus americanus', callopts=list(verbose = TRUE))
 }
 }
 \seealso{

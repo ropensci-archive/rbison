@@ -1,10 +1,6 @@
 #' Search for and collect data from the USGS Bison API.
 #'
-#' @importFrom httr GET content warn_for_status stop_for_status config
-#' @importFrom jsonlite fromJSON
-#' @importFrom plyr ldply
 #' @export
-#'
 #' @param species (character) A species name.
 #' @param type (character) Type, one of scientific_name or common_name.
 #' @param tsn (numeric) Specifies the TSN to query by. If you supply a tsn it 
@@ -97,18 +93,17 @@
 #' poa_tsn <- get_tsn('Poa annua')
 #' bison(tsn = poa_tsn)
 #'
-#' # Curl debugging and other httr options, some of these examples aren't 
+#' # Curl debugging and some of these examples aren't 
 #' # that useful, but are given for demonstration purposes
-#' library("httr")
 #' ## get curl verbose output to see what's going on with your request
-#' bison(tsn = 162003, count=1, what="points", config=verbose())
+#' bison(tsn = 162003, count=1, what="points", verbose = TRUE)
 #' ## set a timeout so that the call stops after time x, compare 1st to 2nd call
-#' # bison(tsn=162003, count=1, what="points", config=timeout(seconds=1))
-#' # bison(tsn=162003, count=1, what="points", config=timeout(seconds=0.1))
+#' # bison(tsn=162003, count=1, what="points", timeout_ms = 1)
 #' ## set cookies
-#' bison(tsn=162003, count=1, what="points", config=set_cookies(a = 1, b = 2))
-#' ## set cookies
-#' bison(tsn=162003, count=1, what="points", config=user_agent("rbison"))
+#' bison(tsn=162003, count=1, what="points", cookie = "a=1;b=2")
+#' ## user agent and verbose 
+#' bison(tsn=162003, count=1, what="points", useragent = "rbison", 
+#'   verbose = TRUE)
 #'
 #' # Params - the params function accepts a number of search terms
 #' ## Find the provider with ID 318.
@@ -160,31 +155,38 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL,
     list(species=species,type=type,itis=itis,tsn=tsn,start=start,count=count,
          countyFips=countyFips,state=state,aoi=aoi,aoibbox=aoibbox,params=params
   ))
-  tt <- GET(file.path(bison_base(), "api/search.json"), query=args, ...)
-  warn_for_status(tt)
+  
+  cli <- crul::HttpClient$new(url = file.path(bison_base(), "api/search.json"))
+  tt <- cli$get(query = args, ...)
+  tt$raise_for_status()
+  
+  # tt <- GET(file.path(bison_base(), "api/search.json"), query=args, ...)
+  # warn_for_status(tt)
   if (tt$status_code > 201) {
     stopifnot(tt$headers$`content-type` == "text/html;charset=utf-8")
   } else {
     stopifnot(tt$headers$`content-type` == "application/json;charset=UTF-8")
   }
+  
   if (tt$status_code > 201) {
     res <- NA
   } else {
-    out <- content(tt, as = "text")
-    json <- fromJSON(out, FALSE)
+    out <- tt$parse("UTF-8")
+    #out <- content(tt, as = "text")
+    json <- jsonlite::fromJSON(out, FALSE)
     what <- match.arg(what, choices = c("summary", "counties", "states", 
                                         "points", "all", "raw", "list"))
-    res <- switch(what,
-                  summary=bison_data(json, "summary"),
-                  all=bison_data(json, "all"),
-                  counties=bison_data(json, "counties"),
-                  states=bison_data(json, "states"),
-                  points=bison_data(json, "points"),
-                  raw=out,
-                  list=json
+    res <- switch(
+      what,
+      summary = bison_data(json, "summary"),
+      all = bison_data(json, "all"),
+      counties = bison_data(json, "counties"),
+      states = bison_data(json, "states"),
+      points = bison_data(json, "points"),
+      raw = out, list = json
     )
   }
-  structure(res, class="bison")
+  structure(res, class = "bison")
 }
 
 check_params <- function(x) {
@@ -201,7 +203,7 @@ check_params <- function(x) {
         'ITIScommonName','kingdom', 'ITIStsn','centroid','higherGeographyID',
         'computedCountyFips','providedCounty',
         'calculatedCounty','stateProvince','calculatedState','countryCode')
-    if(!all(check)) stop("You used in an incorrect param field", call. = FALSE)
+    if (!all(check)) stop("You used in an incorrect param field", call. = FALSE)
   }
 }
 

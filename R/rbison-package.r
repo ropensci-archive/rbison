@@ -21,6 +21,7 @@
 #' 
 #' Base URL for the BISON API: <https://bison.usgs.gov>
 #'
+#' @importFrom plyr ldply rbind.fill
 #' @importFrom ggplot2 map_data ggplot aes geom_polygon coord_map
 #' scale_fill_gradient2 geom_path theme_bw labs scale_x_continuous
 #' scale_y_continuous guides guide_legend geom_point theme %+%

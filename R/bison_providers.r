@@ -1,8 +1,6 @@
 #' Get information about BISON data providers.
 #'
-#' @importFrom plyr rbind.fill
 #' @export
-#'
 #' @param details (logical) If `TRUE`, returns a list of data.frame's 
 #' for each provider, including their resource details. If `FALSE`
 #' (default),  only coarse grained data returned.
@@ -26,10 +24,10 @@ bison_providers <- function(details=FALSE, provider_no=NULL, ...) {
     details <- FALSE
   }
 
-  out <- GET(url, ...)
-  stop_for_status(out)
-  temp <- content(out, as = "text")
-  tt <- fromJSON(temp, simplifyVector = FALSE)
+  cli <- crul::HttpClient$new(url = url)
+  out <- cli$get(...)
+  out$raise_for_status()
+  tt <- fromJSON(out$parse("UTF-8"), simplifyVector = FALSE)
 
   # parse
   if (!details & is.null(provider_no)) {

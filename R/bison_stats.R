@@ -38,13 +38,14 @@ bison_stats <- function(what='stats', ...) {
                 search = 'api/statistics/search',
                 download = 'api/statistics/download',
                 wms = 'api/statistics/wms')
-
-  out <- GET(file.path(bison_base(), url), ...)
-  stop_for_status(out)
-  tt <- content(out, as = "text")
-  res <- fromJSON(tt, simplifyVector = FALSE)
+  
+  cli <- crul::HttpClient$new(url = bison_base())
+  out <- cli$get(path = url, ...)
+  out$raise_for_status()
+  tt <- out$parse("UTF-8")
+  res <- jsonlite::fromJSON(tt, simplifyVector = FALSE)
   output <- lapply(res$data, function(x){
-    df <- bind_rows(lapply(x[[pick]], function(g) 
+    df <- dplyr::bind_rows(lapply(x[[pick]], function(g) 
       data.frame(null2na(g), stringsAsFactors = FALSE)))
     list(name = x$name, resources = do.call(c, x$resources), data = df)
   })

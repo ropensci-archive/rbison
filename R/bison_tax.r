@@ -46,8 +46,7 @@
 #' bison_tax(query="*bear", method="vernacularName", fl='vernacularName')
 #'
 #' # Curl options
-#' library("httr")
-#' bison_tax(query='*dolphin', callopts=verbose())
+#' bison_tax(query='*dolphin', callopts=list(verbose = TRUE))
 #' }
 
 bison_tax <- function(query, method='vernacularName', exact=FALSE, parsed=TRUE,
@@ -64,9 +63,13 @@ bison_tax <- function(query, method='vernacularName', exact=FALSE, parsed=TRUE,
     qu_ <- query
   }
   args <- bs_compact(list(q = qu_, wt = "json", ...))
-  tt <- GET(url, query = args, c(config(followlocation = 1), callopts))
-  stop_for_status(tt)
-  out <- content(tt)
+  cli <- crul::HttpClient$new(url = url, opts = c(followlocation = 1, callopts))
+  out <- cli$get(query = args)
+  out$raise_for_status()
+  out <- jsonlite::fromJSON(out$parse("UTF-8"), FALSE)
+  # tt <- GET(url, query = args, c(config(followlocation = 1), callopts))
+  # stop_for_status(tt)
+  # out <- content(tt)
   temp <- list(
     numFound = out$response$numFound,
     names = out$response$docs,
@@ -75,7 +78,7 @@ bison_tax <- function(query, method='vernacularName', exact=FALSE, parsed=TRUE,
   )
 
   if (parsed) {
-    data <- bind_rows(lapply(out$response$docs, data.frame, 
+    data <- dplyr::bind_rows(lapply(out$response$docs, data.frame, 
                              stringsAsFactors = FALSE))
     data$X_version_ <- NULL
     temp$names <- data

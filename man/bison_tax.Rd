@@ -62,8 +62,7 @@ bison_tax(query="*bear", method="vernacularName", rows=3)
 bison_tax(query="*bear", method="vernacularName", fl='vernacularName')
 
 # Curl options
-library("httr")
-bison_tax(query='*dolphin', callopts=verbose())
+bison_tax(query='*dolphin', callopts=list(verbose = TRUE))
 }
 }
 \seealso{
