@@ -1,11 +1,11 @@
 Package: rbison
 Title: Interface to the 'USGS' 'BISON' 'API'
-Description: Interface to the 'USGS' 'BISON' (<https://bison.usgs.gov/>) 
-    'API', a 'database' for species occurrence data. Data comes from 
+Description: Interface to the 'USGS' 'BISON' (<https://bison.usgs.gov/>)
+    'API', a 'database' for species occurrence data. Data comes from
     species in the United States from participating data providers. You can get
     data via 'taxonomic' and location based queries. A simple function
     is provided to help visualize data.
-Version: 0.5.1.9100
+Version: 0.5.3.9100
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/rbison
 BugReports: https://github.com/ropensci/rbison/issues

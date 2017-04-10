@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.3.1
-* ubuntu 12.04 (on travis-ci), R 3.3.1
+* local OS X install, R 3.3.3
+* ubuntu 12.04 (on travis-ci), R 3.3.3
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -11,18 +11,17 @@
    License components with restrictions and base license permitting such:
      MIT + file LICENSE
    File 'LICENSE':
-     YEAR: 2016
+     YEAR: 2017
      COPYRIGHT HOLDER: Scott Chamberlain
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 1 downstream dependency, 
+* I have run R CMD check on the 1 downstream dependency,
 with no problems detected.
 
 -----
 
-This release includes some minor improvements, bug fixes, and 
-changed base URLs for the BISON API.
+This release includes xxxx
 
-Thanks! 
+Thanks!
 Scott Chamberlain

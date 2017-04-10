@@ -3,7 +3,7 @@ rbison
 
 ```{r, eval=TRUE, echo=FALSE, include=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "inst/readmeimg/",
+  fig.path = "tools/",
   cache.path = "inst/readmecache/",
   comment = "#>",
   collapse = TRUE,
