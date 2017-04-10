@@ -27,7 +27,7 @@ bison_providers <- function(details=FALSE, provider_no=NULL, ...) {
   cli <- crul::HttpClient$new(url = url)
   out <- cli$get(...)
   out$raise_for_status()
-  tt <- fromJSON(out$parse("UTF-8"), simplifyVector = FALSE)
+  tt <- jsonlite::fromJSON(out$parse("UTF-8"), simplifyVector = FALSE)
 
   # parse
   if (!details & is.null(provider_no)) {
