@@ -21,7 +21,9 @@ with no problems detected.
 
 -----
 
-This release includes xxxx
+This release includes change in a package dependency; store
+images for README in tools/ dir; tidy docs to 80 line width
+and use markdown for docs.
 
 Thanks!
 Scott Chamberlain

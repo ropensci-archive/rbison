@@ -3,21 +3,13 @@ rbison 0.5.4
 
 ### NEW FEATURES
 
-* xx (#xx)
-* xx (#xx)
-* xx (#xx)
+* now using `crul` http client instead of `httr` (#47)
 
 ### MINOR IMPROVEMENTS
 
-* xx (#xx)
-* xx (#xx)
-* xx (#xx)
-
-### BUG FIXES
-
-* xx (#xx)
-* xx (#xx)
-* xx (#xx)
+* put readme images in `tools/` dir as requested by CRAN (#48)
+* tidy docs and code to 80 line width (#49)
+* use markdown docs (#50)
 
 
 rbison 0.5.0
