@@ -5,10 +5,15 @@ test_that("bison returns the correct value", {
   skip_on_cran()
   
   out_1 <- bison_solr(scientificName='Ursus americanus', verbose = FALSE)
-  out_2 <- bison_solr(scientificName='Ursus americanus', state_code='New Mexico', fl="scientificName", verbose = FALSE)
-  out_3 <- bison_solr(scientificName='Ursus americanus', state_code='New Mexico', rows=50, fl="occurrence_date,scientificName", verbose = FALSE)
+  out_2 <- bison_solr(scientificName='Ursus americanus', 
+                      state_code='New Mexico', 
+                      fl="scientificName", verbose = FALSE)
+  out_3 <- bison_solr(scientificName='Ursus americanus', 
+                      state_code='New Mexico', rows=50, 
+                      fl="occurrence_date,scientificName", verbose = FALSE)
   out_4 <- bison_solr()
-  out_5 <- bison_solr(scientificName='Helianthus annuus', rows=800, verbose = FALSE)
+  out_5 <- bison_solr(scientificName='Helianthus annuus', rows=800, 
+                      verbose = FALSE)
   out_5_map <- bisonmap(out_5)
 
   # values

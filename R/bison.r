@@ -27,7 +27,7 @@
 #'         -110.63 38.67,
 #'         -111.06 38.84),
 #'  which calls up the occurrences within the specified area. Check out 
-#'  the Wikipedia page here \url{http://en.wikipedia.org/wiki/Well-known_text} 
+#'  the Wikipedia page here <http://en.wikipedia.org/wiki/Well-known_text> 
 #'  for an in depth look at the options, terminology, etc. 
 #' @param aoibbox (character) Specifies a four-sided bounding box to 
 #' geographically constrain the search (using format: minx,miny,maxx,maxy). 
