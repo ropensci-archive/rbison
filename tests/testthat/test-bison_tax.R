@@ -9,14 +9,14 @@ test_that("bison_tax returns the correct ...", {
   out4 <- bison_tax(query="helianthus", method="scientificName")
   
   # values
-  expect_that(out1$numFound, equals(12))
-  expect_that(out1$facets, equals(NULL))
-  expect_that(out3$names$vernacularName, equals("black bear"))
-  expect_that(out4$facets, equals(NULL))
+  expect_gt(out1$numFound, 0)
+  expect_null(out1$facets)
+  expect_true("black bear" %in% out3$names$vernacularName)
+  expect_null(out4$facets)
   
   # class
-  expect_that(out1, is_a("list"))
-  expect_that(out3, is_a("list"))
-  expect_that(out3$names, is_a("data.frame"))
-  expect_that(out4, is_a("list"))
+  expect_is(out1, "list")
+  expect_is(out3, "list")
+  expect_is(out3$names, "data.frame")
+  expect_is(out4, "list")
 })
