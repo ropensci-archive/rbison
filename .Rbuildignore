@@ -17,3 +17,4 @@ vignettes/figure
 ^CONDUCT\.md$
 ^cran-comments\.md$
 ^codemeta\.json$
+.github
