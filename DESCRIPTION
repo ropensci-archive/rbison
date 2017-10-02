@@ -32,4 +32,5 @@ Suggests:
     taxize
 RoxygenNote: 6.0.1
 X-schema.org-keywords: species, occurrences, biodiversity, maps
-X-schema.org-applicationCategory: "Data Access"
+X-schema.org-applicationCategory: Data Access
+X-schema.org-isPartOf: "https://ropensci.org"

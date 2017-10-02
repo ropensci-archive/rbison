@@ -4,7 +4,7 @@
   "identifier": "rbison",
   "description": "Interface to the 'USGS' 'BISON' (<https://bison.usgs.gov/>)\n    'API', a 'database' for species occurrence data. Data comes from\n    species in the United States from participating data providers. You can get\n    data via 'taxonomic' and location based queries. A simple function\n    is provided to help visualize data.",
   "name": "rbison: Interface to the 'USGS' 'BISON' 'API'",
-  "codeRepository": "https://github.com/chrisfan24/rbison.git",
+  "codeRepository": "https://github.com/ropensci/rbison",
   "issueTracker": "https://github.com/ropensci/rbison/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.5.4.9100",
@@ -171,8 +171,10 @@
       }
     }
   ],
+  "applicationCategory": "DataAccess",
+  "keywords": ["species", "occurrences", "biodiversity", "maps"],
   "contIntegration": "https://travis-ci.org/ropensci/rbison",
-  "releaseNotes": "https://github.com/chrisfan24/rbison.git/blob/master/NEWS.md",
-  "readme": "https://github.com/chrisfan24/rbison.git/blob/master/README.md",
-  "fileSize": "687.327KB"
+  "releaseNotes": "https://github.com/ropensci/rbison/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/rbison/blob/master/README.md",
+  "fileSize": "687.334KB"
 }
