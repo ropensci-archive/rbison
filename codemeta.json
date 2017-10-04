@@ -173,6 +173,7 @@
   ],
   "applicationCategory": "DataAccess",
   "keywords": ["species", "occurrences", "biodiversity", "maps"],
+  "isPartOf": "https://ropensci.org",
   "contIntegration": "https://travis-ci.org/ropensci/rbison",
   "releaseNotes": "https://github.com/ropensci/rbison/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/rbison/blob/master/README.md",
