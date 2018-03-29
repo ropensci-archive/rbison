@@ -1,7 +1,7 @@
 # tests for bison_solr fxn in taxize
 context("bison_solr")
 
-test_that("bison returns the correct value", {
+test_that("bison_solr returns the correct value", {
   skip_on_cran()
   
   out_1 <- bison_solr(scientificName='Ursus americanus', verbose = FALSE)
@@ -32,4 +32,31 @@ test_that("bison returns the correct value", {
   expect_is(out_5_map$layers, "list")
   expect_named(out_5_map$labels, c("x", "y", "group"))
   expect_is(out_5_map$plot, "environment")
+})
+
+
+test_that("bison_solr can do length 2 queries for parameters", {
+  skip_on_cran()
+  
+  out <- bison_solr(eventDate = c('2010-08-08', '2010-08-21'))
+
+  expect_is(out, "bison_solr")
+  expect_gte(
+    as.numeric(as.POSIXct(min(out$points$eventDate))),
+    as.numeric(as.POSIXct('2010-08-08'))
+  )
+  expect_lte(
+    as.numeric(as.POSIXct(max(out$points$eventDate))),
+    as.numeric(as.POSIXct('2010-08-21'))
+  )
+})
+
+
+test_that("bison_solr fails with length > 2 queries for parameters", {
+  skip_on_cran()
+  
+  expect_error(
+    bison_solr(eventDate = c('2010-08-08', '2010-08-21', "afdf")),
+    "`bions_solr` only supports length 1 or 2 inputs"
+  )
 })

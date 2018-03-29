@@ -88,11 +88,11 @@ which \code{\link[=bison]{bison()}} uses.
 \details{
 Some SOLR search parameters:
 \itemize{
-\item{fl} {Fields to return in the query}
-\item{rows} {Number of records to return}
-\item{sort} {Field to sort by, see examples}
-\item{facet} {Facet or not, logical}
-\item{facet.field} {Fields to facet by}
+\item fl: Fields to return in the query
+\item rows: Number of records to return
+\item sort: Field to sort by, see examples
+\item facet: Facet or not, logical
+\item facet.field: Fields to facet by
 }
 
 You can also use highlighting in solr search, but I'm not sure I see a
@@ -101,6 +101,15 @@ use case for it with BISON data, though you can do it with this function.
 For a tutorial see here
 \url{http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html}
 }
+\section{Range searches}{
+
+If you pass a vector of length 2 to a parameter we construct a range
+query for you. For example, \code{c(4, 5)} turns into \code{[4 TO 5]}. The \code{[]}
+syntax means the search is inclusive, meaning 4 to 5, including 4 and 5.
+Let us know if you think you need more flexible searching. That is,
+doing exclusive \code{{}} or mixed searches (\code{{]} or \code{[}}).
+}
+
 \examples{
 \dontrun{
 bison_solr(scientificName='Ursus americanus')
@@ -114,11 +123,16 @@ bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
  rows=50, fl="eventDate,scientificName")
 
 bison_solr(providerID = 220)
-bison_solr(resourceID = '220,200080')
+# range search
+bison_solr(providerID = c(220, 221))
 
 bison_solr(eventDate = '2010-08-08T00:00Z')
+# date range
+x <- bison_solr(eventDate = c('2010-08-08', '2010-08-21'))
+x$points$eventDate
 
 bison_solr(TSNs = 174773)
+x <- bison_solr(TSNs = c(174773, 174775))
 
 bison_solr(occurrenceID = 576630651)
 

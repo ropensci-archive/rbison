@@ -52,19 +52,25 @@
 #' @return An object of class bison_solr - which is a list with slots for 
 #' number of records found (num_found), records, highlight, or facets.
 #' @details Some SOLR search parameters:
-#' \itemize{
-#'  \item{fl} {Fields to return in the query}
-#'  \item{rows} {Number of records to return}
-#'  \item{sort} {Field to sort by, see examples}
-#'  \item{facet} {Facet or not, logical}
-#'  \item{facet.field} {Fields to facet by}
-#' }
+#' 
+#' - fl: Fields to return in the query
+#' - rows: Number of records to return
+#' - sort: Field to sort by, see examples
+#' - facet: Facet or not, logical
+#' - facet.field: Fields to facet by
 #'
 #' You can also use highlighting in solr search, but I'm not sure I see a 
 #' use case for it with BISON data, though you can do it with this function.
 #'
 #' For a tutorial see here 
 #' <http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html>
+#' 
+#' @section Range searches:
+#' If you pass a vector of length 2 to a parameter we construct a range 
+#' query for you. For example, `c(4, 5)` turns into `[4 TO 5]`. The `[]` 
+#' syntax means the search is inclusive, meaning 4 to 5, including 4 and 5. 
+#' Let us know if you think you need more flexible searching. That is, 
+#' doing exclusive `{}` or mixed searches (`{]` or `[}`).
 #' 
 #' @seealso [bison_tax()], [bison()]
 #'
@@ -82,11 +88,16 @@
 #'  rows=50, fl="eventDate,scientificName")
 #'
 #' bison_solr(providerID = 220)
-#' bison_solr(resourceID = '220,200080')
+#' # range search
+#' bison_solr(providerID = c(220, 221))
 #'
 #' bison_solr(eventDate = '2010-08-08T00:00Z')
+#' # date range
+#' x <- bison_solr(eventDate = c('2010-08-08', '2010-08-21'))
+#' x$points$eventDate
 #'
 #' bison_solr(TSNs = 174773)
+#' x <- bison_solr(TSNs = c(174773, 174775))
 #'
 #' bison_solr(occurrenceID = 576630651)
 #'
@@ -156,7 +167,12 @@ bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL,
 
   stuff <- list()
   for (i in seq_along(qu)) {
-     stuff[i] <- paste0(names(qu)[[i]],':"', qu[[i]], '"')
+    if (length(qu[[i]]) > 2) stop("`bions_solr` only supports length 1 or 2 inputs")
+    if (length(qu[[i]]) == 2) {
+      stuff[i] <- paste0(names(qu)[[i]],':', sprintf("[%s TO %s]", qu[[i]][1], qu[[i]][2]))
+    } else {
+      stuff[i] <- paste0(names(qu)[[i]],':"', qu[[i]], '"')
+    }
   }
   stuff <- if (length(stuff) == 0) "*:*" else paste0(stuff,collapse = "+")
 
