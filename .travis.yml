@@ -2,10 +2,17 @@ language: r
 sudo: false
 cache: packages
 dist: trusty
+warnings_are_errors: false
 
-r:
-  - oldrel
-  - release
+matrix:
+  include:
+    - os: linux
+       r: oldrel
+    - os: linux
+      r: release
+      env: R_CODECOV=true
+    - os: linux
+       r: devel
 
 r_github_packages:
 - jimhester/covr
