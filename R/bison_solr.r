@@ -70,7 +70,7 @@
 #' query for you. For example, `c(4, 5)` turns into `[4 TO 5]`. The `[]` 
 #' syntax means the search is inclusive, meaning 4 to 5, including 4 and 5. 
 #' Let us know if you think you need more flexible searching. That is, 
-#' doing exclusive `{}` or mixed searches (`{]` or `[}`).
+#' doing exclusive `\{\}` or mixed searches (`\{]` or `[\}`).
 #' 
 #' @seealso [bison_tax()], [bison()]
 #'

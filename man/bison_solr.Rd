@@ -107,7 +107,7 @@ If you pass a vector of length 2 to a parameter we construct a range
 query for you. For example, \code{c(4, 5)} turns into \code{[4 TO 5]}. The \code{[]}
 syntax means the search is inclusive, meaning 4 to 5, including 4 and 5.
 Let us know if you think you need more flexible searching. That is,
-doing exclusive \code{{}} or mixed searches (\code{{]} or \code{[}}).
+doing exclusive \code{\{\}} or mixed searches (\code{\{]} or \code{[\}}).
 }
 
 \examples{
