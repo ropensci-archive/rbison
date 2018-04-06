@@ -22,6 +22,7 @@ r_check_args: "--as-cran --run-dontrun"
 after_success:
 - Rscript -e 'covr::codecov()'
 
+
 notifications:
   email:
     on_success: never
