@@ -11,7 +11,12 @@ bison_solr(decimalLatitude = NULL, decimalLongitude = NULL, year = NULL,
   computedStateFips = NULL, scientificName = NULL,
   hierarchy_homonym_string = NULL, TSNs = NULL, recordedBy = NULL,
   occurrenceID = NULL, catalogNumber = NULL, ITIScommonName = NULL,
-  kingdom = NULL, callopts = list(), verbose = TRUE, ...)
+  kingdom = NULL, collectorNumber = NULL, provider = NULL,
+  ownerInstitutionCollectionCode = NULL, providedScientificName = NULL,
+  ITISscientificName = NULL, providedCommonName = NULL, ITIStsn = NULL,
+  centroid = NULL, higherGeographyID = NULL, providedCounty = NULL,
+  calculatedCounty = NULL, stateProvince = NULL, calculatedState = NULL,
+  countryCode = NULL, callopts = list(), verbose = TRUE, ...)
 }
 \arguments{
 \item{decimalLatitude}{Geographic coordinate that specifies the north south
@@ -66,6 +71,51 @@ during the data ingest.}
 
 \item{kingdom}{Kingdom name, from GBIF raw occurrence or BISON provider.}
 
+\item{collectorNumber}{An identifier given to the occurrence at the time it
+was recorded, such as a specimen collector's number. / e.g., "SJM030022".}
+
+\item{provider}{Non-persistent unique identifier.}
+
+\item{ownerInstitutionCollectionCode}{Name for the dataset, format =
+OwnerInstitution-Collection. / e.g., "USGS NAWQA BioData - Fish
+Occurrence Records"}
+
+\item{providedScientificName}{Full scientific name as provided in the dataset,
+with authorship and date information if known.}
+
+\item{ITISscientificName}{Scientific name from join on ITIS table, calculated
+e.g, "Bison bison"}
+
+\item{providedCommonName}{A list (concatenated and separated) of the available
+vernacular species names. / e.g., "common shrew, Masked Shrew"}
+
+\item{ITIStsn}{Phase II: ITIS TSN corresponding to
+clean_provided_scientific_name. May be invalid,unaccepted. Calculated.
+e.g., "3250", "05713"}
+
+\item{centroid}{Text string indicating that provided lat/lon point represents
+a polygon centroid. Text provides description of the centroid.}
+
+\item{higherGeographyID}{5-digit numeric text string geographic code for the
+state-county combination provided by data provider. / e.g,. "13029"}
+
+\item{providedCounty}{Full county, parish, or organized borough name, as
+provided in the dataset. If provided, Verbatum State is required. Is not
+changed during data ingest. / e.g., "Fairfax"}
+
+\item{calculatedCounty}{Full county, parish, or organized borough name of
+the occurrence calculated. / e.g., "Fairfax"}
+
+\item{stateProvince}{Full name of state or territory of the occurrence, as
+provided in the dataset.}
+
+\item{calculatedState}{U.S. State or territory name calculated.
+e.g., "Puerto Rico"}
+
+\item{countryCode}{The geographic location of the specific occurrence,
+expressed through a constrained vocabulary of countries using 2-letter
+ISO country code.}
+
 \item{callopts}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}} for HTTP
 debugging/inspecting. In \code{bison}, \code{bison_providers}, and
 \code{bison_stats}, \code{...} is used instead of
@@ -81,9 +131,9 @@ number of records found (num_found), records, highlight, or facets.
 }
 \description{
 This fxn is somewhat similar to \code{\link[=bison]{bison()}}, but interacts with the SOLR
-interface \url{http://bison.usgs.ornl.gov/doc/api.jsp#solr} instead of the
-OpenSearch interface \url{http://bison.usgs.ornl.gov/doc/api.jsp#opensearch},
-which \code{\link[=bison]{bison()}} uses.
+interface \url{https://bison.usgs.gov/#solr} instead of the
+OpenSearch interface \url{https://bison.usgs.gov/#opensearch}, which \code{\link[=bison]{bison()}}
+uses.
 }
 \details{
 Some SOLR search parameters:
@@ -121,6 +171,8 @@ bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
 
 bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
  rows=50, fl="eventDate,scientificName")
+
+bison_solr(ITISscientificName='Ursus americanus', rows=50)
 
 bison_solr(providerID = 220)
 # range search
@@ -173,6 +225,9 @@ bison_solr(pointPath = '/-110.0,45.0/specimen')
 # Curl options
 bison_solr(scientificName='Ursus americanus', callopts=list(verbose = TRUE))
 }
+}
+\references{
+\url{https://bison.usgs.gov/#solr}
 }
 \seealso{
 \code{\link[=bison_tax]{bison_tax()}}, \code{\link[=bison]{bison()}}

@@ -2,9 +2,9 @@
 #' their solr endpoint.
 #'
 #' This fxn is somewhat similar to [bison()], but interacts with the SOLR
-#' interface <http://bison.usgs.ornl.gov/doc/api.jsp#solr> instead of the 
-#' OpenSearch interface <http://bison.usgs.ornl.gov/doc/api.jsp#opensearch>, 
-#' which [bison()] uses.
+#' interface <https://bison.usgs.gov/#solr> instead of the 
+#' OpenSearch interface <https://bison.usgs.gov/#opensearch>, which [bison()] 
+#' uses.
 #'
 #' @export
 #'
@@ -42,6 +42,37 @@
 #' during the data ingest.
 #' @param ITIScommonName Common name(s) from ITIS, e.g. "Canada goose"
 #' @param kingdom Kingdom name, from GBIF raw occurrence or BISON provider.
+#' @param collectorNumber An identifier given to the occurrence at the time it 
+#' was recorded, such as a specimen collector's number. / e.g., "SJM030022".
+#' @param provider Non-persistent unique identifier.
+#' @param ownerInstitutionCollectionCode Name for the dataset, format = 
+#' OwnerInstitution-Collection. / e.g., "USGS NAWQA BioData - Fish 
+#' Occurrence Records"
+#' @param providedScientificName Full scientific name as provided in the dataset, 
+#' with authorship and date information if known.
+#' @param ITISscientificName Scientific name from join on ITIS table, calculated 
+#' e.g, "Bison bison"
+#' @param providedCommonName A list (concatenated and separated) of the available 
+#' vernacular species names. / e.g., "common shrew, Masked Shrew"
+#' @param ITIStsn Phase II: ITIS TSN corresponding to 
+#' clean_provided_scientific_name. May be invalid,unaccepted. Calculated. 
+#' e.g., "3250", "05713"
+#' @param centroid Text string indicating that provided lat/lon point represents 
+#' a polygon centroid. Text provides description of the centroid.
+#' @param higherGeographyID 5-digit numeric text string geographic code for the 
+#' state-county combination provided by data provider. / e.g,. "13029"
+#' @param providedCounty Full county, parish, or organized borough name, as 
+#' provided in the dataset. If provided, Verbatum State is required. Is not 
+#' changed during data ingest. / e.g., "Fairfax"
+#' @param calculatedCounty Full county, parish, or organized borough name of 
+#' the occurrence calculated. / e.g., "Fairfax"
+#' @param stateProvince Full name of state or territory of the occurrence, as 
+#' provided in the dataset.
+#' @param calculatedState U.S. State or territory name calculated.
+#' e.g., "Puerto Rico"
+#' @param countryCode The geographic location of the specific occurrence, 
+#' expressed through a constrained vocabulary of countries using 2-letter 
+#' ISO country code.
 #' @param callopts Further args passed on to [crul::HttpClient()] for HTTP 
 #' debugging/inspecting. In `bison`, `bison_providers`, and 
 #' `bison_stats`, `...` is used instead of
@@ -65,6 +96,8 @@
 #' For a tutorial see here 
 #' <http://lucene.apache.org/solr/3_6_2/doc-files/tutorial.html>
 #' 
+#' @references <https://bison.usgs.gov/#solr>
+#' 
 #' @section Range searches:
 #' If you pass a vector of length 2 to a parameter we construct a range 
 #' query for you. For example, `c(4, 5)` turns into `[4 TO 5]`. The `[]` 
@@ -86,6 +119,8 @@
 #'
 #' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
 #'  rows=50, fl="eventDate,scientificName")
+#' 
+#' bison_solr(ITISscientificName='Ursus americanus', rows=50)
 #'
 #' bison_solr(providerID = 220)
 #' # range search
@@ -144,26 +179,32 @@ bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL,
   eventDate=NULL, computedCountyFips=NULL, computedStateFips=NULL,
   scientificName=NULL, hierarchy_homonym_string=NULL, TSNs=NULL,
   recordedBy=NULL, occurrenceID=NULL, catalogNumber=NULL, ITIScommonName=NULL,
-  kingdom=NULL, callopts=list(), verbose=TRUE, ...)
+  kingdom=NULL, collectorNumber = NULL, provider = NULL, 
+  ownerInstitutionCollectionCode = NULL, providedScientificName = NULL, 
+  ITISscientificName = NULL, providedCommonName = NULL, ITIStsn = NULL, 
+  centroid = NULL, higherGeographyID = NULL, providedCounty = NULL, 
+  calculatedCounty = NULL, stateProvince = NULL, calculatedState = NULL, 
+  countryCode = NULL, callopts=list(), verbose=TRUE, ...)
 {
   qu <- bs_compact(list(decimalLatitude=decimalLatitude,
-                     decimalLongitude=decimalLongitude,
-                     year=year,
-                     pointPath=pointPath,
-                     providerID=providerID,
-                     resourceID=resourceID,
-                     basisOfRecord=basisOfRecord,
-                     eventDate=eventDate,
-                     computedCountyFips=computedCountyFips,
-                     computedStateFips=computedStateFips,
-                     scientificName=scientificName,
-                     hierarchy_homonym_string=hierarchy_homonym_string,
-                     TSNs=TSNs,
-                     recordedBy=recordedBy,
-                     occurrenceID=occurrenceID,
-                     catalogNumber=catalogNumber,
-                     ITIScommonName=ITIScommonName,
-                     kingdom=kingdom))
+    decimalLongitude=decimalLongitude, year=year,
+    pointPath=pointPath, providerID=providerID,
+    resourceID=resourceID, basisOfRecord=basisOfRecord,
+    eventDate=eventDate, computedCountyFips=computedCountyFips,
+    computedStateFips=computedStateFips,
+    scientificName=scientificName,
+    hierarchy_homonym_string=hierarchy_homonym_string,
+    TSNs=TSNs, recordedBy=recordedBy, occurrenceID=occurrenceID,
+    catalogNumber=catalogNumber, ITIScommonName=ITIScommonName,
+    kingdom=kingdom, collectorNumber = collectorNumber, provider = provider, 
+    ownerInstitutionCollectionCode = ownerInstitutionCollectionCode, 
+    providedScientificName = providedScientificName, 
+    ITISscientificName = ITISscientificName, 
+    providedCommonName = providedCommonName, ITIStsn = ITIStsn, 
+    centroid = centroid, higherGeographyID = higherGeographyID, 
+    providedCounty = providedCounty, calculatedCounty = calculatedCounty, 
+    stateProvince = stateProvince, calculatedState = calculatedState, 
+    countryCode = countryCode))
 
   stuff <- list()
   for (i in seq_along(qu)) {
@@ -185,13 +226,7 @@ bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL,
   tt <- cli$get(query = args)
   tt$raise_for_status()
   out <- tt$parse("UTF-8")
-
-  # tt <- GET(file.path(bison_base(), "solr/occurrences/select/"), 
-  #           query = args, 
-  #           c(config(followlocation = 1), callopts))
   mssg(verbose, tt$url)
-  # stop_for_status(tt)
-  # out <- content(tt, as = "text")
 
   temp <- list(
     num_found = jsonlite::fromJSON(out)$response$numFound,

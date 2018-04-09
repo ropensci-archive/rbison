@@ -150,6 +150,9 @@ bison(params='countryCode:US')
 bison(params='ITIScommonName:"Canada goose"')
 }
 }
+\references{
+\url{https://bison.usgs.gov/#opensearch}
+}
 \seealso{
 \code{\link[=bison_solr]{bison_solr()}} \code{\link[=bison_tax]{bison_tax()}}
 }

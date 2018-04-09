@@ -44,6 +44,8 @@
 #' @param ... Further args passed on to [crul::HttpClient()]. See examples.
 #'
 #' @seealso [bison_solr()] [bison_tax()]
+#' 
+#' @references <https://bison.usgs.gov/#opensearch>
 #'
 #' @examples \dontrun{
 #' bison(species="Bison bison", count=50, what='summary')
