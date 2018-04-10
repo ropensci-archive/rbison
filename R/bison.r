@@ -5,8 +5,8 @@
 #' @param type (character) Type, one of scientific_name or common_name.
 #' @param tsn (numeric) Specifies the TSN to query by. If you supply a tsn it 
 #' doesn't make sense to supply a species name as well. Example:162003.
-#' @param start (numeric) Record to start at.
-#' @param count (numeric) Number of records to return.
+#' @param start (numeric) Record to start at. Default: 0
+#' @param count (numeric) Number of records to return. Default: 0. Max: 500
 #' @param countyFips (character) Specifies the county fips code to 
 #' geographically constrain the search to one county. Character must be 
 #' supplied as a number starting with zero may lose the zero. Eg: "49015".
@@ -129,12 +129,13 @@
 #' bison(params='ITIScommonName:"Canada goose"')
 #' }
 
-bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=NULL, 
-  count=10, countyFips=NULL, county=NULL, state=NULL, aoi=NULL, aoibbox=NULL, 
+bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=0, 
+  count=25, countyFips=NULL, county=NULL, state=NULL, aoi=NULL, aoibbox=NULL, 
   params=NULL, what='all', ...) {
   
   stopifnot(is.numeric(count))
   stopifnot(count >= 0)
+  stopifnot(count <= 500)
 
   if (is.null(species)) {
     type <- NULL

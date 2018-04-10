@@ -4,10 +4,9 @@
 \alias{bison}
 \title{Search for and collect data from the USGS Bison API.}
 \usage{
-bison(species = NULL, type = "scientific_name", tsn = NULL,
-  start = NULL, count = 10, countyFips = NULL, county = NULL,
-  state = NULL, aoi = NULL, aoibbox = NULL, params = NULL,
-  what = "all", ...)
+bison(species = NULL, type = "scientific_name", tsn = NULL, start = 0,
+  count = 25, countyFips = NULL, county = NULL, state = NULL,
+  aoi = NULL, aoibbox = NULL, params = NULL, what = "all", ...)
 }
 \arguments{
 \item{species}{(character) A species name.}
@@ -17,9 +16,9 @@ bison(species = NULL, type = "scientific_name", tsn = NULL,
 \item{tsn}{(numeric) Specifies the TSN to query by. If you supply a tsn it
 doesn't make sense to supply a species name as well. Example:162003.}
 
-\item{start}{(numeric) Record to start at.}
+\item{start}{(numeric) Record to start at. Default: 0}
 
-\item{count}{(numeric) Number of records to return.}
+\item{count}{(numeric) Number of records to return. Default: 0. Max: 500}
 
 \item{countyFips}{(character) Specifies the county fips code to
 geographically constrain the search to one county. Character must be
