@@ -75,8 +75,7 @@ bisonmap(out)
 
 
 ```r
-out <- bison(species = "Bison bison", count = 600)
-#> Error: Bad Request (HTTP 400)
+out <- bison(species = "Bison bison", count = 300)
 ```
 
 
@@ -85,8 +84,12 @@ out <- bison(species = "Bison bison", count = 600)
 
 ```r
 out$summary
-#>   specimen specimen.1
-#> 1        7          7
+#>   occurrences.legend.fossil occurrences.legend.observation
+#> 1                       359                            927
+#>   occurrences.legend.centroid occurrences.legend.specimen
+#> 1                           1                         946
+#>   occurrences.legend.unknown fossil observation centroid specimen unknown
+#> 1                          6    359         927        1      946       6
 ```
 
 ### map occurrences
@@ -104,7 +107,7 @@ bisonmap(out)
 
 
 ```r
-out <- bison(species = "Aquila chrysaetos", count = 600)
+out <- bison(species = "Aquila chrysaetos", count = 300)
 ```
 
 
@@ -113,8 +116,14 @@ out <- bison(species = "Aquila chrysaetos", count = 600)
 
 ```r
 out$summary
-#>   total observation fossil specimen unknown centroid
-#> 1 84111       82185    102     1811      13        1
+#>   occurrences.legend.literature occurrences.legend.fossil
+#> 1                          1641                       642
+#>   occurrences.legend.observation occurrences.legend.centroid
+#> 1                         128207                           1
+#>   occurrences.legend.unknown occurrences.legend.specimen literature fossil
+#> 1                       9734                        1899       1641    642
+#>   observation centroid unknown specimen
+#> 1      128207        1    9734     1899
 ```
 
 

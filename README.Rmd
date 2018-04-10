@@ -73,7 +73,7 @@ bisonmap(out)
 ### get data
 
 ```{r}
-out <- bison(species = "Bison bison", count = 600)
+out <- bison(species = "Bison bison", count = 300)
 ```
 
 
@@ -93,7 +93,7 @@ bisonmap(out)
 
 ### get data
 
-```{r cache=TRUE}
+```{r cache=FALSE}
 out <- bison(species = "Aquila chrysaetos", count = 300)
 ```
 

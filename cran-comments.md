@@ -21,7 +21,7 @@ with no problems detected.
 
 -----
 
-This release adds new parameters to one of the exported functions in the package, bison_solr. 
+This release adds new parameters to one of the exported functions in the package, bison_solr(), and now checks to make sure user doesn't pass a paging value that's too big in bison() that will cause server to fail.
 
 Thanks!
 Scott Chamberlain
