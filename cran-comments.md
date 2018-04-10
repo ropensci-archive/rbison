@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.3.3
-* ubuntu 12.04 (on travis-ci), R 3.3.3
+* local OS X install, R 3.4.4 patched
+* ubuntu 12.04 (on travis-ci), R 3.4.4
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -11,7 +11,7 @@
    License components with restrictions and base license permitting such:
      MIT + file LICENSE
    File 'LICENSE':
-     YEAR: 2017
+     YEAR: 2018
      COPYRIGHT HOLDER: Scott Chamberlain
 
 ## Reverse dependencies
@@ -21,9 +21,7 @@ with no problems detected.
 
 -----
 
-This release includes change in a package dependency; store
-images for README in tools/ dir; tidy docs to 80 line width
-and use markdown for docs.
+This release adds new parameters to one of the exported functions in the package, bison_solr. 
 
 Thanks!
 Scott Chamberlain

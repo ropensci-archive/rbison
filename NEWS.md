@@ -1,3 +1,16 @@
+rbison 0.6.0
+============
+
+### NEW FEATURES
+
+* `rbison::bison_solr` now supports range queries for certain parameters. It doesn't make sense to do a range query for a character string parameter (e.g., range between Asteraceae and Juncaceae), but you can do them for any parameters that are numeric/integer/date. See examples in `?bison_solr`. (this was added originally to facilitate date based searching in `spocc`) (#53)
+
+### MINOR IMPROVEMENTS
+
+* Added some missing parameters to `bison_solr()`, e.g., `ITISscientificName`, `higherGeographyID`, and `countryCode`. See `?bison_solr` for details. (#54)
+* Updated docs for `count` parameter in `bison()`: default is now 25, and max is 500. Also, default for `start` set to 0, so we pass that by default now. We check to make sure `count` is not greater than 500 since the BISON API does not fail gracefully if it is greater than 500.
+
+
 rbison 0.5.4
 ============
 

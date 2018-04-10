@@ -56,8 +56,8 @@ out <- bison(species = "Phocoenoides dalli dalli", count = 10)
 
 ```r
 out$summary
-#>   total specimen
-#> 1     7        7
+#>   specimen specimen.1
+#> 1        7          7
 ```
 
 ### map occurrences
@@ -76,6 +76,7 @@ bisonmap(out)
 
 ```r
 out <- bison(species = "Bison bison", count = 600)
+#> Error: Bad Request (HTTP 400)
 ```
 
 
@@ -84,8 +85,8 @@ out <- bison(species = "Bison bison", count = 600)
 
 ```r
 out$summary
-#>   total observation fossil specimen unknown centroid
-#> 1  1217         252    162      796       7        1
+#>   specimen specimen.1
+#> 1        7          7
 ```
 
 ### map occurrences
@@ -158,20 +159,20 @@ The taxa service searches for and gives back taxonomic names
 ```r
 bison_tax(query = "*bear")
 #> $numFound
-#> [1] 12
+#> [1] 48
 #> 
 #> $names
 #>       lc_vernacularName       vernacularName
-#> 1   American black bear  American black bear
-#> 2    Asiatic black bear   Asiatic black bear
-#> 3     banded woollybear    banded woollybear
-#> 4            black bear           black bear
-#> 5      black-ended bear     black-ended bear
-#> 6            brown bear           brown bear
-#> 7          grizzly bear         grizzly bear
-#> 8           Kodiak bear          Kodiak bear
-#> 9  Louisiana black bear Louisiana black bear
-#> 10             Sun bear             Sun bear
+#> 1  Louisiana black bear Louisiana black bear
+#> 2            Sloth Bear           Sloth Bear
+#> 3          grizzly bear         grizzly bear
+#> 4              bear oak             bear oak
+#> 5     yellow woollybear    yellow woollybear
+#> 6            bear daisy           bear daisy
+#> 7     banded woollybear    banded woollybear
+#> 8    Asiatic black bear   Asiatic black bear
+#> 9           Kodiak bear          Kodiak bear
+#> 10     black-ended bear     black-ended bear
 #> 
 #> $highlight
 #> NULL
@@ -186,20 +187,20 @@ And you can search by scientific name
 ```r
 bison_tax(query = "Helianthus*", method = "scientificName")
 #> $numFound
-#> [1] 215
+#> [1] 212
 #> 
 #> $names
 #>                       scientificName
-#> 1  Helianthus divaricatus latifolius
-#> 2             Helianthus decapetalus
-#> 3                Helianthus ambiguus
-#> 4             Helianthus dowellianus
-#> 5               Helianthus luxurians
-#> 6               Helianthus anomalus 
-#> 7            Helianthus longifolius 
-#> 8               Helianthus arenicola
-#> 9                Helianthus parishii
-#> 10             Helianthus floridanus
+#> 1              Discoaster helianthus
+#> 2  Helianthus divaricatus latifolius
+#> 3             Helianthus decapetalus
+#> 4                Helianthus ambiguus
+#> 5             Helianthus dowellianus
+#> 6               Helianthus luxurians
+#> 7               Helianthus arenicola
+#> 8              Helianthus atrorubens
+#> 9               Helianthus frondosus
+#> 10   Helianthus nuttallii canadensis
 #> 
 #> $highlight
 #> NULL
@@ -219,60 +220,60 @@ Searching for data and looking at output
 ```r
 bison_solr(scientificName = "Ursus americanus", state_code = "New Mexico", rows = 50, fl = "eventDate,scientificName")
 #> $num_found
-#> [1] 4801
+#> [1] 6506
 #> 
 #> $points
-#>            eventDate   scientificName
-#> 1  1995-05-28T00:00Z Ursus americanus
-#> 2               <NA> Ursus americanus
-#> 3  1973-09-19T00:00Z Ursus americanus
-#> 4  1988-06-26T00:00Z Ursus americanus
-#> 5  2012-09-24T00:00Z Ursus americanus
-#> 6  2015-05-05T00:00Z Ursus americanus
-#> 7  1996-05-28T00:00Z Ursus americanus
-#> 8  2013-11-25T00:00Z Ursus americanus
-#> 9               <NA> Ursus americanus
-#> 10              <NA> Ursus americanus
-#> 11              <NA> Ursus americanus
-#> 12              <NA> Ursus americanus
-#> 13              <NA> Ursus americanus
-#> 14 2009-06-07T00:00Z Ursus americanus
-#> 15 1958-09-11T00:00Z Ursus americanus
-#> 16 1951-10-14T00:00Z Ursus americanus
-#> 17              <NA> Ursus americanus
-#> 18              <NA> Ursus americanus
-#> 19              <NA> Ursus americanus
-#> 20              <NA> Ursus americanus
-#> 21              <NA> Ursus americanus
-#> 22              <NA> Ursus americanus
-#> 23              <NA> Ursus americanus
-#> 24              <NA> Ursus americanus
-#> 25              <NA> Ursus americanus
-#> 26 2012-10-27T00:00Z Ursus americanus
-#> 27 1955-08-27T00:00Z Ursus americanus
-#> 28 1950-09-04T00:00Z Ursus americanus
-#> 29 1954-12-28T00:00Z Ursus americanus
-#> 30 1955-08-27T00:00Z Ursus americanus
-#> 31 1954-10-13T00:00Z Ursus americanus
-#> 32 1953-10-22T00:00Z Ursus americanus
-#> 33 1957-01-14T00:00Z Ursus americanus
-#> 34 1953-10-15T00:00Z Ursus americanus
-#> 35 1954-11-12T00:00Z Ursus americanus
-#> 36 1955-03-01T00:00Z Ursus americanus
-#> 37 1956-05-24T00:00Z Ursus americanus
-#> 38 1958-06-06T00:00Z Ursus americanus
-#> 39 1958-08-27T00:00Z Ursus americanus
-#> 40 1967-06-13T00:00Z Ursus americanus
-#> 41              <NA> Ursus americanus
-#> 42 2012-05-30T16:38Z Ursus americanus
-#> 43              <NA> Ursus americanus
-#> 44 2012-08-30T00:00Z Ursus americanus
-#> 45 1995-11-25T00:00Z Ursus americanus
-#> 46              <NA> Ursus americanus
-#> 47              <NA> Ursus americanus
-#> 48              <NA> Ursus americanus
-#> 49 2015-06-04T00:00Z Ursus americanus
-#> 50 1931-10-21T00:00Z Ursus americanus
+#>      scientificName
+#> 1  Ursus americanus
+#> 2  Ursus americanus
+#> 3  Ursus americanus
+#> 4  Ursus americanus
+#> 5  Ursus americanus
+#> 6  Ursus americanus
+#> 7  Ursus americanus
+#> 8  Ursus americanus
+#> 9  Ursus americanus
+#> 10 Ursus americanus
+#> 11 Ursus americanus
+#> 12 Ursus americanus
+#> 13 Ursus americanus
+#> 14 Ursus americanus
+#> 15 Ursus americanus
+#> 16 Ursus americanus
+#> 17 Ursus americanus
+#> 18 Ursus americanus
+#> 19 Ursus americanus
+#> 20 Ursus americanus
+#> 21 Ursus americanus
+#> 22 Ursus americanus
+#> 23 Ursus americanus
+#> 24 Ursus americanus
+#> 25 Ursus americanus
+#> 26 Ursus americanus
+#> 27 Ursus americanus
+#> 28 Ursus americanus
+#> 29 Ursus americanus
+#> 30 Ursus americanus
+#> 31 Ursus americanus
+#> 32 Ursus americanus
+#> 33 Ursus americanus
+#> 34 Ursus americanus
+#> 35 Ursus americanus
+#> 36 Ursus americanus
+#> 37 Ursus americanus
+#> 38 Ursus americanus
+#> 39 Ursus americanus
+#> 40 Ursus americanus
+#> 41 Ursus americanus
+#> 42 Ursus americanus
+#> 43 Ursus americanus
+#> 44 Ursus americanus
+#> 45 Ursus americanus
+#> 46 Ursus americanus
+#> 47 Ursus americanus
+#> 48 Ursus americanus
+#> 49 Ursus americanus
+#> 50 Ursus americanus
 #> 
 #> $highlight
 #> NULL
