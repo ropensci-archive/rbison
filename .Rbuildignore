@@ -14,7 +14,7 @@ README.Rmd
 appveyor.yml
 cran-comments.md
 vignettes/figure
-^CONDUCT\.md$
+^CODE_OF_CONDUCT\.md$
 ^cran-comments\.md$
 ^codemeta\.json$
 .github

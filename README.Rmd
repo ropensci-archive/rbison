@@ -166,7 +166,7 @@ bisonmap(out)
 * Please [report any issues or bugs](https://github.com/ropensci/rbison/issues).
 * License: MIT
 * Get citation information for `rbison` in R doing `citation(package = 'rbison')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 This package is part of a richer suite called [SPOCC Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using SPOCC as the primary R interface to rbison unless your needs are limited to this single source.
 
