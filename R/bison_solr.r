@@ -22,7 +22,8 @@
 #' is a county centroid.
 #' @param basisOfRecord	One of these enumerated values: Observation, Germplasm,
 #' Fossil, Specimen, Literature, Unknown, or Living.
-#' @param eventDate	The date when the occurrence was recorded.
+#' @param eventDate	The date when the occurrence was recorded. Dates need to
+#' be of the form YYYY-MM-DD
 #' @param computedCountyFips County FIPS code conforming to standard FIPS 6-4 
 #' but with leading zeros removed.
 #' @param computedStateFips The normalized case sensitive name. For example
@@ -103,7 +104,10 @@
 #' query for you. For example, `c(4, 5)` turns into `[4 TO 5]`. The `[]` 
 #' syntax means the search is inclusive, meaning 4 to 5, including 4 and 5. 
 #' Let us know if you think you need more flexible searching. That is, 
-#' doing exclusive `\{\}` or mixed searches (`\{]` or `[\}`).
+#' doing exclusive `\{\}` or mixed searches (`\{]` or `[\}`). Range 
+#' searches can only be done with variables that are numeric/integer 
+#' or dates or strings that can be coerced to dates. Dates need to
+#' be of the form YYYY-MM-DD
 #' 
 #' @seealso [bison_tax()], [bison()]
 #'
@@ -123,23 +127,24 @@
 #' bison_solr(ITISscientificName='Ursus americanus', rows=50)
 #'
 #' bison_solr(providerID = 220)
-#' # range search
+#' 
+#' # range queries
+#' ## range search with providerID
 #' bison_solr(providerID = c(220, 221))
-#'
-#' bison_solr(eventDate = '2010-08-08T00:00Z')
-#' # date range
+#' ## date range search
 #' x <- bison_solr(eventDate = c('2010-08-08', '2010-08-21'))
-#' x$points$eventDate
+#' sort(x$points$eventDate)
+#' ## TSN range search
+#' x <- bison_solr(TSNs = c(174773, 174775), rows = 100)
+#' sort(x$points$TSN)
+#' ## can't do range searches with character strings (that are not dates)
+#' bison_solr(kingdom = c("Animalia", "Plantae"))
 #'
+#' # more examples
 #' bison_solr(TSNs = 174773)
-#' x <- bison_solr(TSNs = c(174773, 174775))
-#'
 #' bison_solr(occurrenceID = 576630651)
-#'
 #' bison_solr(catalogNumber = 'OBS101299944')
-#'
 #' bison_solr(ITIScommonName = "Canada goose")
-#'
 #' bison_solr(kingdom = "Animalia")
 #' bison_solr(kingdom = "Plantae")
 #'
@@ -208,8 +213,19 @@ bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL,
 
   stuff <- list()
   for (i in seq_along(qu)) {
-    if (length(qu[[i]]) > 2) stop("`bions_solr` only supports length 1 or 2 inputs")
+    # for range search, must be length 2 or less
+    if (length(qu[[i]]) > 2) {
+      stop("for '", names(qu[i]), "' ~ ", 
+        "`bions_solr` only supports length 1 or 2 inputs")
+    }
+    
     if (length(qu[[i]]) == 2) {
+      # for range search, must not be class character/factor
+      if (not_num(qu[[i]]) && not_date(qu[[i]])) {
+        stop("for '", names(qu[i]), "' ~ ", 
+          "`bison_solr` only supports numeric/integer parameters for range searches")
+      }
+      
       stuff[i] <- paste0(names(qu)[[i]],':', sprintf("[%s TO %s]", qu[[i]][1], qu[[i]][2]))
     } else {
       stuff[i] <- paste0(names(qu)[[i]],':"', qu[[i]], '"')

@@ -145,3 +145,15 @@ bison_map_maker <- function(x, geom, jitter, customize) {
         customize
     }
 }
+
+not_num <- function(x) {
+  z <- tryCatch(as.numeric(as.character(x)), 
+        warning = function(w) w, error = function(e) e)
+  any(c("error", "warning") %in% class(z))
+}
+
+not_date <- function(x) {
+  z <- tryCatch(as.Date(as.character(x)), 
+      warning = function(w) w, error = function(e) e)
+  any(c("error", "warning") %in% class(z))
+}

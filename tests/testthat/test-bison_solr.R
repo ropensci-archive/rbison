@@ -60,3 +60,13 @@ test_that("bison_solr fails with length > 2 queries for parameters", {
     "`bions_solr` only supports length 1 or 2 inputs"
   )
 })
+
+
+test_that("bison_solr fails with length 2 queries that are not numeric or date", {
+  skip_on_cran()
+  
+  expect_error(
+    bison_solr(eventDate = c('asdfadf', "afdf")),
+    "for 'eventDate' ~ `bison_solr` only supports numeric/integer"
+  )
+})

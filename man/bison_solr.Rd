@@ -40,7 +40,8 @@ is a county centroid.}
 \item{basisOfRecord}{One of these enumerated values: Observation, Germplasm,
 Fossil, Specimen, Literature, Unknown, or Living.}
 
-\item{eventDate}{The date when the occurrence was recorded.}
+\item{eventDate}{The date when the occurrence was recorded. Dates need to
+be of the form YYYY-MM-DD}
 
 \item{computedCountyFips}{County FIPS code conforming to standard FIPS 6-4
 but with leading zeros removed.}
@@ -157,7 +158,10 @@ If you pass a vector of length 2 to a parameter we construct a range
 query for you. For example, \code{c(4, 5)} turns into \code{[4 TO 5]}. The \code{[]}
 syntax means the search is inclusive, meaning 4 to 5, including 4 and 5.
 Let us know if you think you need more flexible searching. That is,
-doing exclusive \code{\{\}} or mixed searches (\code{\{]} or \code{[\}}).
+doing exclusive \code{\{\}} or mixed searches (\code{\{]} or \code{[\}}). Range
+searches can only be done with variables that are numeric/integer
+or dates or strings that can be coerced to dates. Dates need to
+be of the form YYYY-MM-DD
 }
 
 \examples{
@@ -175,23 +179,24 @@ bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
 bison_solr(ITISscientificName='Ursus americanus', rows=50)
 
 bison_solr(providerID = 220)
-# range search
+
+# range queries
+## range search with providerID
 bison_solr(providerID = c(220, 221))
-
-bison_solr(eventDate = '2010-08-08T00:00Z')
-# date range
+## date range search
 x <- bison_solr(eventDate = c('2010-08-08', '2010-08-21'))
-x$points$eventDate
+sort(x$points$eventDate)
+## TSN range search
+x <- bison_solr(TSNs = c(174773, 174775), rows = 100)
+sort(x$points$TSN)
+## can't do range searches with character strings (that are not dates)
+bison_solr(kingdom = c("Animalia", "Plantae"))
 
+# more examples
 bison_solr(TSNs = 174773)
-x <- bison_solr(TSNs = c(174773, 174775))
-
 bison_solr(occurrenceID = 576630651)
-
 bison_solr(catalogNumber = 'OBS101299944')
-
 bison_solr(ITIScommonName = "Canada goose")
-
 bison_solr(kingdom = "Animalia")
 bison_solr(kingdom = "Plantae")
 
