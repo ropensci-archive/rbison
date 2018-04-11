@@ -16,14 +16,14 @@ To cite rbison, do \code{citation(package='rbison')}
 Use the following format to cite data retrieved from BISON:
 
 Biodiversity occurrence data published by: (Accessed through Biodiversity
-Information Serving our Nation (BISON), bison.usgs.ornl.gov, YYYY-MM-DD).
+Information Serving our Nation (BISON), bison.usgs.gov, YYYY-MM-DD).
 
 For example:
 
 Biodiversity occurrence data published by: Field Museum of Natural History,
 Museum of Vertebrate Zoology, University of Washington Burke Museum, and
 University of Turku (Accessed through Biodiversity Information Serving our
-Nation (BISON), bison.usgs.ornl.gov, 2013-04-22).
+Nation (BISON), bison.usgs.gov, 2013-04-22).
 
 Base URL for the BISON API: \url{https://bison.usgs.gov}
 }

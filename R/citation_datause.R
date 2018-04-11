@@ -1,7 +1,7 @@
 #' Get BISON data use agreement details and examples for how to cite data.
 #'
 #' @export
-#' @references http://bison.usgs.ornl.gov/doc/api.jsp#data
+#' @references https://bison.usgs.gov/doc/api.jsp#data
 #' @rdname bison_datause
 bison_datause <- function(){
   cat('
@@ -48,14 +48,14 @@ bison_citation <- function(){
     [Data Provider or owner name]. [Resource or Dataset Name] published by 
     [Data Provider name, address or affiliation(s)] (Accessed through 
     Biodiversity Information Serving Our Nation (BISON), 
-    https://bison.usgs.ornl.gov, YYYY-MM-DD)
+    https://bison.usgs.gov, YYYY-MM-DD)
 
   For example:
     Field Museum of Natural History. U.S. Bird Occurrences published by Field 
     Museum of Natural History, Museum of Vertebrate Zoology, University of 
     Washington Burke Museum, and University of Turku (Accessed through 
     Biodiversity Information Serving Our Nation (BISON), 
-    http://bison.usgs.ornl.gov, 2007-02-22)
+    https://bison.usgs.gov, 2007-02-22)
 
   Or
 
@@ -63,6 +63,6 @@ bison_citation <- function(){
     History, Museum of Vertebrate Zoology, University of Washington Burke 
     Museum, and University of Turku (Accessed through Biodiversity 
     Information Serving Our Nation (BISON), 
-    http://bison.usgs.ornl.gov, 2007-02-22)'
+    https://bison.usgs.gov, 2007-02-22)'
   )
 }
