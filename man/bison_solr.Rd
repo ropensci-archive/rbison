@@ -44,11 +44,10 @@ Fossil, Specimen, Literature, Unknown, or Living.}
 be of the form YYYY-MM-DD}
 
 \item{computedCountyFips}{County FIPS code conforming to standard FIPS 6-4
-but with leading zeros removed. See
-https://www.census.gov/geo/reference/codes/cou.html for codes}
+but with leading zeros removed. See \link{fips} dataset for codes}
 
-\item{computedStateFips}{The normalized state fips code. See
-https://www.census.gov/geo/reference/ansi_statetables.html for help}
+\item{computedStateFips}{The normalized state fips code. See \link{fips} dataset
+for codes}
 
 \item{scientificName}{The species scientific name that is searchable in
 a case insensitive way.}

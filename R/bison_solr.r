@@ -25,10 +25,9 @@
 #' @param eventDate	The date when the occurrence was recorded. Dates need to
 #' be of the form YYYY-MM-DD
 #' @param computedCountyFips County FIPS code conforming to standard FIPS 6-4 
-#' but with leading zeros removed. See 
-#' https://www.census.gov/geo/reference/codes/cou.html for codes
-#' @param computedStateFips The normalized state fips code. See 
-#' https://www.census.gov/geo/reference/ansi_statetables.html for help
+#' but with leading zeros removed. See [fips] dataset for codes
+#' @param computedStateFips The normalized state fips code. See [fips] dataset 
+#' for codes
 #' @param scientificName	The species scientific name that is searchable in 
 #' a case insensitive way.
 #' @param hierarchy_homonym_string hierarachy of the accepted or valid species 
