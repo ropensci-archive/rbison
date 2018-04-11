@@ -25,10 +25,10 @@
 #' @param eventDate	The date when the occurrence was recorded. Dates need to
 #' be of the form YYYY-MM-DD
 #' @param computedCountyFips County FIPS code conforming to standard FIPS 6-4 
-#' but with leading zeros removed.
-#' @param computedStateFips The normalized case sensitive name. For example
-#' q=state_code:"New Mexico" will return all of the occurrences from 
-#' New Mexico.
+#' but with leading zeros removed. See 
+#' https://www.census.gov/geo/reference/codes/cou.html for codes
+#' @param computedStateFips The normalized state fips code. See 
+#' https://www.census.gov/geo/reference/ansi_statetables.html for help
 #' @param scientificName	The species scientific name that is searchable in 
 #' a case insensitive way.
 #' @param hierarchy_homonym_string hierarachy of the accepted or valid species 
@@ -83,7 +83,14 @@
 #'
 #' @return An object of class bison_solr - which is a list with slots for 
 #' number of records found (num_found), records, highlight, or facets.
-#' @details Some SOLR search parameters:
+#' 
+#' @details 
+#' Named parameters in this function are combined with `AND` and passed on 
+#' to `q` SOLR parameter.  Of course parameters can be more flexibly 
+#' combined - let us know if you want that flexibility and we can 
+#' think about that.
+#' 
+#' @section SOLR search parameters passed on via `...`:
 #' 
 #' - fl: Fields to return in the query
 #' - rows: Number of records to return
@@ -114,19 +121,24 @@
 #' The USGS BISON Solr installation version as of 2014-10-14 was 4.4.
 #'
 #' @examples \dontrun{
-#' bison_solr(scientificName='Ursus americanus')
-#' }
-#'
-#' @examples \dontrun{
-#' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
+#' x=bison_solr(scientificName='Ursus americanus')
+#' 
+#' bison_solr(scientificName='Ursus americanus', computedStateFips='02',
 #'  fl="scientificName")
 #'
-#' bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
-#'  rows=50, fl="eventDate,scientificName")
+#' x <- bison_solr(scientificName='Ursus americanus', computedStateFips='02', rows=50)
+#' x$points$computedStateFips
+#' head(x$points)
 #' 
 #' bison_solr(ITISscientificName='Ursus americanus', rows=50)
 #'
 #' bison_solr(providerID = 220)
+#' 
+#' # combining parameters
+#' x <- bison_solr(eventDate = c('2008-01-01', '2010-12-31'), 
+#'   ITISscientificName="Helianthus annuus", rows = 100)
+#' head(x$points)
+#' sort(x$points$eventDate)
 #' 
 #' # range queries
 #' ## range search with providerID
@@ -138,7 +150,7 @@
 #' x <- bison_solr(TSNs = c(174773, 174775), rows = 100)
 #' sort(x$points$TSN)
 #' ## can't do range searches with character strings (that are not dates)
-#' bison_solr(kingdom = c("Animalia", "Plantae"))
+#' # bison_solr(kingdom = c("Animalia", "Plantae"))
 #'
 #' # more examples
 #' bison_solr(TSNs = 174773)
@@ -231,7 +243,7 @@ bison_solr <- function(decimalLatitude=NULL, decimalLongitude=NULL, year=NULL,
       stuff[i] <- paste0(names(qu)[[i]],':"', qu[[i]], '"')
     }
   }
-  stuff <- if (length(stuff) == 0) "*:*" else paste0(stuff,collapse = "+")
+  stuff <- if (length(stuff) == 0) "*:*" else paste0(stuff, collapse = " AND ")
 
   args <- bs_compact(list(q = stuff, wt = "json", ...))
   
