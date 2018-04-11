@@ -227,82 +227,20 @@ Searching for data and looking at output
 
 
 ```r
-bison_solr(scientificName = "Ursus americanus", state_code = "New Mexico", rows = 50, fl = "eventDate,scientificName")
-#> $num_found
-#> [1] 6506
-#> 
-#> $points
-#>      scientificName
-#> 1  Ursus americanus
-#> 2  Ursus americanus
-#> 3  Ursus americanus
-#> 4  Ursus americanus
-#> 5  Ursus americanus
-#> 6  Ursus americanus
-#> 7  Ursus americanus
-#> 8  Ursus americanus
-#> 9  Ursus americanus
-#> 10 Ursus americanus
-#> 11 Ursus americanus
-#> 12 Ursus americanus
-#> 13 Ursus americanus
-#> 14 Ursus americanus
-#> 15 Ursus americanus
-#> 16 Ursus americanus
-#> 17 Ursus americanus
-#> 18 Ursus americanus
-#> 19 Ursus americanus
-#> 20 Ursus americanus
-#> 21 Ursus americanus
-#> 22 Ursus americanus
-#> 23 Ursus americanus
-#> 24 Ursus americanus
-#> 25 Ursus americanus
-#> 26 Ursus americanus
-#> 27 Ursus americanus
-#> 28 Ursus americanus
-#> 29 Ursus americanus
-#> 30 Ursus americanus
-#> 31 Ursus americanus
-#> 32 Ursus americanus
-#> 33 Ursus americanus
-#> 34 Ursus americanus
-#> 35 Ursus americanus
-#> 36 Ursus americanus
-#> 37 Ursus americanus
-#> 38 Ursus americanus
-#> 39 Ursus americanus
-#> 40 Ursus americanus
-#> 41 Ursus americanus
-#> 42 Ursus americanus
-#> 43 Ursus americanus
-#> 44 Ursus americanus
-#> 45 Ursus americanus
-#> 46 Ursus americanus
-#> 47 Ursus americanus
-#> 48 Ursus americanus
-#> 49 Ursus americanus
-#> 50 Ursus americanus
-#> 
-#> $highlight
-#> NULL
-#> 
-#> $facets
-#> $facets$facet_queries
-#> NULL
-#> 
-#> $facets$facet_fields
-#> NULL
-#> 
-#> $facets$facet_dates
-#> NULL
-#> 
-#> $facets$facet_ranges
-#> NULL
-#> 
-#> 
-#> attr(,"class")
-#> [1] "bison_solr"
+x <- bison_solr(scientificName = "Ursus americanus", rows = 10, 
+    fl = "scientificName,decimalLongitude,decimalLatitude")
+x$points
+#>    decimalLongitude   scientificName decimalLatitude
+#> 1          -92.8370 Ursus americanus        48.48344
+#> 2         -150.5500 Ursus americanus        59.59000
+#> 3         -150.5500 Ursus americanus        59.59000
+#> 4         -149.6600 Ursus americanus        59.83000
+#> 5         -124.0676 Ursus americanus        46.28618
+#> 6         -121.5178 Ursus americanus        41.75872
+#> 7         -143.4417 Ursus americanus        64.95393
+#> 8         -109.6747 Ursus americanus        34.98864
+#> 9         -123.4106 Ursus americanus        47.78021
+#> 10        -116.1590 Ursus americanus        33.98085
 ```
 
 Mapping the data

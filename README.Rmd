@@ -151,7 +151,9 @@ data similar to data given back by the `bison()` function
 Searching for data and looking at output
 
 ```{r}
-bison_solr(scientificName = "Ursus americanus", state_code = "New Mexico", rows = 50, fl = "eventDate,scientificName")
+x <- bison_solr(scientificName = "Ursus americanus", rows = 10, 
+    fl = "scientificName,decimalLongitude,decimalLatitude")
+x$points
 ```
 
 Mapping the data
