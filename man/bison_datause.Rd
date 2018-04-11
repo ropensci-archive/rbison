@@ -13,5 +13,5 @@ bison_citation()
 Get BISON data use agreement details and examples for how to cite data.
 }
 \references{
-\url{http://bison.usgs.ornl.gov/doc/api.jsp#data}
+http://bison.usgs.ornl.gov/doc/api.jsp#data
 }

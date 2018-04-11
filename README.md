@@ -9,9 +9,15 @@ rbison
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rbison?color=E664A4)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/rbison)](https://cran.r-project.org/package=rbison)
 
-Wrapper for the USGS Bison API.
+Wrapper for the [USGS Bison](https://bison.usgs.gov) API
 
-## Info
+## Description
+
+USGS Biodiversity Information Serving Our Nation (BISON) is a web-based federal mapping resource that provides access to georeferenced (those with latitude and longitude coordinates) and non-georeferenced data describing the occurrence or presence of terrestrial and aquatic species recorded or collected by a person (or instrument) at a specific time in the United States and its Territories. Each record in a species occurrence dataset available in BISON will typically consist of a scientific name (genus and specific epithet), a date, and one or more geographic references such as a state name, county name, and/or decimal latitude and longitude coordinates. In addition to these typical data fields, species occurrence datasets often include many other data fields that describe each species occurrence event in more detail.
+
+`rbison` allows one to pull species occurrence data from these datasets, inspect species occurance summaries, and then map species occurance within the US, within the contiguous 48 states, and/or at county or state level.
+
+Current data providers for BISON can be found at <https://bison.usgs.gov/providers.jsp>
 
 See <https://bison.usgs.gov/#api> for API docs for the BISON API.
 

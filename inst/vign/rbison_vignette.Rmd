@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   fig.width = 6,
   fig.height = 4,
-  cache = TRUE
+  cache = FALSE
 )
 ```
 
@@ -29,7 +29,7 @@ BISON is a node of the Global Biodiversity Information Facility (GBIF) - i.e., y
 
 ## Info
 
-See [http://bison.usgs.ornl.gov/doc/api.jsp](http://bison.usgs.ornl.gov/doc/api.jsp) for API docs for the BISON API.
+See <https://bison.usgs.gov/doc/api.jsp> for API docs for the BISON API.
 
 
 ## Install rbison
@@ -76,7 +76,7 @@ head(out$counties)
 Get data
 
 ```{r four}
-out <- bison(species="Bison bison", count=600)
+out <- bison(species="Bison bison", count=200)
 ```
 
 Inspect summary
@@ -96,7 +96,7 @@ bisonmap(out, tomap="state")
 Get data
 
 ```{r seven}
-out <- bison(species="Aquila chrysaetos", count=600)
+out <- bison(species="Aquila chrysaetos", count=400)
 ```
 
 Inspect summary

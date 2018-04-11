@@ -3,7 +3,7 @@
 #' To get started, see the vignette `vignette(package="rbison")`
 #'
 #'
-#' See <https://bison.usgs.gov/#api> for API docs for the BISON API.
+#' See <https://bison.usgs.gov/doc/api.jsp> for API docs for the BISON API.
 #'
 #' To cite rbison, do `citation(package='rbison')`
 #'

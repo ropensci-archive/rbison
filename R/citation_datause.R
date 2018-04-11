@@ -1,7 +1,7 @@
 #' Get BISON data use agreement details and examples for how to cite data.
 #'
 #' @export
-#' @references <http://bison.usgs.ornl.gov/doc/api.jsp#data>
+#' @references http://bison.usgs.ornl.gov/doc/api.jsp#data
 #' @rdname bison_datause
 bison_datause <- function(){
   cat('

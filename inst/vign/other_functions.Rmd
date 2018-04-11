@@ -9,7 +9,8 @@ knitr::opts_chunk$set(
   comment = "#>", 
   collapse = TRUE, 
   warning = FALSE, 
-  message = FALSE)
+  message = FALSE
+)
 ```
 
 Other functions available in rbison
@@ -87,13 +88,13 @@ bison_tax(query="*bear", method="vernacularName", fl='vernacularName')
 Search for and collect occurrence data from the USGS Bison API using their solr endpoint.
 
 ```{r}
-bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
+bison_solr(scientificName='Ursus americanus', computedStateFips='02',
  fl="scientificName", rows=3)
 ```
 
 ```{r}
-bison_solr(scientificName='Ursus americanus', computedStateFips='New Mexico',
- rows=3, fl="eventDate,scientificName")
+bison_solr(scientificName='Ursus americanus', computedStateFips='02',
+ rows=3, fl="scientificName,decimalLongitude,decimalLatitude")
 ```
 
 ```{r}
