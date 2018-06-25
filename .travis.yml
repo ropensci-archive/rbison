@@ -7,12 +7,12 @@ warnings_are_errors: false
 matrix:
   include:
     - os: linux
-       r: oldrel
+      r: oldrel
     - os: linux
       r: release
       env: R_CODECOV=true
     - os: linux
-       r: devel
+      r: devel
 
 r_github_packages:
 - jimhester/covr
@@ -20,8 +20,7 @@ r_github_packages:
 r_check_args: "--as-cran"
 
 after_success:
-- Rscript -e 'covr::codecov()'
-
+  - if [[ "${R_CODECOV}" ]]; then R -e 'covr::codecov()'; fi
 
 notifications:
   email:
