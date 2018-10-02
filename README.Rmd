@@ -80,7 +80,7 @@ bisonmap(out)
 ### get data
 
 ```{r}
-out <- bison(species = "Bison bison", count = 300)
+out <- bison(species = "Cyanocitta stelleri", count = 500)
 ```
 
 
@@ -158,7 +158,7 @@ data similar to data given back by the `bison()` function
 Searching for data and looking at output
 
 ```{r}
-x <- bison_solr(scientificName = "Ursus americanus", rows = 10, 
+x <- bison_solr(scientificName = "Aquila chrysaetos", rows = 10, 
     fl = "scientificName,decimalLongitude,decimalLatitude")
 x$points
 ```
@@ -166,7 +166,7 @@ x$points
 Mapping the data
 
 ```{r}
-out <- bison_solr(scientificName = "Ursus americanus", rows = 200)
+out <- bison_solr(scientificName = "Aquila chrysaetos", rows = 1000)
 bisonmap(out)
 ```
 

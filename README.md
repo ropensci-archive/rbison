@@ -55,7 +55,6 @@ Notice that the function `bisonmap` automagically selects the map extent to plot
 
 ```r
 out <- bison(species = "Phocoenoides dalli dalli", count = 10)
-#> Error in x$counties$data[[1]]: subscript out of bounds
 ```
 
 
@@ -64,7 +63,8 @@ out <- bison(species = "Phocoenoides dalli dalli", count = 10)
 
 ```r
 out$summary
-#> Error in eval(expr, envir, enclos): object 'out' not found
+#> $specimen
+#> [1] 7
 ```
 
 ### map occurrences
@@ -72,8 +72,9 @@ out$summary
 
 ```r
 bisonmap(out)
-#> Error in bisonmap(out): object 'out' not found
 ```
+
+![plot of chunk unnamed-chunk-7](tools/unnamed-chunk-7-1.png)
 
 ## All points within the US (including AK and HI)
 
@@ -81,7 +82,7 @@ bisonmap(out)
 
 
 ```r
-out <- bison(species = "Bison bison", count = 300)
+out <- bison(species = "Cyanocitta stelleri", count = 500)
 ```
 
 
@@ -90,12 +91,20 @@ out <- bison(species = "Bison bison", count = 300)
 
 ```r
 out$summary
-#>   occurrences.legend.fossil occurrences.legend.observation
-#> 1                       359                            927
-#>   occurrences.legend.centroid occurrences.legend.specimen
-#> 1                           1                         946
-#>   occurrences.legend.unknown fossil observation centroid specimen unknown
-#> 1                          6    359         927        1      946       6
+#> $fossil
+#> [1] 2
+#> 
+#> $observation
+#> [1] 566346
+#> 
+#> $centroid
+#> [1] 1
+#> 
+#> $specimen
+#> [1] 3294
+#> 
+#> $unknown
+#> [1] 208
 ```
 
 ### map occurrences
@@ -122,14 +131,23 @@ out <- bison(species = "Aquila chrysaetos", count = 300)
 
 ```r
 out$summary
-#>   occurrences.legend.literature occurrences.legend.fossil
-#> 1                          1641                       642
-#>   occurrences.legend.observation occurrences.legend.centroid
-#> 1                         128811                           1
-#>   occurrences.legend.unknown occurrences.legend.specimen literature fossil
-#> 1                       9734                        1899       1641    642
-#>   observation centroid unknown specimen
-#> 1      128811        1    9734     1899
+#> $literature
+#> [1] 1641
+#> 
+#> $fossil
+#> [1] 642
+#> 
+#> $observation
+#> [1] 128811
+#> 
+#> $centroid
+#> [1] 1
+#> 
+#> $unknown
+#> [1] 9734
+#> 
+#> $specimen
+#> [1] 1899
 ```
 
 
@@ -233,27 +251,27 @@ Searching for data and looking at output
 
 
 ```r
-x <- bison_solr(scientificName = "Ursus americanus", rows = 10, 
+x <- bison_solr(scientificName = "Aquila chrysaetos", rows = 10, 
     fl = "scientificName,decimalLongitude,decimalLatitude")
 x$points
-#>    decimalLongitude   scientificName decimalLatitude
-#> 1        -116.74452 Ursus americanus        51.12475
-#> 2         -77.95396 Ursus americanus        39.02310
-#> 3                NA Ursus americanus              NA
-#> 4                NA Ursus americanus              NA
-#> 5                NA Ursus americanus              NA
-#> 6                NA Ursus americanus              NA
-#> 7                NA Ursus americanus              NA
-#> 8                NA Ursus americanus              NA
-#> 9                NA Ursus americanus              NA
-#> 10               NA Ursus americanus              NA
+#>    decimalLongitude    scientificName decimalLatitude
+#> 1         -117.6185 Aquila chrysaetos        33.71447
+#> 2         -117.6185 Aquila chrysaetos        33.71447
+#> 3         -117.6185 Aquila chrysaetos        33.71447
+#> 4         -117.6185 Aquila chrysaetos        33.70987
+#> 5         -117.6014 Aquila chrysaetos        33.65099
+#> 6         -117.4997 Aquila chrysaetos        33.68344
+#> 7         -117.4544 Aquila chrysaetos        33.65246
+#> 8         -117.4544 Aquila chrysaetos        33.65246
+#> 9         -117.4543 Aquila chrysaetos        34.02910
+#> 10        -117.4543 Aquila chrysaetos        34.02910
 ```
 
 Mapping the data
 
 
 ```r
-out <- bison_solr(scientificName = "Ursus americanus", rows = 200)
+out <- bison_solr(scientificName = "Aquila chrysaetos", rows = 1000)
 bisonmap(out)
 ```
 
