@@ -5,7 +5,7 @@ Description: Interface to the 'USGS' 'BISON' (<https://bison.usgs.gov/>)
     species in the United States from participating data providers. You can get
     data via 'taxonomic' and location based queries. A simple function
     is provided to help visualize data.
-Version: 0.6.0.9100
+Version: 0.6.0.9121
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/rbison
 BugReports: https://github.com/ropensci/rbison/issues
@@ -16,6 +16,7 @@ Authors@R: c(person("Scott", "Chamberlain",
 LazyData: true
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
 Imports:
     plyr,
     crul (>= 0.3.4),
@@ -30,7 +31,7 @@ Suggests:
     knitr,
     testthat,
     taxize
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 X-schema.org-applicationCategory: Data Access
 X-schema.org-keywords: species, occurrences, biodiversity, maps
 X-schema.org-isPartOf: "https://ropensci.org"

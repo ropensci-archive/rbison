@@ -5,18 +5,20 @@
 \title{Search for and collect occurrence data from the USGS Bison API using
 their solr endpoint.}
 \usage{
-bison_solr(decimalLatitude = NULL, decimalLongitude = NULL, year = NULL,
-  providerID = NULL, resourceID = NULL, pointPath = NULL,
-  basisOfRecord = NULL, eventDate = NULL, computedCountyFips = NULL,
-  computedStateFips = NULL, scientificName = NULL,
-  hierarchy_homonym_string = NULL, TSNs = NULL, recordedBy = NULL,
-  occurrenceID = NULL, catalogNumber = NULL, ITIScommonName = NULL,
-  kingdom = NULL, collectorNumber = NULL, provider = NULL,
+bison_solr(decimalLatitude = NULL, decimalLongitude = NULL,
+  year = NULL, providerID = NULL, resourceID = NULL,
+  pointPath = NULL, basisOfRecord = NULL, eventDate = NULL,
+  computedCountyFips = NULL, computedStateFips = NULL,
+  scientificName = NULL, hierarchy_homonym_string = NULL,
+  TSNs = NULL, recordedBy = NULL, occurrenceID = NULL,
+  catalogNumber = NULL, ITIScommonName = NULL, kingdom = NULL,
+  collectorNumber = NULL, provider = NULL,
   ownerInstitutionCollectionCode = NULL, providedScientificName = NULL,
-  ITISscientificName = NULL, providedCommonName = NULL, ITIStsn = NULL,
-  centroid = NULL, higherGeographyID = NULL, providedCounty = NULL,
-  calculatedCounty = NULL, stateProvince = NULL, calculatedState = NULL,
-  countryCode = NULL, callopts = list(), verbose = TRUE, ...)
+  ITISscientificName = NULL, providedCommonName = NULL,
+  ITIStsn = NULL, centroid = NULL, higherGeographyID = NULL,
+  providedCounty = NULL, calculatedCounty = NULL,
+  stateProvince = NULL, calculatedState = NULL, countryCode = NULL,
+  callopts = list(), verbose = TRUE, ...)
 }
 \arguments{
 \item{decimalLatitude}{Geographic coordinate that specifies the north south

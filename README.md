@@ -2,6 +2,7 @@ rbison
 ======
 
 
+
 [![cran checks](https://cranchecks.info/badges/worst/rbison)](https://cranchecks.info/pkgs/rbison)
 [![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)
 [![Build status](https://ci.appveyor.com/api/projects/status/cba5mqg33hakour1?svg=true)](https://ci.appveyor.com/project/sckott/rbison)
@@ -13,13 +14,13 @@ Wrapper for the [USGS Bison](https://bison.usgs.gov) API
 
 ## Description
 
-USGS Biodiversity Information Serving Our Nation (BISON) is a web-based federal mapping resource that provides access to georeferenced (those with latitude and longitude coordinates) and non-georeferenced data describing the occurrence or presence of terrestrial and aquatic species recorded or collected by a person (or instrument) at a specific time in the United States and its Territories. Each record in a species occurrence dataset available in BISON will typically consist of a scientific name (genus and specific epithet), a date, and one or more geographic references such as a state name, county name, and/or decimal latitude and longitude coordinates. In addition to these typical data fields, species occurrence datasets often include many other data fields that describe each species occurrence event in more detail.
+USGS Biodiversity Information Serving Our Nation (BISON) is a web-based federal mapping resource that provides access to georeferenced (those with latitude and longitude coordinates) and non-georeferenced data describing the occurrence or presence of terrestrial and aquatic species recorded or collected by a person (or instrument) at a specific time in the United States, U.S. Territories, U.S. Marine Exclusive Economic Zones (EEZs), and Canada. Each record in a species occurrence dataset available in BISON will typically consist of a scientific name (genus and specific epithet), a date, and one or more geographic references such as a state name, county name, and/or decimal latitude and longitude coordinates. In addition to these typical data fields, species occurrence datasets often include many other data fields that describe each species occurrence event in more detail.
 
 `rbison` allows one to pull species occurrence data from these datasets, inspect species occurance summaries, and then map species occurance within the US, within the contiguous 48 states, and/or at county or state level.
 
 Current data providers for BISON can be found at <https://bison.usgs.gov/providers.jsp>
 
-See <https://bison.usgs.gov/#api> for API docs for the BISON API.
+See <https://bison.usgs.gov/doc/api.jsp> for API docs for the BISON API.
 
 
 ## Installation
@@ -54,6 +55,7 @@ Notice that the function `bisonmap` automagically selects the map extent to plot
 
 ```r
 out <- bison(species = "Phocoenoides dalli dalli", count = 10)
+#> Error in x$counties$data[[1]]: subscript out of bounds
 ```
 
 
@@ -62,8 +64,7 @@ out <- bison(species = "Phocoenoides dalli dalli", count = 10)
 
 ```r
 out$summary
-#>   specimen specimen.1
-#> 1        7          7
+#> Error in eval(expr, envir, enclos): object 'out' not found
 ```
 
 ### map occurrences
@@ -71,9 +72,8 @@ out$summary
 
 ```r
 bisonmap(out)
+#> Error in bisonmap(out): object 'out' not found
 ```
-
-![plot of chunk unnamed-chunk-7](tools/unnamed-chunk-7-1.png)
 
 ## All points within the US (including AK and HI)
 
@@ -125,11 +125,11 @@ out$summary
 #>   occurrences.legend.literature occurrences.legend.fossil
 #> 1                          1641                       642
 #>   occurrences.legend.observation occurrences.legend.centroid
-#> 1                         128207                           1
+#> 1                         128811                           1
 #>   occurrences.legend.unknown occurrences.legend.specimen literature fossil
 #> 1                       9734                        1899       1641    642
 #>   observation centroid unknown specimen
-#> 1      128207        1    9734     1899
+#> 1      128811        1    9734     1899
 ```
 
 
@@ -237,16 +237,16 @@ x <- bison_solr(scientificName = "Ursus americanus", rows = 10,
     fl = "scientificName,decimalLongitude,decimalLatitude")
 x$points
 #>    decimalLongitude   scientificName decimalLatitude
-#> 1          -92.8370 Ursus americanus        48.48344
-#> 2         -150.5500 Ursus americanus        59.59000
-#> 3         -150.5500 Ursus americanus        59.59000
-#> 4         -149.6600 Ursus americanus        59.83000
-#> 5         -124.0676 Ursus americanus        46.28618
-#> 6         -121.5178 Ursus americanus        41.75872
-#> 7         -143.4417 Ursus americanus        64.95393
-#> 8         -109.6747 Ursus americanus        34.98864
-#> 9         -123.4106 Ursus americanus        47.78021
-#> 10        -116.1590 Ursus americanus        33.98085
+#> 1        -116.74452 Ursus americanus        51.12475
+#> 2         -77.95396 Ursus americanus        39.02310
+#> 3                NA Ursus americanus              NA
+#> 4                NA Ursus americanus              NA
+#> 5                NA Ursus americanus              NA
+#> 6                NA Ursus americanus              NA
+#> 7                NA Ursus americanus              NA
+#> 8                NA Ursus americanus              NA
+#> 9                NA Ursus americanus              NA
+#> 10               NA Ursus americanus              NA
 ```
 
 Mapping the data

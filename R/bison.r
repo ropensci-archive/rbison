@@ -163,8 +163,6 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=0,
   tt <- cli$get(query = args, ...)
   tt$raise_for_status()
   
-  # tt <- GET(file.path(bison_base(), "api/search.json"), query=args, ...)
-  # warn_for_status(tt)
   if (tt$status_code > 201) {
     stopifnot(tt$headers$`content-type` == "text/html;charset=utf-8")
   } else {
@@ -175,7 +173,6 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=0,
     res <- NA
   } else {
     out <- tt$parse("UTF-8")
-    #out <- content(tt, as = "text")
     json <- jsonlite::fromJSON(out, FALSE)
     what <- match.arg(what, choices = c("summary", "counties", "states", 
                                         "points", "all", "raw", "list"))
@@ -212,7 +209,8 @@ check_params <- function(x) {
 
 bison_data <- function(input = NULL, datatype="summary") {
   if(datatype=='summary'){
-    tt <- data.frame(c(input[1], input$occurrences$legend))
+    # tt <- data.frame(c(input[1], input$occurrences$legend))
+    tt <- input$occurrences$legend
     list(summary=tt, states=NULL, counties=NULL, points=NULL)
   } else if(datatype=="counties"){
     tt <- getcounties(input)
@@ -224,7 +222,8 @@ bison_data <- function(input = NULL, datatype="summary") {
     tt <- getpoints(input)
     list(summary=NULL, states=NULL, counties=NULL, points=tt)
   } else if(datatype=="all"){
-    summary=data.frame(c(input[1], input$occurrences$legend))
+    # summary=data.frame(c(input[1], input$occurrences$legend))
+    summary = input$occurrences$legend
     counties=getcounties(input)
     states=getstates(input)
     points=getpoints(input)
@@ -240,13 +239,12 @@ getcounties <- function(x){
     if(x$counties$total == 0){
       NULL
     } else {
-      if(class(x$counties$data[[1]])=="character"){
-        df <- ldply(x$counties$data)
-      } else
-      {
+      if(is.character(x$counties$data) || length(x$counties$data) == 0){
+        df <- data.frame(NULL)
+      } else {
         df <- ldply(x$counties$data, function(y) data.frame(y))
+        names(df)[c(1,3)] <- c("record_id","county_name")
       }
-      names(df)[c(1,3)] <- c("record_id","county_name")
       return(df)
     }
   }

@@ -5,8 +5,8 @@
 \title{Search for and collect taxonomic name data from the USGS Bison API
 using solr}
 \usage{
-bison_tax(query, method = "vernacularName", exact = FALSE, parsed = TRUE,
-  callopts = list(), ...)
+bison_tax(query, method = "vernacularName", exact = FALSE,
+  parsed = TRUE, callopts = list(), ...)
 }
 \arguments{
 \item{query}{Name to search for. Required.}

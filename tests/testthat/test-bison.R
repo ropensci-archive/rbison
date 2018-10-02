@@ -1,4 +1,3 @@
-# tests for bison fxn in taxize
 context("bison")
 
 test_that("bison returns the correct value", {
@@ -21,7 +20,7 @@ test_that("bison returns the correct value", {
 	expect_that(out4, is_a("bison"))
 	expect_that(out5, is_a("bison"))
   
-	expect_that(out1$summary, is_a("data.frame"))
-	expect_that(out1$points, is_a("data.frame"))
-	expect_that(out4$counties, equals(NULL))
+	expect_is(out1$summary, "list")
+	expect_is(out1$points, "data.frame")
+	expect_equal(NROW(out4$counties), 0)
 })
