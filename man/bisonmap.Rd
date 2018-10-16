@@ -19,8 +19,9 @@ bisonmap(input = NULL, tomap = "points", geom = geom_point,
 \item{input}{Input bison object.}
 
 \item{tomap}{One of points (occurrences), county (counts by county), or state
-(counts by state). We stop with message if you pass in data from \code{\link[=bison]{bison()}}
-that doesn't include data by each state.}
+(counts by state). For \code{bison} class objects, we stop with message if you
+pass in data from \code{\link[=bison]{bison()}} that doesn't include data by each state. For
+\code{bison_solr} class objects, we only allow \code{points}.}
 
 \item{geom}{geom_point or geom_jitter, not quoted.}
 

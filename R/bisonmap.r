@@ -3,8 +3,9 @@
 #' @export
 #' @param input Input bison object.
 #' @param tomap One of points (occurrences), county (counts by county), or state
-#' (counts by state). We stop with message if you pass in data from [bison()] 
-#' that doesn't include data by each state.
+#' (counts by state). For `bison` class objects, we stop with message if you 
+#' pass in data from [bison()] that doesn't include data by each state. For 
+#' `bison_solr` class objects, we only allow `points`.
 #' @param geom geom_point or geom_jitter, not quoted.
 #' @param jitter jitter position, see ggplot2 help.
 #' @param customize Pass in more to the plot.
