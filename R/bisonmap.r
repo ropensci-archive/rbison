@@ -3,7 +3,8 @@
 #' @export
 #' @param input Input bison object.
 #' @param tomap One of points (occurrences), county (counts by county), or state
-#'    (counts by state).
+#' (counts by state). We stop with message if you pass in data from [bison()] 
+#' that doesn't include data by each state.
 #' @param geom geom_point or geom_jitter, not quoted.
 #' @param jitter jitter position, see ggplot2 help.
 #' @param customize Pass in more to the plot.
@@ -54,6 +55,10 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
                                    tolower(bycounty$county_name))
 
       counties <- map_data("county")
+      # limit to the state specified if it seems to be the case
+      if (length(unique(bycounty$state)) == 1) {
+        counties <- counties[counties$region %in% bycounty$state[1], ]
+      }
       counties_plus <- merge(counties, bycounty, by.x = 'subregion', 
                              by.y = 'county_name', all.x = TRUE)
       counties_plus <- counties_plus[order(counties_plus$order),]
@@ -67,7 +72,7 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
         scale_fill_gradient2("", na.value = "white", low = "white", 
                              high = "steelblue") +
         geom_path(data = counties, colour = "grey", size = .3, alpha = .4) +
-        geom_path(data = states, colour = "grey", size = .4) +
+        # geom_path(data = states, colour = "grey", size = .4) +
         theme_bw(base_size = 14) +
         labs(x = "", y = "") +
         bison_blanktheme() +
@@ -77,6 +82,9 @@ bisonmap.bison <- function(input = NULL, tomap="points", geom = geom_point,
         guides(guide_legend(direction = "horizontal")) +
         customize
     } else if (tomap == 'state') {
+        if (NROW(input$states) == 1) {
+          stop("appears you don't have state level data")
+        }
         bystate <- input$states
         bystate$record_id <- tolower(bystate$record_id)
 
