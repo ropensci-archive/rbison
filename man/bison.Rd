@@ -76,7 +76,7 @@ bison(species="Bison bison", count=50, what='states')
 bison(species="Bison bison", count=50, what='raw')
 bison(species="Bison bison", count=50, what='list')
 
-out <- bison(species="Bison bison", count=50) # by default gets 10 results
+out <- bison(species="Helianthus annuus", count=300)
 out$summary # see summary
 out$counties # see county data
 out$states # see state data
@@ -93,7 +93,7 @@ bison(species="Helianthus annuus", countyFips = "49015")
 # Constrain search to a certain county, specifying county name instead of 
 # code
 bison(species="Helianthus annuus", county = "Los Angeles")
-bison(species="Helianthus annuus", county = "Los")
+# bison(species="Helianthus annuus", county = "Los")
 
 # Constrain search to a certain aoi, which turns out to be Emery County, 
 # Utah as well
