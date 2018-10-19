@@ -6,8 +6,7 @@
 \usage{
 bison(species = NULL, type = "scientific_name", tsn = NULL,
   start = 0, count = 25, countyFips = NULL, county = NULL,
-  state = NULL, aoi = NULL, aoibbox = NULL, params = NULL,
-  what = "all", ...)
+  state = NULL, aoi = NULL, aoibbox = NULL, params = NULL, ...)
 }
 \arguments{
 \item{species}{(character) A species name.}
@@ -57,11 +56,6 @@ kingdom, ITIStsn, centroid, higherGeographyID, computedCountyFips,
 providedCounty, calculatedCounty, stateProvince, calculatedState,
 countryCode. See examples.}
 
-\item{what}{What to return?  One of 'all', 'summary', 'points', 'counties',
-'states', 'raw', or 'list'. All data is returned from the BISON API, but
-this parameter lets you select just the parts you want, and the rest is
-discarded before returning the result to you.}
-
 \item{...}{Further args passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}. See examples.}
 }
 \description{
@@ -69,12 +63,7 @@ Search for and collect data from the USGS Bison API.
 }
 \examples{
 \dontrun{
-bison(species="Bison bison", count=50, what='summary')
-bison(species="Bison bison", count=50, what='points')
-bison(species="Bison bison", count=50, what='counties')
-bison(species="Bison bison", count=50, what='states')
-bison(species="Bison bison", count=50, what='raw')
-bison(species="Bison bison", count=50, what='list')
+bison(species="Bison bison", count=50)
 
 out <- bison(species="Helianthus annuus", count=300)
 out$summary # see summary
@@ -85,7 +74,7 @@ bisonmap(out, tomap = "county")
 bisonmap(out, tomap = "state")
 
 # Search for a common name
-bison(species="Tufted Titmouse", type="common_name", what='summary')
+bison(species="Tufted Titmouse", type="common_name")
 
 # Constrain search to a certain county, 49015 is Emery County in Utah
 bison(species="Helianthus annuus", countyFips = "49015")
@@ -119,13 +108,13 @@ bison(tsn = poa_tsn)
 # Curl debugging and some of these examples aren't 
 # that useful, but are given for demonstration purposes
 ## get curl verbose output to see what's going on with your request
-bison(tsn = 162003, count=1, what="points", verbose = TRUE)
+bison(tsn = 162003, count=1, verbose = TRUE)
 ## set a timeout so that the call stops after time x, compare 1st to 2nd call
-# bison(tsn=162003, count=1, what="points", timeout_ms = 1)
+# bison(tsn=162003, count=1, timeout_ms = 1)
 ## set cookies
-bison(tsn=162003, count=1, what="points", cookie = "a=1;b=2")
+bison(tsn=162003, count=1, cookie = "a=1;b=2")
 ## user agent and verbose 
-bison(tsn=162003, count=1, what="points", useragent = "rbison", 
+bison(tsn=162003, count=1, useragent = "rbison", 
   verbose = TRUE)
 
 # Params - the params function accepts a number of search terms

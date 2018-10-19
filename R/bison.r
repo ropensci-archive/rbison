@@ -37,10 +37,6 @@
 #' kingdom, ITIStsn, centroid, higherGeographyID, computedCountyFips,
 #' providedCounty, calculatedCounty, stateProvince, calculatedState, 
 #' countryCode. See examples.
-#' @param what What to return?  One of 'all', 'summary', 'points', 'counties', 
-#' 'states', 'raw', or 'list'. All data is returned from the BISON API, but 
-#' this parameter lets you select just the parts you want, and the rest is 
-#' discarded before returning the result to you.
 #' @param ... Further args passed on to [crul::HttpClient()]. See examples.
 #'
 #' @seealso [bison_solr()] [bison_tax()]
@@ -48,12 +44,7 @@
 #' @references <https://bison.usgs.gov/#opensearch>
 #'
 #' @examples \dontrun{
-#' bison(species="Bison bison", count=50, what='summary')
-#' bison(species="Bison bison", count=50, what='points')
-#' bison(species="Bison bison", count=50, what='counties')
-#' bison(species="Bison bison", count=50, what='states')
-#' bison(species="Bison bison", count=50, what='raw')
-#' bison(species="Bison bison", count=50, what='list')
+#' bison(species="Bison bison", count=50)
 #'
 #' out <- bison(species="Helianthus annuus", count=300)
 #' out$summary # see summary
@@ -64,7 +55,7 @@
 #' bisonmap(out, tomap = "state")
 #'
 #' # Search for a common name
-#' bison(species="Tufted Titmouse", type="common_name", what='summary')
+#' bison(species="Tufted Titmouse", type="common_name")
 #'
 #' # Constrain search to a certain county, 49015 is Emery County in Utah
 #' bison(species="Helianthus annuus", countyFips = "49015")
@@ -98,13 +89,13 @@
 #' # Curl debugging and some of these examples aren't 
 #' # that useful, but are given for demonstration purposes
 #' ## get curl verbose output to see what's going on with your request
-#' bison(tsn = 162003, count=1, what="points", verbose = TRUE)
+#' bison(tsn = 162003, count=1, verbose = TRUE)
 #' ## set a timeout so that the call stops after time x, compare 1st to 2nd call
-#' # bison(tsn=162003, count=1, what="points", timeout_ms = 1)
+#' # bison(tsn=162003, count=1, timeout_ms = 1)
 #' ## set cookies
-#' bison(tsn=162003, count=1, what="points", cookie = "a=1;b=2")
+#' bison(tsn=162003, count=1, cookie = "a=1;b=2")
 #' ## user agent and verbose 
-#' bison(tsn=162003, count=1, what="points", useragent = "rbison", 
+#' bison(tsn=162003, count=1, useragent = "rbison", 
 #'   verbose = TRUE)
 #'
 #' # Params - the params function accepts a number of search terms
@@ -131,7 +122,14 @@
 
 bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=0, 
   count=25, countyFips=NULL, county=NULL, state=NULL, aoi=NULL, aoibbox=NULL, 
-  params=NULL, what='all', ...) {
+  params=NULL, ...) {
+
+  calls <- names(sapply(match.call(), deparse))[-1]
+  calls_vec <- c("what") %in% calls
+  if (any(calls_vec)) {
+    stop("The parameter 'what' has been removed. see `?bison`", 
+      call. = FALSE)
+  }
   
   stopifnot(is.numeric(count))
   stopifnot(count >= 0)
@@ -174,17 +172,7 @@ bison <- function(species=NULL, type="scientific_name", tsn=NULL, start=0,
   } else {
     out <- tt$parse("UTF-8")
     json <- jsonlite::fromJSON(out, FALSE)
-    what <- match.arg(what, choices = c("summary", "counties", "states", 
-                                        "points", "all", "raw", "list"))
-    res <- switch(
-      what,
-      summary = bison_data(json, "summary"),
-      all = bison_data(json, "all"),
-      counties = bison_data(json, "counties"),
-      states = bison_data(json, "states"),
-      points = bison_data(json, "points"),
-      raw = out, list = json
-    )
+    res <- bison_data(json)
   }
   structure(res, class = "bison")
 }
@@ -207,28 +195,12 @@ check_params <- function(x) {
   }
 }
 
-bison_data <- function(input = NULL, datatype="summary") {
-  if(datatype=='summary'){
-    # tt <- data.frame(c(input[1], input$occurrences$legend))
-    tt <- input$occurrences$legend
-    list(summary=tt, states=NULL, counties=NULL, points=NULL)
-  } else if(datatype=="counties"){
-    tt <- getcounties(input)
-    list(summary=NULL, states=NULL, counties=tt, points=NULL)
-  } else if(datatype=="states"){
-    tt <- getstates(input)
-    list(summary=NULL, states=tt, counties=NULL, points=NULL)
-  } else if(datatype=="points"){
-    tt <- getpoints(input)
-    list(summary=NULL, states=NULL, counties=NULL, points=tt)
-  } else if(datatype=="all"){
-    # summary=data.frame(c(input[1], input$occurrences$legend))
-    summary = input$occurrences$legend
-    counties=getcounties(input)
-    states=getstates(input)
-    points=getpoints(input)
-    list(summary=summary, states=states, counties=counties, points=points)
-  }
+bison_data <- function(input) {
+  summary = input$occurrences$legend
+  counties = getcounties(input)
+  states = getstates(input)
+  points = getpoints(input)
+  list(summary=summary, states=states, counties=counties, points=points)
 }
 
 getcounties <- function(x){
