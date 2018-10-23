@@ -16,9 +16,11 @@ bison(species = NULL, type = "scientific_name", tsn = NULL,
 \item{tsn}{(numeric) Specifies the TSN to query by. If you supply a tsn it
 doesn't make sense to supply a species name as well. Example:162003.}
 
-\item{start}{(numeric) Record to start at. Default: 0}
+\item{start}{(numeric) Record to start at. Default: 0. See "Pagination"
+in Details.}
 
-\item{count}{(numeric) Number of records to return. Default: 0. Max: 500}
+\item{count}{(numeric) Number of records to return. Default: 25. Max: 1000
+See "Pagination" in Details.}
 
 \item{countyFips}{(character) Specifies the county fips code to
 geographically constrain the search to one county. Character must be
@@ -61,9 +63,29 @@ countryCode. See examples.}
 \description{
 Search for and collect data from the USGS Bison API.
 }
+\section{Pagination}{
+
+\code{bison()} paginates internally for you on the \code{count} parameter, so that
+for example, if you request 2000 records, then we'll do two requests to
+get all those records. If you request for example 50 records, then we
+just do one request.
+
+It's not clear why, but the number of records found doesn't match what's
+returned necessarily. I'm guessing there's some records that are sensitive
+and so are not returned, or don't have coordinates maybe, not really sure.
+So, for example, if there's 2100 records total found in BISON (e.g.,
+via \code{sum(unlist(x$summary))}), if you request 2100 you may only get 1800
+records (e.g., via \code{x$points}).
+}
+
 \examples{
 \dontrun{
 bison(species="Bison bison", count=50)
+
+# lots of results
+res <- bison(species="Bison bison", count=2000)
+res$summary
+NROW(res$points)
 
 out <- bison(species="Helianthus annuus", count=300)
 out$summary # see summary

@@ -297,23 +297,26 @@ getstates <- function(x){
 
 getpoints <- function(x){
   tryx <- tryCatch(x$data, error = function(e) e)
-  if(inherits(tryx, "simpleError")) {
+  if (inherits(tryx, "simpleError")) {
     NULL
-  } else if(length(x$data) == 0) {
+  } else if (length(x$data) == 0) {
     NULL
   } else {
-    withlatlong <- x$data[sapply(x$data, length, USE.NAMES=FALSE) == 8]
-    data_out <- ldply(withlatlong, function(y){
-      y[sapply(y, is.null)] <- NA
-      data.frame(
-        y[c("name","decimalLongitude","decimalLatitude","occurrenceID",
-            "provider","basis","common_name","geo")], stringsAsFactors=FALSE)
-    })
-    data_out$decimalLongitude <- 
-      as.numeric(as.character(data_out$decimalLongitude))
-    data_out$decimalLatitude <- 
-      as.numeric(as.character(data_out$decimalLatitude))
-    return(data_out)
+    df <- data.table::setDF(
+      data.table::rbindlist(x$data, use.names = TRUE, fill = TRUE))
+    if ('decimalLongitude' %in% names(df)) {
+      df$decimalLongitude <- 
+        as.numeric(as.character(df$decimalLongitude))
+    }
+    if ('decimalLatitude' %in% names(df)) {
+      df$decimalLatitude <- 
+        as.numeric(as.character(df$decimalLatitude))
+    }
+    nms <- c("name","decimalLongitude","decimalLatitude","occurrenceID",
+        "provider","basis","common_name","geo")
+    nms_use <- nms[nms %in% names(df)]
+    df <- df[, nms_use]
+    return(df)
   }
 }
 

@@ -29,6 +29,7 @@
 #' @importFrom grid grid.newpage viewport unit
 #' @importFrom sp point.in.polygon
 #' @importFrom dplyr bind_rows
+#' @importFrom data.table setDF rbindlist
 #' @import mapproj
 #' @name rbison-package
 #' @aliases rbison

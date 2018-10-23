@@ -44,6 +44,12 @@ bison_map_maker <- function(x, geom, jitter, customize) {
     tt <- x$points 
   }
 
+  # if no lat/lon fields, stop
+  if (!all(c("decimalLatitude", "decimalLongitude") %in% names(tt))) {
+    stop("points data has no decimalLatitude and decimalLongitude fields", 
+      call. = FALSE)
+  }
+
   # Make lat/long data numeric
   tt$decimalLatitude <- as.numeric(as.character(tt$decimalLatitude))
   tt$decimalLongitude <- as.numeric(as.character(tt$decimalLongitude))
