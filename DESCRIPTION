@@ -1,7 +1,7 @@
 Package: rbison
-Title: Interface to the 'USGS' 'BISON' 'API'
+Title: Interface to the 'USGS' 'BISON' API
 Description: Interface to the 'USGS' 'BISON' (<https://bison.usgs.gov/>)
-    'API', a 'database' for species occurrence data. Data comes from
+    API, a 'database' for species occurrence data. Data comes from
     species in the United States from participating data providers. You can get
     data via 'taxonomic' and location based queries. A simple function
     is provided to help visualize data.
@@ -12,7 +12,7 @@ BugReports: https://github.com/ropensci/rbison/issues
 Authors@R: c(person("Scott", "Chamberlain", 
     role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com",
-    comment = "http://orcid.org/0000-0003-1444-9135"))
+    comment = c(ORCID = "0000-0003-1444-9135")))
 LazyData: true
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
@@ -33,6 +33,6 @@ Suggests:
     testthat,
     taxize
 RoxygenNote: 6.1.0
-X-schema.org-applicationCategory: Data Access
-X-schema.org-keywords: species, occurrences, biodiversity, maps
+X-schema.org-applicationCategory: DataAccess
+X-schema.org-keywords: species, occurrences, biodiversity, maps, USGS, BISON
 X-schema.org-isPartOf: "https://ropensci.org"
