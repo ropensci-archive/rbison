@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0
+      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0.9310
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,7 +17,7 @@ http_interactions:
     headers:
       connection: keep-alive
       content-type: text/plain;charset=utf-8
-      date: Wed, 24 Oct 2018 20:25:06 GMT
+      date: Wed, 24 Oct 2018 21:29:09 GMT
       status: HTTP/1.1 200 OK
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -28,8 +28,7 @@ http_interactions:
       x-node-name: not shown
       x-upstream-member: not shown
     body:
-      encoding: UTF-8
-      string: |
-        {"responseHeader":{"status":0,"QTime":0,"params":{"q":"scientificName:\"Ursus americanus\"","fl":"scientificName","state_code":"New Mexico","wt":"json"}},"response":{"numFound":6650,"start":0,"docs":[{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"}]}}
-  recorded_at: 2018-10-24 20:25:06 GMT
+      encoding: ASCII-8BIT
+      string: eyJyZXNwb25zZUhlYWRlciI6eyJzdGF0dXMiOjAsIlFUaW1lIjowLCJwYXJhbXMiOnsicSI6InNjaWVudGlmaWNOYW1lOlwiVXJzdXMgYW1lcmljYW51c1wiIiwiZmwiOiJzY2llbnRpZmljTmFtZSIsInN0YXRlX2NvZGUiOiJOZXcgTWV4aWNvIiwid3QiOiJqc29uIn19LCJyZXNwb25zZSI6eyJudW1Gb3VuZCI6NjY1MCwic3RhcnQiOjAsImRvY3MiOlt7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9LHsic2NpZW50aWZpY05hbWUiOiJVcnN1cyBhbWVyaWNhbnVzIn0seyJzY2llbnRpZmljTmFtZSI6IlVyc3VzIGFtZXJpY2FudXMifSx7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9LHsic2NpZW50aWZpY05hbWUiOiJVcnN1cyBhbWVyaWNhbnVzIn0seyJzY2llbnRpZmljTmFtZSI6IlVyc3VzIGFtZXJpY2FudXMifSx7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9LHsic2NpZW50aWZpY05hbWUiOiJVcnN1cyBhbWVyaWNhbnVzIn0seyJzY2llbnRpZmljTmFtZSI6IlVyc3VzIGFtZXJpY2FudXMifSx7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9XX19Cg==
+  recorded_at: 2018-10-24 21:29:09 GMT
   recorded_with: vcr/0.2.0, webmockr/0.2.8
