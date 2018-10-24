@@ -7,3 +7,8 @@
 .Rproj.user
 
 Rplots.pdf
+
+# revdep 
+revdep/checks.noindex
+revdep/data.sqlite
+revdep/library.noindex
