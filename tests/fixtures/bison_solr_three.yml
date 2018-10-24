@@ -1,0 +1,35 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://bison.usgs.gov/solr/occurrences/select/?q=scientificName%3A%22Ursus%20americanus%22&wt=json&state_code=New%20Mexico&rows=50&fl=occurrence_date%2CscientificName
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-type: text/plain;charset=utf-8
+      date: Wed, 24 Oct 2018 20:25:06 GMT
+      status: HTTP/1.1 200 OK
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000
+      transfer-encoding: chunked
+      x-frame-options: SAMEORIGIN
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      string: |
+        {"responseHeader":{"status":0,"QTime":0,"params":{"q":"scientificName:\"Ursus americanus\"","fl":"occurrence_date,scientificName","state_code":"New Mexico","rows":"50","wt":"json"}},"response":{"numFound":6650,"start":0,"docs":[{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"},{"scientificName":"Ursus americanus"}]}}
+  recorded_at: 2018-10-24 20:25:06 GMT
+  recorded_with: vcr/0.2.0, webmockr/0.2.8

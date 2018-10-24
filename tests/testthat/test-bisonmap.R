@@ -12,5 +12,5 @@ test_that("bisonmap returns the correct class", {
     expect_is(map1$scales, "ScalesList")
     expect_is(map2, "gg")
     expect_is(map3, "gg")
-  })
+  }, preserve_exact_body_bytes = TRUE)
 })

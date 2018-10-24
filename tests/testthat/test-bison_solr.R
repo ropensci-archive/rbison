@@ -1,30 +1,39 @@
 context("bison_solr")
 
 test_that("bison_solr returns the correct value", {
-  vcr::use_cassette("bison_solr", {
+  vcr::use_cassette("bison_solr_one", {
     out_1 <- bison_solr(scientificName='Ursus americanus', verbose = FALSE)
+    expect_that(out_1$facets$facet_queries, equals(NULL))
+    expect_is(out_1$points, "data.frame")
+    expect_is(out_1, "bison_solr")
+  })
+
+  vcr::use_cassette("bison_solr_two", {
     out_2 <- bison_solr(scientificName='Ursus americanus', 
                         state_code='New Mexico', 
                         fl="scientificName", verbose = FALSE)
+    expect_that(out_2$highlight, equals(NULL))
+    expect_that(out_2$points[[1]][1], equals("Ursus americanus"))
+    expect_is(out_2, "bison_solr")
+  })
+
+  vcr::use_cassette("bison_solr_three", {
     out_3 <- bison_solr(scientificName='Ursus americanus', 
                         state_code='New Mexico', rows=50, 
                         fl="occurrence_date,scientificName", verbose = FALSE)
+    expect_is(out_3, "bison_solr")
+  })
+
+  vcr::use_cassette("bison_solr_four", {
     out_4 <- bison_solr()
+    expect_that(nrow(out_4$points), equals(10))
+  })
+
+  vcr::use_cassette("bison_solr_five", {
     out_5 <- bison_solr(scientificName='Helianthus annuus', rows=800, 
                         verbose = FALSE)
     out_5_map <- bisonmap(out_5)
 
-    # values
-    expect_that(out_1$facets$facet_queries, equals(NULL))
-    expect_that(out_2$highlight, equals(NULL))
-    expect_that(out_2$points[[1]][1], equals("Ursus americanus"))
-    expect_that(nrow(out_4$points), equals(10))
-
-    # class
-    expect_is(out_1$points, "data.frame")
-    expect_is(out_1, "bison_solr")
-    expect_is(out_2, "bison_solr")
-    expect_is(out_3, "bison_solr")
     expect_is(out_5_map, "gg")
     expect_is(out_5_map$data, "data.frame")
     expect_is(out_5_map$layers, "list")
@@ -47,7 +56,7 @@ test_that("bison_solr can do length 2 queries for parameters", {
       as.numeric(as.POSIXct(max(out$points$eventDate))),
       as.numeric(as.POSIXct('2010-08-21'))
     )
-  })
+  }, preserve_exact_body_bytes = TRUE)
 })
 
 
