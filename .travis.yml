@@ -15,7 +15,7 @@ matrix:
       r: devel
 
 r_binary_packages:
-- covr
+  - covr
 
 r_check_args: "--as-cran"
 

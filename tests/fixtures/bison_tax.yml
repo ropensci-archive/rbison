@@ -1,0 +1,103 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://bison.usgs.gov/solr/vernacularName/select?q=%2Abear&wt=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-type: text/plain;charset=utf-8
+      date: Wed, 24 Oct 2018 19:45:11 GMT
+      status: HTTP/1.1 200 OK
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000
+      transfer-encoding: chunked
+      x-frame-options: SAMEORIGIN
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      string: |
+        {"responseHeader":{"status":0,"QTime":1,"params":{"q":"*bear","wt":"json"}},"response":{"numFound":48,"start":0,"docs":[{"lc_vernacularName":"Louisiana black bear","vernacularName":"Louisiana black bear","_version_":1565324987929198608},{"lc_vernacularName":"Sloth Bear","vernacularName":"Sloth Bear","_version_":1565324987967995921},{"lc_vernacularName":"grizzly bear","vernacularName":"grizzly bear","_version_":1565324988101165072},{"lc_vernacularName":"bear oak","vernacularName":"bear oak","_version_":1565324988126330881},{"lc_vernacularName":"yellow woollybear","vernacularName":"yellow woollybear","_version_":1565324988195536924},{"lc_vernacularName":"bear daisy","vernacularName":"bear daisy","_version_":1565324988210216975},{"lc_vernacularName":"banded woollybear","vernacularName":"banded woollybear","_version_":1565324988304588829},{"lc_vernacularName":"Asiatic black bear","vernacularName":"Asiatic black bear","_version_":1565324988379037713},{"lc_vernacularName":"Kodiak bear","vernacularName":"Kodiak bear","_version_":1565324988382183434},{"lc_vernacularName":"black-ended bear","vernacularName":"black-ended bear","_version_":1565324988463972374}]}}
+  recorded_at: 2018-10-24 19:45:12 GMT
+  recorded_with: vcr/0.2.0, webmockr/0.2.8
+- request:
+    method: get
+    uri: https://bison.usgs.gov/solr/vernacularName/select?q=%22black%20bear%22&wt=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-type: text/plain;charset=utf-8
+      date: Wed, 24 Oct 2018 19:45:11 GMT
+      status: HTTP/1.1 200 OK
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000
+      transfer-encoding: chunked
+      x-frame-options: SAMEORIGIN
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      string: |
+        {"responseHeader":{"status":0,"QTime":0,"params":{"q":"\"black bear\"","wt":"json"}},"response":{"numFound":6,"start":0,"docs":[{"lc_vernacularName":"black bear","vernacularName":"black bear","_version_":1565324989003989031},{"lc_vernacularName":"Louisiana black bear","vernacularName":"Louisiana black bear","_version_":1565324987929198608},{"lc_vernacularName":"Asiatic black bear","vernacularName":"Asiatic black bear","_version_":1565324988379037713},{"lc_vernacularName":"Asian Black Bear","vernacularName":"Asian Black Bear","_version_":1565324988698853383},{"lc_vernacularName":"American black bear","vernacularName":"American black bear","_version_":1565324988875014152},{"lc_vernacularName":"American Black Bear","vernacularName":"American Black Bear","_version_":1565324989131915279}]}}
+  recorded_at: 2018-10-24 19:45:12 GMT
+  recorded_with: vcr/0.2.0, webmockr/0.2.8
+- request:
+    method: get
+    uri: https://bison.usgs.gov/solr/scientificName/select?q=helianthus&wt=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      connection: keep-alive
+      content-type: text/plain;charset=utf-8
+      date: Wed, 24 Oct 2018 19:45:12 GMT
+      status: HTTP/1.1 200 OK
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000
+      transfer-encoding: chunked
+      x-frame-options: SAMEORIGIN
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      string: |
+        {"responseHeader":{"status":0,"QTime":0,"params":{"q":"helianthus","wt":"json"}},"response":{"numFound":212,"start":0,"docs":[{"scientificName":"Helianthus","_version_":1565324668933505050},{"scientificName":"Helianthus ","_version_":1565324675952672825},{"scientificName":"Discoaster helianthus","_version_":1565324665538215937},{"scientificName":"Helianthus divaricatus latifolius","_version_":1565324665666142208},{"scientificName":"Helianthus decapetalus","_version_":1565324665806651392},{"scientificName":"Helianthus ambiguus","_version_":1565324666234470407},{"scientificName":"Helianthus dowellianus","_version_":1565324666344570884},{"scientificName":"Helianthus luxurians","_version_":1565324666355056641},{"scientificName":"Helianthus arenicola","_version_":1565324666560577548},{"scientificName":"Helianthus atrorubens","_version_":1565324666842644492}]}}
+  recorded_at: 2018-10-24 19:45:12 GMT
+  recorded_with: vcr/0.2.0, webmockr/0.2.8

@@ -1,0 +1,185 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://bison.usgs.gov/api/search.json?species=Bison%20bison&type=scientific_name&start=0&count=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      cache-control: no-cache, no-store, max-age=0
+      connection: keep-alive
+      content-language: en-US
+      content-type: application/json;charset=UTF-8
+      date: Wed, 24 Oct 2018 19:47:05 GMT
+      expires: Thu, 01 Jan 1970 00:00:00 GMT
+      pragma: no-cache
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000
+      transfer-encoding: chunked
+      x-application: bison
+      x-frame-options: SAMEORIGIN
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      string: '{"occurrences":{"legend":{"fossil":359,"observation":927,"centroid":1,"specimen":946,"unknown":6}},"total":2238,"searchTime":0,"offset":0,"data":[{"geo":"Yes","provider":"Conservation
+        of Arctic Flora and Fauna","name":"Bison bison","decimalLongitude":"-117.6500015258789","decimalLatitude":"61.366668701171875","occurrenceID":"68428522","common_name":"bison,
+        American bison, American Bison, Bisonte americano","basis":"Observation"}],"species":"Bison
+        bison","eezs":{"extent":{"miny":0.0,"minx":-164.2799,"maxy":70.58,"maxx":0.0},"total":1,"data":{"US
+        Pacific EEZ":{"total":"12","name":"US Pacific EEZ"}},"legend":{"0":"0 - 12"}},"itemsPerPage":1,"counties":{"extent":{"miny":0.0,"minx":-171.96531900015404,"maxy":80.00000069960437,"maxx":0.0},"total":159,"data":{"20055":{"total":"1","name":"Finney
+        County","state":"Kansas"},"19069":{"total":"1","name":"Franklin County","state":"Iowa"},"46047":{"total":"4","name":"Fall
+        River County","state":"South Dakota"},"35031":{"total":"4","name":"McKinley
+        County","state":"New Mexico"},"04005":{"total":"5","name":"Coconino County","state":"Arizona"},"36085":{"total":"1","name":"Richmond
+        County","state":"New York"},"4607":{"total":"4","name":"Division No.  7","state":"Manitoba
+        Canada"},"31075":{"total":"1","name":"Grant County","state":"Nebraska"},"56013":{"total":"1","name":"Fremont
+        County","state":"Wyoming"},"56015":{"total":"3","name":"Goshen County","state":"Wyoming"},"20173":{"total":"3","name":"Sedgwick
+        County","state":"Kansas"},"6105":{"total":"66","name":"Region 5","state":"Northwest
+        Territories Canada"},"20051":{"total":"4","name":"Ellis County","state":"Kansas"},"49035":{"total":"8","name":"Salt
+        Lake County","state":"Utah"},"38029":{"total":"3","name":"Emmons County","state":"North
+        Dakota"},"08041":{"total":"1","name":"El Paso County","state":"Colorado"},"02180":{"total":"2","name":"Nome
+        Census Area","state":"Alaska"},"17057":{"total":"1","name":"Fulton County","state":"Illinois"},"6001":{"total":"2","name":"Yukon","state":"Yukon
+        Canada"},"21035":{"total":"1","name":"Calloway County","state":"Kentucky"},"41025":{"total":"12","name":"Harney
+        County","state":"Oregon"},"31061":{"total":"1","name":"Franklin County","state":"Nebraska"},"56021":{"total":"1","name":"Laramie
+        County","state":"Wyoming"},"53033":{"total":"7","name":"King County","state":"Washington"},"31069":{"total":"3","name":"Garden
+        County","state":"Nebraska"},"4617":{"total":"1","name":"Division No. 17","state":"Manitoba
+        Canada"},"33007":{"total":"1","name":"Coos County","state":"New Hampshire"},"56029":{"total":"239","name":"Park
+        County","state":"Wyoming"},"08037":{"total":"1","name":"Eagle County","state":"Colorado"},"30015":{"total":"1","name":"Chouteau
+        County","state":"Montana"},"08035":{"total":"1","name":"Douglas County","state":"Colorado"},"26165":{"total":"1","name":"Wexford
+        County","state":"Michigan"},"27133":{"total":"1","name":"Rock County","state":"Minnesota"},"30099":{"total":"1","name":"Teton
+        County","state":"Montana"},"56025":{"total":"1","name":"Natrona County","state":"Wyoming"},"46033":{"total":"20","name":"Custer
+        County","state":"South Dakota"},"08031":{"total":"1","name":"Denver County","state":"Colorado"},"49025":{"total":"1","name":"Kane
+        County","state":"Utah"},"4611":{"total":"2","name":"Division No. 11","state":"Manitoba
+        Canada"},"20061":{"total":"1","name":"Geary County","state":"Kansas"},"48295":{"total":"7","name":"Lipscomb
+        County","state":"Texas"},"02290":{"total":"1","name":"Yukon-Koyukuk Census
+        Area","state":"Alaska"},"38085":{"total":"4","name":"Sioux County","state":"North
+        Dakota"},"48209":{"total":"1","name":"Hays County","state":"Texas"},"48327":{"total":"1","name":"Menard
+        County","state":"Texas"},"17141":{"total":"2","name":"Ogle County","state":"Illinois"},"49017":{"total":"9","name":"Garfield
+        County","state":"Utah"},"40045":{"total":"2","name":"Ellis County","state":"Oklahoma"},"17143":{"total":"1","name":"Peoria
+        County","state":"Illinois"},"05119":{"total":"1","name":"Pulaski County","state":"Arkansas"},"5959":{"total":"3","name":"Northern
+        Rockies","state":"British Columbia Canada"},"56039":{"total":"101","name":"Teton
+        County","state":"Wyoming"},"30089":{"total":"8","name":"Sanders County","state":"Montana"},"08103":{"total":"3","name":"Rio
+        Blanco County","state":"Colorado"},"27069":{"total":"1","name":"Kittson County","state":"Minnesota"},"35015":{"total":"1","name":"Eddy
+        County","state":"New Mexico"},"27067":{"total":"1","name":"Kandiyohi County","state":"Minnesota"},"36103":{"total":"1","name":"Suffolk
+        County","state":"New York"},"02240":{"total":"26","name":"Southeast Fairbanks
+        Census Area","state":"Alaska"},"5951":{"total":"1","name":"Bulkley-Nechako","state":"British
+        Columbia Canada"},"30009":{"total":"1","name":"Carbon County","state":"Montana"},"38007":{"total":"5","name":"Billings
+        County","state":"North Dakota"},"48045":{"total":"3","name":"Briscoe County","state":"Texas"},"08063":{"total":"1","name":"Kit
+        Carson County","state":"Colorado"},"5955":{"total":"65","name":"Peace River","state":"British
+        Columbia Canada"},"49011":{"total":"30","name":"Davis County","state":"Utah"},"20049":{"total":"1","name":"Elk
+        County","state":"Kansas"},"40031":{"total":"39","name":"Comanche County","state":"Oklahoma"},"48439":{"total":"2","name":"Tarrant
+        County","state":"Texas"},"21015":{"total":"1","name":"Boone County","state":"Kentucky"},"35001":{"total":"3","name":"Bernalillo
+        County","state":"New Mexico"},"30071":{"total":"2","name":"Phillips County","state":"Montana"},"31041":{"total":"1","name":"Custer
+        County","state":"Nebraska"},"35007":{"total":"3","name":"Colfax County","state":"New
+        Mexico"},"53053":{"total":"1","name":"Pierce County","state":"Washington"},"06037":{"total":"5","name":"Los
+        Angeles County","state":"California"},"35006":{"total":"1","name":"Cibola
+        County","state":"New Mexico"},"08057":{"total":"1","name":"Jackson County","state":"Colorado"},"56045":{"total":"1","name":"Weston
+        County","state":"Wyoming"},"29015":{"total":"7","name":"Benton County","state":"Missouri"},"20161":{"total":"2","name":"Riley
+        County","state":"Kansas"},"18129":{"total":"1","name":"Posey County","state":"Indiana"},"16033":{"total":"1","name":"Clark
+        County","state":"Idaho"},"40025":{"total":"1","name":"Cimarron County","state":"Oklahoma"},"48303":{"total":"3","name":"Lubbock
+        County","state":"Texas"},"20017":{"total":"1","name":"Chase County","state":"Kansas"},"02261":{"total":"1","name":"Valdez-Cordova
+        Census Area","state":"Alaska"},"30103":{"total":"1","name":"Treasure County","state":"Montana"},"26075":{"total":"1","name":"Jackson
+        County","state":"Michigan"},"4807":{"total":"1","name":"Division No.  7","state":"Alberta
+        Canada"},"08123":{"total":"1","name":"Weld County","state":"Colorado"},"31031":{"total":"1","name":"Cherry
+        County","state":"Nebraska"},"08001":{"total":"1","name":"Adams County","state":"Colorado"},"48265":{"total":"1","name":"Kerr
+        County","state":"Texas"},"48141":{"total":"1","name":"El Paso County","state":"Texas"},"4801":{"total":"6","name":"Division
+        No.  1","state":"Alberta Canada"},"08081":{"total":"1","name":"Moffat County","state":"Colorado"},"38053":{"total":"2","name":"McKenzie
+        County","state":"North Dakota"},"48499":{"total":"2","name":"Wood County","state":"Texas"},"46113":{"total":"1","name":"Shannon
+        County","state":"South Dakota"},"40139":{"total":"1","name":"Texas County","state":"Oklahoma"},"19153":{"total":"1","name":"Polk
+        County","state":"Iowa"},"08119":{"total":"1","name":"Teller County","state":"Colorado"},"20149":{"total":"1","name":"Pottawatomie
+        County","state":"Kansas"},"4815":{"total":"2","name":"Division No. 15","state":"Alberta
+        Canada"},"53077":{"total":"1","name":"Yakima County","state":"Washington"},"4816":{"total":"257","name":"Division
+        No. 16","state":"Alberta Canada"},"08115":{"total":"1","name":"Sedgwick County","state":"Colorado"},"08079":{"total":"1","name":"Mineral
+        County","state":"Colorado"},"08075":{"total":"6","name":"Logan County","state":"Colorado"},"12123":{"total":"1","name":"Taylor
+        County","state":"Florida"},"48497":{"total":"1","name":"Wise County","state":"Texas"},"4810":{"total":"9","name":"Division
+        No. 10","state":"Alberta Canada"},"17017":{"total":"1","name":"Cass County","state":"Illinois"},"4812":{"total":"1","name":"Division
+        No. 12","state":"Alberta Canada"},"02090":{"total":"1","name":"Fairbanks North
+        Star Borough","state":"Alaska"},"18157":{"total":"1","name":"Tippecanoe County","state":"Indiana"},"39097":{"total":"1","name":"Madison
+        County","state":"Ohio"},"17103":{"total":"1","name":"Lee County","state":"Illinois"},"46105":{"total":"1","name":"Perkins
+        County","state":"South Dakota"},"46103":{"total":"69","name":"Pennington County","state":"South
+        Dakota"},"20199":{"total":"6","name":"Wallace County","state":"Kansas"},"20197":{"total":"1","name":"Wabaunsee
+        County","state":"Kansas"},"48367":{"total":"2","name":"Parker County","state":"Texas"},"4707":{"total":"1","name":"Division
+        No.  7","state":"Saskatchewan Canada"},"30047":{"total":"4","name":"Lake County","state":"Montana"},"35057":{"total":"1","name":"Torrance
+        County","state":"New Mexico"},"49057":{"total":"3","name":"Weber County","state":"Utah"},"06085":{"total":"1","name":"Santa
+        Clara County","state":"California"},"31017":{"total":"3","name":"Brown County","state":"Nebraska"},"4703":{"total":"1","name":"Division
+        No.  3","state":"Saskatchewan Canada"},"4704":{"total":"1","name":"Division
+        No.  4","state":"Saskatchewan Canada"},"40113":{"total":"6","name":"Osage
+        County","state":"Oklahoma"},"41047":{"total":"26","name":"Marion County","state":"Oregon"},"19099":{"total":"1","name":"Jasper
+        County","state":"Iowa"},"6101":{"total":"1","name":"Region 1","state":"Northwest
+        Territories Canada"},"6104":{"total":"126","name":"Region 4","state":"Northwest
+        Territories Canada"},"20087":{"total":"1","name":"Jefferson County","state":"Kansas"},"12065":{"total":"1","name":"Jefferson
+        County","state":"Florida"},"48115":{"total":"1","name":"Dawson County","state":"Texas"},"20127":{"total":"2","name":"Morris
+        County","state":"Kansas"},"30035":{"total":"2","name":"Glacier County","state":"Montana"},"56005":{"total":"1","name":"Campbell
+        County","state":"Wyoming"},"31123":{"total":"1","name":"Morrill County","state":"Nebraska"},"56007":{"total":"1","name":"Carbon
+        County","state":"Wyoming"},"30031":{"total":"5","name":"Gallatin County","state":"Montana"},"30033":{"total":"5","name":"Garfield
+        County","state":"Montana"},"31001":{"total":"1","name":"Adams County","state":"Nebraska"},"31121":{"total":"2","name":"Merrick
+        County","state":"Nebraska"},"49045":{"total":"4","name":"Tooele County","state":"Utah"},"4711":{"total":"2","name":"Division
+        No. 11","state":"Saskatchewan Canada"},"06073":{"total":"1","name":"San Diego
+        County","state":"California"},"08093":{"total":"3","name":"Park County","state":"Colorado"},"56009":{"total":"1","name":"Converse
+        County","state":"Wyoming"},"5924":{"total":"2","name":"Strathcona","state":"British
+        Columbia Canada"},"4715":{"total":"3","name":"Division No. 15","state":"Saskatchewan
+        Canada"},"31129":{"total":"2","name":"Nuckolls County","state":"Nebraska"},"3506":{"total":"1","name":"Ottawa","state":"Ontario
+        Canada"}},"legend":{"0":"0 - 53","1":"53 - 106","2":"106 - 159","4":"212 -
+        265","15":"795 - 853"}},"type":"scientific_name","georeferenced":1385,"states":{"extent":{"miny":0.0,"minx":-179.23108599959195,"maxy":80.00000069960437,"maxx":179.85968100035376},"total":36,"data":{"Oregon":{"total":"38","fips":"41"},"Indiana":{"total":"2","fips":"18"},"Wyoming":{"total":"350","fips":"56"},"Oklahoma":{"total":"49","fips":"40"},"British
+        Columbia Canada":{"total":"71","fips":"BC"},"Saskatchewan Canada":{"total":"8","fips":"SK"},"Arkansas":{"total":"1","fips":"05"},"Utah":{"total":"55","fips":"49"},"Washington":{"total":"9","fips":"53"},"Yukon
+        Canada":{"total":"2","fips":"YT"},"Nebraska":{"total":"16","fips":"31"},"Ontario
+        Canada":{"total":"1","fips":"ON"},"Manitoba Canada":{"total":"7","fips":"MB"},"Colorado":{"total":"24","fips":"08"},"Missouri":{"total":"7","fips":"29"},"Alaska":{"total":"31","fips":"02"},"Alberta
+        Canada":{"total":"276","fips":"AB"},"North Dakota":{"total":"14","fips":"38"},"Arizona":{"total":"5","fips":"04"},"New
+        York":{"total":"2","fips":"36"},"Montana":{"total":"30","fips":"30"},"Kentucky":{"total":"2","fips":"21"},"South
+        Dakota":{"total":"95","fips":"46"},"Minnesota":{"total":"3","fips":"27"},"Kansas":{"total":"24","fips":"20"},"California":{"total":"7","fips":"06"},"Florida":{"total":"2","fips":"12"},"Michigan":{"total":"2","fips":"26"},"Iowa":{"total":"3","fips":"19"},"New
+        Mexico":{"total":"13","fips":"35"},"Texas":{"total":"25","fips":"48"},"Illinois":{"total":"6","fips":"17"},"New
+        Hampshire":{"total":"1","fips":"33"},"Ohio":{"total":"1","fips":"39"},"Northwest
+        Territories Canada":{"total":"193","fips":"NT"},"Idaho":{"total":"1","fips":"16"}},"legend":{"0":"0
+        - 21","1":"21 - 42","2":"42 - 63","13":"273 - 294","3":"63 - 84","4":"84 -
+        105","15":"315 - 350","9":"189 - 210"}}}'
+  recorded_at: 2018-10-24 19:47:06 GMT
+  recorded_with: vcr/0.2.0, webmockr/0.2.8
+- request:
+    method: get
+    uri: https://bison.usgs.gov/api/search.json?species=bear&type=common_name&start=0&count=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      cache-control: no-cache, no-store, max-age=0
+      connection: keep-alive
+      content-language: en-US
+      content-type: application/json;charset=UTF-8
+      date: Wed, 24 Oct 2018 19:47:06 GMT
+      expires: Thu, 01 Jan 1970 00:00:00 GMT
+      pragma: no-cache
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000
+      transfer-encoding: chunked
+      x-application: bison
+      x-frame-options: SAMEORIGIN
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      string: '{"occurrences":{"legend":{}},"total":0,"searchTime":0,"offset":0,"data":[],"species":"bear","eezs":{"extent":{},"total":0,"data":{},"legend":{}},"itemsPerPage":1,"counties":{"extent":{},"total":0,"data":{},"legend":{}},"type":"common_name","georeferenced":0,"states":{"extent":{},"total":0,"data":{},"legend":{}}}'
+  recorded_at: 2018-10-24 19:47:06 GMT
+  recorded_with: vcr/0.2.0, webmockr/0.2.8

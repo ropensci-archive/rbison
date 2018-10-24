@@ -1,0 +1,1942 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://bison.usgs.gov/api/search.json?species=Aquila%20chrysaetos&type=scientific_name&start=0&count=10
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      cache-control: no-cache, no-store, max-age=0
+      connection: keep-alive
+      content-language: en-US
+      content-type: application/json;charset=UTF-8
+      date: Wed, 24 Oct 2018 19:46:14 GMT
+      expires: Thu, 01 Jan 1970 00:00:00 GMT
+      pragma: no-cache
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000
+      transfer-encoding: chunked
+      x-application: bison
+      x-frame-options: SAMEORIGIN
+      x-node-name: not shown
+      x-upstream-member: not shown
+    body:
+      encoding: UTF-8
+      string: "{\"occurrences\":{\"legend\":{\"literature\":1641,\"fossil\":642,\"observation\":128811,\"centroid\":1,\"unknown\":9734,\"specimen\":1899}},\"total\":153695,\"searchTime\":0,\"offset\":0,\"data\":[{\"geo\":\"Yes\",\"provider\":\"Cornell
+        Lab of Ornithology\",\"name\":\"Aquila chrysaetos\",\"decimalLongitude\":\"-117.6185302734375\",\"decimalLatitude\":\"33.71446990966797\",\"occurrenceID\":\"63012299\",\"common_name\":\"Golden
+        Eagle, Águila real, Aigle royal\",\"basis\":\"Observation\"},{\"geo\":\"Yes\",\"provider\":\"Cornell
+        Lab of Ornithology\",\"name\":\"Aquila chrysaetos\",\"decimalLongitude\":\"-117.6185302734375\",\"decimalLatitude\":\"33.71446990966797\",\"occurrenceID\":\"63012312\",\"common_name\":\"Golden
+        Eagle, Águila real, Aigle royal\",\"basis\":\"Observation\"},{\"geo\":\"Yes\",\"provider\":\"Cornell
+        Lab of Ornithology\",\"name\":\"Aquila chrysaetos\",\"decimalLongitude\":\"-117.6185302734375\",\"decimalLatitude\":\"33.71446990966797\",\"occurrenceID\":\"63012387\",\"common_name\":\"Golden
+        Eagle, Águila real, Aigle royal\",\"basis\":\"Observation\"},{\"geo\":\"Yes\",\"provider\":\"Cornell
+        Lab of Ornithology\",\"name\":\"Aquila chrysaetos\",\"decimalLongitude\":\"-117.61849975585938\",\"decimalLatitude\":\"33.709869384765625\",\"occurrenceID\":\"63012511\",\"common_name\":\"Golden
+        Eagle, Águila real, Aigle royal\",\"basis\":\"Observation\"},{\"geo\":\"Yes\",\"provider\":\"Cornell
+        Lab of Ornithology\",\"name\":\"Aquila chrysaetos\",\"decimalLongitude\":\"-117.60138702392578\",\"decimalLatitude\":\"33.6509895324707\",\"occurrenceID\":\"63017323\",\"common_name\":\"Golden
+        Eagle, Águila real, Aigle royal\",\"basis\":\"Observation\"},{\"geo\":\"Yes\",\"provider\":\"Cornell
+        Lab of Ornithology\",\"name\":\"Aquila chrysaetos\",\"decimalLongitude\":\"-117.49970245361328\",\"decimalLatitude\":\"33.683441162109375\",\"occurrenceID\":\"63040566\",\"common_name\":\"Golden
+        Eagle, Águila real, Aigle royal\",\"basis\":\"Observation\"},{\"geo\":\"Yes\",\"provider\":\"Cornell
+        Lab of Ornithology\",\"name\":\"Aquila chrysaetos\",\"decimalLongitude\":\"-117.45445251464844\",\"decimalLatitude\":\"33.65245819091797\",\"occurrenceID\":\"63043553\",\"common_name\":\"Golden
+        Eagle, Águila real, Aigle royal\",\"basis\":\"Observation\"},{\"geo\":\"Yes\",\"provider\":\"Cornell
+        Lab of Ornithology\",\"name\":\"Aquila chrysaetos\",\"decimalLongitude\":\"-117.45445251464844\",\"decimalLatitude\":\"33.65245819091797\",\"occurrenceID\":\"63043563\",\"common_name\":\"Golden
+        Eagle, Águila real, Aigle royal\",\"basis\":\"Observation\"},{\"geo\":\"Yes\",\"provider\":\"Cornell
+        Lab of Ornithology\",\"name\":\"Aquila chrysaetos\",\"decimalLongitude\":\"-117.45429992675781\",\"decimalLatitude\":\"34.02909851074219\",\"occurrenceID\":\"63043939\",\"common_name\":\"Golden
+        Eagle, Águila real, Aigle royal\",\"basis\":\"Observation\"},{\"geo\":\"Yes\",\"provider\":\"Cornell
+        Lab of Ornithology\",\"name\":\"Aquila chrysaetos\",\"decimalLongitude\":\"-117.45429992675781\",\"decimalLatitude\":\"34.02909851074219\",\"occurrenceID\":\"63043945\",\"common_name\":\"Golden
+        Eagle, Águila real, Aigle royal\",\"basis\":\"Observation\"}],\"species\":\"Aquila
+        chrysaetos\",\"eezs\":{\"extent\":{\"miny\":0.0,\"minx\":-179.99999999999994,\"maxy\":74.70976829528809,\"maxx\":180.00000190734875},\"total\":3,\"data\":{\"US
+        Atlantic EEZ\":{\"total\":\"335\",\"name\":\"US Atlantic EEZ\"},\"Alaska EEZ\":{\"total\":\"87\",\"name\":\"Alaska
+        EEZ\"},\"US Pacific EEZ\":{\"total\":\"39\",\"name\":\"US Pacific EEZ\"}},\"legend\":{\"0\":\"0
+        - 18\",\"2\":\"36 - 54\",\"15\":\"270 - 335\"}},\"itemsPerPage\":10,\"counties\":{\"extent\":{\"miny\":0.0,\"minx\":-179.23108599959195,\"maxy\":83.42820054983181,\"maxx\":179.85968100035376},\"total\":1966,\"data\":{\"40065\":{\"total\":\"1\",\"name\":\"Jackson
+        County\",\"state\":\"Oklahoma\"},\"39075\":{\"total\":\"1\",\"name\":\"Holmes
+        County\",\"state\":\"Ohio\"},\"18137\":{\"total\":\"3\",\"name\":\"Ripley
+        County\",\"state\":\"Indiana\"},\"18131\":{\"total\":\"10\",\"name\":\"Pulaski
+        County\",\"state\":\"Indiana\"},\"40069\":{\"total\":\"5\",\"name\":\"Johnston
+        County\",\"state\":\"Oklahoma\"},\"18133\":{\"total\":\"1\",\"name\":\"Putnam
+        County\",\"state\":\"Indiana\"},\"40067\":{\"total\":\"1\",\"name\":\"Jefferson
+        County\",\"state\":\"Oklahoma\"},\"27087\":{\"total\":\"1\",\"name\":\"Mahnomen
+        County\",\"state\":\"Minnesota\"},\"31113\":{\"total\":\"1\",\"name\":\"Logan
+        County\",\"state\":\"Nebraska\"},\"31115\":{\"total\":\"8\",\"name\":\"Loup
+        County\",\"state\":\"Nebraska\"},\"31111\":{\"total\":\"21\",\"name\":\"Lincoln
+        County\",\"state\":\"Nebraska\"},\"27089\":{\"total\":\"4\",\"name\":\"Marshall
+        County\",\"state\":\"Minnesota\"},\"27083\":{\"total\":\"2\",\"name\":\"Lyon
+        County\",\"state\":\"Minnesota\"},\"31117\":{\"total\":\"1\",\"name\":\"McPherson
+        County\",\"state\":\"Nebraska\"},\"39065\":{\"total\":\"1\",\"name\":\"Hardin
+        County\",\"state\":\"Ohio\"},\"40053\":{\"total\":\"2\",\"name\":\"Grant County\",\"state\":\"Oklahoma\"},\"18147\":{\"total\":\"1\",\"name\":\"Spencer
+        County\",\"state\":\"Indiana\"},\"39067\":{\"total\":\"5\",\"name\":\"Harrison
+        County\",\"state\":\"Ohio\"},\"18149\":{\"total\":\"6\",\"name\":\"Starke
+        County\",\"state\":\"Indiana\"},\"40051\":{\"total\":\"2\",\"name\":\"Grady
+        County\",\"state\":\"Oklahoma\"},\"39069\":{\"total\":\"1\",\"name\":\"Henry
+        County\",\"state\":\"Ohio\"},\"40055\":{\"total\":\"1\",\"name\":\"Greer County\",\"state\":\"Oklahoma\"},\"40059\":{\"total\":\"4\",\"name\":\"Harper
+        County\",\"state\":\"Oklahoma\"},\"18141\":{\"total\":\"2\",\"name\":\"St.
+        Joseph County\",\"state\":\"Indiana\"},\"39061\":{\"total\":\"4\",\"name\":\"Hamilton
+        County\",\"state\":\"Ohio\"},\"39063\":{\"total\":\"5\",\"name\":\"Hancock
+        County\",\"state\":\"Ohio\"},\"31101\":{\"total\":\"12\",\"name\":\"Keith
+        County\",\"state\":\"Nebraska\"},\"27099\":{\"total\":\"2\",\"name\":\"Mower
+        County\",\"state\":\"Minnesota\"},\"27097\":{\"total\":\"2\",\"name\":\"Morrison
+        County\",\"state\":\"Minnesota\"},\"31103\":{\"total\":\"2\",\"name\":\"Keya
+        Paha County\",\"state\":\"Nebraska\"},\"27091\":{\"total\":\"3\",\"name\":\"Martin
+        County\",\"state\":\"Minnesota\"},\"31109\":{\"total\":\"1\",\"name\":\"Lancaster
+        County\",\"state\":\"Nebraska\"},\"31105\":{\"total\":\"12\",\"name\":\"Kimball
+        County\",\"state\":\"Nebraska\"},\"18113\":{\"total\":\"1\",\"name\":\"Noble
+        County\",\"state\":\"Indiana\"},\"40041\":{\"total\":\"1\",\"name\":\"Delaware
+        County\",\"state\":\"Oklahoma\"},\"18111\":{\"total\":\"22\",\"name\":\"Newton
+        County\",\"state\":\"Indiana\"},\"40045\":{\"total\":\"3\",\"name\":\"Ellis
+        County\",\"state\":\"Oklahoma\"},\"39059\":{\"total\":\"3\",\"name\":\"Guernsey
+        County\",\"state\":\"Ohio\"},\"55101\":{\"total\":\"1\",\"name\":\"Racine
+        County\",\"state\":\"Wisconsin\"},\"27069\":{\"total\":\"2\",\"name\":\"Kittson
+        County\",\"state\":\"Minnesota\"},\"55105\":{\"total\":\"2\",\"name\":\"Rock
+        County\",\"state\":\"Wisconsin\"},\"55103\":{\"total\":\"13\",\"name\":\"Richland
+        County\",\"state\":\"Wisconsin\"},\"55109\":{\"total\":\"1\",\"name\":\"St.
+        Croix County\",\"state\":\"Wisconsin\"},\"27061\":{\"total\":\"2\",\"name\":\"Itasca
+        County\",\"state\":\"Minnesota\"},\"39043\":{\"total\":\"2\",\"name\":\"Erie
+        County\",\"state\":\"Ohio\"},\"40031\":{\"total\":\"14\",\"name\":\"Comanche
+        County\",\"state\":\"Oklahoma\"},\"18125\":{\"total\":\"7\",\"name\":\"Pike
+        County\",\"state\":\"Indiana\"},\"18127\":{\"total\":\"8\",\"name\":\"Porter
+        County\",\"state\":\"Indiana\"},\"18121\":{\"total\":\"24\",\"name\":\"Parke
+        County\",\"state\":\"Indiana\"},\"39049\":{\"total\":\"8\",\"name\":\"Franklin
+        County\",\"state\":\"Ohio\"},\"1011\":{\"total\":\"9\",\"name\":\"Division
+        No. 11\",\"state\":\"Newfoundland and Labrador Canada\"},\"1010\":{\"total\":\"14\",\"name\":\"Division
+        No. 10\",\"state\":\"Newfoundland and Labrador Canada\"},\"40039\":{\"total\":\"1\",\"name\":\"Custer
+        County\",\"state\":\"Oklahoma\"},\"39041\":{\"total\":\"1\",\"name\":\"Delaware
+        County\",\"state\":\"Ohio\"},\"55113\":{\"total\":\"14\",\"name\":\"Sawyer
+        County\",\"state\":\"Wisconsin\"},\"55111\":{\"total\":\"45\",\"name\":\"Sauk
+        County\",\"state\":\"Wisconsin\"},\"27075\":{\"total\":\"7\",\"name\":\"Lake
+        County\",\"state\":\"Minnesota\"},\"55115\":{\"total\":\"1\",\"name\":\"Shawano
+        County\",\"state\":\"Wisconsin\"},\"1001\":{\"total\":\"3\",\"name\":\"Division
+        No.  1\",\"state\":\"Newfoundland and Labrador Canada\"},\"55119\":{\"total\":\"1\",\"name\":\"Taylor
+        County\",\"state\":\"Wisconsin\"},\"18129\":{\"total\":\"1\",\"name\":\"Posey
+        County\",\"state\":\"Indiana\"},\"40021\":{\"total\":\"1\",\"name\":\"Cherokee
+        County\",\"state\":\"Oklahoma\"},\"39031\":{\"total\":\"1\",\"name\":\"Coshocton
+        County\",\"state\":\"Ohio\"},\"40025\":{\"total\":\"121\",\"name\":\"Cimarron
+        County\",\"state\":\"Oklahoma\"},\"39035\":{\"total\":\"4\",\"name\":\"Cuyahoga
+        County\",\"state\":\"Ohio\"},\"06109\":{\"total\":\"108\",\"name\":\"Tuolumne
+        County\",\"state\":\"California\"},\"27049\":{\"total\":\"5\",\"name\":\"Goodhue
+        County\",\"state\":\"Minnesota\"},\"40027\":{\"total\":\"2\",\"name\":\"Cleveland
+        County\",\"state\":\"Oklahoma\"},\"06105\":{\"total\":\"98\",\"name\":\"Trinity
+        County\",\"state\":\"California\"},\"06107\":{\"total\":\"537\",\"name\":\"Tulare
+        County\",\"state\":\"California\"},\"06101\":{\"total\":\"125\",\"name\":\"Sutter
+        County\",\"state\":\"California\"},\"55123\":{\"total\":\"21\",\"name\":\"Vernon
+        County\",\"state\":\"Wisconsin\"},\"06103\":{\"total\":\"84\",\"name\":\"Tehama
+        County\",\"state\":\"California\"},\"55121\":{\"total\":\"11\",\"name\":\"Trempealeau
+        County\",\"state\":\"Wisconsin\"},\"55127\":{\"total\":\"2\",\"name\":\"Walworth
+        County\",\"state\":\"Wisconsin\"},\"29225\":{\"total\":\"1\",\"name\":\"Webster
+        County\",\"state\":\"Missouri\"},\"27045\":{\"total\":\"5\",\"name\":\"Fillmore
+        County\",\"state\":\"Minnesota\"},\"55129\":{\"total\":\"3\",\"name\":\"Washburn
+        County\",\"state\":\"Wisconsin\"},\"39021\":{\"total\":\"2\",\"name\":\"Champaign
+        County\",\"state\":\"Ohio\"},\"18103\":{\"total\":\"2\",\"name\":\"Miami County\",\"state\":\"Indiana\"},\"39023\":{\"total\":\"2\",\"name\":\"Clark
+        County\",\"state\":\"Ohio\"},\"18105\":{\"total\":\"34\",\"name\":\"Monroe
+        County\",\"state\":\"Indiana\"},\"39025\":{\"total\":\"1\",\"name\":\"Clermont
+        County\",\"state\":\"Ohio\"},\"39027\":{\"total\":\"1\",\"name\":\"Clinton
+        County\",\"state\":\"Ohio\"},\"18101\":{\"total\":\"1\",\"name\":\"Martin
+        County\",\"state\":\"Indiana\"},\"40015\":{\"total\":\"1\",\"name\":\"Caddo
+        County\",\"state\":\"Oklahoma\"},\"55131\":{\"total\":\"3\",\"name\":\"Washington
+        County\",\"state\":\"Wisconsin\"},\"55135\":{\"total\":\"5\",\"name\":\"Waupaca
+        County\",\"state\":\"Wisconsin\"},\"27055\":{\"total\":\"17\",\"name\":\"Houston
+        County\",\"state\":\"Minnesota\"},\"55133\":{\"total\":\"4\",\"name\":\"Waukesha
+        County\",\"state\":\"Wisconsin\"},\"27053\":{\"total\":\"4\",\"name\":\"Hennepin
+        County\",\"state\":\"Minnesota\"},\"55139\":{\"total\":\"1\",\"name\":\"Winnebago
+        County\",\"state\":\"Wisconsin\"},\"55137\":{\"total\":\"2\",\"name\":\"Waushara
+        County\",\"state\":\"Wisconsin\"},\"27057\":{\"total\":\"5\",\"name\":\"Hubbard
+        County\",\"state\":\"Minnesota\"},\"39029\":{\"total\":\"3\",\"name\":\"Columbiana
+        County\",\"state\":\"Ohio\"},\"18107\":{\"total\":\"3\",\"name\":\"Montgomery
+        County\",\"state\":\"Indiana\"},\"18109\":{\"total\":\"2\",\"name\":\"Morgan
+        County\",\"state\":\"Indiana\"},\"40003\":{\"total\":\"27\",\"name\":\"Alfalfa
+        County\",\"state\":\"Oklahoma\"},\"40007\":{\"total\":\"10\",\"name\":\"Beaver
+        County\",\"state\":\"Oklahoma\"},\"29207\":{\"total\":\"3\",\"name\":\"Stoddard
+        County\",\"state\":\"Missouri\"},\"27027\":{\"total\":\"3\",\"name\":\"Clay
+        County\",\"state\":\"Minnesota\"},\"40005\":{\"total\":\"1\",\"name\":\"Atoka
+        County\",\"state\":\"Oklahoma\"},\"55141\":{\"total\":\"18\",\"name\":\"Wood
+        County\",\"state\":\"Wisconsin\"},\"29209\":{\"total\":\"1\",\"name\":\"Stone
+        County\",\"state\":\"Missouri\"},\"27021\":{\"total\":\"5\",\"name\":\"Cass
+        County\",\"state\":\"Minnesota\"},\"27023\":{\"total\":\"1\",\"name\":\"Chippewa
+        County\",\"state\":\"Minnesota\"},\"29217\":{\"total\":\"8\",\"name\":\"Vernon
+        County\",\"state\":\"Missouri\"},\"56005\":{\"total\":\"459\",\"name\":\"Campbell
+        County\",\"state\":\"Wyoming\"},\"06113\":{\"total\":\"260\",\"name\":\"Yolo
+        County\",\"state\":\"California\"},\"29211\":{\"total\":\"1\",\"name\":\"Sullivan
+        County\",\"state\":\"Missouri\"},\"56007\":{\"total\":\"2807\",\"name\":\"Carbon
+        County\",\"state\":\"Wyoming\"},\"06115\":{\"total\":\"49\",\"name\":\"Yuba
+        County\",\"state\":\"California\"},\"27031\":{\"total\":\"8\",\"name\":\"Cook
+        County\",\"state\":\"Minnesota\"},\"56001\":{\"total\":\"1179\",\"name\":\"Albany
+        County\",\"state\":\"Wyoming\"},\"27037\":{\"total\":\"7\",\"name\":\"Dakota
+        County\",\"state\":\"Minnesota\"},\"06111\":{\"total\":\"371\",\"name\":\"Ventura
+        County\",\"state\":\"California\"},\"56003\":{\"total\":\"272\",\"name\":\"Big
+        Horn County\",\"state\":\"Wyoming\"},\"29213\":{\"total\":\"1\",\"name\":\"Taney
+        County\",\"state\":\"Missouri\"},\"27035\":{\"total\":\"2\",\"name\":\"Crow
+        Wing County\",\"state\":\"Minnesota\"},\"39007\":{\"total\":\"1\",\"name\":\"Ashtabula
+        County\",\"state\":\"Ohio\"},\"56009\":{\"total\":\"295\",\"name\":\"Converse
+        County\",\"state\":\"Wyoming\"},\"20057\":{\"total\":\"3\",\"name\":\"Ford
+        County\",\"state\":\"Kansas\"},\"20055\":{\"total\":\"10\",\"name\":\"Finney
+        County\",\"state\":\"Kansas\"},\"19069\":{\"total\":\"1\",\"name\":\"Franklin
+        County\",\"state\":\"Iowa\"},\"20053\":{\"total\":\"1\",\"name\":\"Ellsworth
+        County\",\"state\":\"Kansas\"},\"19065\":{\"total\":\"1\",\"name\":\"Fayette
+        County\",\"state\":\"Iowa\"},\"19061\":{\"total\":\"1\",\"name\":\"Dubuque
+        County\",\"state\":\"Iowa\"},\"51121\":{\"total\":\"1\",\"name\":\"Montgomery
+        County\",\"state\":\"Virginia\"},\"51125\":{\"total\":\"26\",\"name\":\"Nelson
+        County\",\"state\":\"Virginia\"},\"20051\":{\"total\":\"4\",\"name\":\"Ellis
+        County\",\"state\":\"Kansas\"},\"20069\":{\"total\":\"2\",\"name\":\"Gray
+        County\",\"state\":\"Kansas\"},\"20067\":{\"total\":\"1\",\"name\":\"Grant
+        County\",\"state\":\"Kansas\"},\"32031\":{\"total\":\"595\",\"name\":\"Washoe
+        County\",\"state\":\"Nevada\"},\"19075\":{\"total\":\"1\",\"name\":\"Grundy
+        County\",\"state\":\"Iowa\"},\"51131\":{\"total\":\"160\",\"name\":\"Northampton
+        County\",\"state\":\"Virginia\"},\"32033\":{\"total\":\"175\",\"name\":\"White
+        Pine County\",\"state\":\"Nevada\"},\"20063\":{\"total\":\"3\",\"name\":\"Gove
+        County\",\"state\":\"Kansas\"},\"51139\":{\"total\":\"1\",\"name\":\"Page
+        County\",\"state\":\"Virginia\"},\"19049\":{\"total\":\"1\",\"name\":\"Dallas
+        County\",\"state\":\"Iowa\"},\"44007\":{\"total\":\"1\",\"name\":\"Providence
+        County\",\"state\":\"Rhode Island\"},\"20035\":{\"total\":\"1\",\"name\":\"Cowley
+        County\",\"state\":\"Kansas\"},\"20033\":{\"total\":\"16\",\"name\":\"Comanche
+        County\",\"state\":\"Kansas\"},\"19041\":{\"total\":\"1\",\"name\":\"Clay
+        County\",\"state\":\"Iowa\"},\"19043\":{\"total\":\"15\",\"name\":\"Clayton
+        County\",\"state\":\"Iowa\"},\"44009\":{\"total\":\"8\",\"name\":\"Washington
+        County\",\"state\":\"Rhode Island\"},\"20039\":{\"total\":\"2\",\"name\":\"Decatur
+        County\",\"state\":\"Kansas\"},\"32027\":{\"total\":\"47\",\"name\":\"Pershing
+        County\",\"state\":\"Nevada\"},\"32023\":{\"total\":\"145\",\"name\":\"Nye
+        County\",\"state\":\"Nevada\"},\"32021\":{\"total\":\"15\",\"name\":\"Mineral
+        County\",\"state\":\"Nevada\"},\"31177\":{\"total\":\"2\",\"name\":\"Washington
+        County\",\"state\":\"Nebraska\"},\"32029\":{\"total\":\"9\",\"name\":\"Storey
+        County\",\"state\":\"Nevada\"},\"20045\":{\"total\":\"3\",\"name\":\"Douglas
+        County\",\"state\":\"Kansas\"},\"31161\":{\"total\":\"10\",\"name\":\"Sheridan
+        County\",\"state\":\"Nebraska\"},\"19053\":{\"total\":\"2\",\"name\":\"Decatur
+        County\",\"state\":\"Iowa\"},\"32017\":{\"total\":\"94\",\"name\":\"Lincoln
+        County\",\"state\":\"Nevada\"},\"51153\":{\"total\":\"16\",\"name\":\"Prince
+        William County\",\"state\":\"Virginia\"},\"32015\":{\"total\":\"53\",\"name\":\"Lander
+        County\",\"state\":\"Nevada\"},\"51155\":{\"total\":\"4\",\"name\":\"Pulaski
+        County\",\"state\":\"Virginia\"},\"32013\":{\"total\":\"139\",\"name\":\"Humboldt
+        County\",\"state\":\"Nevada\"},\"51157\":{\"total\":\"3\",\"name\":\"Rappahannock
+        County\",\"state\":\"Virginia\"},\"31165\":{\"total\":\"53\",\"name\":\"Sioux
+        County\",\"state\":\"Nebraska\"},\"32011\":{\"total\":\"42\",\"name\":\"Eureka
+        County\",\"state\":\"Nevada\"},\"32019\":{\"total\":\"64\",\"name\":\"Lyon
+        County\",\"state\":\"Nevada\"},\"19027\":{\"total\":\"1\",\"name\":\"Carroll
+        County\",\"state\":\"Iowa\"},\"20015\":{\"total\":\"1\",\"name\":\"Butler
+        County\",\"state\":\"Kansas\"},\"20013\":{\"total\":\"4\",\"name\":\"Brown
+        County\",\"state\":\"Kansas\"},\"18177\":{\"total\":\"2\",\"name\":\"Wayne
+        County\",\"state\":\"Indiana\"},\"18173\":{\"total\":\"11\",\"name\":\"Warrick
+        County\",\"state\":\"Indiana\"},\"20017\":{\"total\":\"3\",\"name\":\"Chase
+        County\",\"state\":\"Kansas\"},\"32005\":{\"total\":\"100\",\"name\":\"Douglas
+        County\",\"state\":\"Nevada\"},\"31157\":{\"total\":\"44\",\"name\":\"Scotts
+        Bluff County\",\"state\":\"Nebraska\"},\"51161\":{\"total\":\"4\",\"name\":\"Roanoke
+        County\",\"state\":\"Virginia\"},\"32003\":{\"total\":\"167\",\"name\":\"Clark
+        County\",\"state\":\"Nevada\"},\"31159\":{\"total\":\"2\",\"name\":\"Seward
+        County\",\"state\":\"Nebraska\"},\"51163\":{\"total\":\"3\",\"name\":\"Rockbridge
+        County\",\"state\":\"Virginia\"},\"32001\":{\"total\":\"156\",\"name\":\"Churchill
+        County\",\"state\":\"Nevada\"},\"31153\":{\"total\":\"2\",\"name\":\"Sarpy
+        County\",\"state\":\"Nebraska\"},\"51165\":{\"total\":\"8\",\"name\":\"Rockingham
+        County\",\"state\":\"Virginia\"},\"31155\":{\"total\":\"1\",\"name\":\"Saunders
+        County\",\"state\":\"Nebraska\"},\"51167\":{\"total\":\"45\",\"name\":\"Russell
+        County\",\"state\":\"Virginia\"},\"32009\":{\"total\":\"59\",\"name\":\"Esmeralda
+        County\",\"state\":\"Nevada\"},\"32007\":{\"total\":\"793\",\"name\":\"Elko
+        County\",\"state\":\"Nevada\"},\"20027\":{\"total\":\"1\",\"name\":\"Clay
+        County\",\"state\":\"Kansas\"},\"20025\":{\"total\":\"7\",\"name\":\"Clark
+        County\",\"state\":\"Kansas\"},\"20023\":{\"total\":\"3\",\"name\":\"Cheyenne
+        County\",\"state\":\"Kansas\"},\"19033\":{\"total\":\"1\",\"name\":\"Cerro
+        Gordo County\",\"state\":\"Iowa\"},\"19035\":{\"total\":\"1\",\"name\":\"Cherokee
+        County\",\"state\":\"Iowa\"},\"51171\":{\"total\":\"3\",\"name\":\"Shenandoah
+        County\",\"state\":\"Virginia\"},\"18181\":{\"total\":\"2\",\"name\":\"White
+        County\",\"state\":\"Indiana\"},\"51173\":{\"total\":\"6\",\"name\":\"Smyth
+        County\",\"state\":\"Virginia\"},\"18157\":{\"total\":\"14\",\"name\":\"Tippecanoe
+        County\",\"state\":\"Indiana\"},\"19005\":{\"total\":\"11\",\"name\":\"Allamakee
+        County\",\"state\":\"Iowa\"},\"39097\":{\"total\":\"1\",\"name\":\"Madison
+        County\",\"state\":\"Ohio\"},\"19007\":{\"total\":\"1\",\"name\":\"Appanoose
+        County\",\"state\":\"Iowa\"},\"39099\":{\"total\":\"4\",\"name\":\"Mahoning
+        County\",\"state\":\"Ohio\"},\"18153\":{\"total\":\"18\",\"name\":\"Sullivan
+        County\",\"state\":\"Indiana\"},\"40089\":{\"total\":\"80\",\"name\":\"McCurtain
+        County\",\"state\":\"Oklahoma\"},\"18151\":{\"total\":\"6\",\"name\":\"Steuben
+        County\",\"state\":\"Indiana\"},\"39091\":{\"total\":\"1\",\"name\":\"Logan
+        County\",\"state\":\"Ohio\"},\"39093\":{\"total\":\"3\",\"name\":\"Lorain
+        County\",\"state\":\"Ohio\"},\"39095\":{\"total\":\"20\",\"name\":\"Lucas
+        County\",\"state\":\"Ohio\"},\"51185\":{\"total\":\"67\",\"name\":\"Tazewell
+        County\",\"state\":\"Virginia\"},\"31131\":{\"total\":\"2\",\"name\":\"Otoe
+        County\",\"state\":\"Nebraska\"},\"51187\":{\"total\":\"4\",\"name\":\"Warren
+        County\",\"state\":\"Virginia\"},\"31133\":{\"total\":\"1\",\"name\":\"Pawnee
+        County\",\"state\":\"Nebraska\"},\"39087\":{\"total\":\"1\",\"name\":\"Lawrence
+        County\",\"state\":\"Ohio\"},\"18169\":{\"total\":\"1\",\"name\":\"Wabash
+        County\",\"state\":\"Indiana\"},\"19015\":{\"total\":\"1\",\"name\":\"Boone
+        County\",\"state\":\"Iowa\"},\"40075\":{\"total\":\"1\",\"name\":\"Kiowa County\",\"state\":\"Oklahoma\"},\"19017\":{\"total\":\"1\",\"name\":\"Bremer
+        County\",\"state\":\"Iowa\"},\"18165\":{\"total\":\"11\",\"name\":\"Vermillion
+        County\",\"state\":\"Indiana\"},\"19011\":{\"total\":\"1\",\"name\":\"Benton
+        County\",\"state\":\"Iowa\"},\"19013\":{\"total\":\"1\",\"name\":\"Black Hawk
+        County\",\"state\":\"Iowa\"},\"18161\":{\"total\":\"6\",\"name\":\"Union County\",\"state\":\"Indiana\"},\"39081\":{\"total\":\"1\",\"name\":\"Jefferson
+        County\",\"state\":\"Ohio\"},\"18163\":{\"total\":\"1\",\"name\":\"Vanderburgh
+        County\",\"state\":\"Indiana\"},\"20009\":{\"total\":\"12\",\"name\":\"Barton
+        County\",\"state\":\"Kansas\"},\"39083\":{\"total\":\"1\",\"name\":\"Knox
+        County\",\"state\":\"Ohio\"},\"51191\":{\"total\":\"1\",\"name\":\"Washington
+        County\",\"state\":\"Virginia\"},\"39085\":{\"total\":\"7\",\"name\":\"Lake
+        County\",\"state\":\"Ohio\"},\"20007\":{\"total\":\"1\",\"name\":\"Barber
+        County\",\"state\":\"Kansas\"},\"51193\":{\"total\":\"1\",\"name\":\"Westmoreland
+        County\",\"state\":\"Virginia\"},\"31123\":{\"total\":\"28\",\"name\":\"Morrill
+        County\",\"state\":\"Nebraska\"},\"51197\":{\"total\":\"6\",\"name\":\"Wythe
+        County\",\"state\":\"Virginia\"},\"19019\":{\"total\":\"2\",\"name\":\"Buchanan
+        County\",\"state\":\"Iowa\"},\"40071\":{\"total\":\"1\",\"name\":\"Kay County\",\"state\":\"Oklahoma\"},\"47019\":{\"total\":\"12\",\"name\":\"Carter
+        County\",\"state\":\"Tennessee\"},\"47015\":{\"total\":\"5\",\"name\":\"Cannon
+        County\",\"state\":\"Tennessee\"},\"35033\":{\"total\":\"48\",\"name\":\"Mora
+        County\",\"state\":\"New Mexico\"},\"35031\":{\"total\":\"52\",\"name\":\"McKinley
+        County\",\"state\":\"New Mexico\"},\"02105\":{\"total\":\"24\",\"name\":\"Hoonah-Angoon
+        Census Area\",\"state\":\"Alaska\"},\"35039\":{\"total\":\"257\",\"name\":\"Rio
+        Arriba County\",\"state\":\"New Mexico\"},\"02100\":{\"total\":\"4\",\"name\":\"Haines
+        Borough\",\"state\":\"Alaska\"},\"35037\":{\"total\":\"8\",\"name\":\"Quay
+        County\",\"state\":\"New Mexico\"},\"35035\":{\"total\":\"73\",\"name\":\"Otero
+        County\",\"state\":\"New Mexico\"},\"13247\":{\"total\":\"8\",\"name\":\"Rockdale
+        County\",\"state\":\"Georgia\"},\"48341\":{\"total\":\"20\",\"name\":\"Moore
+        County\",\"state\":\"Texas\"},\"47011\":{\"total\":\"1\",\"name\":\"Bradley
+        County\",\"state\":\"Tennessee\"},\"47009\":{\"total\":\"1\",\"name\":\"Blount
+        County\",\"state\":\"Tennessee\"},\"47005\":{\"total\":\"2\",\"name\":\"Benton
+        County\",\"state\":\"Tennessee\"},\"48335\":{\"total\":\"1\",\"name\":\"Mitchell
+        County\",\"state\":\"Texas\"},\"35023\":{\"total\":\"160\",\"name\":\"Hidalgo
+        County\",\"state\":\"New Mexico\"},\"35021\":{\"total\":\"23\",\"name\":\"Harding
+        County\",\"state\":\"New Mexico\"},\"35029\":{\"total\":\"98\",\"name\":\"Luna
+        County\",\"state\":\"New Mexico\"},\"35028\":{\"total\":\"40\",\"name\":\"Los
+        Alamos County\",\"state\":\"New Mexico\"},\"35027\":{\"total\":\"48\",\"name\":\"Lincoln
+        County\",\"state\":\"New Mexico\"},\"35025\":{\"total\":\"14\",\"name\":\"Lea
+        County\",\"state\":\"New Mexico\"},\"13259\":{\"total\":\"2\",\"name\":\"Stewart
+        County\",\"state\":\"Georgia\"},\"48329\":{\"total\":\"10\",\"name\":\"Midland
+        County\",\"state\":\"Texas\"},\"48327\":{\"total\":\"1\",\"name\":\"Menard
+        County\",\"state\":\"Texas\"},\"23023\":{\"total\":\"42\",\"name\":\"Sagadahoc
+        County\",\"state\":\"Maine\"},\"35011\":{\"total\":\"18\",\"name\":\"De Baca
+        County\",\"state\":\"New Mexico\"},\"23025\":{\"total\":\"7\",\"name\":\"Somerset
+        County\",\"state\":\"Maine\"},\"35019\":{\"total\":\"16\",\"name\":\"Guadalupe
+        County\",\"state\":\"New Mexico\"},\"35017\":{\"total\":\"72\",\"name\":\"Grant
+        County\",\"state\":\"New Mexico\"},\"02122\":{\"total\":\"129\",\"name\":\"Kenai
+        Peninsula Borough\",\"state\":\"Alaska\"},\"35015\":{\"total\":\"73\",\"name\":\"Eddy
+        County\",\"state\":\"New Mexico\"},\"35013\":{\"total\":\"168\",\"name\":\"DoÃ\x83Â±a
+        Ana County\",\"state\":\"New Mexico\"},\"48317\":{\"total\":\"1\",\"name\":\"Martin
+        County\",\"state\":\"Texas\"},\"48315\":{\"total\":\"2\",\"name\":\"Marion
+        County\",\"state\":\"Texas\"},\"46137\":{\"total\":\"1\",\"name\":\"Ziebach
+        County\",\"state\":\"South Dakota\"},\"46135\":{\"total\":\"1\",\"name\":\"Yankton
+        County\",\"state\":\"South Dakota\"},\"35001\":{\"total\":\"167\",\"name\":\"Bernalillo
+        County\",\"state\":\"New Mexico\"},\"35009\":{\"total\":\"10\",\"name\":\"Curry
+        County\",\"state\":\"New Mexico\"},\"35007\":{\"total\":\"300\",\"name\":\"Colfax
+        County\",\"state\":\"New Mexico\"},\"35006\":{\"total\":\"133\",\"name\":\"Cibola
+        County\",\"state\":\"New Mexico\"},\"35005\":{\"total\":\"51\",\"name\":\"Chaves
+        County\",\"state\":\"New Mexico\"},\"02110\":{\"total\":\"127\",\"name\":\"Juneau
+        City and Borough\",\"state\":\"Alaska\"},\"23031\":{\"total\":\"2\",\"name\":\"York
+        County\",\"state\":\"Maine\"},\"35003\":{\"total\":\"36\",\"name\":\"Catron
+        County\",\"state\":\"New Mexico\"},\"23009\":{\"total\":\"6\",\"name\":\"Hancock
+        County\",\"state\":\"Maine\"},\"46129\":{\"total\":\"2\",\"name\":\"Walworth
+        County\",\"state\":\"South Dakota\"},\"48303\":{\"total\":\"8\",\"name\":\"Lubbock
+        County\",\"state\":\"Texas\"},\"46123\":{\"total\":\"6\",\"name\":\"Tripp
+        County\",\"state\":\"South Dakota\"},\"48301\":{\"total\":\"1\",\"name\":\"Loving
+        County\",\"state\":\"Texas\"},\"23005\":{\"total\":\"2\",\"name\":\"Cumberland
+        County\",\"state\":\"Maine\"},\"23007\":{\"total\":\"4\",\"name\":\"Franklin
+        County\",\"state\":\"Maine\"},\"46121\":{\"total\":\"3\",\"name\":\"Todd County\",\"state\":\"South
+        Dakota\"},\"46119\":{\"total\":\"16\",\"name\":\"Sully County\",\"state\":\"South
+        Dakota\"},\"46117\":{\"total\":\"44\",\"name\":\"Stanley County\",\"state\":\"South
+        Dakota\"},\"46113\":{\"total\":\"15\",\"name\":\"Shannon County\",\"state\":\"South
+        Dakota\"},\"23013\":{\"total\":\"1\",\"name\":\"Knox County\",\"state\":\"Maine\"},\"23015\":{\"total\":\"1\",\"name\":\"Lincoln
+        County\",\"state\":\"Maine\"},\"23017\":{\"total\":\"6\",\"name\":\"Oxford
+        County\",\"state\":\"Maine\"},\"23019\":{\"total\":\"1\",\"name\":\"Penobscot
+        County\",\"state\":\"Maine\"},\"23011\":{\"total\":\"22\",\"name\":\"Kennebec
+        County\",\"state\":\"Maine\"},\"13213\":{\"total\":\"2\",\"name\":\"Murray
+        County\",\"state\":\"Georgia\"},\"13211\":{\"total\":\"1\",\"name\":\"Morgan
+        County\",\"state\":\"Georgia\"},\"46107\":{\"total\":\"10\",\"name\":\"Potter
+        County\",\"state\":\"South Dakota\"},\"46105\":{\"total\":\"39\",\"name\":\"Perkins
+        County\",\"state\":\"South Dakota\"},\"46103\":{\"total\":\"148\",\"name\":\"Pennington
+        County\",\"state\":\"South Dakota\"},\"46109\":{\"total\":\"1\",\"name\":\"Roberts
+        County\",\"state\":\"South Dakota\"},\"31091\":{\"total\":\"1\",\"name\":\"Hooker
+        County\",\"state\":\"Nebraska\"},\"51580\":{\"total\":\"1\",\"name\":\"Covington
+        city\",\"state\":\"Virginia\"},\"51101\":{\"total\":\"5\",\"name\":\"King
+        William County\",\"state\":\"Virginia\"},\"11001\":{\"total\":\"8\",\"name\":\"District
+        of Columbia\",\"state\":\"District of Columbia\"},\"51105\":{\"total\":\"1\",\"name\":\"Lee
+        County\",\"state\":\"Virginia\"},\"51107\":{\"total\":\"127\",\"name\":\"Loudoun
+        County\",\"state\":\"Virginia\"},\"31085\":{\"total\":\"3\",\"name\":\"Hayes
+        County\",\"state\":\"Nebraska\"},\"31087\":{\"total\":\"1\",\"name\":\"Hitchcock
+        County\",\"state\":\"Nebraska\"},\"17201\":{\"total\":\"6\",\"name\":\"Winnebago
+        County\",\"state\":\"Illinois\"},\"17203\":{\"total\":\"1\",\"name\":\"Woodford
+        County\",\"state\":\"Illinois\"},\"27007\":{\"total\":\"3\",\"name\":\"Beltrami
+        County\",\"state\":\"Minnesota\"},\"26159\":{\"total\":\"1\",\"name\":\"Van
+        Buren County\",\"state\":\"Michigan\"},\"27005\":{\"total\":\"1\",\"name\":\"Becker
+        County\",\"state\":\"Minnesota\"},\"55043\":{\"total\":\"115\",\"name\":\"Grant
+        County\",\"state\":\"Wisconsin\"},\"55041\":{\"total\":\"4\",\"name\":\"Forest
+        County\",\"state\":\"Wisconsin\"},\"26151\":{\"total\":\"6\",\"name\":\"Sanilac
+        County\",\"state\":\"Michigan\"},\"47093\":{\"total\":\"1\",\"name\":\"Knox
+        County\",\"state\":\"Tennessee\"},\"26153\":{\"total\":\"31\",\"name\":\"Schoolcraft
+        County\",\"state\":\"Michigan\"},\"02188\":{\"total\":\"40\",\"name\":\"Northwest
+        Arctic Borough\",\"state\":\"Alaska\"},\"55049\":{\"total\":\"50\",\"name\":\"Iowa
+        County\",\"state\":\"Wisconsin\"},\"26157\":{\"total\":\"7\",\"name\":\"Tuscola
+        County\",\"state\":\"Michigan\"},\"27001\":{\"total\":\"6\",\"name\":\"Aitkin
+        County\",\"state\":\"Minnesota\"},\"02185\":{\"total\":\"455\",\"name\":\"North
+        Slope Borough\",\"state\":\"Alaska\"},\"02180\":{\"total\":\"492\",\"name\":\"Nome
+        Census Area\",\"state\":\"Alaska\"},\"47097\":{\"total\":\"1\",\"name\":\"Lauderdale
+        County\",\"state\":\"Tennessee\"},\"47095\":{\"total\":\"18\",\"name\":\"Lake
+        County\",\"state\":\"Tennessee\"},\"27019\":{\"total\":\"5\",\"name\":\"Carver
+        County\",\"state\":\"Minnesota\"},\"27017\":{\"total\":\"2\",\"name\":\"Carlton
+        County\",\"state\":\"Minnesota\"},\"55053\":{\"total\":\"24\",\"name\":\"Jackson
+        County\",\"state\":\"Wisconsin\"},\"47081\":{\"total\":\"1\",\"name\":\"Hickman
+        County\",\"state\":\"Tennessee\"},\"26161\":{\"total\":\"44\",\"name\":\"Washtenaw
+        County\",\"state\":\"Michigan\"},\"55057\":{\"total\":\"15\",\"name\":\"Juneau
+        County\",\"state\":\"Wisconsin\"},\"02170\":{\"total\":\"572\",\"name\":\"Matanuska-Susitna
+        Borough\",\"state\":\"Alaska\"},\"26163\":{\"total\":\"399\",\"name\":\"Wayne
+        County\",\"state\":\"Michigan\"},\"55055\":{\"total\":\"3\",\"name\":\"Jefferson
+        County\",\"state\":\"Wisconsin\"},\"26165\":{\"total\":\"5\",\"name\":\"Wexford
+        County\",\"state\":\"Michigan\"},\"55059\":{\"total\":\"2\",\"name\":\"Kenosha
+        County\",\"state\":\"Wisconsin\"},\"47087\":{\"total\":\"2\",\"name\":\"Jackson
+        County\",\"state\":\"Tennessee\"},\"47085\":{\"total\":\"45\",\"name\":\"Humphreys
+        County\",\"state\":\"Tennessee\"},\"26139\":{\"total\":\"3\",\"name\":\"Ottawa
+        County\",\"state\":\"Michigan\"},\"55065\":{\"total\":\"2\",\"name\":\"Lafayette
+        County\",\"state\":\"Wisconsin\"},\"55063\":{\"total\":\"5\",\"name\":\"La
+        Crosse County\",\"state\":\"Wisconsin\"},\"47071\":{\"total\":\"14\",\"name\":\"Hardin
+        County\",\"state\":\"Tennessee\"},\"26131\":{\"total\":\"1\",\"name\":\"Ontonagon
+        County\",\"state\":\"Michigan\"},\"55067\":{\"total\":\"1\",\"name\":\"Langlade
+        County\",\"state\":\"Wisconsin\"},\"26133\":{\"total\":\"1\",\"name\":\"Osceola
+        County\",\"state\":\"Michigan\"},\"47079\":{\"total\":\"126\",\"name\":\"Henry
+        County\",\"state\":\"Tennessee\"},\"47075\":{\"total\":\"5\",\"name\":\"Haywood
+        County\",\"state\":\"Tennessee\"},\"26147\":{\"total\":\"5\",\"name\":\"St.
+        Clair County\",\"state\":\"Michigan\"},\"55071\":{\"total\":\"3\",\"name\":\"Manitowoc
+        County\",\"state\":\"Wisconsin\"},\"26149\":{\"total\":\"3\",\"name\":\"St.
+        Joseph County\",\"state\":\"Michigan\"},\"55073\":{\"total\":\"7\",\"name\":\"Marathon
+        County\",\"state\":\"Wisconsin\"},\"02195\":{\"total\":\"2\",\"name\":\"Petersburg
+        Census Area\",\"state\":\"Alaska\"},\"55079\":{\"total\":\"2\",\"name\":\"Milwaukee
+        County\",\"state\":\"Wisconsin\"},\"55077\":{\"total\":\"8\",\"name\":\"Marquette
+        County\",\"state\":\"Wisconsin\"},\"26143\":{\"total\":\"1\",\"name\":\"Roscommon
+        County\",\"state\":\"Michigan\"},\"26145\":{\"total\":\"32\",\"name\":\"Saginaw
+        County\",\"state\":\"Michigan\"},\"38101\":{\"total\":\"8\",\"name\":\"Ward
+        County\",\"state\":\"North Dakota\"},\"48389\":{\"total\":\"41\",\"name\":\"Reeves
+        County\",\"state\":\"Texas\"},\"38103\":{\"total\":\"2\",\"name\":\"Wells
+        County\",\"state\":\"North Dakota\"},\"26115\":{\"total\":\"14\",\"name\":\"Monroe
+        County\",\"state\":\"Michigan\"},\"55083\":{\"total\":\"2\",\"name\":\"Oconto
+        County\",\"state\":\"Wisconsin\"},\"55081\":{\"total\":\"129\",\"name\":\"Monroe
+        County\",\"state\":\"Wisconsin\"},\"26117\":{\"total\":\"3\",\"name\":\"Montcalm
+        County\",\"state\":\"Michigan\"},\"26119\":{\"total\":\"2\",\"name\":\"Montmorency
+        County\",\"state\":\"Michigan\"},\"55087\":{\"total\":\"2\",\"name\":\"Outagamie
+        County\",\"state\":\"Wisconsin\"},\"55085\":{\"total\":\"3\",\"name\":\"Oneida
+        County\",\"state\":\"Wisconsin\"},\"55089\":{\"total\":\"17\",\"name\":\"Ozaukee
+        County\",\"state\":\"Wisconsin\"},\"26111\":{\"total\":\"7\",\"name\":\"Midland
+        County\",\"state\":\"Michigan\"},\"38105\":{\"total\":\"13\",\"name\":\"Williams
+        County\",\"state\":\"North Dakota\"},\"47057\":{\"total\":\"1\",\"name\":\"Grainger
+        County\",\"state\":\"Tennessee\"},\"48385\":{\"total\":\"1\",\"name\":\"Real
+        County\",\"state\":\"Texas\"},\"47053\":{\"total\":\"1\",\"name\":\"Gibson
+        County\",\"state\":\"Tennessee\"},\"48381\":{\"total\":\"56\",\"name\":\"Randall
+        County\",\"state\":\"Texas\"},\"47051\":{\"total\":\"2\",\"name\":\"Franklin
+        County\",\"state\":\"Tennessee\"},\"13297\":{\"total\":\"2\",\"name\":\"Walton
+        County\",\"state\":\"Georgia\"},\"47049\":{\"total\":\"2\",\"name\":\"Fentress
+        County\",\"state\":\"Tennessee\"},\"13295\":{\"total\":\"3\",\"name\":\"Walker
+        County\",\"state\":\"Georgia\"},\"47047\":{\"total\":\"1\",\"name\":\"Fayette
+        County\",\"state\":\"Tennessee\"},\"55093\":{\"total\":\"7\",\"name\":\"Pierce
+        County\",\"state\":\"Wisconsin\"},\"26125\":{\"total\":\"4\",\"name\":\"Oakland
+        County\",\"state\":\"Michigan\"},\"55091\":{\"total\":\"4\",\"name\":\"Pepin
+        County\",\"state\":\"Wisconsin\"},\"26127\":{\"total\":\"2\",\"name\":\"Oceana
+        County\",\"state\":\"Michigan\"},\"55097\":{\"total\":\"29\",\"name\":\"Portage
+        County\",\"state\":\"Wisconsin\"},\"26129\":{\"total\":\"1\",\"name\":\"Ogemaw
+        County\",\"state\":\"Michigan\"},\"35061\":{\"total\":\"9\",\"name\":\"Valencia
+        County\",\"state\":\"New Mexico\"},\"55095\":{\"total\":\"4\",\"name\":\"Polk
+        County\",\"state\":\"Wisconsin\"},\"5905\":{\"total\":\"27\",\"name\":\"Kootenay
+        Boundary\",\"state\":\"British Columbia Canada\"},\"5907\":{\"total\":\"788\",\"name\":\"Okanagan-Similkameen\",\"state\":\"British
+        Columbia Canada\"},\"26121\":{\"total\":\"110\",\"name\":\"Muskegon County\",\"state\":\"Michigan\"},\"5909\":{\"total\":\"91\",\"name\":\"Fraser
+        Valley\",\"state\":\"British Columbia Canada\"},\"26123\":{\"total\":\"2\",\"name\":\"Newaygo
+        County\",\"state\":\"Michigan\"},\"48377\":{\"total\":\"30\",\"name\":\"Presidio
+        County\",\"state\":\"Texas\"},\"47045\":{\"total\":\"2\",\"name\":\"Dyer County\",\"state\":\"Tennessee\"},\"48375\":{\"total\":\"6\",\"name\":\"Potter
+        County\",\"state\":\"Texas\"},\"13299\":{\"total\":\"1\",\"name\":\"Ware County\",\"state\":\"Georgia\"},\"5901\":{\"total\":\"233\",\"name\":\"East
+        Kootenay\",\"state\":\"British Columbia Canada\"},\"48371\":{\"total\":\"7\",\"name\":\"Pecos
+        County\",\"state\":\"Texas\"},\"5903\":{\"total\":\"108\",\"name\":\"Central
+        Kootenay\",\"state\":\"British Columbia Canada\"},\"47039\":{\"total\":\"8\",\"name\":\"Decatur
+        County\",\"state\":\"Tennessee\"},\"35055\":{\"total\":\"124\",\"name\":\"Taos
+        County\",\"state\":\"New Mexico\"},\"35053\":{\"total\":\"663\",\"name\":\"Socorro
+        County\",\"state\":\"New Mexico\"},\"35051\":{\"total\":\"133\",\"name\":\"Sierra
+        County\",\"state\":\"New Mexico\"},\"5915\":{\"total\":\"150\",\"name\":\"Greater
+        Vancouver\",\"state\":\"British Columbia Canada\"},\"2405\":{\"total\":\"1\",\"name\":\"Bonaventure\",\"state\":\"Quebec
+        Canada\"},\"2404\":{\"total\":\"7\",\"name\":\"La Haute-Gasp1sie\",\"state\":\"Quebec
+        Canada\"},\"5917\":{\"total\":\"185\",\"name\":\"Capital\",\"state\":\"British
+        Columbia Canada\"},\"2403\":{\"total\":\"14\",\"name\":\"La C\",\"state\":\"Quebec
+        Canada\"},\"5919\":{\"total\":\"25\",\"name\":\"Cowichan Valley\",\"state\":\"British
+        Columbia Canada\"},\"35059\":{\"total\":\"55\",\"name\":\"Union County\",\"state\":\"New
+        Mexico\"},\"02164\":{\"total\":\"30\",\"name\":\"Lake and Peninsula Borough\",\"state\":\"Alaska\"},\"35057\":{\"total\":\"218\",\"name\":\"Torrance
+        County\",\"state\":\"New Mexico\"},\"48363\":{\"total\":\"1\",\"name\":\"Palo
+        Pinto County\",\"state\":\"Texas\"},\"2409\":{\"total\":\"4\",\"name\":\"La
+        Mitis\",\"state\":\"Quebec Canada\"},\"2408\":{\"total\":\"16\",\"name\":\"Matane\",\"state\":\"Quebec
+        Canada\"},\"47029\":{\"total\":\"1\",\"name\":\"Cocke County\",\"state\":\"Tennessee\"},\"48359\":{\"total\":\"4\",\"name\":\"Oldham
+        County\",\"state\":\"Texas\"},\"47027\":{\"total\":\"2\",\"name\":\"Clay County\",\"state\":\"Tennessee\"},\"13275\":{\"total\":\"1\",\"name\":\"Thomas
+        County\",\"state\":\"Georgia\"},\"48357\":{\"total\":\"2\",\"name\":\"Ochiltree
+        County\",\"state\":\"Texas\"},\"47025\":{\"total\":\"1\",\"name\":\"Claiborne
+        County\",\"state\":\"Tennessee\"},\"35045\":{\"total\":\"72\",\"name\":\"San
+        Juan County\",\"state\":\"New Mexico\"},\"26103\":{\"total\":\"15\",\"name\":\"Marquette
+        County\",\"state\":\"Michigan\"},\"35043\":{\"total\":\"103\",\"name\":\"Sandoval
+        County\",\"state\":\"New Mexico\"},\"26105\":{\"total\":\"2\",\"name\":\"Mason
+        County\",\"state\":\"Michigan\"},\"35041\":{\"total\":\"43\",\"name\":\"Roosevelt
+        County\",\"state\":\"New Mexico\"},\"26107\":{\"total\":\"1\",\"name\":\"Mecosta
+        County\",\"state\":\"Michigan\"},\"5926\":{\"total\":\"7\",\"name\":\"Comox
+        Valley\",\"state\":\"British Columbia Canada\"},\"2416\":{\"total\":\"4\",\"name\":\"Charlevoix\",\"state\":\"Quebec
+        Canada\"},\"02150\":{\"total\":\"34\",\"name\":\"Kodiak Island Borough\",\"state\":\"Alaska\"},\"2415\":{\"total\":\"2\",\"name\":\"Charlevoix-Est\",\"state\":\"Quebec
+        Canada\"},\"5927\":{\"total\":\"1\",\"name\":\"Powell River\",\"state\":\"British
+        Columbia Canada\"},\"2414\":{\"total\":\"8\",\"name\":\"Kamouraska\",\"state\":\"Quebec
+        Canada\"},\"5929\":{\"total\":\"12\",\"name\":\"Sunshine Coast\",\"state\":\"British
+        Columbia Canada\"},\"35049\":{\"total\":\"82\",\"name\":\"Santa Fe County\",\"state\":\"New
+        Mexico\"},\"2412\":{\"total\":\"4\",\"name\":\"Rivi\",\"state\":\"Quebec Canada\"},\"2410\":{\"total\":\"97\",\"name\":\"Rimouski-Neigette\",\"state\":\"Quebec
+        Canada\"},\"35047\":{\"total\":\"77\",\"name\":\"San Miguel County\",\"state\":\"New
+        Mexico\"},\"26101\":{\"total\":\"8\",\"name\":\"Manistee County\",\"state\":\"Michigan\"},\"48355\":{\"total\":\"1\",\"name\":\"Nueces
+        County\",\"state\":\"Texas\"},\"47021\":{\"total\":\"1\",\"name\":\"Cheatham
+        County\",\"state\":\"Tennessee\"},\"5921\":{\"total\":\"12\",\"name\":\"Nanaimo\",\"state\":\"British
+        Columbia Canada\"},\"5923\":{\"total\":\"5\",\"name\":\"Alberni-Clayoquot\",\"state\":\"British
+        Columbia Canada\"},\"2419\":{\"total\":\"1\",\"name\":\"Bellechasse\",\"state\":\"Quebec
+        Canada\"},\"5924\":{\"total\":\"6\",\"name\":\"Strathcona\",\"state\":\"British
+        Columbia Canada\"},\"2417\":{\"total\":\"3\",\"name\":\"L'Islet\",\"state\":\"Quebec
+        Canada\"},\"41033\":{\"total\":\"32\",\"name\":\"Josephine County\",\"state\":\"Oregon\"},\"16077\":{\"total\":\"22\",\"name\":\"Power
+        County\",\"state\":\"Idaho\"},\"19103\":{\"total\":\"3\",\"name\":\"Johnson
+        County\",\"state\":\"Iowa\"},\"41031\":{\"total\":\"344\",\"name\":\"Jefferson
+        County\",\"state\":\"Oregon\"},\"16075\":{\"total\":\"21\",\"name\":\"Payette
+        County\",\"state\":\"Idaho\"},\"19105\":{\"total\":\"1\",\"name\":\"Jones
+        County\",\"state\":\"Iowa\"},\"41037\":{\"total\":\"604\",\"name\":\"Lake
+        County\",\"state\":\"Oregon\"},\"41035\":{\"total\":\"590\",\"name\":\"Klamath
+        County\",\"state\":\"Oregon\"},\"16079\":{\"total\":\"13\",\"name\":\"Shoshone
+        County\",\"state\":\"Idaho\"},\"41039\":{\"total\":\"15\",\"name\":\"Lane
+        County\",\"state\":\"Oregon\"},\"16073\":{\"total\":\"308\",\"name\":\"Owyhee
+        County\",\"state\":\"Idaho\"},\"16071\":{\"total\":\"36\",\"name\":\"Oneida
+        County\",\"state\":\"Idaho\"},\"5937\":{\"total\":\"78\",\"name\":\"North
+        Okanagan\",\"state\":\"British Columbia Canada\"},\"2427\":{\"total\":\"1\",\"name\":\"Robert-Cliche\",\"state\":\"Quebec
+        Canada\"},\"4606\":{\"total\":\"1\",\"name\":\"Division No.  6\",\"state\":\"Manitoba
+        Canada\"},\"53023\":{\"total\":\"22\",\"name\":\"Garfield County\",\"state\":\"Washington\"},\"4607\":{\"total\":\"4\",\"name\":\"Division
+        No.  7\",\"state\":\"Manitoba Canada\"},\"5939\":{\"total\":\"348\",\"name\":\"Columbia-Shuswap\",\"state\":\"British
+        Columbia Canada\"},\"2425\":{\"total\":\"7\",\"name\":\"L4vis\",\"state\":\"Quebec
+        Canada\"},\"4608\":{\"total\":\"2\",\"name\":\"Division No.  8\",\"state\":\"Manitoba
+        Canada\"},\"53021\":{\"total\":\"46\",\"name\":\"Franklin County\",\"state\":\"Washington\"},\"4609\":{\"total\":\"1\",\"name\":\"Division
+        No.  9\",\"state\":\"Manitoba Canada\"},\"2423\":{\"total\":\"17\",\"name\":\"Qu2bec\",\"state\":\"Quebec
+        Canada\"},\"28059\":{\"total\":\"8\",\"name\":\"Jackson County\",\"state\":\"Mississippi\"},\"53027\":{\"total\":\"9\",\"name\":\"Grays
+        Harbor County\",\"state\":\"Washington\"},\"2422\":{\"total\":\"2\",\"name\":\"La
+        Jacques-Cartier\",\"state\":\"Quebec Canada\"},\"2421\":{\"total\":\"86\",\"name\":\"La
+        C\",\"state\":\"Quebec Canada\"},\"53025\":{\"total\":\"229\",\"name\":\"Grant
+        County\",\"state\":\"Washington\"},\"2420\":{\"total\":\"1\",\"name\":\"L'2le-d'Orl
+        ans\",\"state\":\"Quebec Canada\"},\"5931\":{\"total\":\"159\",\"name\":\"Squamish-Lillooet\",\"state\":\"British
+        Columbia Canada\"},\"4601\":{\"total\":\"5\",\"name\":\"Division No.  1\",\"state\":\"Manitoba
+        Canada\"},\"53029\":{\"total\":\"3\",\"name\":\"Island County\",\"state\":\"Washington\"},\"5933\":{\"total\":\"131\",\"name\":\"Thompson-Nicola\",\"state\":\"British
+        Columbia Canada\"},\"4602\":{\"total\":\"33\",\"name\":\"Division No.  2\",\"state\":\"Manitoba
+        Canada\"},\"4603\":{\"total\":\"11\",\"name\":\"Division No.  3\",\"state\":\"Manitoba
+        Canada\"},\"5935\":{\"total\":\"125\",\"name\":\"Central Okanagan\",\"state\":\"British
+        Columbia Canada\"},\"4604\":{\"total\":\"55\",\"name\":\"Division No.  4\",\"state\":\"Manitoba
+        Canada\"},\"2429\":{\"total\":\"1\",\"name\":\"Beauce-Sartigan\",\"state\":\"Quebec
+        Canada\"},\"19109\":{\"total\":\"2\",\"name\":\"Kossuth County\",\"state\":\"Iowa\"},\"41021\":{\"total\":\"56\",\"name\":\"Gilliam
+        County\",\"state\":\"Oregon\"},\"16087\":{\"total\":\"53\",\"name\":\"Washington
+        County\",\"state\":\"Idaho\"},\"19117\":{\"total\":\"1\",\"name\":\"Lucas
+        County\",\"state\":\"Iowa\"},\"16085\":{\"total\":\"49\",\"name\":\"Valley
+        County\",\"state\":\"Idaho\"},\"20101\":{\"total\":\"8\",\"name\":\"Lane County\",\"state\":\"Kansas\"},\"19111\":{\"total\":\"1\",\"name\":\"Lee
+        County\",\"state\":\"Iowa\"},\"41025\":{\"total\":\"935\",\"name\":\"Harney
+        County\",\"state\":\"Oregon\"},\"19113\":{\"total\":\"5\",\"name\":\"Linn
+        County\",\"state\":\"Iowa\"},\"41023\":{\"total\":\"71\",\"name\":\"Grant
+        County\",\"state\":\"Oregon\"},\"41029\":{\"total\":\"457\",\"name\":\"Jackson
+        County\",\"state\":\"Oregon\"},\"41027\":{\"total\":\"104\",\"name\":\"Hood
+        River County\",\"state\":\"Oregon\"},\"20109\":{\"total\":\"24\",\"name\":\"Logan
+        County\",\"state\":\"Kansas\"},\"16083\":{\"total\":\"176\",\"name\":\"Twin
+        Falls County\",\"state\":\"Idaho\"},\"20107\":{\"total\":\"53\",\"name\":\"Linn
+        County\",\"state\":\"Kansas\"},\"16081\":{\"total\":\"32\",\"name\":\"Teton
+        County\",\"state\":\"Idaho\"},\"20105\":{\"total\":\"2\",\"name\":\"Lincoln
+        County\",\"state\":\"Kansas\"},\"53033\":{\"total\":\"137\",\"name\":\"King
+        County\",\"state\":\"Washington\"},\"2438\":{\"total\":\"8\",\"name\":\"B4cancour\",\"state\":\"Quebec
+        Canada\"},\"4617\":{\"total\":\"3\",\"name\":\"Division No. 17\",\"state\":\"Manitoba
+        Canada\"},\"5949\":{\"total\":\"17\",\"name\":\"Kitimat-Stikine\",\"state\":\"British
+        Columbia Canada\"},\"4618\":{\"total\":\"8\",\"name\":\"Division No. 18\",\"state\":\"Manitoba
+        Canada\"},\"53031\":{\"total\":\"4\",\"name\":\"Jefferson County\",\"state\":\"Washington\"},\"53037\":{\"total\":\"301\",\"name\":\"Kittitas
+        County\",\"state\":\"Washington\"},\"1102\":{\"total\":\"2\",\"name\":\"Queens\",\"state\":\"Prince
+        Edward Island Canada\"},\"53035\":{\"total\":\"3\",\"name\":\"Kitsap County\",\"state\":\"Washington\"},\"5941\":{\"total\":\"45\",\"name\":\"Cariboo\",\"state\":\"British
+        Columbia Canada\"},\"4610\":{\"total\":\"2\",\"name\":\"Division No. 10\",\"state\":\"Manitoba
+        Canada\"},\"53039\":{\"total\":\"131\",\"name\":\"Klickitat County\",\"state\":\"Washington\"},\"4611\":{\"total\":\"7\",\"name\":\"Division
+        No. 11\",\"state\":\"Manitoba Canada\"},\"4612\":{\"total\":\"1\",\"name\":\"Division
+        No. 12\",\"state\":\"Manitoba Canada\"},\"5943\":{\"total\":\"1\",\"name\":\"Mount
+        Waddington\",\"state\":\"British Columbia Canada\"},\"4613\":{\"total\":\"2\",\"name\":\"Division
+        No. 13\",\"state\":\"Manitoba Canada\"},\"4614\":{\"total\":\"6\",\"name\":\"Division
+        No. 14\",\"state\":\"Manitoba Canada\"},\"5945\":{\"total\":\"3\",\"name\":\"Central
+        Coast\",\"state\":\"British Columbia Canada\"},\"4615\":{\"total\":\"4\",\"name\":\"Division
+        No. 15\",\"state\":\"Manitoba Canada\"},\"5947\":{\"total\":\"2\",\"name\":\"Skeena-Queen
+        Charlotte\",\"state\":\"British Columbia Canada\"},\"2439\":{\"total\":\"1\",\"name\":\"Arthabaska\",\"state\":\"Quebec
+        Canada\"},\"39175\":{\"total\":\"17\",\"name\":\"Wyandot County\",\"state\":\"Ohio\"},\"16055\":{\"total\":\"13\",\"name\":\"Kootenai
+        County\",\"state\":\"Idaho\"},\"41011\":{\"total\":\"5\",\"name\":\"Coos County\",\"state\":\"Oregon\"},\"16053\":{\"total\":\"4\",\"name\":\"Jerome
+        County\",\"state\":\"Idaho\"},\"16059\":{\"total\":\"127\",\"name\":\"Lemhi
+        County\",\"state\":\"Idaho\"},\"41015\":{\"total\":\"21\",\"name\":\"Curry
+        County\",\"state\":\"Oregon\"},\"41013\":{\"total\":\"540\",\"name\":\"Crook
+        County\",\"state\":\"Oregon\"},\"16057\":{\"total\":\"26\",\"name\":\"Latah
+        County\",\"state\":\"Idaho\"},\"41019\":{\"total\":\"76\",\"name\":\"Douglas
+        County\",\"state\":\"Oregon\"},\"2452\":{\"total\":\"1\",\"name\":\"D'Autray\",\"state\":\"Quebec
+        Canada\"},\"2451\":{\"total\":\"1\",\"name\":\"MaskinongQ\",\"state\":\"Quebec
+        Canada\"},\"41017\":{\"total\":\"686\",\"name\":\"Deschutes County\",\"state\":\"Oregon\"},\"2450\":{\"total\":\"25\",\"name\":\"Nicolet-Yamaska\",\"state\":\"Quebec
+        Canada\"},\"28039\":{\"total\":\"1\",\"name\":\"George County\",\"state\":\"Mississippi\"},\"16051\":{\"total\":\"88\",\"name\":\"Jefferson
+        County\",\"state\":\"Idaho\"},\"53041\":{\"total\":\"9\",\"name\":\"Lewis
+        County\",\"state\":\"Washington\"},\"39173\":{\"total\":\"1\",\"name\":\"Wood
+        County\",\"state\":\"Ohio\"},\"5959\":{\"total\":\"3\",\"name\":\"Northern
+        Rockies\",\"state\":\"British Columbia Canada\"},\"2449\":{\"total\":\"1\",\"name\":\"Drummond\",\"state\":\"Quebec
+        Canada\"},\"53045\":{\"total\":\"3\",\"name\":\"Mason County\",\"state\":\"Washington\"},\"2447\":{\"total\":\"4\",\"name\":\"La
+        Haute-Yamaska\",\"state\":\"Quebec Canada\"},\"53043\":{\"total\":\"100\",\"name\":\"Lincoln
+        County\",\"state\":\"Washington\"},\"2446\":{\"total\":\"2\",\"name\":\"Brome-Missisquoi\",\"state\":\"Quebec
+        Canada\"},\"2445\":{\"total\":\"2\",\"name\":\"Memphrnmagog\",\"state\":\"Quebec
+        Canada\"},\"53049\":{\"total\":\"2\",\"name\":\"Pacific County\",\"state\":\"Washington\"},\"2443\":{\"total\":\"2\",\"name\":\"Sherbrooke\",\"state\":\"Quebec
+        Canada\"},\"53047\":{\"total\":\"759\",\"name\":\"Okanogan County\",\"state\":\"Washington\"},\"5951\":{\"total\":\"18\",\"name\":\"Bulkley-Nechako\",\"state\":\"British
+        Columbia Canada\"},\"4621\":{\"total\":\"2\",\"name\":\"Division No. 21\",\"state\":\"Manitoba
+        Canada\"},\"5953\":{\"total\":\"27\",\"name\":\"Fraser-Fort George\",\"state\":\"British
+        Columbia Canada\"},\"4622\":{\"total\":\"4\",\"name\":\"Division No. 22\",\"state\":\"Manitoba
+        Canada\"},\"4623\":{\"total\":\"77\",\"name\":\"Division No. 23\",\"state\":\"Manitoba
+        Canada\"},\"5955\":{\"total\":\"52\",\"name\":\"Peace River\",\"state\":\"British
+        Columbia Canada\"},\"5957\":{\"total\":\"56\",\"name\":\"Stikine\",\"state\":\"British
+        Columbia Canada\"},\"40153\":{\"total\":\"1\",\"name\":\"Woodward County\",\"state\":\"Oklahoma\"},\"16065\":{\"total\":\"22\",\"name\":\"Madison
+        County\",\"state\":\"Idaho\"},\"39163\":{\"total\":\"2\",\"name\":\"Vinton
+        County\",\"state\":\"Ohio\"},\"40151\":{\"total\":\"2\",\"name\":\"Woods County\",\"state\":\"Oklahoma\"},\"16063\":{\"total\":\"16\",\"name\":\"Lincoln
+        County\",\"state\":\"Idaho\"},\"39165\":{\"total\":\"1\",\"name\":\"Warren
+        County\",\"state\":\"Ohio\"},\"41003\":{\"total\":\"119\",\"name\":\"Benton
+        County\",\"state\":\"Oregon\"},\"16069\":{\"total\":\"68\",\"name\":\"Nez
+        Perce County\",\"state\":\"Idaho\"},\"41001\":{\"total\":\"125\",\"name\":\"Baker
+        County\",\"state\":\"Oregon\"},\"16067\":{\"total\":\"7\",\"name\":\"Minidoka
+        County\",\"state\":\"Idaho\"},\"39169\":{\"total\":\"2\",\"name\":\"Wayne
+        County\",\"state\":\"Ohio\"},\"2463\":{\"total\":\"2\",\"name\":\"Montcalm\",\"state\":\"Quebec
+        Canada\"},\"2462\":{\"total\":\"5\",\"name\":\"Matawinie\",\"state\":\"Quebec
+        Canada\"},\"41007\":{\"total\":\"5\",\"name\":\"Clatsop County\",\"state\":\"Oregon\"},\"41005\":{\"total\":\"16\",\"name\":\"Clackamas
+        County\",\"state\":\"Oregon\"},\"2460\":{\"total\":\"3\",\"name\":\"L'Assomption\",\"state\":\"Quebec
+        Canada\"},\"53051\":{\"total\":\"16\",\"name\":\"Pend Oreille County\",\"state\":\"Washington\"},\"41009\":{\"total\":\"30\",\"name\":\"Columbia
+        County\",\"state\":\"Oregon\"},\"53055\":{\"total\":\"57\",\"name\":\"San
+        Juan County\",\"state\":\"Washington\"},\"2459\":{\"total\":\"1\",\"name\":\"Lajemmerais\",\"state\":\"Quebec
+        Canada\"},\"28045\":{\"total\":\"1\",\"name\":\"Hancock County\",\"state\":\"Mississippi\"},\"53053\":{\"total\":\"57\",\"name\":\"Pierce
+        County\",\"state\":\"Washington\"},\"2457\":{\"total\":\"3\",\"name\":\"La
+        Vall/e-du-Richelieu\",\"state\":\"Quebec Canada\"},\"53059\":{\"total\":\"12\",\"name\":\"Skamania
+        County\",\"state\":\"Washington\"},\"2456\":{\"total\":\"4\",\"name\":\"Le
+        Haut-Richelieu\",\"state\":\"Quebec Canada\"},\"2455\":{\"total\":\"1\",\"name\":\"Rouville\",\"state\":\"Quebec
+        Canada\"},\"53057\":{\"total\":\"71\",\"name\":\"Skagit County\",\"state\":\"Washington\"},\"2454\":{\"total\":\"1\",\"name\":\"Les
+        Maskoutains\",\"state\":\"Quebec Canada\"},\"28041\":{\"total\":\"1\",\"name\":\"Greene
+        County\",\"state\":\"Mississippi\"},\"16033\":{\"total\":\"36\",\"name\":\"Clark
+        County\",\"state\":\"Idaho\"},\"40141\":{\"total\":\"1\",\"name\":\"Tillman
+        County\",\"state\":\"Oklahoma\"},\"16031\":{\"total\":\"142\",\"name\":\"Cassia
+        County\",\"state\":\"Idaho\"},\"39155\":{\"total\":\"2\",\"name\":\"Trumbull
+        County\",\"state\":\"Ohio\"},\"16037\":{\"total\":\"111\",\"name\":\"Custer
+        County\",\"state\":\"Idaho\"},\"39157\":{\"total\":\"1\",\"name\":\"Tuscarawas
+        County\",\"state\":\"Ohio\"},\"16035\":{\"total\":\"3\",\"name\":\"Clearwater
+        County\",\"state\":\"Idaho\"},\"40143\":{\"total\":\"1\",\"name\":\"Tulsa
+        County\",\"state\":\"Oklahoma\"},\"2474\":{\"total\":\"3\",\"name\":\"Mirabel\",\"state\":\"Quebec
+        Canada\"},\"40149\":{\"total\":\"1\",\"name\":\"Washita County\",\"state\":\"Oklahoma\"},\"2472\":{\"total\":\"2\",\"name\":\"Deux-Montagnes\",\"state\":\"Quebec
+        Canada\"},\"2471\":{\"total\":\"22\",\"name\":\"Vaudreuil-Soulanges\",\"state\":\"Quebec
+        Canada\"},\"40147\":{\"total\":\"1\",\"name\":\"Washington County\",\"state\":\"Oklahoma\"},\"2470\":{\"total\":\"292\",\"name\":\"Beauharnois-Salaberry\",\"state\":\"Quebec
+        Canada\"},\"53063\":{\"total\":\"50\",\"name\":\"Spokane County\",\"state\":\"Washington\"},\"39151\":{\"total\":\"1\",\"name\":\"Stark
+        County\",\"state\":\"Ohio\"},\"53061\":{\"total\":\"13\",\"name\":\"Snohomish
+        County\",\"state\":\"Washington\"},\"28011\":{\"total\":\"1\",\"name\":\"Bolivar
+        County\",\"state\":\"Mississippi\"},\"53067\":{\"total\":\"5\",\"name\":\"Thurston
+        County\",\"state\":\"Washington\"},\"2469\":{\"total\":\"41\",\"name\":\"Le
+        Haut-Saint-Laurent\",\"state\":\"Quebec Canada\"},\"53065\":{\"total\":\"89\",\"name\":\"Stevens
+        County\",\"state\":\"Washington\"},\"2468\":{\"total\":\"5\",\"name\":\"Les
+        Jardins-de-Napierville\",\"state\":\"Quebec Canada\"},\"27163\":{\"total\":\"2\",\"name\":\"Washington
+        County\",\"state\":\"Minnesota\"},\"2467\":{\"total\":\"4\",\"name\":\"Roussillon\",\"state\":\"Quebec
+        Canada\"},\"27169\":{\"total\":\"39\",\"name\":\"Winona County\",\"state\":\"Minnesota\"},\"2466\":{\"total\":\"22\",\"name\":\"MontrSal\",\"state\":\"Quebec
+        Canada\"},\"2465\":{\"total\":\"8\",\"name\":\"Laval\",\"state\":\"Quebec
+        Canada\"},\"53069\":{\"total\":\"2\",\"name\":\"Wahkiakum County\",\"state\":\"Washington\"},\"27167\":{\"total\":\"1\",\"name\":\"Wilkin
+        County\",\"state\":\"Minnesota\"},\"16039\":{\"total\":\"159\",\"name\":\"Elmore
+        County\",\"state\":\"Idaho\"},\"16043\":{\"total\":\"57\",\"name\":\"Fremont
+        County\",\"state\":\"Idaho\"},\"39141\":{\"total\":\"2\",\"name\":\"Ross County\",\"state\":\"Ohio\"},\"16041\":{\"total\":\"16\",\"name\":\"Franklin
+        County\",\"state\":\"Idaho\"},\"39143\":{\"total\":\"1\",\"name\":\"Sandusky
+        County\",\"state\":\"Ohio\"},\"40135\":{\"total\":\"1\",\"name\":\"Sequoyah
+        County\",\"state\":\"Oklahoma\"},\"16047\":{\"total\":\"109\",\"name\":\"Gooding
+        County\",\"state\":\"Idaho\"},\"16045\":{\"total\":\"31\",\"name\":\"Gem County\",\"state\":\"Idaho\"},\"39147\":{\"total\":\"2\",\"name\":\"Seneca
+        County\",\"state\":\"Ohio\"},\"40139\":{\"total\":\"14\",\"name\":\"Texas
+        County\",\"state\":\"Oklahoma\"},\"2485\":{\"total\":\"1\",\"name\":\"T4miscamingue\",\"state\":\"Quebec
+        Canada\"},\"2484\":{\"total\":\"8\",\"name\":\"Pontiac\",\"state\":\"Quebec
+        Canada\"},\"2483\":{\"total\":\"6\",\"name\":\"La Vall\",\"state\":\"Quebec
+        Canada\"},\"2482\":{\"total\":\"38\",\"name\":\"Les Collines-de-l'Outaouais\",\"state\":\"Quebec
+        Canada\"},\"53073\":{\"total\":\"55\",\"name\":\"Whatcom County\",\"state\":\"Washington\"},\"2481\":{\"total\":\"7\",\"name\":\"Gatineau\",\"state\":\"Quebec
+        Canada\"},\"2480\":{\"total\":\"8\",\"name\":\"Papineau\",\"state\":\"Quebec
+        Canada\"},\"53071\":{\"total\":\"69\",\"name\":\"Walla Walla County\",\"state\":\"Washington\"},\"53077\":{\"total\":\"685\",\"name\":\"Yakima
+        County\",\"state\":\"Washington\"},\"53075\":{\"total\":\"53\",\"name\":\"Whitman
+        County\",\"state\":\"Washington\"},\"27173\":{\"total\":\"1\",\"name\":\"Yellow
+        Medicine County\",\"state\":\"Minnesota\"},\"32510\":{\"total\":\"70\",\"name\":\"Carson
+        City\",\"state\":\"Nevada\"},\"2479\":{\"total\":\"47\",\"name\":\"Antoine-Labelle\",\"state\":\"Quebec
+        Canada\"},\"2478\":{\"total\":\"2\",\"name\":\"Les Laurentides\",\"state\":\"Quebec
+        Canada\"},\"2476\":{\"total\":\"7\",\"name\":\"Argenteuil\",\"state\":\"Quebec
+        Canada\"},\"2475\":{\"total\":\"1\",\"name\":\"La Rivi\",\"state\":\"Quebec
+        Canada\"},\"16049\":{\"total\":\"103\",\"name\":\"Idaho County\",\"state\":\"Idaho\"},\"27171\":{\"total\":\"1\",\"name\":\"Wright
+        County\",\"state\":\"Minnesota\"},\"48095\":{\"total\":\"2\",\"name\":\"Concho
+        County\",\"state\":\"Texas\"},\"16011\":{\"total\":\"22\",\"name\":\"Bingham
+        County\",\"state\":\"Idaho\"},\"39131\":{\"total\":\"1\",\"name\":\"Pike County\",\"state\":\"Ohio\"},\"16015\":{\"total\":\"87\",\"name\":\"Boise
+        County\",\"state\":\"Idaho\"},\"16013\":{\"total\":\"109\",\"name\":\"Blaine
+        County\",\"state\":\"Idaho\"},\"2496\":{\"total\":\"6\",\"name\":\"Manicouagan\",\"state\":\"Quebec
+        Canada\"},\"2495\":{\"total\":\"32\",\"name\":\"La Haute-Clte-Nord\",\"state\":\"Quebec
+        Canada\"},\"2494\":{\"total\":\"18\",\"name\":\"Le Saguenay-et-son-Fjord\",\"state\":\"Quebec
+        Canada\"},\"2493\":{\"total\":\"4\",\"name\":\"Lac-Saint-Jean-Est\",\"state\":\"Quebec
+        Canada\"},\"40125\":{\"total\":\"1\",\"name\":\"Pottawatomie County\",\"state\":\"Oklahoma\"},\"2492\":{\"total\":\"1\",\"name\":\"Maria-Chapdelaine\",\"state\":\"Quebec
+        Canada\"},\"2491\":{\"total\":\"1\",\"name\":\"Le Domaine-du-Roy\",\"state\":\"Quebec
+        Canada\"},\"2490\":{\"total\":\"4\",\"name\":\"La Tuque\",\"state\":\"Quebec
+        Canada\"},\"27143\":{\"total\":\"2\",\"name\":\"Sibley County\",\"state\":\"Minnesota\"},\"48083\":{\"total\":\"2\",\"name\":\"Coleman
+        County\",\"state\":\"Texas\"},\"27141\":{\"total\":\"6\",\"name\":\"Sherburne
+        County\",\"state\":\"Minnesota\"},\"2489\":{\"total\":\"2\",\"name\":\"La
+        Vallde-de-l'Or\",\"state\":\"Quebec Canada\"},\"2486\":{\"total\":\"1\",\"name\":\"Rouyn-Noranda\",\"state\":\"Quebec
+        Canada\"},\"16019\":{\"total\":\"40\",\"name\":\"Bonneville County\",\"state\":\"Idaho\"},\"39139\":{\"total\":\"1\",\"name\":\"Richland
+        County\",\"state\":\"Ohio\"},\"16017\":{\"total\":\"22\",\"name\":\"Bonner
+        County\",\"state\":\"Idaho\"},\"48089\":{\"total\":\"1\",\"name\":\"Colorado
+        County\",\"state\":\"Texas\"},\"36093\":{\"total\":\"1\",\"name\":\"Schenectady
+        County\",\"state\":\"New York\"},\"16021\":{\"total\":\"21\",\"name\":\"Boundary
+        County\",\"state\":\"Idaho\"},\"36091\":{\"total\":\"7\",\"name\":\"Saratoga
+        County\",\"state\":\"New York\"},\"39121\":{\"total\":\"1\",\"name\":\"Noble
+        County\",\"state\":\"Ohio\"},\"40113\":{\"total\":\"5\",\"name\":\"Osage County\",\"state\":\"Oklahoma\"},\"16025\":{\"total\":\"24\",\"name\":\"Camas
+        County\",\"state\":\"Idaho\"},\"39123\":{\"total\":\"9\",\"name\":\"Ottawa
+        County\",\"state\":\"Ohio\"},\"16023\":{\"total\":\"74\",\"name\":\"Butte
+        County\",\"state\":\"Idaho\"},\"39125\":{\"total\":\"2\",\"name\":\"Paulding
+        County\",\"state\":\"Ohio\"},\"36099\":{\"total\":\"9\",\"name\":\"Seneca
+        County\",\"state\":\"New York\"},\"36097\":{\"total\":\"5\",\"name\":\"Schuyler
+        County\",\"state\":\"New York\"},\"36095\":{\"total\":\"4\",\"name\":\"Schoharie
+        County\",\"state\":\"New York\"},\"40119\":{\"total\":\"2\",\"name\":\"Payne
+        County\",\"state\":\"Oklahoma\"},\"48071\":{\"total\":\"38\",\"name\":\"Chambers
+        County\",\"state\":\"Texas\"},\"28001\":{\"total\":\"2\",\"name\":\"Adams
+        County\",\"state\":\"Mississippi\"},\"27157\":{\"total\":\"26\",\"name\":\"Wabasha
+        County\",\"state\":\"Minnesota\"},\"2499\":{\"total\":\"6\",\"name\":\"Nord-du-Quabec\",\"state\":\"Quebec
+        Canada\"},\"2498\":{\"total\":\"2\",\"name\":\"Minganie--Le Golfe-du-Saint-Laurent\",\"state\":\"Quebec
+        Canada\"},\"2497\":{\"total\":\"1\",\"name\":\"Sept-RiviQres--Caniapiscau\",\"state\":\"Quebec
+        Canada\"},\"48079\":{\"total\":\"3\",\"name\":\"Cochran County\",\"state\":\"Texas\"},\"16029\":{\"total\":\"9\",\"name\":\"Caribou
+        County\",\"state\":\"Idaho\"},\"39127\":{\"total\":\"1\",\"name\":\"Perry
+        County\",\"state\":\"Ohio\"},\"16027\":{\"total\":\"128\",\"name\":\"Canyon
+        County\",\"state\":\"Idaho\"},\"39129\":{\"total\":\"1\",\"name\":\"Pickaway
+        County\",\"state\":\"Ohio\"},\"48505\":{\"total\":\"2\",\"name\":\"Zapata
+        County\",\"state\":\"Texas\"},\"20179\":{\"total\":\"1\",\"name\":\"Sheridan
+        County\",\"state\":\"Kansas\"},\"48503\":{\"total\":\"1\",\"name\":\"Young
+        County\",\"state\":\"Texas\"},\"20177\":{\"total\":\"2\",\"name\":\"Shawnee
+        County\",\"state\":\"Kansas\"},\"21023\":{\"total\":\"1\",\"name\":\"Bracken
+        County\",\"state\":\"Kentucky\"},\"19189\":{\"total\":\"1\",\"name\":\"Winnebago
+        County\",\"state\":\"Iowa\"},\"19183\":{\"total\":\"1\",\"name\":\"Washington
+        County\",\"state\":\"Iowa\"},\"19185\":{\"total\":\"1\",\"name\":\"Wayne County\",\"state\":\"Iowa\"},\"21029\":{\"total\":\"27\",\"name\":\"Bullitt
+        County\",\"state\":\"Kentucky\"},\"33017\":{\"total\":\"3\",\"name\":\"Strafford
+        County\",\"state\":\"New Hampshire\"},\"33015\":{\"total\":\"14\",\"name\":\"Rockingham
+        County\",\"state\":\"New Hampshire\"},\"08049\":{\"total\":\"157\",\"name\":\"Grand
+        County\",\"state\":\"Colorado\"},\"33013\":{\"total\":\"17\",\"name\":\"Merrimack
+        County\",\"state\":\"New Hampshire\"},\"08047\":{\"total\":\"7\",\"name\":\"Gilpin
+        County\",\"state\":\"Colorado\"},\"33011\":{\"total\":\"86\",\"name\":\"Hillsborough
+        County\",\"state\":\"New Hampshire\"},\"08045\":{\"total\":\"131\",\"name\":\"Garfield
+        County\",\"state\":\"Colorado\"},\"20173\":{\"total\":\"4\",\"name\":\"Sedgwick
+        County\",\"state\":\"Kansas\"},\"08043\":{\"total\":\"231\",\"name\":\"Fremont
+        County\",\"state\":\"Colorado\"},\"20171\":{\"total\":\"3\",\"name\":\"Scott
+        County\",\"state\":\"Kansas\"},\"08041\":{\"total\":\"458\",\"name\":\"El
+        Paso County\",\"state\":\"Colorado\"},\"33019\":{\"total\":\"1\",\"name\":\"Sullivan
+        County\",\"state\":\"New Hampshire\"},\"21035\":{\"total\":\"2\",\"name\":\"Calloway
+        County\",\"state\":\"Kentucky\"},\"20187\":{\"total\":\"1\",\"name\":\"Stanton
+        County\",\"state\":\"Kansas\"},\"20185\":{\"total\":\"19\",\"name\":\"Stafford
+        County\",\"state\":\"Kansas\"},\"19191\":{\"total\":\"1\",\"name\":\"Winneshiek
+        County\",\"state\":\"Iowa\"},\"19193\":{\"total\":\"5\",\"name\":\"Woodbury
+        County\",\"state\":\"Iowa\"},\"08039\":{\"total\":\"25\",\"name\":\"Elbert
+        County\",\"state\":\"Colorado\"},\"33007\":{\"total\":\"14\",\"name\":\"Coos
+        County\",\"state\":\"New Hampshire\"},\"08037\":{\"total\":\"104\",\"name\":\"Eagle
+        County\",\"state\":\"Colorado\"},\"33005\":{\"total\":\"22\",\"name\":\"Cheshire
+        County\",\"state\":\"New Hampshire\"},\"08035\":{\"total\":\"1062\",\"name\":\"Douglas
+        County\",\"state\":\"Colorado\"},\"33003\":{\"total\":\"6\",\"name\":\"Carroll
+        County\",\"state\":\"New Hampshire\"},\"08033\":{\"total\":\"19\",\"name\":\"Dolores
+        County\",\"state\":\"Colorado\"},\"33001\":{\"total\":\"5\",\"name\":\"Belknap
+        County\",\"state\":\"New Hampshire\"},\"08031\":{\"total\":\"42\",\"name\":\"Denver
+        County\",\"state\":\"Colorado\"},\"21031\":{\"total\":\"1\",\"name\":\"Butler
+        County\",\"state\":\"Kentucky\"},\"20183\":{\"total\":\"2\",\"name\":\"Smith
+        County\",\"state\":\"Kansas\"},\"33009\":{\"total\":\"9\",\"name\":\"Grafton
+        County\",\"state\":\"New Hampshire\"},\"20159\":{\"total\":\"2\",\"name\":\"Rice
+        County\",\"state\":\"Kansas\"},\"21003\":{\"total\":\"1\",\"name\":\"Allen
+        County\",\"state\":\"Kentucky\"},\"20155\":{\"total\":\"2\",\"name\":\"Reno
+        County\",\"state\":\"Kansas\"},\"21001\":{\"total\":\"2\",\"name\":\"Adair
+        County\",\"state\":\"Kentucky\"},\"19167\":{\"total\":\"1\",\"name\":\"Sioux
+        County\",\"state\":\"Iowa\"},\"19163\":{\"total\":\"4\",\"name\":\"Scott County\",\"state\":\"Iowa\"},\"21009\":{\"total\":\"1\",\"name\":\"Barren
+        County\",\"state\":\"Kentucky\"},\"21007\":{\"total\":\"2\",\"name\":\"Ballard
+        County\",\"state\":\"Kentucky\"},\"08069\":{\"total\":\"1166\",\"name\":\"Larimer
+        County\",\"state\":\"Colorado\"},\"08067\":{\"total\":\"90\",\"name\":\"La
+        Plata County\",\"state\":\"Colorado\"},\"08065\":{\"total\":\"17\",\"name\":\"Lake
+        County\",\"state\":\"Colorado\"},\"08063\":{\"total\":\"11\",\"name\":\"Kit
+        Carson County\",\"state\":\"Colorado\"},\"08061\":{\"total\":\"40\",\"name\":\"Kiowa
+        County\",\"state\":\"Colorado\"},\"20167\":{\"total\":\"6\",\"name\":\"Russell
+        County\",\"state\":\"Kansas\"},\"19177\":{\"total\":\"1\",\"name\":\"Van Buren
+        County\",\"state\":\"Iowa\"},\"20165\":{\"total\":\"1\",\"name\":\"Rush County\",\"state\":\"Kansas\"},\"21011\":{\"total\":\"4\",\"name\":\"Bath
+        County\",\"state\":\"Kentucky\"},\"20163\":{\"total\":\"7\",\"name\":\"Rooks
+        County\",\"state\":\"Kansas\"},\"08059\":{\"total\":\"1034\",\"name\":\"Jefferson
+        County\",\"state\":\"Colorado\"},\"08057\":{\"total\":\"618\",\"name\":\"Jackson
+        County\",\"state\":\"Colorado\"},\"08055\":{\"total\":\"29\",\"name\":\"Huerfano
+        County\",\"state\":\"Colorado\"},\"08053\":{\"total\":\"24\",\"name\":\"Hinsdale
+        County\",\"state\":\"Colorado\"},\"20161\":{\"total\":\"1\",\"name\":\"Riley
+        County\",\"state\":\"Kansas\"},\"08051\":{\"total\":\"264\",\"name\":\"Gunnison
+        County\",\"state\":\"Colorado\"},\"20137\":{\"total\":\"2\",\"name\":\"Norton
+        County\",\"state\":\"Kansas\"},\"20135\":{\"total\":\"2\",\"name\":\"Ness
+        County\",\"state\":\"Kansas\"},\"19149\":{\"total\":\"1\",\"name\":\"Plymouth
+        County\",\"state\":\"Iowa\"},\"19141\":{\"total\":\"1\",\"name\":\"O'Brien
+        County\",\"state\":\"Iowa\"},\"20139\":{\"total\":\"1\",\"name\":\"Osage County\",\"state\":\"Kansas\"},\"08009\":{\"total\":\"208\",\"name\":\"Baca
+        County\",\"state\":\"Colorado\"},\"08007\":{\"total\":\"96\",\"name\":\"Archuleta
+        County\",\"state\":\"Colorado\"},\"08005\":{\"total\":\"93\",\"name\":\"Arapahoe
+        County\",\"state\":\"Colorado\"},\"08003\":{\"total\":\"62\",\"name\":\"Alamosa
+        County\",\"state\":\"Colorado\"},\"08001\":{\"total\":\"179\",\"name\":\"Adams
+        County\",\"state\":\"Colorado\"},\"41071\":{\"total\":\"3\",\"name\":\"Yamhill
+        County\",\"state\":\"Oregon\"},\"19159\":{\"total\":\"2\",\"name\":\"Ringgold
+        County\",\"state\":\"Iowa\"},\"41065\":{\"total\":\"173\",\"name\":\"Wasco
+        County\",\"state\":\"Oregon\"},\"20147\":{\"total\":\"2\",\"name\":\"Phillips
+        County\",\"state\":\"Kansas\"},\"41063\":{\"total\":\"221\",\"name\":\"Wallowa
+        County\",\"state\":\"Oregon\"},\"19155\":{\"total\":\"81\",\"name\":\"Pottawattamie
+        County\",\"state\":\"Iowa\"},\"41069\":{\"total\":\"86\",\"name\":\"Wheeler
+        County\",\"state\":\"Oregon\"},\"41067\":{\"total\":\"12\",\"name\":\"Washington
+        County\",\"state\":\"Oregon\"},\"20141\":{\"total\":\"1\",\"name\":\"Osborne
+        County\",\"state\":\"Kansas\"},\"19153\":{\"total\":\"6\",\"name\":\"Polk
+        County\",\"state\":\"Iowa\"},\"41061\":{\"total\":\"172\",\"name\":\"Union
+        County\",\"state\":\"Oregon\"},\"41055\":{\"total\":\"63\",\"name\":\"Sherman
+        County\",\"state\":\"Oregon\"},\"19125\":{\"total\":\"5\",\"name\":\"Marion
+        County\",\"state\":\"Iowa\"},\"41053\":{\"total\":\"27\",\"name\":\"Polk County\",\"state\":\"Oregon\"},\"20113\":{\"total\":\"2\",\"name\":\"McPherson
+        County\",\"state\":\"Kansas\"},\"19127\":{\"total\":\"3\",\"name\":\"Marshall
+        County\",\"state\":\"Iowa\"},\"41059\":{\"total\":\"55\",\"name\":\"Umatilla
+        County\",\"state\":\"Oregon\"},\"20111\":{\"total\":\"4\",\"name\":\"Lyon
+        County\",\"state\":\"Kansas\"},\"41057\":{\"total\":\"4\",\"name\":\"Tillamook
+        County\",\"state\":\"Oregon\"},\"20119\":{\"total\":\"7\",\"name\":\"Meade
+        County\",\"state\":\"Kansas\"},\"08029\":{\"total\":\"193\",\"name\":\"Delta
+        County\",\"state\":\"Colorado\"},\"53001\":{\"total\":\"23\",\"name\":\"Adams
+        County\",\"state\":\"Washington\"},\"08027\":{\"total\":\"46\",\"name\":\"Custer
+        County\",\"state\":\"Colorado\"},\"53005\":{\"total\":\"34\",\"name\":\"Benton
+        County\",\"state\":\"Washington\"},\"08025\":{\"total\":\"32\",\"name\":\"Crowley
+        County\",\"state\":\"Colorado\"},\"53003\":{\"total\":\"79\",\"name\":\"Asotin
+        County\",\"state\":\"Washington\"},\"08023\":{\"total\":\"36\",\"name\":\"Costilla
+        County\",\"state\":\"Colorado\"},\"53009\":{\"total\":\"84\",\"name\":\"Clallam
+        County\",\"state\":\"Washington\"},\"08021\":{\"total\":\"23\",\"name\":\"Conejos
+        County\",\"state\":\"Colorado\"},\"53007\":{\"total\":\"305\",\"name\":\"Chelan
+        County\",\"state\":\"Washington\"},\"41051\":{\"total\":\"26\",\"name\":\"Multnomah
+        County\",\"state\":\"Oregon\"},\"41043\":{\"total\":\"40\",\"name\":\"Linn
+        County\",\"state\":\"Oregon\"},\"41041\":{\"total\":\"3\",\"name\":\"Lincoln
+        County\",\"state\":\"Oregon\"},\"20123\":{\"total\":\"2\",\"name\":\"Mitchell
+        County\",\"state\":\"Kansas\"},\"41047\":{\"total\":\"34\",\"name\":\"Marion
+        County\",\"state\":\"Oregon\"},\"20121\":{\"total\":\"1\",\"name\":\"Miami
+        County\",\"state\":\"Kansas\"},\"41045\":{\"total\":\"198\",\"name\":\"Malheur
+        County\",\"state\":\"Oregon\"},\"19131\":{\"total\":\"1\",\"name\":\"Mitchell
+        County\",\"state\":\"Iowa\"},\"41049\":{\"total\":\"64\",\"name\":\"Morrow
+        County\",\"state\":\"Oregon\"},\"20129\":{\"total\":\"23\",\"name\":\"Morton
+        County\",\"state\":\"Kansas\"},\"08019\":{\"total\":\"83\",\"name\":\"Clear
+        Creek County\",\"state\":\"Colorado\"},\"20127\":{\"total\":\"4\",\"name\":\"Morris
+        County\",\"state\":\"Kansas\"},\"53011\":{\"total\":\"19\",\"name\":\"Clark
+        County\",\"state\":\"Washington\"},\"08017\":{\"total\":\"11\",\"name\":\"Cheyenne
+        County\",\"state\":\"Colorado\"},\"08015\":{\"total\":\"73\",\"name\":\"Chaffee
+        County\",\"state\":\"Colorado\"},\"08013\":{\"total\":\"1540\",\"name\":\"Boulder
+        County\",\"state\":\"Colorado\"},\"53015\":{\"total\":\"11\",\"name\":\"Cowlitz
+        County\",\"state\":\"Washington\"},\"08014\":{\"total\":\"24\",\"name\":\"Broomfield
+        County\",\"state\":\"Colorado\"},\"08011\":{\"total\":\"42\",\"name\":\"Bent
+        County\",\"state\":\"Colorado\"},\"53013\":{\"total\":\"19\",\"name\":\"Columbia
+        County\",\"state\":\"Washington\"},\"53019\":{\"total\":\"40\",\"name\":\"Ferry
+        County\",\"state\":\"Washington\"},\"53017\":{\"total\":\"294\",\"name\":\"Douglas
+        County\",\"state\":\"Washington\"},\"47135\":{\"total\":\"2\",\"name\":\"Perry
+        County\",\"state\":\"Tennessee\"},\"12033\":{\"total\":\"1\",\"name\":\"Escambia
+        County\",\"state\":\"Florida\"},\"24013\":{\"total\":\"2\",\"name\":\"Carroll
+        County\",\"state\":\"Maryland\"},\"36001\":{\"total\":\"13\",\"name\":\"Albany
+        County\",\"state\":\"New York\"},\"24015\":{\"total\":\"23\",\"name\":\"Cecil
+        County\",\"state\":\"Maryland\"},\"24017\":{\"total\":\"4\",\"name\":\"Charles
+        County\",\"state\":\"Maryland\"},\"24019\":{\"total\":\"241\",\"name\":\"Dorchester
+        County\",\"state\":\"Maryland\"},\"36009\":{\"total\":\"4\",\"name\":\"Cattaraugus
+        County\",\"state\":\"New York\"},\"36007\":{\"total\":\"59\",\"name\":\"Broome
+        County\",\"state\":\"New York\"},\"36005\":{\"total\":\"1\",\"name\":\"Bronx
+        County\",\"state\":\"New York\"},\"24011\":{\"total\":\"8\",\"name\":\"Caroline
+        County\",\"state\":\"Maryland\"},\"36003\":{\"total\":\"2\",\"name\":\"Allegany
+        County\",\"state\":\"New York\"},\"48465\":{\"total\":\"9\",\"name\":\"Val
+        Verde County\",\"state\":\"Texas\"},\"47131\":{\"total\":\"2\",\"name\":\"Obion
+        County\",\"state\":\"Tennessee\"},\"6001\":{\"total\":\"947\",\"name\":\"Yukon\",\"state\":\"Yukon
+        Canada\"},\"47129\":{\"total\":\"1\",\"name\":\"Morgan County\",\"state\":\"Tennessee\"},\"47125\":{\"total\":\"7\",\"name\":\"Montgomery
+        County\",\"state\":\"Tennessee\"},\"24025\":{\"total\":\"18\",\"name\":\"Harford
+        County\",\"state\":\"Maryland\"},\"24027\":{\"total\":\"21\",\"name\":\"Howard
+        County\",\"state\":\"Maryland\"},\"24029\":{\"total\":\"66\",\"name\":\"Kent
+        County\",\"state\":\"Maryland\"},\"24021\":{\"total\":\"15\",\"name\":\"Frederick
+        County\",\"state\":\"Maryland\"},\"24023\":{\"total\":\"21\",\"name\":\"Garrett
+        County\",\"state\":\"Maryland\"},\"47123\":{\"total\":\"2\",\"name\":\"Monroe
+        County\",\"state\":\"Tennessee\"},\"48453\":{\"total\":\"1\",\"name\":\"Travis
+        County\",\"state\":\"Texas\"},\"47121\":{\"total\":\"6\",\"name\":\"Meigs
+        County\",\"state\":\"Tennessee\"},\"48451\":{\"total\":\"1\",\"name\":\"Tom
+        Green County\",\"state\":\"Texas\"},\"48447\":{\"total\":\"18\",\"name\":\"Throckmorton
+        County\",\"state\":\"Texas\"},\"51660\":{\"total\":\"1\",\"name\":\"Harrisonburg
+        city\",\"state\":\"Virginia\"},\"02240\":{\"total\":\"110\",\"name\":\"Southeast
+        Fairbanks Census Area\",\"state\":\"Alaska\"},\"48443\":{\"total\":\"5\",\"name\":\"Terrell
+        County\",\"state\":\"Texas\"},\"48441\":{\"total\":\"6\",\"name\":\"Taylor
+        County\",\"state\":\"Texas\"},\"12015\":{\"total\":\"1\",\"name\":\"Charlotte
+        County\",\"state\":\"Florida\"},\"48439\":{\"total\":\"1\",\"name\":\"Tarrant
+        County\",\"state\":\"Texas\"},\"48437\":{\"total\":\"3\",\"name\":\"Swisher
+        County\",\"state\":\"Texas\"},\"48435\":{\"total\":\"1\",\"name\":\"Sutton
+        County\",\"state\":\"Texas\"},\"47103\":{\"total\":\"3\",\"name\":\"Lincoln
+        County\",\"state\":\"Tennessee\"},\"12021\":{\"total\":\"1\",\"name\":\"Collier
+        County\",\"state\":\"Florida\"},\"24003\":{\"total\":\"26\",\"name\":\"Anne
+        Arundel County\",\"state\":\"Maryland\"},\"24005\":{\"total\":\"37\",\"name\":\"Baltimore
+        County\",\"state\":\"Maryland\"},\"24009\":{\"total\":\"9\",\"name\":\"Calvert
+        County\",\"state\":\"Maryland\"},\"02230\":{\"total\":\"5\",\"name\":\"Skagway
+        Municipality\",\"state\":\"Alaska\"},\"24001\":{\"total\":\"118\",\"name\":\"Allegany
+        County\",\"state\":\"Maryland\"},\"47101\":{\"total\":\"2\",\"name\":\"Lewis
+        County\",\"state\":\"Tennessee\"},\"48431\":{\"total\":\"1\",\"name\":\"Sterling
+        County\",\"state\":\"Texas\"},\"48427\":{\"total\":\"1\",\"name\":\"Starr
+        County\",\"state\":\"Texas\"},\"48423\":{\"total\":\"1\",\"name\":\"Smith
+        County\",\"state\":\"Texas\"},\"20097\":{\"total\":\"72\",\"name\":\"Kiowa
+        County\",\"state\":\"Kansas\"},\"48421\":{\"total\":\"1\",\"name\":\"Sherman
+        County\",\"state\":\"Texas\"},\"20095\":{\"total\":\"1\",\"name\":\"Kingman
+        County\",\"state\":\"Kansas\"},\"20093\":{\"total\":\"3\",\"name\":\"Kearny
+        County\",\"state\":\"Kansas\"},\"20091\":{\"total\":\"3\",\"name\":\"Johnson
+        County\",\"state\":\"Kansas\"},\"48411\":{\"total\":\"4\",\"name\":\"San Saba
+        County\",\"state\":\"Texas\"},\"12009\":{\"total\":\"2\",\"name\":\"Brevard
+        County\",\"state\":\"Florida\"},\"12001\":{\"total\":\"2\",\"name\":\"Alachua
+        County\",\"state\":\"Florida\"},\"12003\":{\"total\":\"1\",\"name\":\"Baker
+        County\",\"state\":\"Florida\"},\"12005\":{\"total\":\"1\",\"name\":\"Bay
+        County\",\"state\":\"Florida\"},\"20079\":{\"total\":\"2\",\"name\":\"Harvey
+        County\",\"state\":\"Kansas\"},\"48401\":{\"total\":\"1\",\"name\":\"Rusk
+        County\",\"state\":\"Texas\"},\"20075\":{\"total\":\"26\",\"name\":\"Hamilton
+        County\",\"state\":\"Kansas\"},\"20071\":{\"total\":\"1\",\"name\":\"Greeley
+        County\",\"state\":\"Kansas\"},\"20089\":{\"total\":\"4\",\"name\":\"Jewell
+        County\",\"state\":\"Kansas\"},\"19097\":{\"total\":\"4\",\"name\":\"Jackson
+        County\",\"state\":\"Iowa\"},\"20083\":{\"total\":\"3\",\"name\":\"Hodgeman
+        County\",\"state\":\"Kansas\"},\"13311\":{\"total\":\"1\",\"name\":\"White
+        County\",\"state\":\"Georgia\"},\"36081\":{\"total\":\"3\",\"name\":\"Queens
+        County\",\"state\":\"New York\"},\"39113\":{\"total\":\"2\",\"name\":\"Montgomery
+        County\",\"state\":\"Ohio\"},\"40101\":{\"total\":\"1\",\"name\":\"Muskogee
+        County\",\"state\":\"Oklahoma\"},\"04009\":{\"total\":\"40\",\"name\":\"Graham
+        County\",\"state\":\"Arizona\"},\"36089\":{\"total\":\"10\",\"name\":\"St.
+        Lawrence County\",\"state\":\"New York\"},\"56011\":{\"total\":\"104\",\"name\":\"Crook
+        County\",\"state\":\"Wyoming\"},\"36087\":{\"total\":\"9\",\"name\":\"Rockland
+        County\",\"state\":\"New York\"},\"40103\":{\"total\":\"2\",\"name\":\"Noble
+        County\",\"state\":\"Oklahoma\"},\"04005\":{\"total\":\"503\",\"name\":\"Coconino
+        County\",\"state\":\"Arizona\"},\"36085\":{\"total\":\"3\",\"name\":\"Richmond
+        County\",\"state\":\"New York\"},\"04007\":{\"total\":\"52\",\"name\":\"Gila
+        County\",\"state\":\"Arizona\"},\"36083\":{\"total\":\"3\",\"name\":\"Rensselaer
+        County\",\"state\":\"New York\"},\"56017\":{\"total\":\"180\",\"name\":\"Hot
+        Springs County\",\"state\":\"Wyoming\"},\"04001\":{\"total\":\"140\",\"name\":\"Apache
+        County\",\"state\":\"Arizona\"},\"04003\":{\"total\":\"1008\",\"name\":\"Cochise
+        County\",\"state\":\"Arizona\"},\"56019\":{\"total\":\"329\",\"name\":\"Johnson
+        County\",\"state\":\"Wyoming\"},\"56013\":{\"total\":\"611\",\"name\":\"Fremont
+        County\",\"state\":\"Wyoming\"},\"56015\":{\"total\":\"140\",\"name\":\"Goshen
+        County\",\"state\":\"Wyoming\"},\"27123\":{\"total\":\"1\",\"name\":\"Ramsey
+        County\",\"state\":\"Minnesota\"},\"48069\":{\"total\":\"4\",\"name\":\"Castro
+        County\",\"state\":\"Texas\"},\"39119\":{\"total\":\"174\",\"name\":\"Muskingum
+        County\",\"state\":\"Ohio\"},\"48065\":{\"total\":\"1\",\"name\":\"Carson
+        County\",\"state\":\"Texas\"},\"36071\":{\"total\":\"76\",\"name\":\"Orange
+        County\",\"state\":\"New York\"},\"16003\":{\"total\":\"10\",\"name\":\"Adams
+        County\",\"state\":\"Idaho\"},\"39101\":{\"total\":\"4\",\"name\":\"Marion
+        County\",\"state\":\"Ohio\"},\"16001\":{\"total\":\"529\",\"name\":\"Ada County\",\"state\":\"Idaho\"},\"36079\":{\"total\":\"6\",\"name\":\"Putnam
+        County\",\"state\":\"New York\"},\"27137\":{\"total\":\"1043\",\"name\":\"St.
+        Louis County\",\"state\":\"Minnesota\"},\"56021\":{\"total\":\"138\",\"name\":\"Laramie
+        County\",\"state\":\"Wyoming\"},\"36077\":{\"total\":\"39\",\"name\":\"Otsego
+        County\",\"state\":\"New York\"},\"36075\":{\"total\":\"447\",\"name\":\"Oswego
+        County\",\"state\":\"New York\"},\"36073\":{\"total\":\"7\",\"name\":\"Orleans
+        County\",\"state\":\"New York\"},\"56027\":{\"total\":\"77\",\"name\":\"Niobrara
+        County\",\"state\":\"Wyoming\"},\"27131\":{\"total\":\"1\",\"name\":\"Rice
+        County\",\"state\":\"Minnesota\"},\"56029\":{\"total\":\"647\",\"name\":\"Park
+        County\",\"state\":\"Wyoming\"},\"56023\":{\"total\":\"581\",\"name\":\"Lincoln
+        County\",\"state\":\"Wyoming\"},\"27135\":{\"total\":\"11\",\"name\":\"Roseau
+        County\",\"state\":\"Minnesota\"},\"56025\":{\"total\":\"684\",\"name\":\"Natrona
+        County\",\"state\":\"Wyoming\"},\"16007\":{\"total\":\"22\",\"name\":\"Bear
+        Lake County\",\"state\":\"Idaho\"},\"16005\":{\"total\":\"26\",\"name\":\"Bannock
+        County\",\"state\":\"Idaho\"},\"02290\":{\"total\":\"67\",\"name\":\"Yukon-Koyukuk
+        Census Area\",\"state\":\"Alaska\"},\"48053\":{\"total\":\"2\",\"name\":\"Burnet
+        County\",\"state\":\"Texas\"},\"39109\":{\"total\":\"2\",\"name\":\"Miami
+        County\",\"state\":\"Ohio\"},\"16009\":{\"total\":\"3\",\"name\":\"Benewah
+        County\",\"state\":\"Idaho\"},\"12093\":{\"total\":\"1\",\"name\":\"Okeechobee
+        County\",\"state\":\"Florida\"},\"56031\":{\"total\":\"174\",\"name\":\"Platte
+        County\",\"state\":\"Wyoming\"},\"36067\":{\"total\":\"9\",\"name\":\"Onondaga
+        County\",\"state\":\"New York\"},\"56033\":{\"total\":\"260\",\"name\":\"Sheridan
+        County\",\"state\":\"Wyoming\"},\"36065\":{\"total\":\"22\",\"name\":\"Oneida
+        County\",\"state\":\"New York\"},\"04027\":{\"total\":\"10\",\"name\":\"Yuma
+        County\",\"state\":\"Arizona\"},\"36063\":{\"total\":\"5\",\"name\":\"Niagara
+        County\",\"state\":\"New York\"},\"12091\":{\"total\":\"1\",\"name\":\"Okaloosa
+        County\",\"state\":\"Florida\"},\"36061\":{\"total\":\"7\",\"name\":\"New
+        York County\",\"state\":\"New York\"},\"27109\":{\"total\":\"2\",\"name\":\"Olmsted
+        County\",\"state\":\"Minnesota\"},\"04023\":{\"total\":\"714\",\"name\":\"Santa
+        Cruz County\",\"state\":\"Arizona\"},\"56039\":{\"total\":\"344\",\"name\":\"Teton
+        County\",\"state\":\"Wyoming\"},\"04025\":{\"total\":\"282\",\"name\":\"Yavapai
+        County\",\"state\":\"Arizona\"},\"56035\":{\"total\":\"314\",\"name\":\"Sublette
+        County\",\"state\":\"Wyoming\"},\"27103\":{\"total\":\"1\",\"name\":\"Nicollet
+        County\",\"state\":\"Minnesota\"},\"56037\":{\"total\":\"1900\",\"name\":\"Sweetwater
+        County\",\"state\":\"Wyoming\"},\"04021\":{\"total\":\"165\",\"name\":\"Pinal
+        County\",\"state\":\"Arizona\"},\"36069\":{\"total\":\"3\",\"name\":\"Ontario
+        County\",\"state\":\"New York\"},\"27101\":{\"total\":\"1\",\"name\":\"Murray
+        County\",\"state\":\"Minnesota\"},\"48045\":{\"total\":\"14\",\"name\":\"Briscoe
+        County\",\"state\":\"Texas\"},\"48043\":{\"total\":\"319\",\"name\":\"Brewster
+        County\",\"state\":\"Texas\"},\"48039\":{\"total\":\"2\",\"name\":\"Brazoria
+        County\",\"state\":\"Texas\"},\"04019\":{\"total\":\"1032\",\"name\":\"Pima
+        County\",\"state\":\"Arizona\"},\"56041\":{\"total\":\"653\",\"name\":\"Uinta
+        County\",\"state\":\"Wyoming\"},\"27117\":{\"total\":\"1\",\"name\":\"Pipestone
+        County\",\"state\":\"Minnesota\"},\"56043\":{\"total\":\"224\",\"name\":\"Washakie
+        County\",\"state\":\"Wyoming\"},\"36055\":{\"total\":\"208\",\"name\":\"Monroe
+        County\",\"state\":\"New York\"},\"27115\":{\"total\":\"4\",\"name\":\"Pine
+        County\",\"state\":\"Minnesota\"},\"04015\":{\"total\":\"176\",\"name\":\"Mohave
+        County\",\"state\":\"Arizona\"},\"36053\":{\"total\":\"22\",\"name\":\"Madison
+        County\",\"state\":\"New York\"},\"04017\":{\"total\":\"106\",\"name\":\"Navajo
+        County\",\"state\":\"Arizona\"},\"27119\":{\"total\":\"17\",\"name\":\"Polk
+        County\",\"state\":\"Minnesota\"},\"36051\":{\"total\":\"2\",\"name\":\"Livingston
+        County\",\"state\":\"New York\"},\"04011\":{\"total\":\"11\",\"name\":\"Greenlee
+        County\",\"state\":\"Arizona\"},\"04012\":{\"total\":\"22\",\"name\":\"La
+        Paz County\",\"state\":\"Arizona\"},\"04013\":{\"total\":\"166\",\"name\":\"Maricopa
+        County\",\"state\":\"Arizona\"},\"56045\":{\"total\":\"120\",\"name\":\"Weston
+        County\",\"state\":\"Wyoming\"},\"27113\":{\"total\":\"1\",\"name\":\"Pennington
+        County\",\"state\":\"Minnesota\"},\"47189\":{\"total\":\"1\",\"name\":\"Wilson
+        County\",\"state\":\"Tennessee\"},\"47185\":{\"total\":\"3\",\"name\":\"White
+        County\",\"state\":\"Tennessee\"},\"47183\":{\"total\":\"1\",\"name\":\"Weakley
+        County\",\"state\":\"Tennessee\"},\"48029\":{\"total\":\"1\",\"name\":\"Bexar
+        County\",\"state\":\"Texas\"},\"36045\":{\"total\":\"15\",\"name\":\"Jefferson
+        County\",\"state\":\"New York\"},\"36043\":{\"total\":\"11\",\"name\":\"Herkimer
+        County\",\"state\":\"New York\"},\"36041\":{\"total\":\"11\",\"name\":\"Hamilton
+        County\",\"state\":\"New York\"},\"02261\":{\"total\":\"627\",\"name\":\"Valdez-Cordova
+        Census Area\",\"state\":\"Alaska\"},\"36049\":{\"total\":\"9\",\"name\":\"Lewis
+        County\",\"state\":\"New York\"},\"36047\":{\"total\":\"7\",\"name\":\"Kings
+        County\",\"state\":\"New York\"},\"47175\":{\"total\":\"2\",\"name\":\"Van
+        Buren County\",\"state\":\"Tennessee\"},\"48019\":{\"total\":\"2\",\"name\":\"Bandera
+        County\",\"state\":\"Texas\"},\"48017\":{\"total\":\"100\",\"name\":\"Bailey
+        County\",\"state\":\"Texas\"},\"12086\":{\"total\":\"4\",\"name\":\"Miami-Dade
+        County\",\"state\":\"Florida\"},\"12087\":{\"total\":\"2\",\"name\":\"Monroe
+        County\",\"state\":\"Florida\"},\"48499\":{\"total\":\"1\",\"name\":\"Wood
+        County\",\"state\":\"Texas\"},\"36035\":{\"total\":\"3\",\"name\":\"Fulton
+        County\",\"state\":\"New York\"},\"36033\":{\"total\":\"9\",\"name\":\"Franklin
+        County\",\"state\":\"New York\"},\"36031\":{\"total\":\"8\",\"name\":\"Essex
+        County\",\"state\":\"New York\"},\"36039\":{\"total\":\"5\",\"name\":\"Greene
+        County\",\"state\":\"New York\"},\"36037\":{\"total\":\"4\",\"name\":\"Genesee
+        County\",\"state\":\"New York\"},\"48497\":{\"total\":\"2\",\"name\":\"Wise
+        County\",\"state\":\"Texas\"},\"47167\":{\"total\":\"1\",\"name\":\"Tipton
+        County\",\"state\":\"Tennessee\"},\"48011\":{\"total\":\"5\",\"name\":\"Armstrong
+        County\",\"state\":\"Texas\"},\"47163\":{\"total\":\"5\",\"name\":\"Sullivan
+        County\",\"state\":\"Tennessee\"},\"47161\":{\"total\":\"3\",\"name\":\"Stewart
+        County\",\"state\":\"Tennessee\"},\"48007\":{\"total\":\"1\",\"name\":\"Aransas
+        County\",\"state\":\"Texas\"},\"47157\":{\"total\":\"7\",\"name\":\"Shelby
+        County\",\"state\":\"Tennessee\"},\"12055\":{\"total\":\"1\",\"name\":\"Highlands
+        County\",\"state\":\"Florida\"},\"24035\":{\"total\":\"7\",\"name\":\"Queen
+        Anne's County\",\"state\":\"Maryland\"},\"36023\":{\"total\":\"24\",\"name\":\"Cortland
+        County\",\"state\":\"New York\"},\"24037\":{\"total\":\"13\",\"name\":\"St.
+        Mary's County\",\"state\":\"Maryland\"},\"36021\":{\"total\":\"26\",\"name\":\"Columbia
+        County\",\"state\":\"New York\"},\"24039\":{\"total\":\"2\",\"name\":\"Somerset
+        County\",\"state\":\"Maryland\"},\"4705\":{\"total\":\"2\",\"name\":\"Division
+        No.  5\",\"state\":\"Saskatchewan Canada\"},\"4706\":{\"total\":\"24\",\"name\":\"Division
+        No.  6\",\"state\":\"Saskatchewan Canada\"},\"02282\":{\"total\":\"8\",\"name\":\"Yakutat
+        City and Borough\",\"state\":\"Alaska\"},\"4707\":{\"total\":\"16\",\"name\":\"Division
+        No.  7\",\"state\":\"Saskatchewan Canada\"},\"4708\":{\"total\":\"65\",\"name\":\"Division
+        No.  8\",\"state\":\"Saskatchewan Canada\"},\"36029\":{\"total\":\"28\",\"name\":\"Erie
+        County\",\"state\":\"New York\"},\"24031\":{\"total\":\"15\",\"name\":\"Montgomery
+        County\",\"state\":\"Maryland\"},\"4709\":{\"total\":\"1\",\"name\":\"Division
+        No.  9\",\"state\":\"Saskatchewan Canada\"},\"36027\":{\"total\":\"109\",\"name\":\"Dutchess
+        County\",\"state\":\"New York\"},\"24033\":{\"total\":\"12\",\"name\":\"Prince
+        George's County\",\"state\":\"Maryland\"},\"36025\":{\"total\":\"812\",\"name\":\"Delaware
+        County\",\"state\":\"New York\"},\"48487\":{\"total\":\"3\",\"name\":\"Wilbarger
+        County\",\"state\":\"Texas\"},\"47155\":{\"total\":\"1\",\"name\":\"Sevier
+        County\",\"state\":\"Tennessee\"},\"48485\":{\"total\":\"5\",\"name\":\"Wichita
+        County\",\"state\":\"Texas\"},\"4701\":{\"total\":\"5\",\"name\":\"Division
+        No.  1\",\"state\":\"Saskatchewan Canada\"},\"47151\":{\"total\":\"1\",\"name\":\"Scott
+        County\",\"state\":\"Tennessee\"},\"4702\":{\"total\":\"8\",\"name\":\"Division
+        No.  2\",\"state\":\"Saskatchewan Canada\"},\"4703\":{\"total\":\"23\",\"name\":\"Division
+        No.  3\",\"state\":\"Saskatchewan Canada\"},\"4704\":{\"total\":\"144\",\"name\":\"Division
+        No.  4\",\"state\":\"Saskatchewan Canada\"},\"47149\":{\"total\":\"1\",\"name\":\"Rutherford
+        County\",\"state\":\"Tennessee\"},\"12065\":{\"total\":\"1\",\"name\":\"Jefferson
+        County\",\"state\":\"Florida\"},\"47147\":{\"total\":\"1\",\"name\":\"Robertson
+        County\",\"state\":\"Tennessee\"},\"36013\":{\"total\":\"24\",\"name\":\"Chautauqua
+        County\",\"state\":\"New York\"},\"24047\":{\"total\":\"67\",\"name\":\"Worcester
+        County\",\"state\":\"Maryland\"},\"36011\":{\"total\":\"24\",\"name\":\"Cayuga
+        County\",\"state\":\"New York\"},\"1206\":{\"total\":\"1\",\"name\":\"Lunenburg\",\"state\":\"Nova
+        Scotia Canada\"},\"4716\":{\"total\":\"1\",\"name\":\"Division No. 16\",\"state\":\"Saskatchewan
+        Canada\"},\"4717\":{\"total\":\"2\",\"name\":\"Division No. 17\",\"state\":\"Saskatchewan
+        Canada\"},\"1205\":{\"total\":\"1\",\"name\":\"Annapolis\",\"state\":\"Nova
+        Scotia Canada\"},\"02270\":{\"total\":\"7\",\"name\":\"Wade Hampton Census
+        Area\",\"state\":\"Alaska\"},\"36019\":{\"total\":\"2\",\"name\":\"Clinton
+        County\",\"state\":\"New York\"},\"4718\":{\"total\":\"1\",\"name\":\"Division
+        No. 18\",\"state\":\"Saskatchewan Canada\"},\"24041\":{\"total\":\"227\",\"name\":\"Talbot
+        County\",\"state\":\"Maryland\"},\"1203\":{\"total\":\"1\",\"name\":\"Digby\",\"state\":\"Nova
+        Scotia Canada\"},\"36017\":{\"total\":\"12\",\"name\":\"Chenango County\",\"state\":\"New
+        York\"},\"24043\":{\"total\":\"16\",\"name\":\"Washington County\",\"state\":\"Maryland\"},\"02275\":{\"total\":\"1\",\"name\":\"Wrangell
+        City and Borough\",\"state\":\"Alaska\"},\"36015\":{\"total\":\"11\",\"name\":\"Chemung
+        County\",\"state\":\"New York\"},\"24045\":{\"total\":\"6\",\"name\":\"Wicomico
+        County\",\"state\":\"Maryland\"},\"4710\":{\"total\":\"4\",\"name\":\"Division
+        No. 10\",\"state\":\"Saskatchewan Canada\"},\"4711\":{\"total\":\"16\",\"name\":\"Division
+        No. 11\",\"state\":\"Saskatchewan Canada\"},\"4712\":{\"total\":\"59\",\"name\":\"Division
+        No. 12\",\"state\":\"Saskatchewan Canada\"},\"4713\":{\"total\":\"7\",\"name\":\"Division
+        No. 13\",\"state\":\"Saskatchewan Canada\"},\"47141\":{\"total\":\"2\",\"name\":\"Putnam
+        County\",\"state\":\"Tennessee\"},\"4714\":{\"total\":\"1\",\"name\":\"Division
+        No. 14\",\"state\":\"Saskatchewan Canada\"},\"4715\":{\"total\":\"4\",\"name\":\"Division
+        No. 15\",\"state\":\"Saskatchewan Canada\"},\"42003\":{\"total\":\"1\",\"name\":\"Allegheny
+        County\",\"state\":\"Pennsylvania\"},\"17043\":{\"total\":\"50\",\"name\":\"DuPage
+        County\",\"state\":\"Illinois\"},\"17045\":{\"total\":\"4\",\"name\":\"Edgar
+        County\",\"state\":\"Illinois\"},\"42001\":{\"total\":\"2\",\"name\":\"Adams
+        County\",\"state\":\"Pennsylvania\"},\"29029\":{\"total\":\"1\",\"name\":\"Camden
+        County\",\"state\":\"Missouri\"},\"42009\":{\"total\":\"463\",\"name\":\"Bedford
+        County\",\"state\":\"Pennsylvania\"},\"05057\":{\"total\":\"2\",\"name\":\"Hempstead
+        County\",\"state\":\"Arkansas\"},\"30023\":{\"total\":\"81\",\"name\":\"Deer
+        Lodge County\",\"state\":\"Montana\"},\"30025\":{\"total\":\"13\",\"name\":\"Fallon
+        County\",\"state\":\"Montana\"},\"29021\":{\"total\":\"6\",\"name\":\"Buchanan
+        County\",\"state\":\"Missouri\"},\"05053\":{\"total\":\"1\",\"name\":\"Grant
+        County\",\"state\":\"Arkansas\"},\"30021\":{\"total\":\"20\",\"name\":\"Dawson
+        County\",\"state\":\"Montana\"},\"05051\":{\"total\":\"4\",\"name\":\"Garland
+        County\",\"state\":\"Arkansas\"},\"30027\":{\"total\":\"62\",\"name\":\"Fergus
+        County\",\"state\":\"Montana\"},\"30029\":{\"total\":\"317\",\"name\":\"Flathead
+        County\",\"state\":\"Montana\"},\"1218\":{\"total\":\"2\",\"name\":\"Victoria\",\"state\":\"Nova
+        Scotia Canada\"},\"17051\":{\"total\":\"4\",\"name\":\"Fayette County\",\"state\":\"Illinois\"},\"30013\":{\"total\":\"117\",\"name\":\"Cascade
+        County\",\"state\":\"Montana\"},\"54001\":{\"total\":\"2\",\"name\":\"Barbour
+        County\",\"state\":\"West Virginia\"},\"05045\":{\"total\":\"1\",\"name\":\"Faulkner
+        County\",\"state\":\"Arkansas\"},\"30015\":{\"total\":\"39\",\"name\":\"Chouteau
+        County\",\"state\":\"Montana\"},\"05047\":{\"total\":\"2\",\"name\":\"Franklin
+        County\",\"state\":\"Arkansas\"},\"05041\":{\"total\":\"8\",\"name\":\"Desha
+        County\",\"state\":\"Arkansas\"},\"30011\":{\"total\":\"65\",\"name\":\"Carter
+        County\",\"state\":\"Montana\"},\"05043\":{\"total\":\"2\",\"name\":\"Drew
+        County\",\"state\":\"Arkansas\"},\"54003\":{\"total\":\"2\",\"name\":\"Berkeley
+        County\",\"state\":\"West Virginia\"},\"54007\":{\"total\":\"2\",\"name\":\"Braxton
+        County\",\"state\":\"West Virginia\"},\"30017\":{\"total\":\"26\",\"name\":\"Custer
+        County\",\"state\":\"Montana\"},\"29031\":{\"total\":\"1\",\"name\":\"Cape
+        Girardeau County\",\"state\":\"Missouri\"},\"30019\":{\"total\":\"2\",\"name\":\"Daniels
+        County\",\"state\":\"Montana\"},\"17027\":{\"total\":\"2\",\"name\":\"Clinton
+        County\",\"state\":\"Illinois\"},\"17023\":{\"total\":\"1\",\"name\":\"Clark
+        County\",\"state\":\"Illinois\"},\"08109\":{\"total\":\"82\",\"name\":\"Saguache
+        County\",\"state\":\"Colorado\"},\"08107\":{\"total\":\"156\",\"name\":\"Routt
+        County\",\"state\":\"Colorado\"},\"08105\":{\"total\":\"54\",\"name\":\"Rio
+        Grande County\",\"state\":\"Colorado\"},\"54013\":{\"total\":\"2\",\"name\":\"Calhoun
+        County\",\"state\":\"West Virginia\"},\"30001\":{\"total\":\"243\",\"name\":\"Beaverhead
+        County\",\"state\":\"Montana\"},\"29001\":{\"total\":\"3\",\"name\":\"Adair
+        County\",\"state\":\"Missouri\"},\"08103\":{\"total\":\"142\",\"name\":\"Rio
+        Blanco County\",\"state\":\"Colorado\"},\"54011\":{\"total\":\"8\",\"name\":\"Cabell
+        County\",\"state\":\"West Virginia\"},\"30003\":{\"total\":\"40\",\"name\":\"Big
+        Horn County\",\"state\":\"Montana\"},\"08101\":{\"total\":\"251\",\"name\":\"Pueblo
+        County\",\"state\":\"Colorado\"},\"29005\":{\"total\":\"1\",\"name\":\"Atchison
+        County\",\"state\":\"Missouri\"},\"28157\":{\"total\":\"1\",\"name\":\"Wilkinson
+        County\",\"state\":\"Mississippi\"},\"30009\":{\"total\":\"112\",\"name\":\"Carbon
+        County\",\"state\":\"Montana\"},\"54019\":{\"total\":\"2\",\"name\":\"Fayette
+        County\",\"state\":\"West Virginia\"},\"30005\":{\"total\":\"49\",\"name\":\"Blaine
+        County\",\"state\":\"Montana\"},\"17029\":{\"total\":\"3\",\"name\":\"Coles
+        County\",\"state\":\"Illinois\"},\"28151\":{\"total\":\"1\",\"name\":\"Washington
+        County\",\"state\":\"Mississippi\"},\"30007\":{\"total\":\"56\",\"name\":\"Broadwater
+        County\",\"state\":\"Montana\"},\"17031\":{\"total\":\"12\",\"name\":\"Cook
+        County\",\"state\":\"Illinois\"},\"29019\":{\"total\":\"31\",\"name\":\"Boone
+        County\",\"state\":\"Missouri\"},\"29013\":{\"total\":\"1\",\"name\":\"Bates
+        County\",\"state\":\"Missouri\"},\"54023\":{\"total\":\"28\",\"name\":\"Grant
+        County\",\"state\":\"West Virginia\"},\"29011\":{\"total\":\"3\",\"name\":\"Barton
+        County\",\"state\":\"Missouri\"},\"54021\":{\"total\":\"3\",\"name\":\"Gilmer
+        County\",\"state\":\"West Virginia\"},\"05069\":{\"total\":\"2\",\"name\":\"Jefferson
+        County\",\"state\":\"Arkansas\"},\"54027\":{\"total\":\"10\",\"name\":\"Hampshire
+        County\",\"state\":\"West Virginia\"},\"54025\":{\"total\":\"9\",\"name\":\"Greenbrier
+        County\",\"state\":\"West Virginia\"},\"05065\":{\"total\":\"1\",\"name\":\"Izard
+        County\",\"state\":\"Arkansas\"},\"17039\":{\"total\":\"2\",\"name\":\"De
+        Witt County\",\"state\":\"Illinois\"},\"37095\":{\"total\":\"34\",\"name\":\"Hyde
+        County\",\"state\":\"North Carolina\"},\"17003\":{\"total\":\"1\",\"name\":\"Alexander
+        County\",\"state\":\"Illinois\"},\"37099\":{\"total\":\"3\",\"name\":\"Jackson
+        County\",\"state\":\"North Carolina\"},\"54031\":{\"total\":\"71\",\"name\":\"Hardy
+        County\",\"state\":\"West Virginia\"},\"05019\":{\"total\":\"5\",\"name\":\"Clark
+        County\",\"state\":\"Arkansas\"},\"05013\":{\"total\":\"4\",\"name\":\"Calhoun
+        County\",\"state\":\"Arkansas\"},\"05015\":{\"total\":\"5\",\"name\":\"Carroll
+        County\",\"state\":\"Arkansas\"},\"54033\":{\"total\":\"1\",\"name\":\"Harrison
+        County\",\"state\":\"West Virginia\"},\"28131\":{\"total\":\"1\",\"name\":\"Stone
+        County\",\"state\":\"Mississippi\"},\"54039\":{\"total\":\"2\",\"name\":\"Kanawha
+        County\",\"state\":\"West Virginia\"},\"54037\":{\"total\":\"17\",\"name\":\"Jefferson
+        County\",\"state\":\"West Virginia\"},\"17009\":{\"total\":\"1\",\"name\":\"Brown
+        County\",\"state\":\"Illinois\"},\"17015\":{\"total\":\"3\",\"name\":\"Carroll
+        County\",\"state\":\"Illinois\"},\"37087\":{\"total\":\"14\",\"name\":\"Haywood
+        County\",\"state\":\"North Carolina\"},\"37089\":{\"total\":\"3\",\"name\":\"Henderson
+        County\",\"state\":\"North Carolina\"},\"17011\":{\"total\":\"2\",\"name\":\"Bureau
+        County\",\"state\":\"Illinois\"},\"54041\":{\"total\":\"3\",\"name\":\"Lewis
+        County\",\"state\":\"West Virginia\"},\"37081\":{\"total\":\"1\",\"name\":\"Guilford
+        County\",\"state\":\"North Carolina\"},\"05007\":{\"total\":\"5\",\"name\":\"Benton
+        County\",\"state\":\"Arkansas\"},\"37083\":{\"total\":\"1\",\"name\":\"Halifax
+        County\",\"state\":\"North Carolina\"},\"28143\":{\"total\":\"1\",\"name\":\"Tunica
+        County\",\"state\":\"Mississippi\"},\"05001\":{\"total\":\"9\",\"name\":\"Arkansas
+        County\",\"state\":\"Arkansas\"},\"28141\":{\"total\":\"2\",\"name\":\"Tishomingo
+        County\",\"state\":\"Mississippi\"},\"05003\":{\"total\":\"1\",\"name\":\"Ashley
+        County\",\"state\":\"Arkansas\"},\"54047\":{\"total\":\"2\",\"name\":\"McDowell
+        County\",\"state\":\"West Virginia\"},\"17017\":{\"total\":\"1\",\"name\":\"Cass
+        County\",\"state\":\"Illinois\"},\"17019\":{\"total\":\"1\",\"name\":\"Champaign
+        County\",\"state\":\"Illinois\"},\"37075\":{\"total\":\"2\",\"name\":\"Graham
+        County\",\"state\":\"North Carolina\"},\"54053\":{\"total\":\"3\",\"name\":\"Mason
+        County\",\"state\":\"West Virginia\"},\"49051\":{\"total\":\"188\",\"name\":\"Wasatch
+        County\",\"state\":\"Utah\"},\"05035\":{\"total\":\"10\",\"name\":\"Crittenden
+        County\",\"state\":\"Arkansas\"},\"54057\":{\"total\":\"1\",\"name\":\"Mineral
+        County\",\"state\":\"West Virginia\"},\"28111\":{\"total\":\"1\",\"name\":\"Perry
+        County\",\"state\":\"Mississippi\"},\"54055\":{\"total\":\"3\",\"name\":\"Mercer
+        County\",\"state\":\"West Virginia\"},\"05037\":{\"total\":\"2\",\"name\":\"Cross
+        County\",\"state\":\"Arkansas\"},\"49057\":{\"total\":\"142\",\"name\":\"Weber
+        County\",\"state\":\"Utah\"},\"49055\":{\"total\":\"130\",\"name\":\"Wayne
+        County\",\"state\":\"Utah\"},\"49053\":{\"total\":\"610\",\"name\":\"Washington
+        County\",\"state\":\"Utah\"},\"37067\":{\"total\":\"9\",\"name\":\"Forsyth
+        County\",\"state\":\"North Carolina\"},\"49049\":{\"total\":\"953\",\"name\":\"Utah
+        County\",\"state\":\"Utah\"},\"54063\":{\"total\":\"61\",\"name\":\"Monroe
+        County\",\"state\":\"West Virginia\"},\"54061\":{\"total\":\"7\",\"name\":\"Monongalia
+        County\",\"state\":\"West Virginia\"},\"54067\":{\"total\":\"2\",\"name\":\"Nicholas
+        County\",\"state\":\"West Virginia\"},\"05025\":{\"total\":\"1\",\"name\":\"Cleveland
+        County\",\"state\":\"Arkansas\"},\"28125\":{\"total\":\"1\",\"name\":\"Sharkey
+        County\",\"state\":\"Mississippi\"},\"49047\":{\"total\":\"287\",\"name\":\"Uintah
+        County\",\"state\":\"Utah\"},\"49045\":{\"total\":\"230\",\"name\":\"Tooele
+        County\",\"state\":\"Utah\"},\"49043\":{\"total\":\"370\",\"name\":\"Summit
+        County\",\"state\":\"Utah\"},\"48197\":{\"total\":\"1\",\"name\":\"Hardeman
+        County\",\"state\":\"Texas\"},\"49041\":{\"total\":\"83\",\"name\":\"Sevier
+        County\",\"state\":\"Utah\"},\"48195\":{\"total\":\"4\",\"name\":\"Hansford
+        County\",\"state\":\"Texas\"},\"21147\":{\"total\":\"1\",\"name\":\"McCreary
+        County\",\"state\":\"Kentucky\"},\"42087\":{\"total\":\"837\",\"name\":\"Mifflin
+        County\",\"state\":\"Pennsylvania\"},\"21143\":{\"total\":\"8\",\"name\":\"Lyon
+        County\",\"state\":\"Kentucky\"},\"42089\":{\"total\":\"41\",\"name\":\"Monroe
+        County\",\"state\":\"Pennsylvania\"},\"09015\":{\"total\":\"3\",\"name\":\"Windham
+        County\",\"state\":\"Connecticut\"},\"09013\":{\"total\":\"2\",\"name\":\"Tolland
+        County\",\"state\":\"Connecticut\"},\"09011\":{\"total\":\"8\",\"name\":\"New
+        London County\",\"state\":\"Connecticut\"},\"42083\":{\"total\":\"2\",\"name\":\"McKean
+        County\",\"state\":\"Pennsylvania\"},\"42085\":{\"total\":\"1\",\"name\":\"Mercer
+        County\",\"state\":\"Pennsylvania\"},\"42081\":{\"total\":\"92\",\"name\":\"Lycoming
+        County\",\"state\":\"Pennsylvania\"},\"42079\":{\"total\":\"4\",\"name\":\"Luzerne
+        County\",\"state\":\"Pennsylvania\"},\"21157\":{\"total\":\"2\",\"name\":\"Marshall
+        County\",\"state\":\"Kentucky\"},\"42075\":{\"total\":\"496\",\"name\":\"Lebanon
+        County\",\"state\":\"Pennsylvania\"},\"42077\":{\"total\":\"265\",\"name\":\"Lehigh
+        County\",\"state\":\"Pennsylvania\"},\"30093\":{\"total\":\"19\",\"name\":\"Silver
+        Bow County\",\"state\":\"Montana\"},\"30095\":{\"total\":\"89\",\"name\":\"Stillwater
+        County\",\"state\":\"Montana\"},\"30091\":{\"total\":\"34\",\"name\":\"Sheridan
+        County\",\"state\":\"Montana\"},\"09009\":{\"total\":\"151\",\"name\":\"New
+        Haven County\",\"state\":\"Connecticut\"},\"09007\":{\"total\":\"25\",\"name\":\"Middlesex
+        County\",\"state\":\"Connecticut\"},\"09005\":{\"total\":\"44\",\"name\":\"Litchfield
+        County\",\"state\":\"Connecticut\"},\"30097\":{\"total\":\"54\",\"name\":\"Sweet
+        Grass County\",\"state\":\"Montana\"},\"09003\":{\"total\":\"18\",\"name\":\"Hartford
+        County\",\"state\":\"Connecticut\"},\"30099\":{\"total\":\"161\",\"name\":\"Teton
+        County\",\"state\":\"Montana\"},\"09001\":{\"total\":\"165\",\"name\":\"Fairfield
+        County\",\"state\":\"Connecticut\"},\"42071\":{\"total\":\"75\",\"name\":\"Lancaster
+        County\",\"state\":\"Pennsylvania\"},\"21151\":{\"total\":\"3\",\"name\":\"Madison
+        County\",\"state\":\"Kentucky\"},\"42069\":{\"total\":\"4\",\"name\":\"Lackawanna
+        County\",\"state\":\"Pennsylvania\"},\"21125\":{\"total\":\"3\",\"name\":\"Laurel
+        County\",\"state\":\"Kentucky\"},\"42067\":{\"total\":\"7\",\"name\":\"Juniata
+        County\",\"state\":\"Pennsylvania\"},\"30081\":{\"total\":\"191\",\"name\":\"Ravalli
+        County\",\"state\":\"Montana\"},\"30083\":{\"total\":\"2\",\"name\":\"Richland
+        County\",\"state\":\"Montana\"},\"30089\":{\"total\":\"64\",\"name\":\"Sanders
+        County\",\"state\":\"Montana\"},\"29087\":{\"total\":\"31\",\"name\":\"Holt
+        County\",\"state\":\"Missouri\"},\"30085\":{\"total\":\"10\",\"name\":\"Roosevelt
+        County\",\"state\":\"Montana\"},\"30087\":{\"total\":\"22\",\"name\":\"Rosebud
+        County\",\"state\":\"Montana\"},\"42061\":{\"total\":\"340\",\"name\":\"Huntingdon
+        County\",\"state\":\"Pennsylvania\"},\"29081\":{\"total\":\"4\",\"name\":\"Harrison
+        County\",\"state\":\"Missouri\"},\"42063\":{\"total\":\"4\",\"name\":\"Indiana
+        County\",\"state\":\"Pennsylvania\"},\"29083\":{\"total\":\"4\",\"name\":\"Henry
+        County\",\"state\":\"Missouri\"},\"42057\":{\"total\":\"76\",\"name\":\"Fulton
+        County\",\"state\":\"Pennsylvania\"},\"42059\":{\"total\":\"2\",\"name\":\"Greene
+        County\",\"state\":\"Pennsylvania\"},\"42055\":{\"total\":\"119\",\"name\":\"Franklin
+        County\",\"state\":\"Pennsylvania\"},\"30071\":{\"total\":\"140\",\"name\":\"Phillips
+        County\",\"state\":\"Montana\"},\"30073\":{\"total\":\"61\",\"name\":\"Pondera
+        County\",\"state\":\"Montana\"},\"21139\":{\"total\":\"2\",\"name\":\"Livingston
+        County\",\"state\":\"Kentucky\"},\"30079\":{\"total\":\"18\",\"name\":\"Prairie
+        County\",\"state\":\"Montana\"},\"30075\":{\"total\":\"18\",\"name\":\"Powder
+        River County\",\"state\":\"Montana\"},\"30077\":{\"total\":\"97\",\"name\":\"Powell
+        County\",\"state\":\"Montana\"},\"42051\":{\"total\":\"2\",\"name\":\"Fayette
+        County\",\"state\":\"Pennsylvania\"},\"10001\":{\"total\":\"12\",\"name\":\"Kent
+        County\",\"state\":\"Delaware\"},\"29097\":{\"total\":\"4\",\"name\":\"Jasper
+        County\",\"state\":\"Missouri\"},\"10003\":{\"total\":\"117\",\"name\":\"New
+        Castle County\",\"state\":\"Delaware\"},\"29095\":{\"total\":\"4\",\"name\":\"Jackson
+        County\",\"state\":\"Missouri\"},\"10005\":{\"total\":\"98\",\"name\":\"Sussex
+        County\",\"state\":\"Delaware\"},\"42047\":{\"total\":\"3\",\"name\":\"Elk
+        County\",\"state\":\"Pennsylvania\"},\"42049\":{\"total\":\"4\",\"name\":\"Erie
+        County\",\"state\":\"Pennsylvania\"},\"21101\":{\"total\":\"1\",\"name\":\"Henderson
+        County\",\"state\":\"Kentucky\"},\"42043\":{\"total\":\"20\",\"name\":\"Dauphin
+        County\",\"state\":\"Pennsylvania\"},\"17087\":{\"total\":\"2\",\"name\":\"Johnson
+        County\",\"state\":\"Illinois\"},\"42045\":{\"total\":\"57\",\"name\":\"Delaware
+        County\",\"state\":\"Pennsylvania\"},\"17083\":{\"total\":\"1\",\"name\":\"Jersey
+        County\",\"state\":\"Illinois\"},\"30061\":{\"total\":\"147\",\"name\":\"Mineral
+        County\",\"state\":\"Montana\"},\"17085\":{\"total\":\"10\",\"name\":\"Jo
+        Daviess County\",\"state\":\"Illinois\"},\"21107\":{\"total\":\"2\",\"name\":\"Hopkins
+        County\",\"state\":\"Kentucky\"},\"30067\":{\"total\":\"373\",\"name\":\"Park
+        County\",\"state\":\"Montana\"},\"08125\":{\"total\":\"38\",\"name\":\"Yuma
+        County\",\"state\":\"Colorado\"},\"30069\":{\"total\":\"34\",\"name\":\"Petroleum
+        County\",\"state\":\"Montana\"},\"29065\":{\"total\":\"2\",\"name\":\"Dent
+        County\",\"state\":\"Missouri\"},\"08123\":{\"total\":\"594\",\"name\":\"Weld
+        County\",\"state\":\"Colorado\"},\"05097\":{\"total\":\"2\",\"name\":\"Montgomery
+        County\",\"state\":\"Arkansas\"},\"30063\":{\"total\":\"482\",\"name\":\"Missoula
+        County\",\"state\":\"Montana\"},\"08121\":{\"total\":\"33\",\"name\":\"Washington
+        County\",\"state\":\"Colorado\"},\"30065\":{\"total\":\"77\",\"name\":\"Musselshell
+        County\",\"state\":\"Montana\"},\"05095\":{\"total\":\"2\",\"name\":\"Monroe
+        County\",\"state\":\"Arkansas\"},\"42041\":{\"total\":\"3074\",\"name\":\"Cumberland
+        County\",\"state\":\"Pennsylvania\"},\"42035\":{\"total\":\"3\",\"name\":\"Clinton
+        County\",\"state\":\"Pennsylvania\"},\"42037\":{\"total\":\"1\",\"name\":\"Columbia
+        County\",\"state\":\"Pennsylvania\"},\"17097\":{\"total\":\"116\",\"name\":\"Lake
+        County\",\"state\":\"Illinois\"},\"42031\":{\"total\":\"6\",\"name\":\"Clarion
+        County\",\"state\":\"Pennsylvania\"},\"21111\":{\"total\":\"3\",\"name\":\"Jefferson
+        County\",\"state\":\"Kentucky\"},\"17093\":{\"total\":\"2\",\"name\":\"Kendall
+        County\",\"state\":\"Illinois\"},\"30051\":{\"total\":\"29\",\"name\":\"Liberty
+        County\",\"state\":\"Montana\"},\"42039\":{\"total\":\"5\",\"name\":\"Crawford
+        County\",\"state\":\"Pennsylvania\"},\"17091\":{\"total\":\"7\",\"name\":\"Kankakee
+        County\",\"state\":\"Illinois\"},\"08119\":{\"total\":\"47\",\"name\":\"Teller
+        County\",\"state\":\"Colorado\"},\"21117\":{\"total\":\"1\",\"name\":\"Kenton
+        County\",\"state\":\"Kentucky\"},\"30057\":{\"total\":\"333\",\"name\":\"Madison
+        County\",\"state\":\"Montana\"},\"08117\":{\"total\":\"58\",\"name\":\"Summit
+        County\",\"state\":\"Colorado\"},\"05089\":{\"total\":\"3\",\"name\":\"Marion
+        County\",\"state\":\"Arkansas\"},\"30059\":{\"total\":\"96\",\"name\":\"Meagher
+        County\",\"state\":\"Montana\"},\"29077\":{\"total\":\"2\",\"name\":\"Greene
+        County\",\"state\":\"Missouri\"},\"08115\":{\"total\":\"19\",\"name\":\"Sedgwick
+        County\",\"state\":\"Colorado\"},\"30053\":{\"total\":\"25\",\"name\":\"Lincoln
+        County\",\"state\":\"Montana\"},\"08113\":{\"total\":\"39\",\"name\":\"San
+        Miguel County\",\"state\":\"Colorado\"},\"30055\":{\"total\":\"11\",\"name\":\"McCone
+        County\",\"state\":\"Montana\"},\"08111\":{\"total\":\"19\",\"name\":\"San
+        Juan County\",\"state\":\"Colorado\"},\"05087\":{\"total\":\"2\",\"name\":\"Madison
+        County\",\"state\":\"Arkansas\"},\"05081\":{\"total\":\"3\",\"name\":\"Little
+        River County\",\"state\":\"Arkansas\"},\"05083\":{\"total\":\"6\",\"name\":\"Logan
+        County\",\"state\":\"Arkansas\"},\"42025\":{\"total\":\"96\",\"name\":\"Carbon
+        County\",\"state\":\"Pennsylvania\"},\"42027\":{\"total\":\"207\",\"name\":\"Centre
+        County\",\"state\":\"Pennsylvania\"},\"42023\":{\"total\":\"10\",\"name\":\"Cameron
+        County\",\"state\":\"Pennsylvania\"},\"17063\":{\"total\":\"2\",\"name\":\"Grundy
+        County\",\"state\":\"Illinois\"},\"42029\":{\"total\":\"27\",\"name\":\"Chester
+        County\",\"state\":\"Pennsylvania\"},\"30045\":{\"total\":\"8\",\"name\":\"Judith
+        Basin County\",\"state\":\"Montana\"},\"30047\":{\"total\":\"124\",\"name\":\"Lake
+        County\",\"state\":\"Montana\"},\"30041\":{\"total\":\"9\",\"name\":\"Hill
+        County\",\"state\":\"Montana\"},\"29049\":{\"total\":\"2\",\"name\":\"Clinton
+        County\",\"state\":\"Missouri\"},\"30043\":{\"total\":\"121\",\"name\":\"Jefferson
+        County\",\"state\":\"Montana\"},\"29047\":{\"total\":\"6\",\"name\":\"Clay
+        County\",\"state\":\"Missouri\"},\"30049\":{\"total\":\"423\",\"name\":\"Lewis
+        and Clark County\",\"state\":\"Montana\"},\"29041\":{\"total\":\"1\",\"name\":\"Chariton
+        County\",\"state\":\"Missouri\"},\"42013\":{\"total\":\"35\",\"name\":\"Blair
+        County\",\"state\":\"Pennsylvania\"},\"42015\":{\"total\":\"11\",\"name\":\"Bradford
+        County\",\"state\":\"Pennsylvania\"},\"6102\":{\"total\":\"68\",\"name\":\"Region
+        2\",\"state\":\"Northwest Territories Canada\"},\"17075\":{\"total\":\"1\",\"name\":\"Iroquois
+        County\",\"state\":\"Illinois\"},\"6101\":{\"total\":\"217\",\"name\":\"Region
+        1\",\"state\":\"Northwest Territories Canada\"},\"42011\":{\"total\":\"2216\",\"name\":\"Berks
+        County\",\"state\":\"Pennsylvania\"},\"6104\":{\"total\":\"55\",\"name\":\"Region
+        4\",\"state\":\"Northwest Territories Canada\"},\"17077\":{\"total\":\"1\",\"name\":\"Jackson
+        County\",\"state\":\"Illinois\"},\"6103\":{\"total\":\"1\",\"name\":\"Region
+        3\",\"state\":\"Northwest Territories Canada\"},\"42017\":{\"total\":\"14\",\"name\":\"Bucks
+        County\",\"state\":\"Pennsylvania\"},\"30035\":{\"total\":\"308\",\"name\":\"Glacier
+        County\",\"state\":\"Montana\"},\"29057\":{\"total\":\"3\",\"name\":\"Dade
+        County\",\"state\":\"Missouri\"},\"30037\":{\"total\":\"52\",\"name\":\"Golden
+        Valley County\",\"state\":\"Montana\"},\"30031\":{\"total\":\"800\",\"name\":\"Gallatin
+        County\",\"state\":\"Montana\"},\"30033\":{\"total\":\"10\",\"name\":\"Garfield
+        County\",\"state\":\"Montana\"},\"30039\":{\"total\":\"49\",\"name\":\"Granite
+        County\",\"state\":\"Montana\"},\"29053\":{\"total\":\"3\",\"name\":\"Cooper
+        County\",\"state\":\"Missouri\"},\"29051\":{\"total\":\"2\",\"name\":\"Cole
+        County\",\"state\":\"Missouri\"},\"48109\":{\"total\":\"97\",\"name\":\"Culberson
+        County\",\"state\":\"Texas\"},\"48107\":{\"total\":\"16\",\"name\":\"Crosby
+        County\",\"state\":\"Texas\"},\"45079\":{\"total\":\"4\",\"name\":\"Richland
+        County\",\"state\":\"South Carolina\"},\"48105\":{\"total\":\"4\",\"name\":\"Crockett
+        County\",\"state\":\"Texas\"},\"36121\":{\"total\":\"1\",\"name\":\"Wyoming
+        County\",\"state\":\"New York\"},\"01011\":{\"total\":\"1\",\"name\":\"Bullock
+        County\",\"state\":\"Alabama\"},\"6106\":{\"total\":\"17\",\"name\":\"Region
+        6\",\"state\":\"Northwest Territories Canada\"},\"6105\":{\"total\":\"3\",\"name\":\"Region
+        5\",\"state\":\"Northwest Territories Canada\"},\"36111\":{\"total\":\"37\",\"name\":\"Ulster
+        County\",\"state\":\"New York\"},\"01003\":{\"total\":\"2\",\"name\":\"Baldwin
+        County\",\"state\":\"Alabama\"},\"01005\":{\"total\":\"6\",\"name\":\"Barbour
+        County\",\"state\":\"Alabama\"},\"36119\":{\"total\":\"64\",\"name\":\"Westchester
+        County\",\"state\":\"New York\"},\"36117\":{\"total\":\"40\",\"name\":\"Wayne
+        County\",\"state\":\"New York\"},\"36115\":{\"total\":\"8\",\"name\":\"Washington
+        County\",\"state\":\"New York\"},\"36113\":{\"total\":\"2\",\"name\":\"Warren
+        County\",\"state\":\"New York\"},\"13015\":{\"total\":\"1\",\"name\":\"Bartow
+        County\",\"state\":\"Georgia\"},\"45059\":{\"total\":\"1\",\"name\":\"Laurens
+        County\",\"state\":\"South Carolina\"},\"36101\":{\"total\":\"5\",\"name\":\"Steuben
+        County\",\"state\":\"New York\"},\"01037\":{\"total\":\"2\",\"name\":\"Coosa
+        County\",\"state\":\"Alabama\"},\"36109\":{\"total\":\"380\",\"name\":\"Tompkins
+        County\",\"state\":\"New York\"},\"36107\":{\"total\":\"8\",\"name\":\"Tioga
+        County\",\"state\":\"New York\"},\"36105\":{\"total\":\"68\",\"name\":\"Sullivan
+        County\",\"state\":\"New York\"},\"01033\":{\"total\":\"3\",\"name\":\"Colbert
+        County\",\"state\":\"Alabama\"},\"36103\":{\"total\":\"10\",\"name\":\"Suffolk
+        County\",\"state\":\"New York\"},\"45053\":{\"total\":\"1\",\"name\":\"Jasper
+        County\",\"state\":\"South Carolina\"},\"21081\":{\"total\":\"1\",\"name\":\"Grant
+        County\",\"state\":\"Kentucky\"},\"45049\":{\"total\":\"2\",\"name\":\"Hampton
+        County\",\"state\":\"South Carolina\"},\"45045\":{\"total\":\"9\",\"name\":\"Greenville
+        County\",\"state\":\"South Carolina\"},\"21099\":{\"total\":\"1\",\"name\":\"Hart
+        County\",\"state\":\"Kentucky\"},\"01029\":{\"total\":\"4\",\"name\":\"Cleburne
+        County\",\"state\":\"Alabama\"},\"45043\":{\"total\":\"6\",\"name\":\"Georgetown
+        County\",\"state\":\"South Carolina\"},\"21093\":{\"total\":\"1\",\"name\":\"Hardin
+        County\",\"state\":\"Kentucky\"},\"45035\":{\"total\":\"1\",\"name\":\"Dorchester
+        County\",\"state\":\"South Carolina\"},\"12119\":{\"total\":\"1\",\"name\":\"Sumter
+        County\",\"state\":\"Florida\"},\"08089\":{\"total\":\"22\",\"name\":\"Otero
+        County\",\"state\":\"Colorado\"},\"08087\":{\"total\":\"88\",\"name\":\"Morgan
+        County\",\"state\":\"Colorado\"},\"08085\":{\"total\":\"200\",\"name\":\"Montrose
+        County\",\"state\":\"Colorado\"},\"21061\":{\"total\":\"2\",\"name\":\"Edmonson
+        County\",\"state\":\"Kentucky\"},\"08083\":{\"total\":\"191\",\"name\":\"Montezuma
+        County\",\"state\":\"Colorado\"},\"08081\":{\"total\":\"306\",\"name\":\"Moffat
+        County\",\"state\":\"Colorado\"},\"45027\":{\"total\":\"4\",\"name\":\"Clarendon
+        County\",\"state\":\"South Carolina\"},\"45029\":{\"total\":\"11\",\"name\":\"Colleton
+        County\",\"state\":\"South Carolina\"},\"21077\":{\"total\":\"1\",\"name\":\"Gallatin
+        County\",\"state\":\"Kentucky\"},\"08079\":{\"total\":\"18\",\"name\":\"Mineral
+        County\",\"state\":\"Colorado\"},\"08077\":{\"total\":\"491\",\"name\":\"Mesa
+        County\",\"state\":\"Colorado\"},\"50001\":{\"total\":\"59\",\"name\":\"Addison
+        County\",\"state\":\"Vermont\"},\"08075\":{\"total\":\"92\",\"name\":\"Logan
+        County\",\"state\":\"Colorado\"},\"21075\":{\"total\":\"6\",\"name\":\"Fulton
+        County\",\"state\":\"Kentucky\"},\"50003\":{\"total\":\"25\",\"name\":\"Bennington
+        County\",\"state\":\"Vermont\"},\"08073\":{\"total\":\"40\",\"name\":\"Lincoln
+        County\",\"state\":\"Colorado\"},\"50005\":{\"total\":\"2\",\"name\":\"Caledonia
+        County\",\"state\":\"Vermont\"},\"08071\":{\"total\":\"75\",\"name\":\"Las
+        Animas County\",\"state\":\"Colorado\"},\"50007\":{\"total\":\"34\",\"name\":\"Chittenden
+        County\",\"state\":\"Vermont\"},\"12129\":{\"total\":\"5\",\"name\":\"Wakulla
+        County\",\"state\":\"Florida\"},\"50009\":{\"total\":\"3\",\"name\":\"Essex
+        County\",\"state\":\"Vermont\"},\"45017\":{\"total\":\"2\",\"name\":\"Calhoun
+        County\",\"state\":\"South Carolina\"},\"45019\":{\"total\":\"13\",\"name\":\"Charleston
+        County\",\"state\":\"South Carolina\"},\"20199\":{\"total\":\"7\",\"name\":\"Wallace
+        County\",\"state\":\"Kansas\"},\"45013\":{\"total\":\"2\",\"name\":\"Beaufort
+        County\",\"state\":\"South Carolina\"},\"21045\":{\"total\":\"1\",\"name\":\"Casey
+        County\",\"state\":\"Kentucky\"},\"20197\":{\"total\":\"5\",\"name\":\"Wabaunsee
+        County\",\"state\":\"Kansas\"},\"45015\":{\"total\":\"1\",\"name\":\"Berkeley
+        County\",\"state\":\"South Carolina\"},\"21043\":{\"total\":\"1\",\"name\":\"Carter
+        County\",\"state\":\"Kentucky\"},\"50011\":{\"total\":\"10\",\"name\":\"Franklin
+        County\",\"state\":\"Vermont\"},\"50013\":{\"total\":\"8\",\"name\":\"Grand
+        Isle County\",\"state\":\"Vermont\"},\"50015\":{\"total\":\"5\",\"name\":\"Lamoille
+        County\",\"state\":\"Vermont\"},\"20195\":{\"total\":\"2\",\"name\":\"Trego
+        County\",\"state\":\"Kansas\"},\"21041\":{\"total\":\"1\",\"name\":\"Carroll
+        County\",\"state\":\"Kentucky\"},\"45011\":{\"total\":\"4\",\"name\":\"Barnwell
+        County\",\"state\":\"South Carolina\"},\"50017\":{\"total\":\"2\",\"name\":\"Orange
+        County\",\"state\":\"Vermont\"},\"20193\":{\"total\":\"1\",\"name\":\"Thomas
+        County\",\"state\":\"Kansas\"},\"50019\":{\"total\":\"2\",\"name\":\"Orleans
+        County\",\"state\":\"Vermont\"},\"45003\":{\"total\":\"1\",\"name\":\"Aiken
+        County\",\"state\":\"South Carolina\"},\"50021\":{\"total\":\"22\",\"name\":\"Rutland
+        County\",\"state\":\"Vermont\"},\"08099\":{\"total\":\"88\",\"name\":\"Prowers
+        County\",\"state\":\"Colorado\"},\"50023\":{\"total\":\"4\",\"name\":\"Washington
+        County\",\"state\":\"Vermont\"},\"08097\":{\"total\":\"40\",\"name\":\"Pitkin
+        County\",\"state\":\"Colorado\"},\"12101\":{\"total\":\"1\",\"name\":\"Pasco
+        County\",\"state\":\"Florida\"},\"50025\":{\"total\":\"136\",\"name\":\"Windham
+        County\",\"state\":\"Vermont\"},\"08095\":{\"total\":\"2\",\"name\":\"Phillips
+        County\",\"state\":\"Colorado\"},\"50027\":{\"total\":\"18\",\"name\":\"Windsor
+        County\",\"state\":\"Vermont\"},\"08093\":{\"total\":\"184\",\"name\":\"Park
+        County\",\"state\":\"Colorado\"},\"12105\":{\"total\":\"1\",\"name\":\"Polk
+        County\",\"state\":\"Florida\"},\"08091\":{\"total\":\"52\",\"name\":\"Ouray
+        County\",\"state\":\"Colorado\"},\"12107\":{\"total\":\"1\",\"name\":\"Putnam
+        County\",\"state\":\"Florida\"},\"37055\":{\"total\":\"40\",\"name\":\"Dare
+        County\",\"state\":\"North Carolina\"},\"13089\":{\"total\":\"1\",\"name\":\"DeKalb
+        County\",\"state\":\"Georgia\"},\"49039\":{\"total\":\"98\",\"name\":\"Sanpete
+        County\",\"state\":\"Utah\"},\"01095\":{\"total\":\"11\",\"name\":\"Marshall
+        County\",\"state\":\"Alabama\"},\"48181\":{\"total\":\"4\",\"name\":\"Grayson
+        County\",\"state\":\"Texas\"},\"49037\":{\"total\":\"259\",\"name\":\"San
+        Juan County\",\"state\":\"Utah\"},\"48189\":{\"total\":\"2\",\"name\":\"Hale
+        County\",\"state\":\"Texas\"},\"49035\":{\"total\":\"773\",\"name\":\"Salt
+        Lake County\",\"state\":\"Utah\"},\"49033\":{\"total\":\"370\",\"name\":\"Rich
+        County\",\"state\":\"Utah\"},\"48185\":{\"total\":\"1\",\"name\":\"Grimes
+        County\",\"state\":\"Texas\"},\"49031\":{\"total\":\"35\",\"name\":\"Piute
+        County\",\"state\":\"Utah\"},\"48183\":{\"total\":\"1\",\"name\":\"Gregg County\",\"state\":\"Texas\"},\"13099\":{\"total\":\"1\",\"name\":\"Early
+        County\",\"state\":\"Georgia\"},\"49029\":{\"total\":\"528\",\"name\":\"Morgan
+        County\",\"state\":\"Utah\"},\"49027\":{\"total\":\"211\",\"name\":\"Millard
+        County\",\"state\":\"Utah\"},\"01083\":{\"total\":\"2\",\"name\":\"Limestone
+        County\",\"state\":\"Alabama\"},\"48171\":{\"total\":\"1\",\"name\":\"Gillespie
+        County\",\"state\":\"Texas\"},\"28103\":{\"total\":\"1\",\"name\":\"Noxubee
+        County\",\"state\":\"Mississippi\"},\"01087\":{\"total\":\"2\",\"name\":\"Macon
+        County\",\"state\":\"Alabama\"},\"49025\":{\"total\":\"114\",\"name\":\"Kane
+        County\",\"state\":\"Utah\"},\"37049\":{\"total\":\"3\",\"name\":\"Craven
+        County\",\"state\":\"North Carolina\"},\"48179\":{\"total\":\"2\",\"name\":\"Gray
+        County\",\"state\":\"Texas\"},\"49023\":{\"total\":\"609\",\"name\":\"Juab
+        County\",\"state\":\"Utah\"},\"49021\":{\"total\":\"225\",\"name\":\"Iron
+        County\",\"state\":\"Utah\"},\"37031\":{\"total\":\"2\",\"name\":\"Carteret
+        County\",\"state\":\"North Carolina\"},\"49019\":{\"total\":\"323\",\"name\":\"Grand
+        County\",\"state\":\"Utah\"},\"13067\":{\"total\":\"1\",\"name\":\"Cobb County\",\"state\":\"Georgia\"},\"49017\":{\"total\":\"206\",\"name\":\"Garfield
+        County\",\"state\":\"Utah\"},\"37035\":{\"total\":\"11\",\"name\":\"Catawba
+        County\",\"state\":\"North Carolina\"},\"49015\":{\"total\":\"103\",\"name\":\"Emery
+        County\",\"state\":\"Utah\"},\"37037\":{\"total\":\"1\",\"name\":\"Chatham
+        County\",\"state\":\"North Carolina\"},\"48167\":{\"total\":\"1\",\"name\":\"Galveston
+        County\",\"state\":\"Texas\"},\"49013\":{\"total\":\"99\",\"name\":\"Duchesne
+        County\",\"state\":\"Utah\"},\"49011\":{\"total\":\"344\",\"name\":\"Davis
+        County\",\"state\":\"Utah\"},\"49009\":{\"total\":\"60\",\"name\":\"Daggett
+        County\",\"state\":\"Utah\"},\"37021\":{\"total\":\"7\",\"name\":\"Buncombe
+        County\",\"state\":\"North Carolina\"},\"49007\":{\"total\":\"90\",\"name\":\"Carbon
+        County\",\"state\":\"Utah\"},\"37023\":{\"total\":\"3\",\"name\":\"Burke County\",\"state\":\"North
+        Carolina\"},\"49005\":{\"total\":\"546\",\"name\":\"Cache County\",\"state\":\"Utah\"},\"49003\":{\"total\":\"778\",\"name\":\"Box
+        Elder County\",\"state\":\"Utah\"},\"48157\":{\"total\":\"6\",\"name\":\"Fort
+        Bend County\",\"state\":\"Texas\"},\"49001\":{\"total\":\"120\",\"name\":\"Beaver
+        County\",\"state\":\"Utah\"},\"37029\":{\"total\":\"1\",\"name\":\"Camden
+        County\",\"state\":\"North Carolina\"},\"48155\":{\"total\":\"1\",\"name\":\"Foard
+        County\",\"state\":\"Texas\"},\"51710\":{\"total\":\"1\",\"name\":\"Norfolk
+        city\",\"state\":\"Virginia\"},\"48153\":{\"total\":\"2\",\"name\":\"Floyd
+        County\",\"state\":\"Texas\"},\"48151\":{\"total\":\"1\",\"name\":\"Fisher
+        County\",\"state\":\"Texas\"},\"37011\":{\"total\":\"7\",\"name\":\"Avery
+        County\",\"state\":\"North Carolina\"},\"25025\":{\"total\":\"3\",\"name\":\"Suffolk
+        County\",\"state\":\"Massachusetts\"},\"25027\":{\"total\":\"64\",\"name\":\"Worcester
+        County\",\"state\":\"Massachusetts\"},\"4804\":{\"total\":\"31\",\"name\":\"Division
+        No.  4\",\"state\":\"Alberta Canada\"},\"4805\":{\"total\":\"78\",\"name\":\"Division
+        No.  5\",\"state\":\"Alberta Canada\"},\"4806\":{\"total\":\"251\",\"name\":\"Division
+        No.  6\",\"state\":\"Alberta Canada\"},\"4807\":{\"total\":\"39\",\"name\":\"Division
+        No.  7\",\"state\":\"Alberta Canada\"},\"4808\":{\"total\":\"23\",\"name\":\"Division
+        No.  8\",\"state\":\"Alberta Canada\"},\"25021\":{\"total\":\"5\",\"name\":\"Norfolk
+        County\",\"state\":\"Massachusetts\"},\"4809\":{\"total\":\"5\",\"name\":\"Division
+        No.  9\",\"state\":\"Alberta Canada\"},\"25023\":{\"total\":\"4\",\"name\":\"Plymouth
+        County\",\"state\":\"Massachusetts\"},\"48141\":{\"total\":\"53\",\"name\":\"El
+        Paso County\",\"state\":\"Texas\"},\"37019\":{\"total\":\"3\",\"name\":\"Brunswick
+        County\",\"state\":\"North Carolina\"},\"4801\":{\"total\":\"241\",\"name\":\"Division
+        No.  1\",\"state\":\"Alberta Canada\"},\"4802\":{\"total\":\"146\",\"name\":\"Division
+        No.  2\",\"state\":\"Alberta Canada\"},\"4803\":{\"total\":\"238\",\"name\":\"Division
+        No.  3\",\"state\":\"Alberta Canada\"},\"13051\":{\"total\":\"1\",\"name\":\"Chatham
+        County\",\"state\":\"Georgia\"},\"37001\":{\"total\":\"2\",\"name\":\"Alamance
+        County\",\"state\":\"North Carolina\"},\"48137\":{\"total\":\"1\",\"name\":\"Edwards
+        County\",\"state\":\"Texas\"},\"01049\":{\"total\":\"1\",\"name\":\"DeKalb
+        County\",\"state\":\"Alabama\"},\"4815\":{\"total\":\"503\",\"name\":\"Division
+        No. 15\",\"state\":\"Alberta Canada\"},\"4816\":{\"total\":\"5\",\"name\":\"Division
+        No. 16\",\"state\":\"Alberta Canada\"},\"4817\":{\"total\":\"11\",\"name\":\"Division
+        No. 17\",\"state\":\"Alberta Canada\"},\"1303\":{\"total\":\"1\",\"name\":\"Sunbury\",\"state\":\"New
+        Brunswick Canada\"},\"4818\":{\"total\":\"5\",\"name\":\"Division No. 18\",\"state\":\"Alberta
+        Canada\"},\"1302\":{\"total\":\"3\",\"name\":\"Charlotte\",\"state\":\"New
+        Brunswick Canada\"},\"4819\":{\"total\":\"6\",\"name\":\"Division No. 19\",\"state\":\"Alberta
+        Canada\"},\"1301\":{\"total\":\"1\",\"name\":\"Saint John\",\"state\":\"New
+        Brunswick Canada\"},\"13059\":{\"total\":\"1\",\"name\":\"Clarke County\",\"state\":\"Georgia\"},\"37005\":{\"total\":\"18\",\"name\":\"Alleghany
+        County\",\"state\":\"North Carolina\"},\"48135\":{\"total\":\"2\",\"name\":\"Ector
+        County\",\"state\":\"Texas\"},\"4810\":{\"total\":\"46\",\"name\":\"Division
+        No. 10\",\"state\":\"Alberta Canada\"},\"37007\":{\"total\":\"1\",\"name\":\"Anson
+        County\",\"state\":\"North Carolina\"},\"4811\":{\"total\":\"30\",\"name\":\"Division
+        No. 11\",\"state\":\"Alberta Canada\"},\"51735\":{\"total\":\"1\",\"name\":\"Poquoson
+        city\",\"state\":\"Virginia\"},\"4812\":{\"total\":\"8\",\"name\":\"Division
+        No. 12\",\"state\":\"Alberta Canada\"},\"37009\":{\"total\":\"2\",\"name\":\"Ashe
+        County\",\"state\":\"North Carolina\"},\"4813\":{\"total\":\"68\",\"name\":\"Division
+        No. 13\",\"state\":\"Alberta Canada\"},\"1307\":{\"total\":\"11\",\"name\":\"Westmorland\",\"state\":\"New
+        Brunswick Canada\"},\"4814\":{\"total\":\"31\",\"name\":\"Division No. 14\",\"state\":\"Alberta
+        Canada\"},\"1306\":{\"total\":\"5\",\"name\":\"Albert\",\"state\":\"New Brunswick
+        Canada\"},\"48129\":{\"total\":\"1\",\"name\":\"Donley County\",\"state\":\"Texas\"},\"25003\":{\"total\":\"28\",\"name\":\"Berkshire
+        County\",\"state\":\"Massachusetts\"},\"25005\":{\"total\":\"22\",\"name\":\"Bristol
+        County\",\"state\":\"Massachusetts\"},\"25007\":{\"total\":\"3\",\"name\":\"Dukes
+        County\",\"state\":\"Massachusetts\"},\"25009\":{\"total\":\"15\",\"name\":\"Essex
+        County\",\"state\":\"Massachusetts\"},\"01071\":{\"total\":\"4\",\"name\":\"Jackson
+        County\",\"state\":\"Alabama\"},\"1314\":{\"total\":\"2\",\"name\":\"Restigouche\",\"state\":\"New
+        Brunswick Canada\"},\"1313\":{\"total\":\"1\",\"name\":\"Madawaska\",\"state\":\"New
+        Brunswick Canada\"},\"01077\":{\"total\":\"3\",\"name\":\"Lauderdale County\",\"state\":\"Alabama\"},\"1311\":{\"total\":\"1\",\"name\":\"Carleton\",\"state\":\"New
+        Brunswick Canada\"},\"25001\":{\"total\":\"12\",\"name\":\"Barnstable County\",\"state\":\"Massachusetts\"},\"48121\":{\"total\":\"1\",\"name\":\"Denton
+        County\",\"state\":\"Texas\"},\"48119\":{\"total\":\"2\",\"name\":\"Delta
+        County\",\"state\":\"Texas\"},\"13033\":{\"total\":\"1\",\"name\":\"Burke
+        County\",\"state\":\"Georgia\"},\"48117\":{\"total\":\"2\",\"name\":\"Deaf
+        Smith County\",\"state\":\"Texas\"},\"45089\":{\"total\":\"1\",\"name\":\"Williamsburg
+        County\",\"state\":\"South Carolina\"},\"25015\":{\"total\":\"47\",\"name\":\"Hampshire
+        County\",\"state\":\"Massachusetts\"},\"25017\":{\"total\":\"12\",\"name\":\"Middlesex
+        County\",\"state\":\"Massachusetts\"},\"3502\":{\"total\":\"10\",\"name\":\"Prescott
+        and Russell\",\"state\":\"Ontario Canada\"},\"3501\":{\"total\":\"24\",\"name\":\"Stormont,
+        Dundas and Glengarry\",\"state\":\"Ontario Canada\"},\"25011\":{\"total\":\"13\",\"name\":\"Franklin
+        County\",\"state\":\"Massachusetts\"},\"25013\":{\"total\":\"143\",\"name\":\"Hampden
+        County\",\"state\":\"Massachusetts\"},\"51750\":{\"total\":\"2\",\"name\":\"Radford
+        city\",\"state\":\"Virginia\"},\"48113\":{\"total\":\"1\",\"name\":\"Dallas
+        County\",\"state\":\"Texas\"},\"48111\":{\"total\":\"25\",\"name\":\"Dallam
+        County\",\"state\":\"Texas\"},\"3509\":{\"total\":\"6\",\"name\":\"Lanark\",\"state\":\"Ontario
+        Canada\"},\"45081\":{\"total\":\"1\",\"name\":\"Saluda County\",\"state\":\"South
+        Carolina\"},\"3507\":{\"total\":\"11\",\"name\":\"Leeds and Grenville\",\"state\":\"Ontario
+        Canada\"},\"13039\":{\"total\":\"1\",\"name\":\"Camden County\",\"state\":\"Georgia\"},\"3506\":{\"total\":\"31\",\"name\":\"Ottawa\",\"state\":\"Ontario
+        Canada\"},\"42123\":{\"total\":\"4\",\"name\":\"Warren County\",\"state\":\"Pennsylvania\"},\"17167\":{\"total\":\"1\",\"name\":\"Sangamon
+        County\",\"state\":\"Illinois\"},\"42125\":{\"total\":\"1\",\"name\":\"Washington
+        County\",\"state\":\"Pennsylvania\"},\"18017\":{\"total\":\"3\",\"name\":\"Cass
+        County\",\"state\":\"Indiana\"},\"18011\":{\"total\":\"1\",\"name\":\"Boone
+        County\",\"state\":\"Indiana\"},\"18013\":{\"total\":\"15\",\"name\":\"Brown
+        County\",\"state\":\"Indiana\"},\"17161\":{\"total\":\"3\",\"name\":\"Rock
+        Island County\",\"state\":\"Illinois\"},\"06029\":{\"total\":\"1985\",\"name\":\"Kern
+        County\",\"state\":\"California\"},\"42127\":{\"total\":\"5\",\"name\":\"Wayne
+        County\",\"state\":\"Pennsylvania\"},\"42129\":{\"total\":\"4\",\"name\":\"Westmoreland
+        County\",\"state\":\"Pennsylvania\"},\"06025\":{\"total\":\"11\",\"name\":\"Imperial
+        County\",\"state\":\"California\"},\"3516\":{\"total\":\"4\",\"name\":\"Kawartha
+        Lakes\",\"state\":\"Ontario Canada\"},\"3515\":{\"total\":\"32\",\"name\":\"Peterborough\",\"state\":\"Ontario
+        Canada\"},\"06027\":{\"total\":\"980\",\"name\":\"Inyo County\",\"state\":\"California\"},\"3514\":{\"total\":\"98\",\"name\":\"Northumberland\",\"state\":\"Ontario
+        Canada\"},\"51087\":{\"total\":\"1\",\"name\":\"Henrico County\",\"state\":\"Virginia\"},\"3513\":{\"total\":\"24\",\"name\":\"Prince
+        Edward\",\"state\":\"Ontario Canada\"},\"06021\":{\"total\":\"191\",\"name\":\"Glenn
+        County\",\"state\":\"California\"},\"3512\":{\"total\":\"5\",\"name\":\"Hastings\",\"state\":\"Ontario
+        Canada\"},\"3511\":{\"total\":\"13\",\"name\":\"Lennox and Addington\",\"state\":\"Ontario
+        Canada\"},\"06023\":{\"total\":\"307\",\"name\":\"Humboldt County\",\"state\":\"California\"},\"3510\":{\"total\":\"19\",\"name\":\"Frontenac\",\"state\":\"Ontario
+        Canada\"},\"3519\":{\"total\":\"4\",\"name\":\"York\",\"state\":\"Ontario
+        Canada\"},\"18019\":{\"total\":\"1\",\"name\":\"Clark County\",\"state\":\"Indiana\"},\"3518\":{\"total\":\"102\",\"name\":\"Durham\",\"state\":\"Ontario
+        Canada\"},\"38097\":{\"total\":\"4\",\"name\":\"Traill County\",\"state\":\"North
+        Dakota\"},\"42113\":{\"total\":\"2\",\"name\":\"Sullivan County\",\"state\":\"Pennsylvania\"},\"38099\":{\"total\":\"4\",\"name\":\"Walsh
+        County\",\"state\":\"North Dakota\"},\"42115\":{\"total\":\"4\",\"name\":\"Susquehanna
+        County\",\"state\":\"Pennsylvania\"},\"18021\":{\"total\":\"3\",\"name\":\"Clay
+        County\",\"state\":\"Indiana\"},\"42111\":{\"total\":\"13\",\"name\":\"Somerset
+        County\",\"state\":\"Pennsylvania\"},\"3530\":{\"total\":\"18\",\"name\":\"Waterloo\",\"state\":\"Ontario
+        Canada\"},\"17173\":{\"total\":\"1\",\"name\":\"Shelby County\",\"state\":\"Illinois\"},\"51091\":{\"total\":\"166\",\"name\":\"Highland
+        County\",\"state\":\"Virginia\"},\"06017\":{\"total\":\"139\",\"name\":\"El
+        Dorado County\",\"state\":\"California\"},\"38093\":{\"total\":\"12\",\"name\":\"Stutsman
+        County\",\"state\":\"North Dakota\"},\"42117\":{\"total\":\"12\",\"name\":\"Tioga
+        County\",\"state\":\"Pennsylvania\"},\"06019\":{\"total\":\"289\",\"name\":\"Fresno
+        County\",\"state\":\"California\"},\"38095\":{\"total\":\"1\",\"name\":\"Towner
+        County\",\"state\":\"North Dakota\"},\"42119\":{\"total\":\"1\",\"name\":\"Union
+        County\",\"state\":\"Pennsylvania\"},\"06013\":{\"total\":\"1000\",\"name\":\"Contra
+        Costa County\",\"state\":\"California\"},\"3526\":{\"total\":\"205\",\"name\":\"Niagara\",\"state\":\"Ontario
+        Canada\"},\"51095\":{\"total\":\"1\",\"name\":\"James City County\",\"state\":\"Virginia\"},\"3525\":{\"total\":\"137\",\"name\":\"Hamilton\",\"state\":\"Ontario
+        Canada\"},\"06015\":{\"total\":\"57\",\"name\":\"Del Norte County\",\"state\":\"California\"},\"3524\":{\"total\":\"41\",\"name\":\"Halton\",\"state\":\"Ontario
+        Canada\"},\"3523\":{\"total\":\"16\",\"name\":\"Wellington\",\"state\":\"Ontario
+        Canada\"},\"51099\":{\"total\":\"2\",\"name\":\"King George County\",\"state\":\"Virginia\"},\"29159\":{\"total\":\"1\",\"name\":\"Pettis
+        County\",\"state\":\"Missouri\"},\"3521\":{\"total\":\"23\",\"name\":\"Peel\",\"state\":\"Ontario
+        Canada\"},\"06011\":{\"total\":\"204\",\"name\":\"Colusa County\",\"state\":\"California\"},\"3520\":{\"total\":\"151\",\"name\":\"Toronto\",\"state\":\"Ontario
+        Canada\"},\"18029\":{\"total\":\"2\",\"name\":\"Dearborn County\",\"state\":\"Indiana\"},\"3529\":{\"total\":\"12\",\"name\":\"Brant\",\"state\":\"Ontario
+        Canada\"},\"3528\":{\"total\":\"127\",\"name\":\"Haldimand-Norfolk\",\"state\":\"Ontario
+        Canada\"},\"42101\":{\"total\":\"5\",\"name\":\"Philadelphia County\",\"state\":\"Pennsylvania\"},\"17145\":{\"total\":\"1\",\"name\":\"Perry
+        County\",\"state\":\"Illinois\"},\"38085\":{\"total\":\"1\",\"name\":\"Sioux
+        County\",\"state\":\"North Dakota\"},\"38087\":{\"total\":\"36\",\"name\":\"Slope
+        County\",\"state\":\"North Dakota\"},\"42103\":{\"total\":\"7\",\"name\":\"Pike
+        County\",\"state\":\"Pennsylvania\"},\"17147\":{\"total\":\"1\",\"name\":\"Piatt
+        County\",\"state\":\"Illinois\"},\"38089\":{\"total\":\"5\",\"name\":\"Stark
+        County\",\"state\":\"North Dakota\"},\"17141\":{\"total\":\"1\",\"name\":\"Ogle
+        County\",\"state\":\"Illinois\"},\"3541\":{\"total\":\"11\",\"name\":\"Bruce\",\"state\":\"Ontario
+        Canada\"},\"3540\":{\"total\":\"2\",\"name\":\"Huron\",\"state\":\"Ontario
+        Canada\"},\"42105\":{\"total\":\"9\",\"name\":\"Potter County\",\"state\":\"Pennsylvania\"},\"42107\":{\"total\":\"426\",\"name\":\"Schuylkill
+        County\",\"state\":\"Pennsylvania\"},\"38083\":{\"total\":\"1\",\"name\":\"Sheridan
+        County\",\"state\":\"North Dakota\"},\"06047\":{\"total\":\"240\",\"name\":\"Merced
+        County\",\"state\":\"California\"},\"3538\":{\"total\":\"23\",\"name\":\"Lambton\",\"state\":\"Ontario
+        Canada\"},\"3537\":{\"total\":\"179\",\"name\":\"Essex\",\"state\":\"Ontario
+        Canada\"},\"26095\":{\"total\":\"19\",\"name\":\"Luce County\",\"state\":\"Michigan\"},\"06049\":{\"total\":\"396\",\"name\":\"Modoc
+        County\",\"state\":\"California\"},\"3536\":{\"total\":\"13\",\"name\":\"Chatham-Kent\",\"state\":\"Ontario
+        Canada\"},\"29121\":{\"total\":\"3\",\"name\":\"Macon County\",\"state\":\"Missouri\"},\"26097\":{\"total\":\"7\",\"name\":\"Mackinac
+        County\",\"state\":\"Michigan\"},\"06043\":{\"total\":\"302\",\"name\":\"Mariposa
+        County\",\"state\":\"California\"},\"3534\":{\"total\":\"191\",\"name\":\"Elgin\",\"state\":\"Ontario
+        Canada\"},\"26099\":{\"total\":\"6\",\"name\":\"Macomb County\",\"state\":\"Michigan\"},\"06045\":{\"total\":\"555\",\"name\":\"Mendocino
+        County\",\"state\":\"California\"},\"3532\":{\"total\":\"1\",\"name\":\"Oxford\",\"state\":\"Ontario
+        Canada\"},\"3531\":{\"total\":\"2\",\"name\":\"Perth\",\"state\":\"Ontario
+        Canada\"},\"06041\":{\"total\":\"382\",\"name\":\"Marin County\",\"state\":\"California\"},\"17149\":{\"total\":\"2\",\"name\":\"Pike
+        County\",\"state\":\"Illinois\"},\"26091\":{\"total\":\"3\",\"name\":\"Lenawee
+        County\",\"state\":\"Michigan\"},\"3539\":{\"total\":\"23\",\"name\":\"Middlesex\",\"state\":\"Ontario
+        Canada\"},\"26093\":{\"total\":\"4\",\"name\":\"Livingston County\",\"state\":\"Michigan\"},\"17157\":{\"total\":\"1\",\"name\":\"Randolph
+        County\",\"state\":\"Illinois\"},\"18005\":{\"total\":\"1\",\"name\":\"Bartholomew
+        County\",\"state\":\"Indiana\"},\"38079\":{\"total\":\"1\",\"name\":\"Rolette
+        County\",\"state\":\"North Dakota\"},\"17155\":{\"total\":\"3\",\"name\":\"Putnam
+        County\",\"state\":\"Illinois\"},\"3552\":{\"total\":\"5\",\"name\":\"Sudbury\",\"state\":\"Ontario
+        Canada\"},\"3551\":{\"total\":\"1\",\"name\":\"Manitoulin\",\"state\":\"Ontario
+        Canada\"},\"06039\":{\"total\":\"274\",\"name\":\"Madera County\",\"state\":\"California\"},\"38071\":{\"total\":\"3\",\"name\":\"Ramsey
+        County\",\"state\":\"North Dakota\"},\"38073\":{\"total\":\"2\",\"name\":\"Ransom
+        County\",\"state\":\"North Dakota\"},\"3549\":{\"total\":\"3\",\"name\":\"Parry
+        Sound\",\"state\":\"Ontario Canada\"},\"06035\":{\"total\":\"364\",\"name\":\"Lassen
+        County\",\"state\":\"California\"},\"30111\":{\"total\":\"65\",\"name\":\"Yellowstone
+        County\",\"state\":\"Montana\"},\"3548\":{\"total\":\"29\",\"name\":\"Nipissing\",\"state\":\"Ontario
+        Canada\"},\"3547\":{\"total\":\"6\",\"name\":\"Renfrew\",\"state\":\"Ontario
+        Canada\"},\"06037\":{\"total\":\"870\",\"name\":\"Los Angeles County\",\"state\":\"California\"},\"3546\":{\"total\":\"4\",\"name\":\"Haliburton\",\"state\":\"Ontario
+        Canada\"},\"06031\":{\"total\":\"119\",\"name\":\"Kings County\",\"state\":\"California\"},\"3544\":{\"total\":\"5\",\"name\":\"Muskoka\",\"state\":\"Ontario
+        Canada\"},\"3543\":{\"total\":\"6\",\"name\":\"Simcoe\",\"state\":\"Ontario
+        Canada\"},\"06033\":{\"total\":\"77\",\"name\":\"Lake County\",\"state\":\"California\"},\"3542\":{\"total\":\"6\",\"name\":\"Grey\",\"state\":\"Ontario
+        Canada\"},\"18007\":{\"total\":\"5\",\"name\":\"Benton County\",\"state\":\"Indiana\"},\"38063\":{\"total\":\"2\",\"name\":\"Nelson
+        County\",\"state\":\"North Dakota\"},\"17125\":{\"total\":\"8\",\"name\":\"Mason
+        County\",\"state\":\"Illinois\"},\"38065\":{\"total\":\"2\",\"name\":\"Oliver
+        County\",\"state\":\"North Dakota\"},\"38067\":{\"total\":\"2\",\"name\":\"Pembina
+        County\",\"state\":\"North Dakota\"},\"3560\":{\"total\":\"95\",\"name\":\"Kenora\",\"state\":\"Ontario
+        Canada\"},\"38061\":{\"total\":\"5\",\"name\":\"Mountrail County\",\"state\":\"North
+        Dakota\"},\"30101\":{\"total\":\"242\",\"name\":\"Toole County\",\"state\":\"Montana\"},\"55003\":{\"total\":\"7\",\"name\":\"Ashland
+        County\",\"state\":\"Wisconsin\"},\"29101\":{\"total\":\"2\",\"name\":\"Johnson
+        County\",\"state\":\"Missouri\"},\"26073\":{\"total\":\"6\",\"name\":\"Isabella
+        County\",\"state\":\"Michigan\"},\"05133\":{\"total\":\"1\",\"name\":\"Sevier
+        County\",\"state\":\"Arkansas\"},\"3559\":{\"total\":\"1\",\"name\":\"Rainy
+        River\",\"state\":\"Ontario Canada\"},\"3558\":{\"total\":\"21\",\"name\":\"Thunder
+        Bay\",\"state\":\"Ontario Canada\"},\"55001\":{\"total\":\"16\",\"name\":\"Adams
+        County\",\"state\":\"Wisconsin\"},\"30103\":{\"total\":\"2\",\"name\":\"Treasure
+        County\",\"state\":\"Montana\"},\"26075\":{\"total\":\"101\",\"name\":\"Jackson
+        County\",\"state\":\"Michigan\"},\"3557\":{\"total\":\"34\",\"name\":\"Algoma\",\"state\":\"Ontario
+        Canada\"},\"55007\":{\"total\":\"70\",\"name\":\"Bayfield County\",\"state\":\"Wisconsin\"},\"3556\":{\"total\":\"7\",\"name\":\"Cochrane\",\"state\":\"Ontario
+        Canada\"},\"26077\":{\"total\":\"1\",\"name\":\"Kalamazoo County\",\"state\":\"Michigan\"},\"3554\":{\"total\":\"3\",\"name\":\"Timiskaming\",\"state\":\"Ontario
+        Canada\"},\"55005\":{\"total\":\"2\",\"name\":\"Barron County\",\"state\":\"Wisconsin\"},\"26079\":{\"total\":\"3\",\"name\":\"Kalkaska
+        County\",\"state\":\"Michigan\"},\"05131\":{\"total\":\"1\",\"name\":\"Sebastian
+        County\",\"state\":\"Arkansas\"},\"30109\":{\"total\":\"2\",\"name\":\"Wibaux
+        County\",\"state\":\"Montana\"},\"55009\":{\"total\":\"2\",\"name\":\"Brown
+        County\",\"state\":\"Wisconsin\"},\"30105\":{\"total\":\"47\",\"name\":\"Valley
+        County\",\"state\":\"Montana\"},\"30107\":{\"total\":\"78\",\"name\":\"Wheatland
+        County\",\"state\":\"Montana\"},\"38053\":{\"total\":\"51\",\"name\":\"McKenzie
+        County\",\"state\":\"North Dakota\"},\"38055\":{\"total\":\"5\",\"name\":\"McLean
+        County\",\"state\":\"North Dakota\"},\"17137\":{\"total\":\"2\",\"name\":\"Morgan
+        County\",\"state\":\"Illinois\"},\"38057\":{\"total\":\"5\",\"name\":\"Mercer
+        County\",\"state\":\"North Dakota\"},\"17131\":{\"total\":\"1\",\"name\":\"Mercer
+        County\",\"state\":\"Illinois\"},\"38059\":{\"total\":\"2\",\"name\":\"Morton
+        County\",\"state\":\"North Dakota\"},\"17133\":{\"total\":\"1\",\"name\":\"Monroe
+        County\",\"state\":\"Illinois\"},\"29117\":{\"total\":\"5\",\"name\":\"Livingston
+        County\",\"state\":\"Missouri\"},\"05127\":{\"total\":\"2\",\"name\":\"Scott
+        County\",\"state\":\"Arkansas\"},\"05129\":{\"total\":\"1\",\"name\":\"Searcy
+        County\",\"state\":\"Arkansas\"},\"55013\":{\"total\":\"26\",\"name\":\"Burnett
+        County\",\"state\":\"Wisconsin\"},\"26087\":{\"total\":\"2\",\"name\":\"Lapeer
+        County\",\"state\":\"Michigan\"},\"55011\":{\"total\":\"67\",\"name\":\"Buffalo
+        County\",\"state\":\"Wisconsin\"},\"26089\":{\"total\":\"4\",\"name\":\"Leelanau
+        County\",\"state\":\"Michigan\"},\"55017\":{\"total\":\"2\",\"name\":\"Chippewa
+        County\",\"state\":\"Wisconsin\"},\"29113\":{\"total\":\"13\",\"name\":\"Lincoln
+        County\",\"state\":\"Missouri\"},\"55019\":{\"total\":\"2\",\"name\":\"Clark
+        County\",\"state\":\"Wisconsin\"},\"26081\":{\"total\":\"13\",\"name\":\"Kent
+        County\",\"state\":\"Michigan\"},\"26083\":{\"total\":\"103\",\"name\":\"Keweenaw
+        County\",\"state\":\"Michigan\"},\"02090\":{\"total\":\"27\",\"name\":\"Fairbanks
+        North Star Borough\",\"state\":\"Alaska\"},\"38041\":{\"total\":\"12\",\"name\":\"Hettinger
+        County\",\"state\":\"North Dakota\"},\"17103\":{\"total\":\"3\",\"name\":\"Lee
+        County\",\"state\":\"Illinois\"},\"37199\":{\"total\":\"4\",\"name\":\"Yancey
+        County\",\"state\":\"North Carolina\"},\"26059\":{\"total\":\"6\",\"name\":\"Hillsdale
+        County\",\"state\":\"Michigan\"},\"06007\":{\"total\":\"192\",\"name\":\"Butte
+        County\",\"state\":\"California\"},\"55021\":{\"total\":\"1\",\"name\":\"Columbia
+        County\",\"state\":\"Wisconsin\"},\"06009\":{\"total\":\"71\",\"name\":\"Calaveras
+        County\",\"state\":\"California\"},\"37193\":{\"total\":\"4\",\"name\":\"Wilkes
+        County\",\"state\":\"North Carolina\"},\"06003\":{\"total\":\"111\",\"name\":\"Alpine
+        County\",\"state\":\"California\"},\"55025\":{\"total\":\"14\",\"name\":\"Dane
+        County\",\"state\":\"Wisconsin\"},\"06005\":{\"total\":\"90\",\"name\":\"Amador
+        County\",\"state\":\"California\"},\"55023\":{\"total\":\"3\",\"name\":\"Crawford
+        County\",\"state\":\"Wisconsin\"},\"26053\":{\"total\":\"1\",\"name\":\"Gogebic
+        County\",\"state\":\"Michigan\"},\"26055\":{\"total\":\"2\",\"name\":\"Grand
+        Traverse County\",\"state\":\"Michigan\"},\"06001\":{\"total\":\"2031\",\"name\":\"Alameda
+        County\",\"state\":\"California\"},\"55027\":{\"total\":\"2\",\"name\":\"Dodge
+        County\",\"state\":\"Wisconsin\"},\"26057\":{\"total\":\"18\",\"name\":\"Gratiot
+        County\",\"state\":\"Michigan\"},\"38049\":{\"total\":\"3\",\"name\":\"McHenry
+        County\",\"state\":\"North Dakota\"},\"17113\":{\"total\":\"1\",\"name\":\"McLean
+        County\",\"state\":\"Illinois\"},\"38031\":{\"total\":\"1\",\"name\":\"Foster
+        County\",\"state\":\"North Dakota\"},\"38033\":{\"total\":\"15\",\"name\":\"Golden
+        Valley County\",\"state\":\"North Dakota\"},\"37187\":{\"total\":\"11\",\"name\":\"Washington
+        County\",\"state\":\"North Carolina\"},\"38035\":{\"total\":\"13\",\"name\":\"Grand
+        Forks County\",\"state\":\"North Dakota\"},\"37189\":{\"total\":\"1\",\"name\":\"Watauga
+        County\",\"state\":\"North Carolina\"},\"38037\":{\"total\":\"2\",\"name\":\"Grant
+        County\",\"state\":\"North Dakota\"},\"05149\":{\"total\":\"2\",\"name\":\"Yell
+        County\",\"state\":\"Arkansas\"},\"55031\":{\"total\":\"10\",\"name\":\"Douglas
+        County\",\"state\":\"Wisconsin\"},\"26063\":{\"total\":\"38\",\"name\":\"Huron
+        County\",\"state\":\"Michigan\"},\"05145\":{\"total\":\"7\",\"name\":\"White
+        County\",\"state\":\"Arkansas\"},\"55035\":{\"total\":\"2\",\"name\":\"Eau
+        Claire County\",\"state\":\"Wisconsin\"},\"26065\":{\"total\":\"11\",\"name\":\"Ingham
+        County\",\"state\":\"Michigan\"},\"05147\":{\"total\":\"3\",\"name\":\"Woodruff
+        County\",\"state\":\"Arkansas\"},\"55033\":{\"total\":\"4\",\"name\":\"Dunn
+        County\",\"state\":\"Wisconsin\"},\"26067\":{\"total\":\"2\",\"name\":\"Ionia
+        County\",\"state\":\"Michigan\"},\"55039\":{\"total\":\"2\",\"name\":\"Fond
+        du Lac County\",\"state\":\"Wisconsin\"},\"26069\":{\"total\":\"16\",\"name\":\"Iosco
+        County\",\"state\":\"Michigan\"},\"05143\":{\"total\":\"11\",\"name\":\"Washington
+        County\",\"state\":\"Arkansas\"},\"55037\":{\"total\":\"7\",\"name\":\"Florence
+        County\",\"state\":\"Wisconsin\"},\"38039\":{\"total\":\"1\",\"name\":\"Griggs
+        County\",\"state\":\"North Dakota\"},\"26061\":{\"total\":\"3\",\"name\":\"Houghton
+        County\",\"state\":\"Michigan\"},\"22111\":{\"total\":\"1\",\"name\":\"Union
+        Parish\",\"state\":\"Louisiana\"},\"18097\":{\"total\":\"6\",\"name\":\"Marion
+        County\",\"state\":\"Indiana\"},\"18091\":{\"total\":\"6\",\"name\":\"LaPorte
+        County\",\"state\":\"Indiana\"},\"18093\":{\"total\":\"9\",\"name\":\"Lawrence
+        County\",\"state\":\"Indiana\"},\"31079\":{\"total\":\"7\",\"name\":\"Hall
+        County\",\"state\":\"Nebraska\"},\"51001\":{\"total\":\"9\",\"name\":\"Accomack
+        County\",\"state\":\"Virginia\"},\"31075\":{\"total\":\"3\",\"name\":\"Grant
+        County\",\"state\":\"Nebraska\"},\"51003\":{\"total\":\"2\",\"name\":\"Albemarle
+        County\",\"state\":\"Virginia\"},\"51005\":{\"total\":\"4\",\"name\":\"Alleghany
+        County\",\"state\":\"Virginia\"},\"51009\":{\"total\":\"1\",\"name\":\"Amherst
+        County\",\"state\":\"Virginia\"},\"31069\":{\"total\":\"16\",\"name\":\"Garden
+        County\",\"state\":\"Nebraska\"},\"06097\":{\"total\":\"639\",\"name\":\"Sonoma
+        County\",\"state\":\"California\"},\"31067\":{\"total\":\"1\",\"name\":\"Gage
+        County\",\"state\":\"Nebraska\"},\"06099\":{\"total\":\"380\",\"name\":\"Stanislaus
+        County\",\"state\":\"California\"},\"51013\":{\"total\":\"4\",\"name\":\"Arlington
+        County\",\"state\":\"Virginia\"},\"06093\":{\"total\":\"1059\",\"name\":\"Siskiyou
+        County\",\"state\":\"California\"},\"51015\":{\"total\":\"92\",\"name\":\"Augusta
+        County\",\"state\":\"Virginia\"},\"06095\":{\"total\":\"739\",\"name\":\"Solano
+        County\",\"state\":\"California\"},\"51017\":{\"total\":\"14\",\"name\":\"Bath
+        County\",\"state\":\"Virginia\"},\"51019\":{\"total\":\"23\",\"name\":\"Bedford
+        County\",\"state\":\"Virginia\"},\"06091\":{\"total\":\"143\",\"name\":\"Sierra
+        County\",\"state\":\"California\"},\"18077\":{\"total\":\"5\",\"name\":\"Jefferson
+        County\",\"state\":\"Indiana\"},\"18079\":{\"total\":\"7\",\"name\":\"Jennings
+        County\",\"state\":\"Indiana\"},\"18073\":{\"total\":\"16\",\"name\":\"Jasper
+        County\",\"state\":\"Indiana\"},\"31051\":{\"total\":\"1\",\"name\":\"Dixon
+        County\",\"state\":\"Nebraska\"},\"18071\":{\"total\":\"19\",\"name\":\"Jackson
+        County\",\"state\":\"Indiana\"},\"31057\":{\"total\":\"1\",\"name\":\"Dundy
+        County\",\"state\":\"Nebraska\"},\"51021\":{\"total\":\"1\",\"name\":\"Bland
+        County\",\"state\":\"Virginia\"},\"51023\":{\"total\":\"15\",\"name\":\"Botetourt
+        County\",\"state\":\"Virginia\"},\"31053\":{\"total\":\"1\",\"name\":\"Dodge
+        County\",\"state\":\"Nebraska\"},\"31055\":{\"total\":\"2\",\"name\":\"Douglas
+        County\",\"state\":\"Nebraska\"},\"18087\":{\"total\":\"19\",\"name\":\"LaGrange
+        County\",\"state\":\"Indiana\"},\"18083\":{\"total\":\"4\",\"name\":\"Knox
+        County\",\"state\":\"Indiana\"},\"31041\":{\"total\":\"10\",\"name\":\"Custer
+        County\",\"state\":\"Nebraska\"},\"18085\":{\"total\":\"1\",\"name\":\"Kosciusko
+        County\",\"state\":\"Indiana\"},\"31047\":{\"total\":\"1\",\"name\":\"Dawson
+        County\",\"state\":\"Nebraska\"},\"51031\":{\"total\":\"1\",\"name\":\"Campbell
+        County\",\"state\":\"Virginia\"},\"31045\":{\"total\":\"35\",\"name\":\"Dawes
+        County\",\"state\":\"Nebraska\"},\"18055\":{\"total\":\"33\",\"name\":\"Greene
+        County\",\"state\":\"Indiana\"},\"21221\":{\"total\":\"2\",\"name\":\"Trigg
+        County\",\"state\":\"Kentucky\"},\"18057\":{\"total\":\"2\",\"name\":\"Hamilton
+        County\",\"state\":\"Indiana\"},\"18051\":{\"total\":\"80\",\"name\":\"Gibson
+        County\",\"state\":\"Indiana\"},\"21227\":{\"total\":\"1\",\"name\":\"Warren
+        County\",\"state\":\"Kentucky\"},\"06069\":{\"total\":\"1359\",\"name\":\"San
+        Benito County\",\"state\":\"California\"},\"29189\":{\"total\":\"2\",\"name\":\"St.
+        Louis County\",\"state\":\"Missouri\"},\"51041\":{\"total\":\"1\",\"name\":\"Chesterfield
+        County\",\"state\":\"Virginia\"},\"51043\":{\"total\":\"32\",\"name\":\"Clarke
+        County\",\"state\":\"Virginia\"},\"06065\":{\"total\":\"914\",\"name\":\"Riverside
+        County\",\"state\":\"California\"},\"51045\":{\"total\":\"1\",\"name\":\"Craig
+        County\",\"state\":\"Virginia\"},\"31031\":{\"total\":\"11\",\"name\":\"Cherry
+        County\",\"state\":\"Nebraska\"},\"06067\":{\"total\":\"146\",\"name\":\"Sacramento
+        County\",\"state\":\"California\"},\"31033\":{\"total\":\"14\",\"name\":\"Cheyenne
+        County\",\"state\":\"Nebraska\"},\"06061\":{\"total\":\"119\",\"name\":\"Placer
+        County\",\"state\":\"California\"},\"06063\":{\"total\":\"314\",\"name\":\"Plumas
+        County\",\"state\":\"California\"},\"29185\":{\"total\":\"2\",\"name\":\"St.
+        Clair County\",\"state\":\"Missouri\"},\"29183\":{\"total\":\"3\",\"name\":\"St.
+        Charles County\",\"state\":\"Missouri\"},\"21235\":{\"total\":\"2\",\"name\":\"Whitley
+        County\",\"state\":\"Kentucky\"},\"06057\":{\"total\":\"53\",\"name\":\"Nevada
+        County\",\"state\":\"California\"},\"31027\":{\"total\":\"1\",\"name\":\"Cedar
+        County\",\"state\":\"Nebraska\"},\"06059\":{\"total\":\"258\",\"name\":\"Orange
+        County\",\"state\":\"California\"},\"06053\":{\"total\":\"1620\",\"name\":\"Monterey
+        County\",\"state\":\"California\"},\"31023\":{\"total\":\"1\",\"name\":\"Butler
+        County\",\"state\":\"Nebraska\"},\"06055\":{\"total\":\"212\",\"name\":\"Napa
+        County\",\"state\":\"California\"},\"51059\":{\"total\":\"3\",\"name\":\"Fairfax
+        County\",\"state\":\"Virginia\"},\"06051\":{\"total\":\"444\",\"name\":\"Mono
+        County\",\"state\":\"California\"},\"31029\":{\"total\":\"1\",\"name\":\"Chase
+        County\",\"state\":\"Nebraska\"},\"18037\":{\"total\":\"1\",\"name\":\"Dubois
+        County\",\"state\":\"Indiana\"},\"21203\":{\"total\":\"1\",\"name\":\"Rockcastle
+        County\",\"state\":\"Kentucky\"},\"18039\":{\"total\":\"7\",\"name\":\"Elkhart
+        County\",\"state\":\"Indiana\"},\"18033\":{\"total\":\"1\",\"name\":\"DeKalb
+        County\",\"state\":\"Indiana\"},\"18035\":{\"total\":\"1\",\"name\":\"Delaware
+        County\",\"state\":\"Indiana\"},\"17181\":{\"total\":\"10\",\"name\":\"Union
+        County\",\"state\":\"Illinois\"},\"18031\":{\"total\":\"1\",\"name\":\"Decatur
+        County\",\"state\":\"Indiana\"},\"51061\":{\"total\":\"18\",\"name\":\"Fauquier
+        County\",\"state\":\"Virginia\"},\"21205\":{\"total\":\"3\",\"name\":\"Rowan
+        County\",\"state\":\"Kentucky\"},\"29167\":{\"total\":\"1\",\"name\":\"Polk
+        County\",\"state\":\"Missouri\"},\"31013\":{\"total\":\"6\",\"name\":\"Box
+        Butte County\",\"state\":\"Nebraska\"},\"29165\":{\"total\":\"1\",\"name\":\"Platte
+        County\",\"state\":\"Missouri\"},\"31015\":{\"total\":\"1\",\"name\":\"Boyd
+        County\",\"state\":\"Nebraska\"},\"06087\":{\"total\":\"541\",\"name\":\"Santa
+        Cruz County\",\"state\":\"California\"},\"06089\":{\"total\":\"160\",\"name\":\"Shasta
+        County\",\"state\":\"California\"},\"51069\":{\"total\":\"1\",\"name\":\"Frederick
+        County\",\"state\":\"Virginia\"},\"06083\":{\"total\":\"505\",\"name\":\"Santa
+        Barbara County\",\"state\":\"California\"},\"6205\":{\"total\":\"27\",\"name\":\"Keewatin\",\"state\":\"Nunavut
+        Canada\"},\"6204\":{\"total\":\"3\",\"name\":\"Baffin\",\"state\":\"Nunavut
+        Canada\"},\"06085\":{\"total\":\"1851\",\"name\":\"Santa Clara County\",\"state\":\"California\"},\"29163\":{\"total\":\"4\",\"name\":\"Pike
+        County\",\"state\":\"Missouri\"},\"6208\":{\"total\":\"29\",\"name\":\"Kitikmeot\",\"state\":\"Nunavut
+        Canada\"},\"31017\":{\"total\":\"2\",\"name\":\"Brown County\",\"state\":\"Nebraska\"},\"06081\":{\"total\":\"317\",\"name\":\"San
+        Mateo County\",\"state\":\"California\"},\"31019\":{\"total\":\"3\",\"name\":\"Buffalo
+        County\",\"state\":\"Nebraska\"},\"18047\":{\"total\":\"4\",\"name\":\"Franklin
+        County\",\"state\":\"Indiana\"},\"17197\":{\"total\":\"7\",\"name\":\"Will
+        County\",\"state\":\"Illinois\"},\"42131\":{\"total\":\"6\",\"name\":\"Wyoming
+        County\",\"state\":\"Pennsylvania\"},\"42133\":{\"total\":\"4\",\"name\":\"York
+        County\",\"state\":\"Pennsylvania\"},\"17199\":{\"total\":\"3\",\"name\":\"Williamson
+        County\",\"state\":\"Illinois\"},\"18041\":{\"total\":\"1\",\"name\":\"Fayette
+        County\",\"state\":\"Indiana\"},\"17195\":{\"total\":\"2\",\"name\":\"Whiteside
+        County\",\"state\":\"Illinois\"},\"21219\":{\"total\":\"1\",\"name\":\"Todd
+        County\",\"state\":\"Kentucky\"},\"21217\":{\"total\":\"1\",\"name\":\"Taylor
+        County\",\"state\":\"Kentucky\"},\"17191\":{\"total\":\"1\",\"name\":\"Wayne
+        County\",\"state\":\"Illinois\"},\"31003\":{\"total\":\"2\",\"name\":\"Antelope
+        County\",\"state\":\"Nebraska\"},\"54101\":{\"total\":\"1\",\"name\":\"Webster
+        County\",\"state\":\"West Virginia\"},\"06079\":{\"total\":\"1170\",\"name\":\"San
+        Luis Obispo County\",\"state\":\"California\"},\"51073\":{\"total\":\"1\",\"name\":\"Gloucester
+        County\",\"state\":\"Virginia\"},\"31005\":{\"total\":\"2\",\"name\":\"Arthur
+        County\",\"state\":\"Nebraska\"},\"06075\":{\"total\":\"44\",\"name\":\"San
+        Francisco County\",\"state\":\"California\"},\"51077\":{\"total\":\"2\",\"name\":\"Grayson
+        County\",\"state\":\"Virginia\"},\"06077\":{\"total\":\"149\",\"name\":\"San
+        Joaquin County\",\"state\":\"California\"},\"51079\":{\"total\":\"1\",\"name\":\"Greene
+        County\",\"state\":\"Virginia\"},\"54109\":{\"total\":\"1\",\"name\":\"Wyoming
+        County\",\"state\":\"West Virginia\"},\"06071\":{\"total\":\"597\",\"name\":\"San
+        Bernardino County\",\"state\":\"California\"},\"54107\":{\"total\":\"1\",\"name\":\"Wood
+        County\",\"state\":\"West Virginia\"},\"06073\":{\"total\":\"1009\",\"name\":\"San
+        Diego County\",\"state\":\"California\"},\"31007\":{\"total\":\"23\",\"name\":\"Banner
+        County\",\"state\":\"Nebraska\"},\"29171\":{\"total\":\"2\",\"name\":\"Putnam
+        County\",\"state\":\"Missouri\"},\"48229\":{\"total\":\"26\",\"name\":\"Hudspeth
+        County\",\"state\":\"Texas\"},\"13121\":{\"total\":\"1\",\"name\":\"Fulton
+        County\",\"state\":\"Georgia\"},\"46049\":{\"total\":\"1\",\"name\":\"Faulk
+        County\",\"state\":\"South Dakota\"},\"46047\":{\"total\":\"58\",\"name\":\"Fall
+        River County\",\"state\":\"South Dakota\"},\"22079\":{\"total\":\"2\",\"name\":\"Rapides
+        Parish\",\"state\":\"Louisiana\"},\"01131\":{\"total\":\"1\",\"name\":\"Wilcox
+        County\",\"state\":\"Alabama\"},\"46045\":{\"total\":\"1\",\"name\":\"Edmunds
+        County\",\"state\":\"South Dakota\"},\"13123\":{\"total\":\"1\",\"name\":\"Gilmer
+        County\",\"state\":\"Georgia\"},\"46043\":{\"total\":\"2\",\"name\":\"Douglas
+        County\",\"state\":\"South Dakota\"},\"46039\":{\"total\":\"1\",\"name\":\"Deuel
+        County\",\"state\":\"South Dakota\"},\"48215\":{\"total\":\"4\",\"name\":\"Hidalgo
+        County\",\"state\":\"Texas\"},\"46035\":{\"total\":\"1\",\"name\":\"Davison
+        County\",\"state\":\"South Dakota\"},\"13131\":{\"total\":\"1\",\"name\":\"Grady
+        County\",\"state\":\"Georgia\"},\"22089\":{\"total\":\"2\",\"name\":\"St.
+        Charles Parish\",\"state\":\"Louisiana\"},\"46033\":{\"total\":\"158\",\"name\":\"Custer
+        County\",\"state\":\"South Dakota\"},\"13137\":{\"total\":\"2\",\"name\":\"Habersham
+        County\",\"state\":\"Georgia\"},\"46031\":{\"total\":\"4\",\"name\":\"Corson
+        County\",\"state\":\"South Dakota\"},\"48209\":{\"total\":\"1\",\"name\":\"Hays
+        County\",\"state\":\"Texas\"},\"46027\":{\"total\":\"4\",\"name\":\"Clay County\",\"state\":\"South
+        Dakota\"},\"48205\":{\"total\":\"4\",\"name\":\"Hartley County\",\"state\":\"Texas\"},\"46025\":{\"total\":\"1\",\"name\":\"Clark
+        County\",\"state\":\"South Dakota\"},\"48203\":{\"total\":\"1\",\"name\":\"Harrison
+        County\",\"state\":\"Texas\"},\"34041\":{\"total\":\"282\",\"name\":\"Warren
+        County\",\"state\":\"New Jersey\"},\"22053\":{\"total\":\"6\",\"name\":\"Jefferson
+        Davis Parish\",\"state\":\"Louisiana\"},\"46023\":{\"total\":\"23\",\"name\":\"Charles
+        Mix County\",\"state\":\"South Dakota\"},\"46019\":{\"total\":\"44\",\"name\":\"Butte
+        County\",\"state\":\"South Dakota\"},\"46017\":{\"total\":\"3\",\"name\":\"Buffalo
+        County\",\"state\":\"South Dakota\"},\"46015\":{\"total\":\"2\",\"name\":\"Brule
+        County\",\"state\":\"South Dakota\"},\"13111\":{\"total\":\"2\",\"name\":\"Fannin
+        County\",\"state\":\"Georgia\"},\"46013\":{\"total\":\"7\",\"name\":\"Brown
+        County\",\"state\":\"South Dakota\"},\"34033\":{\"total\":\"4\",\"name\":\"Salem
+        County\",\"state\":\"New Jersey\"},\"22067\":{\"total\":\"8\",\"name\":\"Morehouse
+        Parish\",\"state\":\"Louisiana\"},\"34031\":{\"total\":\"8\",\"name\":\"Passaic
+        County\",\"state\":\"New Jersey\"},\"34039\":{\"total\":\"1\",\"name\":\"Union
+        County\",\"state\":\"New Jersey\"},\"34037\":{\"total\":\"146\",\"name\":\"Sussex
+        County\",\"state\":\"New Jersey\"},\"34035\":{\"total\":\"102\",\"name\":\"Somerset
+        County\",\"state\":\"New Jersey\"},\"22065\":{\"total\":\"1\",\"name\":\"Madison
+        Parish\",\"state\":\"Louisiana\"},\"46011\":{\"total\":\"2\",\"name\":\"Brookings
+        County\",\"state\":\"South Dakota\"},\"13115\":{\"total\":\"1\",\"name\":\"Floyd
+        County\",\"state\":\"Georgia\"},\"13113\":{\"total\":\"2\",\"name\":\"Fayette
+        County\",\"state\":\"Georgia\"},\"46007\":{\"total\":\"9\",\"name\":\"Bennett
+        County\",\"state\":\"South Dakota\"},\"46005\":{\"total\":\"2\",\"name\":\"Beadle
+        County\",\"state\":\"South Dakota\"},\"34021\":{\"total\":\"2\",\"name\":\"Mercer
+        County\",\"state\":\"New Jersey\"},\"34029\":{\"total\":\"9\",\"name\":\"Ocean
+        County\",\"state\":\"New Jersey\"},\"34027\":{\"total\":\"174\",\"name\":\"Morris
+        County\",\"state\":\"New Jersey\"},\"34025\":{\"total\":\"6\",\"name\":\"Monmouth
+        County\",\"state\":\"New Jersey\"},\"21185\":{\"total\":\"2\",\"name\":\"Oldham
+        County\",\"state\":\"Kentucky\"},\"21199\":{\"total\":\"7\",\"name\":\"Pulaski
+        County\",\"state\":\"Kentucky\"},\"34011\":{\"total\":\"24\",\"name\":\"Cumberland
+        County\",\"state\":\"New Jersey\"},\"22047\":{\"total\":\"1\",\"name\":\"Iberville
+        Parish\",\"state\":\"Louisiana\"},\"34019\":{\"total\":\"32\",\"name\":\"Hunterdon
+        County\",\"state\":\"New Jersey\"},\"34017\":{\"total\":\"2\",\"name\":\"Hudson
+        County\",\"state\":\"New Jersey\"},\"34015\":{\"total\":\"1\",\"name\":\"Gloucester
+        County\",\"state\":\"New Jersey\"},\"34013\":{\"total\":\"53\",\"name\":\"Essex
+        County\",\"state\":\"New Jersey\"},\"21195\":{\"total\":\"1\",\"name\":\"Pike
+        County\",\"state\":\"Kentucky\"},\"21167\":{\"total\":\"1\",\"name\":\"Mercer
+        County\",\"state\":\"Kentucky\"},\"21165\":{\"total\":\"1\",\"name\":\"Menifee
+        County\",\"state\":\"Kentucky\"},\"34005\":{\"total\":\"5\",\"name\":\"Burlington
+        County\",\"state\":\"New Jersey\"},\"34003\":{\"total\":\"14\",\"name\":\"Bergen
+        County\",\"state\":\"New Jersey\"},\"34001\":{\"total\":\"178\",\"name\":\"Atlantic
+        County\",\"state\":\"New Jersey\"},\"34009\":{\"total\":\"910\",\"name\":\"Cape
+        May County\",\"state\":\"New Jersey\"},\"21179\":{\"total\":\"8\",\"name\":\"Nelson
+        County\",\"state\":\"Kentucky\"},\"42097\":{\"total\":\"2\",\"name\":\"Northumberland
+        County\",\"state\":\"Pennsylvania\"},\"21177\":{\"total\":\"2\",\"name\":\"Muhlenberg
+        County\",\"state\":\"Kentucky\"},\"42099\":{\"total\":\"246\",\"name\":\"Perry
+        County\",\"state\":\"Pennsylvania\"},\"01103\":{\"total\":\"3\",\"name\":\"Morgan
+        County\",\"state\":\"Alabama\"},\"22023\":{\"total\":\"2\",\"name\":\"Cameron
+        Parish\",\"state\":\"Louisiana\"},\"42093\":{\"total\":\"1\",\"name\":\"Montour
+        County\",\"state\":\"Pennsylvania\"},\"42095\":{\"total\":\"303\",\"name\":\"Northampton
+        County\",\"state\":\"Pennsylvania\"},\"42091\":{\"total\":\"33\",\"name\":\"Montgomery
+        County\",\"state\":\"Pennsylvania\"},\"37173\":{\"total\":\"1\",\"name\":\"Swain
+        County\",\"state\":\"North Carolina\"},\"37175\":{\"total\":\"18\",\"name\":\"Transylvania
+        County\",\"state\":\"North Carolina\"},\"38023\":{\"total\":\"2\",\"name\":\"Divide
+        County\",\"state\":\"North Dakota\"},\"37177\":{\"total\":\"2\",\"name\":\"Tyrrell
+        County\",\"state\":\"North Carolina\"},\"38025\":{\"total\":\"7\",\"name\":\"Dunn
+        County\",\"state\":\"North Dakota\"},\"54071\":{\"total\":\"71\",\"name\":\"Pendleton
+        County\",\"state\":\"West Virginia\"},\"26037\":{\"total\":\"1\",\"name\":\"Clinton
+        County\",\"state\":\"Michigan\"},\"02068\":{\"total\":\"1118\",\"name\":\"Denali
+        Borough\",\"state\":\"Alaska\"},\"26039\":{\"total\":\"22\",\"name\":\"Crawford
+        County\",\"state\":\"Michigan\"},\"54075\":{\"total\":\"20\",\"name\":\"Pocahontas
+        County\",\"state\":\"West Virginia\"},\"54073\":{\"total\":\"1\",\"name\":\"Pleasants
+        County\",\"state\":\"West Virginia\"},\"54079\":{\"total\":\"1\",\"name\":\"Putnam
+        County\",\"state\":\"West Virginia\"},\"54077\":{\"total\":\"5\",\"name\":\"Preston
+        County\",\"state\":\"West Virginia\"},\"26031\":{\"total\":\"6\",\"name\":\"Cheboygan
+        County\",\"state\":\"Michigan\"},\"02060\":{\"total\":\"1\",\"name\":\"Bristol
+        Bay Borough\",\"state\":\"Alaska\"},\"26033\":{\"total\":\"166\",\"name\":\"Chippewa
+        County\",\"state\":\"Michigan\"},\"26035\":{\"total\":\"1\",\"name\":\"Clare
+        County\",\"state\":\"Michigan\"},\"38027\":{\"total\":\"1\",\"name\":\"Eddy
+        County\",\"state\":\"North Dakota\"},\"37161\":{\"total\":\"1\",\"name\":\"Rutherford
+        County\",\"state\":\"North Carolina\"},\"38011\":{\"total\":\"44\",\"name\":\"Bowman
+        County\",\"state\":\"North Dakota\"},\"38015\":{\"total\":\"13\",\"name\":\"Burleigh
+        County\",\"state\":\"North Dakota\"},\"26049\":{\"total\":\"3\",\"name\":\"Genesee
+        County\",\"state\":\"Michigan\"},\"54081\":{\"total\":\"3\",\"name\":\"Raleigh
+        County\",\"state\":\"West Virginia\"},\"54083\":{\"total\":\"28\",\"name\":\"Randolph
+        County\",\"state\":\"West Virginia\"},\"26041\":{\"total\":\"2\",\"name\":\"Delta
+        County\",\"state\":\"Michigan\"},\"54089\":{\"total\":\"34\",\"name\":\"Summers
+        County\",\"state\":\"West Virginia\"},\"02050\":{\"total\":\"9\",\"name\":\"Bethel
+        Census Area\",\"state\":\"Alaska\"},\"54087\":{\"total\":\"1\",\"name\":\"Roane
+        County\",\"state\":\"West Virginia\"},\"26045\":{\"total\":\"1\",\"name\":\"Eaton
+        County\",\"state\":\"Michigan\"},\"26047\":{\"total\":\"44\",\"name\":\"Emmet
+        County\",\"state\":\"Michigan\"},\"37169\":{\"total\":\"1\",\"name\":\"Stokes
+        County\",\"state\":\"North Carolina\"},\"48299\":{\"total\":\"1\",\"name\":\"Llano
+        County\",\"state\":\"Texas\"},\"38017\":{\"total\":\"4\",\"name\":\"Cass County\",\"state\":\"North
+        Dakota\"},\"48295\":{\"total\":\"2\",\"name\":\"Lipscomb County\",\"state\":\"Texas\"},\"38001\":{\"total\":\"7\",\"name\":\"Adams
+        County\",\"state\":\"North Dakota\"},\"38003\":{\"total\":\"7\",\"name\":\"Barnes
+        County\",\"state\":\"North Dakota\"},\"54093\":{\"total\":\"35\",\"name\":\"Tucker
+        County\",\"state\":\"West Virginia\"},\"26015\":{\"total\":\"14\",\"name\":\"Barry
+        County\",\"state\":\"Michigan\"},\"05119\":{\"total\":\"4\",\"name\":\"Pulaski
+        County\",\"state\":\"Arkansas\"},\"54091\":{\"total\":\"2\",\"name\":\"Taylor
+        County\",\"state\":\"West Virginia\"},\"26017\":{\"total\":\"6\",\"name\":\"Bay
+        County\",\"state\":\"Michigan\"},\"05115\":{\"total\":\"57\",\"name\":\"Pope
+        County\",\"state\":\"Arkansas\"},\"26019\":{\"total\":\"1\",\"name\":\"Benzie
+        County\",\"state\":\"Michigan\"},\"05117\":{\"total\":\"3\",\"name\":\"Prairie
+        County\",\"state\":\"Arkansas\"},\"05111\":{\"total\":\"1\",\"name\":\"Poinsett
+        County\",\"state\":\"Arkansas\"},\"05113\":{\"total\":\"3\",\"name\":\"Polk
+        County\",\"state\":\"Arkansas\"},\"26013\":{\"total\":\"5\",\"name\":\"Baraga
+        County\",\"state\":\"Michigan\"},\"38005\":{\"total\":\"2\",\"name\":\"Benson
+        County\",\"state\":\"North Dakota\"},\"38007\":{\"total\":\"138\",\"name\":\"Billings
+        County\",\"state\":\"North Dakota\"},\"51820\":{\"total\":\"2\",\"name\":\"Waynesboro
+        city\",\"state\":\"Virginia\"},\"38009\":{\"total\":\"2\",\"name\":\"Bottineau
+        County\",\"state\":\"North Dakota\"},\"48285\":{\"total\":\"1\",\"name\":\"Lavaca
+        County\",\"state\":\"Texas\"},\"37141\":{\"total\":\"2\",\"name\":\"Pender
+        County\",\"state\":\"North Carolina\"},\"13199\":{\"total\":\"1\",\"name\":\"Meriwether
+        County\",\"state\":\"Georgia\"},\"48279\":{\"total\":\"4\",\"name\":\"Lamb
+        County\",\"state\":\"Texas\"},\"26027\":{\"total\":\"5\",\"name\":\"Cass County\",\"state\":\"Michigan\"},\"05109\":{\"total\":\"1\",\"name\":\"Pike
+        County\",\"state\":\"Arkansas\"},\"26029\":{\"total\":\"8\",\"name\":\"Charlevoix
+        County\",\"state\":\"Michigan\"},\"05101\":{\"total\":\"10\",\"name\":\"Newton
+        County\",\"state\":\"Arkansas\"},\"26021\":{\"total\":\"15\",\"name\":\"Berrien
+        County\",\"state\":\"Michigan\"},\"05103\":{\"total\":\"1\",\"name\":\"Ouachita
+        County\",\"state\":\"Arkansas\"},\"26023\":{\"total\":\"3\",\"name\":\"Branch
+        County\",\"state\":\"Michigan\"},\"26025\":{\"total\":\"2\",\"name\":\"Calhoun
+        County\",\"state\":\"Michigan\"},\"46099\":{\"total\":\"1\",\"name\":\"Minnehaha
+        County\",\"state\":\"South Dakota\"},\"37149\":{\"total\":\"1\",\"name\":\"Polk
+        County\",\"state\":\"North Carolina\"},\"48275\":{\"total\":\"1\",\"name\":\"Knox
+        County\",\"state\":\"Texas\"},\"46095\":{\"total\":\"20\",\"name\":\"Mellette
+        County\",\"state\":\"South Dakota\"},\"02070\":{\"total\":\"4\",\"name\":\"Dillingham
+        Census Area\",\"state\":\"Alaska\"},\"46093\":{\"total\":\"58\",\"name\":\"Meade
+        County\",\"state\":\"South Dakota\"},\"37133\":{\"total\":\"1\",\"name\":\"Onslow
+        County\",\"state\":\"North Carolina\"},\"37135\":{\"total\":\"2\",\"name\":\"Orange
+        County\",\"state\":\"North Carolina\"},\"48269\":{\"total\":\"1\",\"name\":\"King
+        County\",\"state\":\"Texas\"},\"46081\":{\"total\":\"44\",\"name\":\"Lawrence
+        County\",\"state\":\"South Dakota\"},\"02020\":{\"total\":\"187\",\"name\":\"Anchorage
+        Municipality\",\"state\":\"Alaska\"},\"13169\":{\"total\":\"1\",\"name\":\"Jones
+        County\",\"state\":\"Georgia\"},\"46089\":{\"total\":\"6\",\"name\":\"McPherson
+        County\",\"state\":\"South Dakota\"},\"37137\":{\"total\":\"1\",\"name\":\"Pamlico
+        County\",\"state\":\"North Carolina\"},\"48267\":{\"total\":\"1\",\"name\":\"Kimble
+        County\",\"state\":\"Texas\"},\"48265\":{\"total\":\"6\",\"name\":\"Kerr County\",\"state\":\"Texas\"},\"46085\":{\"total\":\"56\",\"name\":\"Lyman
+        County\",\"state\":\"South Dakota\"},\"48261\":{\"total\":\"13\",\"name\":\"Kenedy
+        County\",\"state\":\"Texas\"},\"46083\":{\"total\":\"1\",\"name\":\"Lincoln
+        County\",\"state\":\"South Dakota\"},\"37121\":{\"total\":\"7\",\"name\":\"Mitchell
+        County\",\"state\":\"North Carolina\"},\"48259\":{\"total\":\"5\",\"name\":\"Kendall
+        County\",\"state\":\"Texas\"},\"26005\":{\"total\":\"29\",\"name\":\"Allegan
+        County\",\"state\":\"Michigan\"},\"02016\":{\"total\":\"3\",\"name\":\"Aleutians
+        West Census Area\",\"state\":\"Alaska\"},\"02013\":{\"total\":\"2\",\"name\":\"Aleutians
+        East Borough\",\"state\":\"Alaska\"},\"26003\":{\"total\":\"1\",\"name\":\"Alger
+        County\",\"state\":\"Michigan\"},\"46075\":{\"total\":\"28\",\"name\":\"Jones
+        County\",\"state\":\"South Dakota\"},\"13179\":{\"total\":\"1\",\"name\":\"Liberty
+        County\",\"state\":\"Georgia\"},\"46073\":{\"total\":\"3\",\"name\":\"Jerauld
+        County\",\"state\":\"South Dakota\"},\"46071\":{\"total\":\"50\",\"name\":\"Jackson
+        County\",\"state\":\"South Dakota\"},\"37111\":{\"total\":\"1\",\"name\":\"McDowell
+        County\",\"state\":\"North Carolina\"},\"46069\":{\"total\":\"8\",\"name\":\"Hyde
+        County\",\"state\":\"South Dakota\"},\"48245\":{\"total\":\"6\",\"name\":\"Jefferson
+        County\",\"state\":\"Texas\"},\"37115\":{\"total\":\"1\",\"name\":\"Madison
+        County\",\"state\":\"North Carolina\"},\"48243\":{\"total\":\"178\",\"name\":\"Jeff
+        Davis County\",\"state\":\"Texas\"},\"46065\":{\"total\":\"31\",\"name\":\"Hughes
+        County\",\"state\":\"South Dakota\"},\"46063\":{\"total\":\"121\",\"name\":\"Harding
+        County\",\"state\":\"South Dakota\"},\"37119\":{\"total\":\"3\",\"name\":\"Mecklenburg
+        County\",\"state\":\"North Carolina\"},\"46059\":{\"total\":\"2\",\"name\":\"Hand
+        County\",\"state\":\"South Dakota\"},\"37101\":{\"total\":\"1\",\"name\":\"Johnston
+        County\",\"state\":\"North Carolina\"},\"13153\":{\"total\":\"1\",\"name\":\"Houston
+        County\",\"state\":\"Georgia\"},\"48233\":{\"total\":\"25\",\"name\":\"Hutchinson
+        County\",\"state\":\"Texas\"},\"46055\":{\"total\":\"6\",\"name\":\"Haakon
+        County\",\"state\":\"South Dakota\"},\"48231\":{\"total\":\"3\",\"name\":\"Hunt
+        County\",\"state\":\"Texas\"},\"46051\":{\"total\":\"3\",\"name\":\"Grant
+        County\",\"state\":\"South Dakota\"}},\"legend\":{\"0\":\"0 - 445\",\"1\":\"445
+        - 890\",\"2\":\"890 - 1335\",\"3\":\"1335 - 1780\",\"4\":\"1780 - 2225\",\"15\":\"6675
+        - 7130\",\"6\":\"2670 - 3115\"}},\"type\":\"scientific_name\",\"georeferenced\":133368,\"states\":{\"extent\":{\"miny\":0.0,\"minx\":-179.23108599959195,\"maxy\":83.42820054983181,\"maxx\":179.85968100035376},\"total\":63,\"data\":{\"North
+        Carolina\":{\"total\":\"231\",\"fips\":\"37\"},\"Indiana\":{\"total\":\"454\",\"fips\":\"18\"},\"Wyoming\":{\"total\":\"12492\",\"fips\":\"56\"},\"British
+        Columbia Canada\":{\"total\":\"2715\",\"fips\":\"BC\"},\"Saskatchewan Canada\":{\"total\":\"383\",\"fips\":\"SK\"},\"Prince
+        Edward Island Canada\":{\"total\":\"2\",\"fips\":\"PE\"},\"Utah\":{\"total\":\"8884\",\"fips\":\"49\"},\"Yukon
+        Canada\":{\"total\":\"947\",\"fips\":\"YT\"},\"Alberta Canada\":{\"total\":\"1765\",\"fips\":\"AB\"},\"Arizona\":{\"total\":\"4427\",\"fips\":\"04\"},\"Montana\":{\"total\":\"6169\",\"fips\":\"30\"},\"Kentucky\":{\"total\":\"115\",\"fips\":\"21\"},\"California\":{\"total\":\"27611\",\"fips\":\"06\"},\"Kansas\":{\"total\":\"397\",\"fips\":\"20\"},\"Delaware\":{\"total\":\"227\",\"fips\":\"10\"},\"Florida\":{\"total\":\"28\",\"fips\":\"12\"},\"Pennsylvania\":{\"total\":\"9710\",\"fips\":\"42\"},\"Iowa\":{\"total\":\"176\",\"fips\":\"19\"},\"Mississippi\":{\"total\":\"23\",\"fips\":\"28\"},\"Texas\":{\"total\":\"1273\",\"fips\":\"48\"},\"Illinois\":{\"total\":\"289\",\"fips\":\"17\"},\"Nova
+        Scotia Canada\":{\"total\":\"5\",\"fips\":\"NS\"},\"Connecticut\":{\"total\":\"416\",\"fips\":\"09\"},\"Georgia\":{\"total\":\"43\",\"fips\":\"13\"},\"Maryland\":{\"total\":\"974\",\"fips\":\"24\"},\"Virginia\":{\"total\":\"896\",\"fips\":\"51\"},\"Idaho\":{\"total\":\"2974\",\"fips\":\"16\"},\"Oregon\":{\"total\":\"6012\",\"fips\":\"41\"},\"Vermont\":{\"total\":\"330\",\"fips\":\"50\"},\"Oklahoma\":{\"total\":\"313\",\"fips\":\"40\"},\"Tennessee\":{\"total\":\"310\",\"fips\":\"47\"},\"Maine\":{\"total\":\"94\",\"fips\":\"23\"},\"Alabama\":{\"total\":\"45\",\"fips\":\"01\"},\"Arkansas\":{\"total\":\"191\",\"fips\":\"05\"},\"Washington\":{\"total\":\"3900\",\"fips\":\"53\"},\"South
+        Carolina\":{\"total\":\"64\",\"fips\":\"45\"},\"Nebraska\":{\"total\":\"353\",\"fips\":\"31\"},\"Ontario
+        Canada\":{\"total\":\"1784\",\"fips\":\"ON\"},\"West Virginia\":{\"total\":\"445\",\"fips\":\"54\"},\"Manitoba
+        Canada\":{\"total\":\"228\",\"fips\":\"MB\"},\"Colorado\":{\"total\":\"11691\",\"fips\":\"08\"},\"Massachusetts\":{\"total\":\"371\",\"fips\":\"25\"},\"Quebec
+        Canada\":{\"total\":\"945\",\"fips\":\"QC\"},\"Missouri\":{\"total\":\"169\",\"fips\":\"29\"},\"Alaska\":{\"total\":\"4085\",\"fips\":\"02\"},\"North
+        Dakota\":{\"total\":\"441\",\"fips\":\"38\"},\"Wisconsin\":{\"total\":\"825\",\"fips\":\"55\"},\"Nevada\":{\"total\":\"2723\",\"fips\":\"32\"},\"New
+        York\":{\"total\":\"2763\",\"fips\":\"36\"},\"Rhode Island\":{\"total\":\"9\",\"fips\":\"44\"},\"District
+        of Columbia\":{\"total\":\"8\",\"fips\":\"11\"},\"South Dakota\":{\"total\":\"1047\",\"fips\":\"46\"},\"Minnesota\":{\"total\":\"1265\",\"fips\":\"27\"},\"Newfoundland
+        and Labrador Canada\":{\"total\":\"26\",\"fips\":\"NL\"},\"New Jersey\":{\"total\":\"1953\",\"fips\":\"34\"},\"Michigan\":{\"total\":\"1414\",\"fips\":\"26\"},\"New
+        Brunswick Canada\":{\"total\":\"25\",\"fips\":\"NB\"},\"Nunavut Canada\":{\"total\":\"59\",\"fips\":\"NU\"},\"New
+        Mexico\":{\"total\":\"3444\",\"fips\":\"35\"},\"New Hampshire\":{\"total\":\"177\",\"fips\":\"33\"},\"Louisiana\":{\"total\":\"23\",\"fips\":\"22\"},\"Ohio\":{\"total\":\"315\",\"fips\":\"39\"},\"Northwest
+        Territories Canada\":{\"total\":\"361\",\"fips\":\"NT\"}},\"legend\":{\"0\":\"0
+        - 1725\",\"1\":\"1725 - 3450\",\"2\":\"3450 - 5175\",\"3\":\"5175 - 6900\",\"15\":\"25875
+        - 27611\",\"5\":\"8625 - 10350\",\"6\":\"10350 - 12075\",\"7\":\"12075 - 13800\"}}}"
+  recorded_at: 2018-10-24 19:46:17 GMT
+  recorded_with: vcr/0.2.0, webmockr/0.2.8

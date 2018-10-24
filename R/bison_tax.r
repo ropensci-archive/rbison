@@ -67,9 +67,6 @@ bison_tax <- function(query, method='vernacularName', exact=FALSE, parsed=TRUE,
   out <- cli$get(query = args)
   out$raise_for_status()
   out <- jsonlite::fromJSON(out$parse("UTF-8"), FALSE)
-  # tt <- GET(url, query = args, c(config(followlocation = 1), callopts))
-  # stop_for_status(tt)
-  # out <- content(tt)
   temp <- list(
     numFound = out$response$numFound,
     names = out$response$docs,
