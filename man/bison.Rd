@@ -19,7 +19,7 @@ doesn't make sense to supply a species name as well. Example:162003.}
 \item{start}{(numeric) Record to start at. Default: 0. See "Pagination"
 in Details.}
 
-\item{count}{(numeric) Number of records to return. Default: 25. Max: 1000
+\item{count}{(numeric) Number of records to return. Default: 25.
 See "Pagination" in Details.}
 
 \item{countyFips}{(character) Specifies the county fips code to
@@ -69,13 +69,6 @@ Search for and collect data from the USGS Bison API.
 for example, if you request 2000 records, then we'll do two requests to
 get all those records. If you request for example 50 records, then we
 just do one request.
-
-It's not clear why, but the number of records found doesn't match what's
-returned necessarily. I'm guessing there's some records that are sensitive
-and so are not returned, or don't have coordinates maybe, not really sure.
-So, for example, if there's 2100 records total found in BISON (e.g.,
-via \code{sum(unlist(x$summary))}), if you request 2100 you may only get 1800
-records (e.g., via \code{x$points}).
 }
 
 \examples{

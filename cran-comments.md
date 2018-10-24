@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.4.4 patched
-* ubuntu 12.04 (on travis-ci), R 3.4.4
+* local OS X install, R 3.5.1 patched
+* ubuntu 14.04 (on travis-ci), R 3.5.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -16,12 +16,12 @@
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 1 downstream dependency,
-with no problems detected.
+* I have run R CMD check on the 1 downstream dependency. No errors were found.
+Summary at <https://github.com/ropensci/rbison/blob/master/revdep/README.md>
 
 -----
 
-This release adds new parameters to one of the exported functions in the package, bison_solr(), and now checks to make sure user doesn't pass a paging value that's too big in bison() that will cause server to fail.
+This release makes many improvements to a function, and fixes a bug in another.
 
 Thanks!
 Scott Chamberlain

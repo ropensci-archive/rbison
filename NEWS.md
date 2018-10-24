@@ -1,3 +1,22 @@
+rbison 0.7.0
+============
+
+### NEW FEATURES
+
+* `bison()` pagination: previous max as far as we knew was 500 per a single request, but apparently is now 1000. In addition, we no loop internally over the `count` parameter so that requests larger than 1000 are handled with a `while` loop until we get all the data requested (#58)
+* to simplify `bison()` the `what` parameter is defunct/removed. It let the user pick what part of the results they wanted, but it is super simple to do this once the data is returned. (#59)
+
+### MINOR IMPROVEMENTS
+
+* clean up description of USGS BISON in README (#56) thanks @esellers-usgs
+* tests now caching HTTP requests via `vcr` (#61)
+* changed internal processing of the occurrence records output in the `points` slot of the `bison()` function. previously we were filtering the records to only those with lat and lon values. now we return all. this means some records may not have lat/lon data, and may have other missing data. along with this, now importing `data.table` (#60)
+
+### BUG FIXES
+
+* fixed bug in `bisonmap()` that was causing a problem when a state was given in the `bison()` call that was passed to `bisonmap(tomap = "county")`; maps were not right, fixed now (#57) thanks @bomeara
+
+
 rbison 0.6.0
 ============
 
