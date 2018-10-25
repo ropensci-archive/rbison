@@ -1,6 +1,18 @@
 context("bison_solr")
 
 test_that("bison_solr works", {
+  skip_on_cran()
+  
+
+  vcr::use_cassette("bison_solr_one", {
+    out_1 <- bison_solr(scientificName='Ursus americanus', verbose = FALSE)
+    expect_that(out_1$facets$facet_queries, equals(NULL))
+    expect_is(out_1$points, "data.frame")
+    expect_is(out_1, "bison_solr")
+  }, 
+  match_requests_on = c("method", "uri", "query"), 
+  preserve_exact_body_bytes = TRUE)
+
   vcr::use_cassette("bison_solr_two", {
     out_2 <- bison_solr(scientificName='Ursus americanus', 
                         state_code='New Mexico', 
@@ -39,21 +51,12 @@ test_that("bison_solr works", {
   }, 
   match_requests_on = c("method", "uri", "query"), 
   preserve_exact_body_bytes = TRUE)
-
-  skip_on_cran()
-  vcr::use_cassette("bison_solr_one", {
-    out_1 <- bison_solr(scientificName='Ursus americanus', verbose = FALSE)
-    expect_that(out_1$facets$facet_queries, equals(NULL))
-    expect_is(out_1$points, "data.frame")
-    expect_is(out_1, "bison_solr")
-  }, 
-  match_requests_on = c("method", "uri", "query"), 
-  preserve_exact_body_bytes = TRUE)
 })
 
 
 test_that("bison_solr can do length 2 queries for parameters", {
   skip_on_cran()
+  
   vcr::use_cassette("bison_solr_lengthtwo", {
     out <- bison_solr(eventDate = c('2010-08-08', '2010-08-21'))
 
