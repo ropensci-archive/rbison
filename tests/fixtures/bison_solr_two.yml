@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0.9310
+      User-Agent: libcurl/7.54.0 r-curl/3.2 crul/0.6.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,7 +17,7 @@ http_interactions:
     headers:
       connection: keep-alive
       content-type: text/plain;charset=utf-8
-      date: Wed, 24 Oct 2018 21:29:09 GMT
+      date: Wed, 24 Oct 2018 21:39:48 GMT
       status: HTTP/1.1 200 OK
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
@@ -30,5 +30,5 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: eyJyZXNwb25zZUhlYWRlciI6eyJzdGF0dXMiOjAsIlFUaW1lIjowLCJwYXJhbXMiOnsicSI6InNjaWVudGlmaWNOYW1lOlwiVXJzdXMgYW1lcmljYW51c1wiIiwiZmwiOiJzY2llbnRpZmljTmFtZSIsInN0YXRlX2NvZGUiOiJOZXcgTWV4aWNvIiwid3QiOiJqc29uIn19LCJyZXNwb25zZSI6eyJudW1Gb3VuZCI6NjY1MCwic3RhcnQiOjAsImRvY3MiOlt7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9LHsic2NpZW50aWZpY05hbWUiOiJVcnN1cyBhbWVyaWNhbnVzIn0seyJzY2llbnRpZmljTmFtZSI6IlVyc3VzIGFtZXJpY2FudXMifSx7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9LHsic2NpZW50aWZpY05hbWUiOiJVcnN1cyBhbWVyaWNhbnVzIn0seyJzY2llbnRpZmljTmFtZSI6IlVyc3VzIGFtZXJpY2FudXMifSx7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9LHsic2NpZW50aWZpY05hbWUiOiJVcnN1cyBhbWVyaWNhbnVzIn0seyJzY2llbnRpZmljTmFtZSI6IlVyc3VzIGFtZXJpY2FudXMifSx7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9XX19Cg==
-  recorded_at: 2018-10-24 21:29:09 GMT
+  recorded_at: 2018-10-24 21:39:48 GMT
   recorded_with: vcr/0.2.0, webmockr/0.2.8
