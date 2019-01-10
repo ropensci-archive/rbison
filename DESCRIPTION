@@ -32,8 +32,9 @@ Suggests:
     knitr,
     testthat,
     taxize,
-    vcr
+    vcr (>= 0.2.0.9114)
 RoxygenNote: 6.1.0
+Remotes: ropensci/vcr
 X-schema.org-applicationCategory: DataAccess
 X-schema.org-keywords: species, occurrences, biodiversity, maps, USGS, BISON
 X-schema.org-isPartOf: "https://ropensci.org"
