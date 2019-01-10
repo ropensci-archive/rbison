@@ -56,7 +56,8 @@ bison_map_maker <- function(x, geom, jitter, customize) {
 
   # Remove points that are not physically possible
   tt <- tt[stats::complete.cases(tt$decimalLatitude, tt$decimalLongitude), ]
-  tt <- tt[-(which(tt$decimalLatitude <= 90 || tt$decimalLongitude <= 180)), ]
+  imp <- which(abs(tt$decimalLatitude) >= 90 | abs(tt$decimalLongitude) >= 180)
+  if (length(imp) > 0) tt <- tt[-imp, ]
 
   # Check if points are inside the contintental US, or US+Alaska, or 
   # US+Alaska+Hawaii, or even farther
