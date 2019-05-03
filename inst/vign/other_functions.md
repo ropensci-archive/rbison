@@ -34,54 +34,54 @@ out$Arctos
 #> [1] "Bird tissues, Division of Genomic Resources, UNM, Albuquerque, NM."  
 #> [2] "Fish tissues, Division of Genomic Resources, UNM, Albuquerque, NM."  
 #> [3] "Harold W. Manter Laboratory of Parasitology Collection"              
-#> [4] "KNWR Entomology Collection"                                          
-#> [5] "KNWR Herbarium Collection"                                           
-#> [6] "Kenelm W. Philip lepidoptera collection"                             
+#> [4] "Kenelm W. Philip lepidoptera collection"                             
+#> [5] "KNWR Entomology Collection"                                          
+#> [6] "KNWR Herbarium Collection"                                           
 #> [7] "Mammal tissues, Division of Genomic Resources, UNM, Albuquerque, NM."
 #> [8] "STAMP seabird egg collection"                                        
 #> [9] "U. S. National Parasite Collection's holdings from Robert L. Rausch" 
 #> 
 #> $data
-#>   providerId resourceId lastUpdated todayTotals currentWeekTotals
-#> 1        177    177,973          NA           0                 0
-#> 2        177    177,988          NA           0                 0
-#> 3        177  177,13472          NA         342               803
-#> 4        177  177,13468          NA          48               713
-#> 5        177  177,13474          NA           0               266
-#> 6        177    177,976          NA           0               266
-#> 7        177    177,972          NA           0                 0
-#> 8        177    177,971          NA           0               266
-#> 9        177  177,14394          NA           0               266
-#>   yesterdayTotals lastWeekTotals janTotals febTotals marTotals aprTotals
-#> 1               0              0         0         0         0         0
-#> 2               0              0         0         0         0         0
-#> 3             342           1107     14021     15635     10641      1910
-#> 4              48            867     11480     11197     10135      1580
-#> 5               0            809      8960      7536      6106      1075
-#> 6               0            831      8865      7346      5097      1097
-#> 7               0              0         0         0         0         0
-#> 8               0            831      9032      7620      5198      1097
-#> 9               0            831      8382      7148      5091      1097
+#>   currentWeekTotals providerId resourceId lastUpdated todayTotals
+#> 1                 0        177    177,973          NA           0
+#> 2                 0        177    177,988          NA           0
+#> 3              5618        177  177,13472          NA         759
+#> 4              4724        177    177,976          NA         697
+#> 5              5022        177  177,13468          NA         759
+#> 6              4371        177  177,13474          NA         697
+#> 7                 0        177    177,972          NA           0
+#> 8              4299        177    177,971          NA         697
+#> 9              4299        177  177,14394          NA         697
+#>   janTotals yesterdayTotals lastWeekTotals febTotals marTotals aprTotals
+#> 1         0               0              0         0         0         0
+#> 2         0               0              0         0         0         0
+#> 3      5810             759           2216      6855     12339     12915
+#> 4      3816             697           1561      3357      7581      7751
+#> 5      4888             759           1723      4598     10936      9347
+#> 6      4862             697           1633      3989      8561      8449
+#> 7         0               0              0         0         0         0
+#> 8      3562             697           1597      3315      7432     10348
+#> 9      3356             697           1561      3357      7565      7419
 #>   mayTotals junTotals julTotals augTotals sepTotals octTotals novTotals
 #> 1         0         0         0         0         0         0         0
 #> 2         0         0         0         0         0         0         0
-#> 3         0         0         0         0         0         0         0
-#> 4         0         0         0         0         0         0         0
-#> 5         0         0         0         0         0         0         0
-#> 6         0         0         0         0         0         0         0
+#> 3      3556         0         0         0         0         0         0
+#> 4      2871         0         0         0         0         0         0
+#> 5      3061         0         0         0         0         0         0
+#> 6      2710         0         0         0         0         0         0
 #> 7         0         0         0         0         0         0         0
-#> 8         0         0         0         0         0         0         0
-#> 9         0         0         0         0         0         0         0
+#> 8      2638         0         0         0         0         0         0
+#> 9      2638         0         0         0         0         0         0
 #>   decTotals currentMonthTotals id type
 #> 1         0                  0 NA  wms
 #> 2         0                  0 NA  wms
-#> 3         0               1910 NA  wms
-#> 4         0               1580 NA  wms
-#> 5         0               1075 NA  wms
-#> 6         0               1097 NA  wms
+#> 3         0               3556 NA  wms
+#> 4         0               2871 NA  wms
+#> 5         0               3061 NA  wms
+#> 6         0               2710 NA  wms
 #> 7         0                  0 NA  wms
-#> 8         0               1097 NA  wms
-#> 9         0               1097 NA  wms
+#> 8         0               2638 NA  wms
+#> 9         0               2638 NA  wms
 ```
 
 
@@ -94,18 +94,18 @@ out$Harvard_University_Herbaria
 #> [1] "E.C. Smith Herbarium"        "Harvard University Herbaria"
 #> 
 #> $data
-#>   providerId resourceId lastUpdated todayTotals currentWeekTotals
-#> 1        214   214,1829          NA           0                 0
-#> 2        214 214,202435          NA        1196              1639
-#>   yesterdayTotals lastWeekTotals janTotals febTotals marTotals aprTotals
-#> 1               0              0         0         0         0         0
-#> 2            1196            966     17673     17172     12708      2605
+#>   currentWeekTotals providerId resourceId lastUpdated todayTotals
+#> 1                 0        214   214,1829          NA           0
+#> 2              7303        214 214,202435          NA         759
+#>   janTotals yesterdayTotals lastWeekTotals febTotals marTotals aprTotals
+#> 1         0               0              0         0         0         0
+#> 2     11305             759           6602     15384     19847     24486
 #>   mayTotals junTotals julTotals augTotals sepTotals octTotals novTotals
 #> 1         0         0         0         0         0         0         0
-#> 2         0         0         0         0         0         0         0
+#> 2      3750         0         0         0         0         0         0
 #>   decTotals currentMonthTotals id type
 #> 1         0                  0 NA  wms
-#> 2         0               2605 NA  wms
+#> 2         0               3750 NA  wms
 ```
 
 
@@ -121,26 +121,26 @@ out$ZooKeys
 #> [4] "Western Palaearctic Ectoedemia (Zimmermannia) Hering and Ectoedemia Busck s. str. (Lepidoptera: Nepticulidae): five new species and new data on distribution, hostplants and recognition"
 #> 
 #> $data
-#>   providerId resourceId lastUpdated todayTotals currentWeekTotals
-#> 1        300  300,15002          NA           0               266
-#> 2        300 300,201848          NA         126               392
-#> 3        300 300,202310          NA         198               778
-#> 4        300  300,13716          NA           0                 0
-#>   yesterdayTotals lastWeekTotals janTotals febTotals marTotals aprTotals
-#> 1               0            870      8262      7455      5322      1136
-#> 2             126            831      8066      9182      5343      1223
-#> 3             198           1071     12766     15254     11328      1849
-#> 4               0             17       140         3        56        17
+#>   currentWeekTotals providerId resourceId lastUpdated todayTotals
+#> 1              4259        300  300,15002          NA         697
+#> 2              4324        300 300,201848          NA         697
+#> 3              5171        300 300,202310          NA         697
+#> 4              1727        300  300,13716          NA          21
+#>   janTotals yesterdayTotals lastWeekTotals febTotals marTotals aprTotals
+#> 1      3476             697           1561      3343      7620      7913
+#> 2      3479             697           1409      3927      8451      8149
+#> 3      6573             697           1949      8765     13111     10918
+#> 4      3300              21           1409      3314      7339      7267
 #>   mayTotals junTotals julTotals augTotals sepTotals octTotals novTotals
-#> 1         0         0         0         0         0         0         0
-#> 2         0         0         0         0         0         0         0
-#> 3         0         0         0         0         0         0         0
-#> 4         0         0         0         0         0         0         0
+#> 1      2598         0         0         0         0         0         0
+#> 2      2663         0         0         0         0         0         0
+#> 3      3465         0         0         0         0         0         0
+#> 4        66         0         0         0         0         0         0
 #>   decTotals currentMonthTotals id type
-#> 1         0               1136 NA  wms
-#> 2         0               1223 NA  wms
-#> 3         0               1849 NA  wms
-#> 4         0                 17 NA  wms
+#> 1         0               2598 NA  wms
+#> 2         0               2663 NA  wms
+#> 3         0               3465 NA  wms
+#> 4         0                 66 NA  wms
 ```
 
 ## Data provider information
@@ -187,20 +187,20 @@ Search for and collect taxonomic name data from the USGS Bison API using solr.
 ```r
 bison_tax(query="*bear")
 #> $numFound
-#> [1] 48
+#> [1] 54
 #> 
 #> $names
-#>       lc_vernacularName       vernacularName
-#> 1  Louisiana black bear Louisiana black bear
-#> 2            Sloth Bear           Sloth Bear
-#> 3          grizzly bear         grizzly bear
-#> 4              bear oak             bear oak
-#> 5     yellow woollybear    yellow woollybear
-#> 6            bear daisy           bear daisy
-#> 7     banded woollybear    banded woollybear
-#> 8    Asiatic black bear   Asiatic black bear
-#> 9           Kodiak bear          Kodiak bear
-#> 10     black-ended bear     black-ended bear
+#>         lc_vernacularName         vernacularName
+#> 1     American black bear    American black bear
+#> 2     American Black Bear    American Black Bear
+#> 3        Asian Black Bear       Asian Black Bear
+#> 4      Asiatic black bear     Asiatic black bear
+#> 5       banded woollybear      banded woollybear
+#> 6  Bear Canyon talussnail Bear Canyon talussnail
+#> 7    Bear Creek slitmouth   Bear Creek slitmouth
+#> 8              bear daisy             bear daisy
+#> 9             bear flower            bear flower
+#> 10            bear garlic            bear garlic
 #> 
 #> $highlight
 #> NULL
@@ -215,20 +215,20 @@ Exact argument, here nothing found with latter call as '*bear' doesn't exist, wh
 ```r
 bison_tax(query="*bear", exact=FALSE)
 #> $numFound
-#> [1] 48
+#> [1] 54
 #> 
 #> $names
-#>       lc_vernacularName       vernacularName
-#> 1  Louisiana black bear Louisiana black bear
-#> 2            Sloth Bear           Sloth Bear
-#> 3          grizzly bear         grizzly bear
-#> 4              bear oak             bear oak
-#> 5     yellow woollybear    yellow woollybear
-#> 6            bear daisy           bear daisy
-#> 7     banded woollybear    banded woollybear
-#> 8    Asiatic black bear   Asiatic black bear
-#> 9           Kodiak bear          Kodiak bear
-#> 10     black-ended bear     black-ended bear
+#>         lc_vernacularName         vernacularName
+#> 1     American black bear    American black bear
+#> 2     American Black Bear    American Black Bear
+#> 3        Asian Black Bear       Asian Black Bear
+#> 4      Asiatic black bear     Asiatic black bear
+#> 5       banded woollybear      banded woollybear
+#> 6  Bear Canyon talussnail Bear Canyon talussnail
+#> 7    Bear Creek slitmouth   Bear Creek slitmouth
+#> 8              bear daisy             bear daisy
+#> 9             bear flower            bear flower
+#> 10            bear garlic            bear garlic
 #> 
 #> $highlight
 #> NULL
@@ -241,20 +241,20 @@ bison_tax(query="*bear", exact=FALSE)
 ```r
 bison_tax(query="*bear", exact=TRUE)
 #> $numFound
-#> [1] 46
+#> [1] 49
 #> 
 #> $names
 #>    lc_vernacularName   vernacularName
-#> 1         Sloth Bear       Sloth Bear
-#> 2       grizzly bear     grizzly bear
-#> 3           bear oak         bear oak
-#> 4         bear daisy       bear daisy
-#> 5        Kodiak bear      Kodiak bear
-#> 6       Grizzly Bear     Grizzly Bear
-#> 7         black bear       black bear
-#> 8        bear garlic      bear garlic
-#> 9         bear sedge       bear sedge
-#> 10  bear huckleberry bear huckleberry
+#> 1         bear daisy       bear daisy
+#> 2        bear flower      bear flower
+#> 3        bear garlic      bear garlic
+#> 4           bear gum         bear gum
+#> 5   bear huckleberry bear huckleberry
+#> 6           bear oak         bear oak
+#> 7         bear sedge       bear sedge
+#> 8        bear tupelo      bear tupelo
+#> 9         black bear       black bear
+#> 10        brown bear       brown bear
 #> 
 #> $highlight
 #> NULL
@@ -269,13 +269,13 @@ Using solr arguments (not all Solr arguments work). Return a certain number of r
 ```r
 bison_tax(query="*bear", method="vernacularName", rows=3)
 #> $numFound
-#> [1] 48
+#> [1] 54
 #> 
 #> $names
-#>      lc_vernacularName       vernacularName
-#> 1 Louisiana black bear Louisiana black bear
-#> 2           Sloth Bear           Sloth Bear
-#> 3         grizzly bear         grizzly bear
+#>     lc_vernacularName      vernacularName
+#> 1 American black bear American black bear
+#> 2 American Black Bear American Black Bear
+#> 3    Asian Black Bear    Asian Black Bear
 #> 
 #> $highlight
 #> NULL
@@ -290,20 +290,20 @@ Return certain fields
 ```r
 bison_tax(query="*bear", method="vernacularName", fl='vernacularName')
 #> $numFound
-#> [1] 48
+#> [1] 54
 #> 
 #> $names
-#>          vernacularName
-#> 1  Louisiana black bear
-#> 2            Sloth Bear
-#> 3          grizzly bear
-#> 4              bear oak
-#> 5     yellow woollybear
-#> 6            bear daisy
-#> 7     banded woollybear
-#> 8    Asiatic black bear
-#> 9           Kodiak bear
-#> 10     black-ended bear
+#>            vernacularName
+#> 1     American black bear
+#> 2     American Black Bear
+#> 3        Asian Black Bear
+#> 4      Asiatic black bear
+#> 5       banded woollybear
+#> 6  Bear Canyon talussnail
+#> 7    Bear Creek slitmouth
+#> 8              bear daisy
+#> 9             bear flower
+#> 10            bear garlic
 #> 
 #> $highlight
 #> NULL
@@ -321,7 +321,7 @@ Search for and collect occurrence data from the USGS Bison API using their solr 
 bison_solr(scientificName='Ursus americanus', computedStateFips='02',
  fl="scientificName", rows=3)
 #> $num_found
-#> [1] 1055
+#> [1] 2464
 #> 
 #> $points
 #>     scientificName
@@ -355,13 +355,13 @@ bison_solr(scientificName='Ursus americanus', computedStateFips='02',
 bison_solr(scientificName='Ursus americanus', computedStateFips='02',
  rows=3, fl="scientificName,decimalLongitude,decimalLatitude")
 #> $num_found
-#> [1] 1055
+#> [1] 2464
 #> 
 #> $points
 #>   decimalLongitude   scientificName decimalLatitude
-#> 1          -150.55 Ursus americanus           59.59
-#> 2          -150.55 Ursus americanus           59.59
-#> 3          -149.66 Ursus americanus           59.83
+#> 1        -130.0534 Ursus americanus        55.97687
+#> 2        -135.8470 Ursus americanus        58.47447
+#> 3        -134.5484 Ursus americanus        58.41618
 #> 
 #> $highlight
 #> NULL
@@ -387,23 +387,23 @@ bison_solr(scientificName='Ursus americanus', computedStateFips='02',
 
 ```r
 bison_solr(TSNs = 174670, rows=2)$points[,1:6]
-#>   eventDate providedScientificName countryCode providedCounty ambiguous
-#> 1                   Pelecaniformes          US           Polk     FALSE
-#> 2                   Pelecaniformes          US           Polk     FALSE
-#>   verbatimLocality
-#> 1                 
-#> 2
+#>   providedScientificName countryCode providedCounty ambiguous
+#> 1         Pelecaniformes          US           Polk     FALSE
+#> 2         Pelecaniformes          US           <NA>     FALSE
+#>   verbatimLocality      latlon
+#> 1 PEACE RIVER MINE -81.77,27.8
+#> 2             <NA> -119.7,34.4
 ```
 
 
 ```r
 bison_solr(kingdom = "Plantae", rows=2)$points[,1:6]
-#>           eventDate                        providedScientificName year
-#> 1 1987-06-17T02:00Z Elymus glaucus subsp. virescens (Piper) Gould 1987
-#> 2                                         Elymus hansenii Scribn.   NA
-#>   countryCode providedCounty ambiguous
-#> 1          US      San Diego      TRUE
-#> 2          US      San Diego      TRUE
+#>    eventDate                providedScientificName year countryCode
+#> 1 2017-05-13 Papaver heterophyllum (Benth.) Greene 2017          US
+#> 2 2017-05-13                 Quercus velutina Lam. 2017          US
+#>   ambiguous                latlon
+#> 1     FALSE -121.911625,37.884973
+#> 2     FALSE  -82.018411,34.147879
 ```
 
 Using additional solr fields - Faceting
@@ -413,7 +413,7 @@ Using additional solr fields - Faceting
 bison_solr(scientificName='Helianthus annuus', rows=0, facet='true',
  facet.field='computedStateFips')
 #> $num_found
-#> [1] 5982
+#> [1] 10442
 #> 
 #> $points
 #> NULL
@@ -427,76 +427,76 @@ bison_solr(scientificName='Helianthus annuus', rows=0, facet='true',
 #> 
 #> $facets$facet_fields
 #> $facets$facet_fields$computedStateFips
-#>    X1  X2
-#> 1  06 773
-#> 2  48 500
-#> 3  20 350
-#> 4  08 299
-#> 5  46 188
-#> 6  35 150
-#> 7  31 120
-#> 8  49 112
-#> 9  30 102
-#> 10 38 102
-#> 11 04  93
-#> 12 16  86
-#> 13 17  86
-#> 14 29  86
-#> 15 40  77
-#> 16 56  77
-#> 17 41  68
-#> 18 53  45
-#> 19 19  43
-#> 20 32  41
-#> 21 26  35
-#> 22 05  34
-#> 23 39  33
-#> 24 09  31
-#> 25 22  31
-#> 26 27  25
-#> 27 25  24
-#> 28 47  24
-#> 29 AB  24
-#> 30 BC  22
-#> 31 12  21
-#> 32 21  21
-#> 33 SK  21
-#> 34 18  20
-#> 35 42  19
-#> 36 36  16
-#> 37 37  16
-#> 38 45  13
-#> 39 34  11
-#> 40 23  10
-#> 41 54  10
-#> 42 50   8
-#> 43 55   8
-#> 44 24   7
-#> 45 13   6
-#> 46 ON   6
-#> 47 01   5
-#> 48 28   5
-#> 49 33   5
-#> 50 MB   5
-#> 51 02   4
-#> 52 11   4
-#> 53 QC   4
-#> 54 10   3
-#> 55 44   3
-#> 56 NS   3
-#> 57 15   1
-#> 58 51   1
-#> 59 72   1
-#> 60 60   0
-#> 61 66   0
-#> 62 69   0
-#> 63 78   0
-#> 64 NB   0
-#> 65 NL   0
-#> 66 NT   0
-#> 67 NU   0
-#> 68 PE   0
-#> 69 YT   0
+#>    X1   X2
+#> 1  06 2444
+#> 2  48 1336
+#> 3  08  568
+#> 4  20  496
+#> 5  35  440
+#> 6  04  359
+#> 7  46  292
+#> 8  30  233
+#> 9  49  230
+#> 10 31  211
+#> 11 16  206
+#> 12 29  186
+#> 13 41  178
+#> 14 38  164
+#> 15 56  163
+#> 16 53  148
+#> 17 17  138
+#> 18 32  130
+#> 19 40  121
+#> 20 19   78
+#> 21 25   61
+#> 22 12   54
+#> 23 22   54
+#> 24 26   49
+#> 25 SK   48
+#> 26 39   43
+#> 27 55   41
+#> 28 05   40
+#> 29 27   40
+#> 30 36   40
+#> 31 09   38
+#> 32 47   37
+#> 33 37   35
+#> 34 AB   34
+#> 35 18   33
+#> 36 23   33
+#> 37 BC   31
+#> 38 21   28
+#> 39 42   25
+#> 40 45   23
+#> 41 34   22
+#> 42 54   21
+#> 43 33   18
+#> 44 24   17
+#> 45 ON   17
+#> 46 50   15
+#> 47 MB   14
+#> 48 02   11
+#> 49 28   11
+#> 50 13    9
+#> 51 11    7
+#> 52 44    7
+#> 53 01    6
+#> 54 15    6
+#> 55 NS    5
+#> 56 10    4
+#> 57 51    4
+#> 58 NB    4
+#> 59 QC    4
+#> 60 72    1
+#> 61 60    0
+#> 62 66    0
+#> 63 69    0
+#> 64 78    0
+#> 65 NL    0
+#> 66 NT    0
+#> 67 NU    0
+#> 68 PE    0
+#> 69 YT    0
 #> 
 #> 
 #> $facets$facet_dates
@@ -517,40 +517,36 @@ Highlighting
 bison_solr(scientificName='Helianthus annuus', rows=1, hl='true',
  hl.fl='scientificName')
 #> $num_found
-#> [1] 5982
+#> [1] 10442
 #> 
 #> $points
-#>           eventDate providedScientificName year countryCode providedCounty
-#> 1 2000-06-23T02:00Z   Helianthus annuus L. 2000          US         Colusa
-#>   ambiguous verbatimLocality              latlon computedCountyFips
-#> 1     FALSE                  -122.36707,39.01127              06011
-#>   occurrenceID decimalLongitude basisOfRecord providedCommonName
-#> 1   1021808881        -122.3671      specimen                   
-#>                             collectionID    ownerInstitutionCollectionCode
-#> 1 http://ucjeps.berkeley.edu/consortium/ Consortium of California Herbaria
-#>      scientificName computedStateFips      license  TSNs providerID
-#> 1 Helianthus annuus                06 CC_BY_NC_4_0 36616        319
-#>   stateProvince higherGeographyID verbatimEventDate decimalLatitude
-#> 1    California                          06 23 2000        39.01127
-#>   coordinatePrecision verbatimElevation       recordedBy
-#> 1                                310 m. Craig D. Thomsen
-#>                   geo                          provider calculatedCounty
-#> 1 -122.36707 39.01127 Consortium of California Herbaria    Colusa County
-#>   verbatimDepth catalogNumber ITISscientificName
-#> 1                    UCD64431  Helianthus annuus
-#>   coordinateUncertaintyInMeters                     pointPath kingdom
-#> 1                               /-122.36707,39.01127/specimen Plantae
-#>   calculatedState
-#> 1      California
+#>   establishmentMeans  eventDate providedScientificName year countryCode
+#> 1             AK  HI 2017-05-14   Helianthus annuus L. 2017          US
+#>   ambiguous              latlon computedCountyFips occurrenceID
+#> 1     FALSE -97.10123,32.583984              48439   1562942729
+#>   decimalLongitude basisOfRecord                            collectionID
+#> 1        -97.10123   observation http://www.inaturalist.org/observations
+#>            ownerInstitutionCollectionCode    scientificName
+#> 1 iNaturalist Research-grade Observations Helianthus annuus
+#>                institutionID computedStateFips      license  TSNs
+#> 1 http://www.inaturalist.org                48 CC_BY_NC_4_0 36616
+#>   providerID decimalLatitude   recordedBy                 geo
+#> 1        407        32.58398 Bob O'Kennon -97.10123 32.583984
+#>          provider calculatedCounty catalogNumber ITISscientificName
+#> 1 iNaturalist.org          Tarrant       6228598  Helianthus annuus
+#>                          pointPath kingdom calculatedState
+#> 1 /-97.10123,32.583984/observation Plantae           Texas
 #>                                                           hierarchy_homonym_string
 #> 1 -202422-954898-846494-954900-846496-846504-18063-846535-35419-35420-36611-36616-
-#>   collectorNumber resourceID ITIStsn
-#> 1            2428 319,202797   36616
+#>                                               ITIScommonName resourceID
+#> 1 annual sunflower;common sunflower;sunflower;wild sunflower 407,202485
+#>   ITIStsn
+#> 1   36616
 #> 
 #> $highlight
-#> $highlight$`1021808881`
-#> $highlight$`1021808881`$scientificName
-#> $highlight$`1021808881`$scientificName[[1]]
+#> $highlight$`1562942729`
+#> $highlight$`1562942729`$scientificName
+#> $highlight$`1562942729`$scientificName[[1]]
 #> [1] "<em>Helianthus annuus</em>"
 #> 
 #> 

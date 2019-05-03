@@ -16,6 +16,8 @@ Wrapper for the [USGS Bison](https://bison.usgs.gov) API
 
 USGS Biodiversity Information Serving Our Nation (BISON) is a web-based federal mapping resource that provides access to georeferenced (those with latitude and longitude coordinates) and non-georeferenced data describing the occurrence or presence of terrestrial and aquatic species recorded or collected by a person (or instrument) at a specific time in the United States, U.S. Territories, U.S. Marine Exclusive Economic Zones (EEZs), and Canada. Each record in a species occurrence dataset available in BISON will typically consist of a scientific name (genus and specific epithet), a date, and one or more geographic references such as a state name, county name, and/or decimal latitude and longitude coordinates. In addition to these typical data fields, species occurrence datasets often include many other data fields that describe each species occurrence event in more detail.
 
+BISON is the US Node of GBIF and regularly updates from GBIF to have full coverage and is committed to eventually providing most BISON originating data to GBIF, however, users should be aware that several million BISON records are not in GBIF. The Solr API for BISON is fully open with no limits, allowing full batch download, faceting and geospatial searches on both DC fields and BISON added fields such as the full ITIS taxonomy, FIPS Codes, and georeferencing of county records to documented centroids.
+
 `rbison` allows one to pull species occurrence data from these datasets, inspect species occurance summaries, and then map species occurance within the US, within the contiguous 48 states, and/or at county or state level.
 
 Current data providers for BISON can be found at <https://bison.usgs.gov/providers.jsp>
@@ -92,16 +94,16 @@ out <- bison(species = "Cyanocitta stelleri", count = 500)
 ```r
 out$summary
 #> $fossil
-#> [1] 2
+#> [1] 4
 #> 
 #> $observation
-#> [1] 566346
+#> [1] 712380
 #> 
 #> $centroid
 #> [1] 1
 #> 
 #> $specimen
-#> [1] 3294
+#> [1] 3438
 #> 
 #> $unknown
 #> [1] 208
@@ -131,23 +133,20 @@ out <- bison(species = "Aquila chrysaetos", count = 300)
 
 ```r
 out$summary
-#> $literature
-#> [1] 1641
-#> 
 #> $fossil
-#> [1] 642
+#> [1] 681
 #> 
 #> $observation
-#> [1] 128811
+#> [1] 159076
 #> 
 #> $centroid
 #> [1] 1
 #> 
 #> $unknown
-#> [1] 9734
+#> [1] 11046
 #> 
 #> $specimen
-#> [1] 1899
+#> [1] 1911
 ```
 
 
@@ -192,20 +191,20 @@ The taxa service searches for and gives back taxonomic names
 ```r
 bison_tax(query = "*bear")
 #> $numFound
-#> [1] 48
+#> [1] 54
 #> 
 #> $names
-#>       lc_vernacularName       vernacularName
-#> 1  Louisiana black bear Louisiana black bear
-#> 2            Sloth Bear           Sloth Bear
-#> 3          grizzly bear         grizzly bear
-#> 4              bear oak             bear oak
-#> 5     yellow woollybear    yellow woollybear
-#> 6            bear daisy           bear daisy
-#> 7     banded woollybear    banded woollybear
-#> 8    Asiatic black bear   Asiatic black bear
-#> 9           Kodiak bear          Kodiak bear
-#> 10     black-ended bear     black-ended bear
+#>         lc_vernacularName         vernacularName
+#> 1     American black bear    American black bear
+#> 2     American Black Bear    American Black Bear
+#> 3        Asian Black Bear       Asian Black Bear
+#> 4      Asiatic black bear     Asiatic black bear
+#> 5       banded woollybear      banded woollybear
+#> 6  Bear Canyon talussnail Bear Canyon talussnail
+#> 7    Bear Creek slitmouth   Bear Creek slitmouth
+#> 8              bear daisy             bear daisy
+#> 9             bear flower            bear flower
+#> 10            bear garlic            bear garlic
 #> 
 #> $highlight
 #> NULL
@@ -220,20 +219,20 @@ And you can search by scientific name
 ```r
 bison_tax(query = "Helianthus*", method = "scientificName")
 #> $numFound
-#> [1] 212
+#> [1] 240
 #> 
 #> $names
-#>                       scientificName
-#> 1              Discoaster helianthus
-#> 2  Helianthus divaricatus latifolius
-#> 3             Helianthus decapetalus
-#> 4                Helianthus ambiguus
-#> 5             Helianthus dowellianus
-#> 6               Helianthus luxurians
-#> 7               Helianthus arenicola
-#> 8              Helianthus atrorubens
-#> 9               Helianthus frondosus
-#> 10   Helianthus nuttallii canadensis
+#>                     scientificName
+#> 1            Discoaster helianthus
+#> 2           Helianthus decapetalus
+#> 3              Helianthus ambiguus
+#> 4          Helianthus crassifolius
+#> 5           Helianthus dowellianus
+#> 6             Helianthus luxurians
+#> 7             Helianthus arenicola
+#> 8            Helianthus atrorubens
+#> 9             Helianthus frondosus
+#> 10 Helianthus nuttallii canadensis
 #> 
 #> $highlight
 #> NULL
@@ -255,16 +254,16 @@ x <- bison_solr(scientificName = "Aquila chrysaetos", rows = 10,
     fl = "scientificName,decimalLongitude,decimalLatitude")
 x$points
 #>    decimalLongitude    scientificName decimalLatitude
-#> 1         -117.6185 Aquila chrysaetos        33.71447
-#> 2         -117.6185 Aquila chrysaetos        33.71447
-#> 3         -117.6185 Aquila chrysaetos        33.71447
-#> 4         -117.6185 Aquila chrysaetos        33.70987
-#> 5         -117.6014 Aquila chrysaetos        33.65099
-#> 6         -117.4997 Aquila chrysaetos        33.68344
-#> 7         -117.4544 Aquila chrysaetos        33.65246
-#> 8         -117.4544 Aquila chrysaetos        33.65246
-#> 9         -117.4543 Aquila chrysaetos        34.02910
-#> 10        -117.4543 Aquila chrysaetos        34.02910
+#> 1          -75.9530 Aquila chrysaetos        37.12740
+#> 2         -122.8319 Aquila chrysaetos        42.45076
+#> 3         -114.0025 Aquila chrysaetos        46.69240
+#> 4         -111.8859 Aquila chrysaetos        41.24911
+#> 5         -113.3001 Aquila chrysaetos        49.18417
+#> 6         -121.7681 Aquila chrysaetos        37.68183
+#> 7         -121.9796 Aquila chrysaetos        37.49512
+#> 8          -90.6039 Aquila chrysaetos        43.84988
+#> 9         -113.7063 Aquila chrysaetos        48.81654
+#> 10        -107.1469 Aquila chrysaetos        40.41912
 ```
 
 Mapping the data

@@ -33,7 +33,7 @@ Suggests:
     testthat,
     taxize,
     vcr (>= 0.2.0.9114)
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Remotes: ropensci/vcr
 X-schema.org-applicationCategory: DataAccess
 X-schema.org-keywords: species, occurrences, biodiversity, maps, USGS, BISON
