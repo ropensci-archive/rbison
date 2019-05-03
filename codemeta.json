@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/rbison",
   "issueTracker": "https://github.com/ropensci/rbison/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.7.0.9100",
+  "version": "0.8.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -47,7 +47,7 @@
       "@type": "SoftwareApplication",
       "identifier": "roxygen2",
       "name": "roxygen2",
-      "version": ">= 6.1.0",
+      "version": ">= 6.1.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -96,14 +96,14 @@
       "@type": "SoftwareApplication",
       "identifier": "vcr",
       "name": "vcr",
-      "version": ">= 0.2.0.9114",
+      "version": ">= 0.2.6",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://github.com/ropensci/vcr"
+      "sameAs": "https://CRAN.R-project.org/package=vcr"
     }
   ],
   "softwareRequirements": [
@@ -123,7 +123,7 @@
       "@type": "SoftwareApplication",
       "identifier": "crul",
       "name": "crul",
-      "version": ">= 0.3.4",
+      "version": ">= 0.7.4",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -218,7 +218,7 @@
   "contIntegration": "https://travis-ci.org/ropensci/rbison",
   "releaseNotes": "https://github.com/ropensci/rbison/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/rbison/blob/master/README.md",
-  "fileSize": "948.929KB",
+  "fileSize": "958.672KB",
   "contributor": {},
   "copyrightHolder": {},
   "funder": {}
