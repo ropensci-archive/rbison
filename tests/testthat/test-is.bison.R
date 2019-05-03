@@ -5,9 +5,9 @@ test_that("is.bison works", {
     out1 <- bison(species="Bison bison", type="scientific_name", count=1)
     out2 <- bison(species="bear", type="common_name", count=1)
     
-  	expect_that(out1, is_a("bison"))
-  	expect_that(is.bison(out1), is_true())
-  	expect_that(out2, is_a("bison"))
-  	expect_that(is.bison(out2), is_true())
+  	expect_is(out1, "bison")
+  	expect_true(is.bison(out1))
+  	expect_is(out2, "bison")
+  	expect_true(is.bison(out2))
   })
 })
