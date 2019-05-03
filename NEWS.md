@@ -1,3 +1,12 @@
+rbison 0.8.0
+============
+
+### MINOR IMPROVEMENTS
+
+* update readme and vignette regarding relationship between GBIF and BISON (#63)
+* fix a test fixture that had non-ascii characters (#64)
+
+
 rbison 0.7.0
 ============
 

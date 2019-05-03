@@ -2,27 +2,21 @@
 
 |field    |value                                       |
 |:--------|:-------------------------------------------|
-|version  |R version 3.5.1 Patched (2018-08-12 r75119) |
-|os       |macOS High Sierra 10.13.6                   |
+|version  |R version 3.6.0 Patched (2019-04-30 r76446) |
+|os       |macOS Mojave 10.14.4                        |
 |system   |x86_64, darwin15.6.0                        |
 |ui       |X11                                         |
 |language |(EN)                                        |
 |collate  |en_US.UTF-8                                 |
 |ctype    |en_US.UTF-8                                 |
 |tz       |US/Pacific                                  |
-|date     |2018-10-24                                  |
+|date     |2019-05-03                                  |
 
 # Dependencies
 
-|package |old   |new        |Δ  |
-|:-------|:-----|:----------|:--|
-|rbison  |0.6.0 |0.6.9.9100 |*  |
+|package |old   |new   |Δ  |
+|:-------|:-----|:-----|:--|
+|rbison  |0.7.0 |0.8.0 |*  |
 
 # Revdeps
-
-## All (1)
-
-|package |version |error |warning |note |
-|:-------|:-------|:-----|:-------|:----|
-|spocc   |0.8.0   |      |        |     |
 
