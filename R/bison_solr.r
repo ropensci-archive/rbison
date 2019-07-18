@@ -93,9 +93,12 @@
 #' 
 #' - fl: Fields to return in the query
 #' - rows: Number of records to return
+#' - start: Record number to start at (an offset)
 #' - sort: Field to sort by, see examples
 #' - facet: Facet or not, logical
 #' - facet.field: Fields to facet by
+#' 
+#' To do pagination, use `rows` and `start` together
 #'
 #' You can also use highlighting in solr search, but I'm not sure I see a 
 #' use case for it with BISON data, though you can do it with this function.
@@ -132,6 +135,10 @@
 #' bison_solr(ITISscientificName='Ursus americanus', rows=50)
 #'
 #' bison_solr(providerID = 220)
+#' 
+#' # pagination
+#' bison_solr(scientificName = 'Ursus americanus', rows = 10)
+#' bison_solr(scientificName = 'Ursus americanus', rows = 10, start = 10)
 #' 
 #' # combining parameters
 #' x <- bison_solr(eventDate = c('2008-01-01', '2010-12-31'), 
