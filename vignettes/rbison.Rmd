@@ -90,9 +90,11 @@ out$summary
 
 Map occurrences
 
-```{r six}
+```{r six, eval=FALSE}
 bisonmap(out, tomap="state")
 ```
+
+![](../man/figures/six-1.png)
 
 ## All points within the contiguous 48 states
 
@@ -110,9 +112,11 @@ out$summary
 
 Map occurrences
 
-```{r nine}
+```{r nine, eval=FALSE}
 bisonmap(out, tomap="points")
 ```
+
+![](../man/figures/nine-1.png)
 
 ## Plot county or state
 
@@ -120,15 +124,19 @@ With any data returned from a `bison` call, you can choose to plot county or sta
 
 Counties - using last data call for Aquila
 
-```{r ten}
+```{r ten, eval=FALSE}
 bisonmap(out, tomap="county")
 ```
 
+![](../man/figures/ten-1.png)
+
 States - using last data call for Aquila
 
-```{r eleven}
+```{r eleven, eval=FALSE}
 bisonmap(out, tomap="state")
 ```
+
+![](../man/figures/eleven-1.png)
 
 ## Constrain search with county IDs or bounding boxes
 
