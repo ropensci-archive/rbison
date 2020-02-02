@@ -5,20 +5,43 @@
 \title{Search for and collect occurrence data from the USGS Bison API using
 their solr endpoint.}
 \usage{
-bison_solr(decimalLatitude = NULL, decimalLongitude = NULL,
-  year = NULL, providerID = NULL, resourceID = NULL,
-  pointPath = NULL, basisOfRecord = NULL, eventDate = NULL,
-  computedCountyFips = NULL, computedStateFips = NULL,
-  scientificName = NULL, hierarchy_homonym_string = NULL,
-  TSNs = NULL, recordedBy = NULL, occurrenceID = NULL,
-  catalogNumber = NULL, ITIScommonName = NULL, kingdom = NULL,
-  collectorNumber = NULL, provider = NULL,
-  ownerInstitutionCollectionCode = NULL, providedScientificName = NULL,
-  ITISscientificName = NULL, providedCommonName = NULL,
-  ITIStsn = NULL, centroid = NULL, higherGeographyID = NULL,
-  providedCounty = NULL, calculatedCounty = NULL,
-  stateProvince = NULL, calculatedState = NULL, countryCode = NULL,
-  callopts = list(), verbose = TRUE, ...)
+bison_solr(
+  decimalLatitude = NULL,
+  decimalLongitude = NULL,
+  year = NULL,
+  providerID = NULL,
+  resourceID = NULL,
+  pointPath = NULL,
+  basisOfRecord = NULL,
+  eventDate = NULL,
+  computedCountyFips = NULL,
+  computedStateFips = NULL,
+  scientificName = NULL,
+  hierarchy_homonym_string = NULL,
+  TSNs = NULL,
+  recordedBy = NULL,
+  occurrenceID = NULL,
+  catalogNumber = NULL,
+  ITIScommonName = NULL,
+  kingdom = NULL,
+  collectorNumber = NULL,
+  provider = NULL,
+  ownerInstitutionCollectionCode = NULL,
+  providedScientificName = NULL,
+  ITISscientificName = NULL,
+  providedCommonName = NULL,
+  ITIStsn = NULL,
+  centroid = NULL,
+  higherGeographyID = NULL,
+  providedCounty = NULL,
+  calculatedCounty = NULL,
+  stateProvince = NULL,
+  calculatedState = NULL,
+  countryCode = NULL,
+  callopts = list(),
+  verbose = TRUE,
+  ...
+)
 }
 \arguments{
 \item{decimalLatitude}{Geographic coordinate that specifies the north south
@@ -166,10 +189,10 @@ For a tutorial see here
 \section{Range searches}{
 
 If you pass a vector of length 2 to a parameter we construct a range
-query for you. For example, \code{c(4, 5)} turns into \code{[4 TO 5]}. The \code{[]}
+query for you. For example, \code{c(4, 5)} turns into \verb{[4 TO 5]}. The \verb{[]}
 syntax means the search is inclusive, meaning 4 to 5, including 4 and 5.
 Let us know if you think you need more flexible searching. That is,
-doing exclusive \code{\{\}} or mixed searches (\code{\{]} or \code{[\}}). Range
+doing exclusive \verb{\\\{\\\}} or mixed searches (\verb{\\\{]} or \verb{[\\\}}). Range
 searches can only be done with variables that are numeric/integer
 or dates or strings that can be coerced to dates. Dates need to
 be of the form YYYY-MM-DD

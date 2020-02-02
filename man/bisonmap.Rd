@@ -6,14 +6,29 @@
 \alias{bisonmap.bison_solr}
 \title{Make map to visualize BISON data.}
 \usage{
-bisonmap(input = NULL, tomap = "points", geom = geom_point,
-  jitter = NULL, customize = NULL)
+bisonmap(
+  input = NULL,
+  tomap = "points",
+  geom = geom_point,
+  jitter = NULL,
+  customize = NULL
+)
 
-\method{bisonmap}{bison}(input = NULL, tomap = "points",
-  geom = geom_point, jitter = NULL, customize = NULL)
+\method{bisonmap}{bison}(
+  input = NULL,
+  tomap = "points",
+  geom = geom_point,
+  jitter = NULL,
+  customize = NULL
+)
 
-\method{bisonmap}{bison_solr}(input = NULL, tomap = "points",
-  geom = geom_point, jitter = NULL, customize = NULL)
+\method{bisonmap}{bison_solr}(
+  input = NULL,
+  tomap = "points",
+  geom = geom_point,
+  jitter = NULL,
+  customize = NULL
+)
 }
 \arguments{
 \item{input}{Input bison object.}
