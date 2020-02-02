@@ -7,8 +7,8 @@ rbison
 [![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)
 [![Build status](https://ci.appveyor.com/api/projects/status/cba5mqg33hakour1?svg=true)](https://ci.appveyor.com/project/sckott/rbison)
 [![codecov.io](https://codecov.io/github/ropensci/rbison/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rbison?branch=master)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rbison?color=E664A4)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/rbison)](https://cran.r-project.org/package=rbison)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbison?color=E664A4)](https://github.com/metacran/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/rbison)](https://cran.r-project.org/package=rbison)
 
 Wrapper for the [USGS Bison](https://bison.usgs.gov) API
 
@@ -76,7 +76,7 @@ out$summary
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-7](tools/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-7](man/figures/unnamed-chunk-7-1.png)
 
 ## All points within the US (including AK and HI)
 
@@ -116,7 +116,7 @@ out$summary
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-10](tools/unnamed-chunk-10-1.png)
+![plot of chunk unnamed-chunk-10](man/figures/unnamed-chunk-10-1.png)
 
 ##  All points within the contiguous 48 states
 
@@ -157,7 +157,7 @@ out$summary
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-13](tools/unnamed-chunk-13-1.png)
+![plot of chunk unnamed-chunk-13](man/figures/unnamed-chunk-13-1.png)
 
 
 ## Map county or state level data
@@ -169,7 +169,7 @@ bisonmap(out)
 bisonmap(out, tomap = "county")
 ```
 
-![plot of chunk unnamed-chunk-14](tools/unnamed-chunk-14-1.png)
+![plot of chunk unnamed-chunk-14](man/figures/unnamed-chunk-14-1.png)
 
 ### States - using last data call for Aquila
 
@@ -178,7 +178,7 @@ bisonmap(out, tomap = "county")
 bisonmap(out, tomap = "state")
 ```
 
-![plot of chunk unnamed-chunk-15](tools/unnamed-chunk-15-1.png)
+![plot of chunk unnamed-chunk-15](man/figures/unnamed-chunk-15-1.png)
 
 
 ## BISON SOLR interface
@@ -253,17 +253,17 @@ Searching for data and looking at output
 x <- bison_solr(scientificName = "Aquila chrysaetos", rows = 10, 
     fl = "scientificName,decimalLongitude,decimalLatitude")
 x$points
-#>    decimalLongitude    scientificName decimalLatitude
-#> 1          -75.9530 Aquila chrysaetos        37.12740
-#> 2         -122.8319 Aquila chrysaetos        42.45076
-#> 3         -114.0025 Aquila chrysaetos        46.69240
-#> 4         -111.8859 Aquila chrysaetos        41.24911
-#> 5         -113.3001 Aquila chrysaetos        49.18417
-#> 6         -121.7681 Aquila chrysaetos        37.68183
-#> 7         -121.9796 Aquila chrysaetos        37.49512
-#> 8          -90.6039 Aquila chrysaetos        43.84988
-#> 9         -113.7063 Aquila chrysaetos        48.81654
-#> 10        -107.1469 Aquila chrysaetos        40.41912
+#>       scientificName
+#> 1  Aquila chrysaetos
+#> 2  Aquila chrysaetos
+#> 3  Aquila chrysaetos
+#> 4  Aquila chrysaetos
+#> 5  Aquila chrysaetos
+#> 6  Aquila chrysaetos
+#> 7  Aquila chrysaetos
+#> 8  Aquila chrysaetos
+#> 9  Aquila chrysaetos
+#> 10 Aquila chrysaetos
 ```
 
 Mapping the data
@@ -274,15 +274,17 @@ out <- bison_solr(scientificName = "Aquila chrysaetos", rows = 1000)
 bisonmap(out)
 ```
 
-![plot of chunk unnamed-chunk-19](tools/unnamed-chunk-19-1.png)
+![plot of chunk unnamed-chunk-19](man/figures/unnamed-chunk-19-1.png)
 
 ## Meta
 
 * Please [report any issues or bugs](https://github.com/ropensci/rbison/issues).
 * License: MIT
 * Get citation information for `rbison` in R doing `citation(package = 'rbison')`
-* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a [Contributor Code of Conduct][coc]. By participating in this project you agree to abide by its terms.
 
 This package is part of a richer suite called [SPOCC Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using SPOCC as the primary R interface to rbison unless your needs are limited to this single source.
 
 [![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
+
+[coc]: https://github.com/ropensci/rbison/blob/master/CODE_OF_CONDUCT.md

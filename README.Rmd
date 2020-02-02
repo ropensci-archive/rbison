@@ -3,7 +3,7 @@ rbison
 
 ```{r, eval=TRUE, echo=FALSE, include=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "tools/",
+  fig.path = "man/figures/",
   cache.path = "inst/readmecache/",
   comment = "#>",
   collapse = TRUE,
@@ -16,8 +16,8 @@ knitr::opts_chunk$set(
 [![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)
 [![Build status](https://ci.appveyor.com/api/projects/status/cba5mqg33hakour1?svg=true)](https://ci.appveyor.com/project/sckott/rbison)
 [![codecov.io](https://codecov.io/github/ropensci/rbison/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rbison?branch=master)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rbison?color=E664A4)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/rbison)](https://cran.r-project.org/package=rbison)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbison?color=E664A4)](https://github.com/metacran/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/rbison)](https://cran.r-project.org/package=rbison)
 
 Wrapper for the [USGS Bison](https://bison.usgs.gov) API
 
@@ -177,8 +177,10 @@ bisonmap(out)
 * Please [report any issues or bugs](https://github.com/ropensci/rbison/issues).
 * License: MIT
 * Get citation information for `rbison` in R doing `citation(package = 'rbison')`
-* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a [Contributor Code of Conduct][coc]. By participating in this project you agree to abide by its terms.
 
 This package is part of a richer suite called [SPOCC Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using SPOCC as the primary R interface to rbison unless your needs are limited to this single source.
 
 [![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
+
+[coc]: https://github.com/ropensci/rbison/blob/master/CODE_OF_CONDUCT.md

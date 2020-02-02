@@ -31,6 +31,7 @@ Imports:
     data.table
 Suggests:
     knitr,
+    rmarkdown,
     testthat,
     taxize,
     vcr (>= 0.2.6)
