@@ -34,8 +34,6 @@ tile requests.
 \examples{
 \dontrun{
 out <- bison_stats()
-out <- bison_stats(what='search')
-out <- bison_stats(what='download')
 out <- bison_stats(what='wms')
 out$Arctos
 out$Harvard_University_Herbaria

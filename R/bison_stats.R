@@ -1,5 +1,6 @@
 #' Get statistics about BISON downloads.
-#'
+#' 
+#' @importFrom tibble as_tibble
 #' @export
 #' @param what (character) One of stats (default), search, downnload, or wms. 
 #' See Details.
@@ -10,25 +11,21 @@
 #'
 #' @details
 #' For the 'what' parameter:
-#' \itemize{
-#'  \item stats - Retrieve all data provider accumulated statistics.
-#'  \item search - Retrieve data provider statistics for BISON searches.
-#'  \item download - Retrieve data provider statistics for data downloads 
+#' 
+#' - stats - Retrieve all data provider accumulated statistics.
+#' - search - Retrieve data provider statistics for BISON searches.
+#' - download - Retrieve data provider statistics for data downloads 
 #'  from BISON.
-#'  \item wms - Retrieve data provider statistics for BISON OGC WMS 
+#' - wms - Retrieve data provider statistics for BISON OGC WMS 
 #'  tile requests.
-#' }
 #'
 #' @examples \dontrun{
 #' out <- bison_stats()
-#' out <- bison_stats(what='search')
-#' out <- bison_stats(what='download')
 #' out <- bison_stats(what='wms')
 #' out$Arctos
 #' out$Harvard_University_Herbaria
 #' out$ZooKeys
 #' }
-
 bison_stats <- function(what='stats', ...) {
   what <- match.arg(what, c('stats','search','download','wms'))
   pick <- switch(what, stats = 'all', search = 'search', 
@@ -46,7 +43,7 @@ bison_stats <- function(what='stats', ...) {
   res <- jsonlite::fromJSON(tt, simplifyVector = FALSE)
   output <- lapply(res$data, function(x){
     df <- dplyr::bind_rows(lapply(x[[pick]], function(g) 
-      data.frame(null2na(g), stringsAsFactors = FALSE)))
+      tibble::as_tibble(null2na(g), stringsAsFactors = FALSE)))
     list(name = x$name, resources = do.call(c, x$resources), data = df)
   })
   names(output) <- gsub("\\s", "_", vapply(res$data, "[[", "", "name"))
