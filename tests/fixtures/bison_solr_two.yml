@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,19 +17,18 @@ http_interactions:
     headers:
       connection: keep-alive
       content-type: text/plain;charset=utf-8
-      date: Sun, 02 Feb 2020 23:41:30 GMT
+      date: Thu, 28 May 2020 22:35:15 GMT
       status: HTTP/1.1 200 OK
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
       - max-age=63072000; includeSubdomains; preload
       - max-age=31536000
       transfer-encoding: chunked
-      x-frame-options: SAMEORIGIN
       x-node-name: not shown
       x-upstream-member: not shown
     body:
       encoding: ASCII-8BIT
       file: no
       string: eyJyZXNwb25zZUhlYWRlciI6eyJzdGF0dXMiOjAsIlFUaW1lIjowLCJwYXJhbXMiOnsicSI6InNjaWVudGlmaWNOYW1lOlwiVXJzdXMgYW1lcmljYW51c1wiIiwiZmwiOiJzY2llbnRpZmljTmFtZSIsInN0YXRlX2NvZGUiOiJOZXcgTWV4aWNvIiwid3QiOiJqc29uIn19LCJyZXNwb25zZSI6eyJudW1Gb3VuZCI6ODc4NSwic3RhcnQiOjAsImRvY3MiOlt7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9LHsic2NpZW50aWZpY05hbWUiOiJVcnN1cyBhbWVyaWNhbnVzIn0seyJzY2llbnRpZmljTmFtZSI6IlVyc3VzIGFtZXJpY2FudXMifSx7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9LHsic2NpZW50aWZpY05hbWUiOiJVcnN1cyBhbWVyaWNhbnVzIn0seyJzY2llbnRpZmljTmFtZSI6IlVyc3VzIGFtZXJpY2FudXMifSx7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9LHsic2NpZW50aWZpY05hbWUiOiJVcnN1cyBhbWVyaWNhbnVzIn0seyJzY2llbnRpZmljTmFtZSI6IlVyc3VzIGFtZXJpY2FudXMifSx7InNjaWVudGlmaWNOYW1lIjoiVXJzdXMgYW1lcmljYW51cyJ9XX19Cg==
-  recorded_at: 2020-02-02 23:41:30 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
+  recorded_at: 2020-05-28 22:35:15 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

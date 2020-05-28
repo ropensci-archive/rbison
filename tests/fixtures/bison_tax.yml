@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,14 +17,13 @@ http_interactions:
     headers:
       connection: keep-alive
       content-type: text/plain;charset=utf-8
-      date: Sun, 02 Feb 2020 23:41:40 GMT
+      date: Thu, 28 May 2020 22:35:27 GMT
       status: HTTP/1.1 200 OK
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
       - max-age=63072000; includeSubdomains; preload
       - max-age=31536000
       transfer-encoding: chunked
-      x-frame-options: SAMEORIGIN
       x-node-name: not shown
       x-upstream-member: not shown
     body:
@@ -32,8 +31,8 @@ http_interactions:
       file: no
       string: |
         {"responseHeader":{"status":0,"QTime":0,"params":{"q":"*bear","wt":"json"}},"response":{"numFound":54,"start":0,"docs":[{"lc_vernacularName":"American black bear","vernacularName":"American black bear","_version_":1626571985461968941},{"lc_vernacularName":"American Black Bear","vernacularName":"American Black Bear","_version_":1626571985461968942},{"lc_vernacularName":"Asian Black Bear","vernacularName":"Asian Black Bear","_version_":1626571985507057702},{"lc_vernacularName":"Asiatic black bear","vernacularName":"Asiatic black bear","_version_":1626571985509154818},{"lc_vernacularName":"banded woollybear","vernacularName":"banded woollybear","_version_":1626571985532223526},{"lc_vernacularName":"Bear Canyon talussnail","vernacularName":"Bear Canyon talussnail","_version_":1626571985545855003},{"lc_vernacularName":"Bear Creek slitmouth","vernacularName":"Bear Creek slitmouth","_version_":1626571985545855004},{"lc_vernacularName":"bear daisy","vernacularName":"bear daisy","_version_":1626571985545855005},{"lc_vernacularName":"bear flower","vernacularName":"bear flower","_version_":1626571985546903597},{"lc_vernacularName":"bear garlic","vernacularName":"bear garlic","_version_":1626571985546903598}]}}
-  recorded_at: 2020-02-02 23:41:41 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
+  recorded_at: 2020-05-28 22:35:28 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: https://bison.usgs.gov/solr/vernacularName/select?q=%22black%20bear%22&wt=json
@@ -41,7 +40,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -52,23 +51,22 @@ http_interactions:
     headers:
       connection: keep-alive
       content-type: text/plain;charset=utf-8
-      date: Sun, 02 Feb 2020 23:41:40 GMT
+      date: Thu, 28 May 2020 22:35:27 GMT
       status: HTTP/1.1 200 OK
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
       - max-age=63072000; includeSubdomains; preload
       - max-age=31536000
       transfer-encoding: chunked
-      x-frame-options: SAMEORIGIN
       x-node-name: not shown
       x-upstream-member: not shown
     body:
       encoding: UTF-8
       file: no
       string: |
-        {"responseHeader":{"status":0,"QTime":0,"params":{"q":"\"black bear\"","wt":"json"}},"response":{"numFound":6,"start":0,"docs":[{"lc_vernacularName":"black bear","vernacularName":"black bear","_version_":1626571985574166578},{"lc_vernacularName":"American black bear","vernacularName":"American black bear","_version_":1626571985461968941},{"lc_vernacularName":"American Black Bear","vernacularName":"American Black Bear","_version_":1626571985461968942},{"lc_vernacularName":"Asian Black Bear","vernacularName":"Asian Black Bear","_version_":1626571985507057702},{"lc_vernacularName":"Asiatic black bear","vernacularName":"Asiatic black bear","_version_":1626571985509154818},{"lc_vernacularName":"Louisiana black bear","vernacularName":"Louisiana black bear","_version_":1626571986300829741}]}}
-  recorded_at: 2020-02-02 23:41:41 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
+        {"responseHeader":{"status":0,"QTime":16,"params":{"q":"\"black bear\"","wt":"json"}},"response":{"numFound":6,"start":0,"docs":[{"lc_vernacularName":"black bear","vernacularName":"black bear","_version_":1626571985574166578},{"lc_vernacularName":"American black bear","vernacularName":"American black bear","_version_":1626571985461968941},{"lc_vernacularName":"American Black Bear","vernacularName":"American Black Bear","_version_":1626571985461968942},{"lc_vernacularName":"Asian Black Bear","vernacularName":"Asian Black Bear","_version_":1626571985507057702},{"lc_vernacularName":"Asiatic black bear","vernacularName":"Asiatic black bear","_version_":1626571985509154818},{"lc_vernacularName":"Louisiana black bear","vernacularName":"Louisiana black bear","_version_":1626571986300829741}]}}
+  recorded_at: 2020-05-28 22:35:28 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: https://bison.usgs.gov/solr/scientificName/select?q=helianthus&wt=json
@@ -76,7 +74,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -87,14 +85,13 @@ http_interactions:
     headers:
       connection: keep-alive
       content-type: text/plain;charset=utf-8
-      date: Sun, 02 Feb 2020 23:41:40 GMT
+      date: Thu, 28 May 2020 22:35:28 GMT
       status: HTTP/1.1 200 OK
       strict-transport-security:
       - max-age=63072000; includeSubdomains; preload
       - max-age=63072000; includeSubdomains; preload
       - max-age=31536000
       transfer-encoding: chunked
-      x-frame-options: SAMEORIGIN
       x-node-name: not shown
       x-upstream-member: not shown
     body:
@@ -102,5 +99,5 @@ http_interactions:
       file: no
       string: |
         {"responseHeader":{"status":0,"QTime":0,"params":{"q":"helianthus","wt":"json"}},"response":{"numFound":240,"start":0,"docs":[{"scientificName":"Helianthus","_version_":1626005763995467832},{"scientificName":"Helianthus ","_version_":1626005776262758419},{"scientificName":"Discoaster helianthus","_version_":1626005762655387666},{"scientificName":"Helianthus decapetalus","_version_":1626005762802188298},{"scientificName":"Helianthus ambiguus","_version_":1626005762842034207},{"scientificName":"Helianthus crassifolius","_version_":1626005762846228522},{"scientificName":"Helianthus dowellianus","_version_":1626005762853568562},{"scientificName":"Helianthus luxurians","_version_":1626005762854617146},{"scientificName":"Helianthus arenicola","_version_":1626005762883977263},{"scientificName":"Helianthus atrorubens","_version_":1626005762982543428}]}}
-  recorded_at: 2020-02-02 23:41:41 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
+  recorded_at: 2020-05-28 22:35:28 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

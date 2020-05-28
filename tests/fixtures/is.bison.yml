@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -19,7 +19,7 @@ http_interactions:
       connection: keep-alive
       content-language: en-US
       content-type: application/json;charset=UTF-8
-      date: Sun, 02 Feb 2020 23:41:55 GMT
+      date: Thu, 28 May 2020 22:36:13 GMT
       expires: Thu, 01 Jan 1970 00:00:00 GMT
       pragma: no-cache
       status: 'HTTP/1.1 200 '
@@ -29,13 +29,12 @@ http_interactions:
       - max-age=31536000
       transfer-encoding: chunked
       x-application: bison
-      x-frame-options: SAMEORIGIN
       x-node-name: not shown
       x-upstream-member: not shown
     body:
       encoding: UTF-8
       file: no
-      string: '{"occurrences":{"legend":{"fossil":350,"observation":822,"centroid":1,"specimen":1038,"unknown":6}},"total":2216,"searchTime":0,"offset":0,"data":[{"geo":"Yes","provider":"iNaturalist.org","name":"Bison
+      string: '{"occurrences":{"legend":{"fossil":350,"observation":822,"centroid":1,"specimen":1038,"unknown":6}},"total":2216,"searchTime":1134,"offset":0,"data":[{"geo":"Yes","provider":"iNaturalist.org","name":"Bison
         bison","decimalLongitude":"-110.58052062988281","decimalLatitude":"44.65469741821289","occurrenceID":"1584423649","common_name":"American
         Bison, bison, American bison, Bisonte americano","basis":"Observation"}],"species":"Bison
         bison","eezs":{"extent":{"miny":30.0599517,"minx":-179.99999999999994,"maxy":74.70976829528809,"maxx":180.00000190734875},"total":2,"data":{"US
@@ -151,8 +150,8 @@ http_interactions:
         Hampshire":{"total":"1","fips":"33"},"Northwest Territories Canada":{"total":"5","fips":"NT"},"Georgia":{"total":"2","fips":"13"},"Virginia":{"total":"1","fips":"51"},"Idaho":{"total":"3","fips":"16"}},"legend":{"0":"0
         - 42","1":"42 - 84","2":"84 - 126","3":"126 - 168","4":"168 - 210","15":"630
         - 675"}}}'
-  recorded_at: 2020-02-02 23:41:56 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
+  recorded_at: 2020-05-28 22:36:14 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: https://bison.usgs.gov/api/search.json?species=bear&type=common_name&start=0&count=1
@@ -160,7 +159,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -173,7 +172,7 @@ http_interactions:
       connection: keep-alive
       content-language: en-US
       content-type: application/json;charset=UTF-8
-      date: Sun, 02 Feb 2020 23:41:55 GMT
+      date: Thu, 28 May 2020 22:36:13 GMT
       expires: Thu, 01 Jan 1970 00:00:00 GMT
       pragma: no-cache
       status: 'HTTP/1.1 200 '
@@ -183,12 +182,11 @@ http_interactions:
       - max-age=31536000
       transfer-encoding: chunked
       x-application: bison
-      x-frame-options: SAMEORIGIN
       x-node-name: not shown
       x-upstream-member: not shown
     body:
       encoding: UTF-8
       file: no
-      string: '{"occurrences":{"legend":{}},"total":0,"searchTime":0,"offset":0,"data":[],"species":"bear","eezs":{"extent":{},"total":0,"data":{},"legend":{}},"itemsPerPage":1,"counties":{"extent":{},"total":0,"data":{},"legend":{}},"type":"common_name","georeferenced":0,"states":{"extent":{},"total":0,"data":{},"legend":{}}}'
-  recorded_at: 2020-02-02 23:41:56 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
+      string: '{"occurrences":{"legend":{}},"total":0,"searchTime":4,"offset":0,"data":[],"species":"bear","eezs":{"extent":{},"total":0,"data":{},"legend":{}},"itemsPerPage":1,"counties":{"extent":{},"total":0,"data":{},"legend":{}},"type":"common_name","georeferenced":0,"states":{"extent":{},"total":0,"data":{},"legend":{}}}'
+  recorded_at: 2020-05-28 22:36:14 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

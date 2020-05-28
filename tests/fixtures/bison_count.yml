@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -19,7 +19,7 @@ http_interactions:
       connection: keep-alive
       content-language: en-US
       content-type: application/json;charset=UTF-8
-      date: Sun, 02 Feb 2020 23:41:48 GMT
+      date: Thu, 28 May 2020 22:35:14 GMT
       expires: Thu, 01 Jan 1970 00:00:00 GMT
       pragma: no-cache
       status: 'HTTP/1.1 200 '
@@ -29,13 +29,12 @@ http_interactions:
       - max-age=31536000
       transfer-encoding: chunked
       x-application: bison
-      x-frame-options: SAMEORIGIN
       x-node-name: not shown
       x-upstream-member: not shown
     body:
       encoding: UTF-8
       file: no
-      string: '{"occurrences":{"legend":{"living":2,"fossil":2,"observation":2590,"centroid":1,"specimen":1804,"unknown":50}},"total":4448,"searchTime":0,"offset":0,"data":[{"geo":"Yes","provider":"BISON","name":"Quercus
+      string: '{"occurrences":{"legend":{"living":2,"fossil":2,"observation":2590,"centroid":1,"specimen":1804,"unknown":50}},"total":4448,"searchTime":10779,"offset":0,"data":[{"geo":"Yes","provider":"BISON","name":"Quercus
         lobata","decimalLongitude":"-122.74675750732422","decimalLatitude":"39.09480285644531","occurrenceID":"2064791198","common_name":"California
         white oak, valley oak","basis":"Specimen"},{"geo":"Yes","provider":"BISON","name":"Quercus
         lobata","decimalLongitude":"-122.7459716796875","decimalLatitude":"38.051815032958984","occurrenceID":"2064792877","common_name":"California
@@ -2069,8 +2068,8 @@ http_interactions:
         - 588","5":"180 - 216","6":"216 - 252","9":"324 - 360"}},"type":"scientific_name","georeferenced":3973,"states":{"extent":{"miny":32.528832000205156,"minx":-139.05220104128725,"maxy":60.00006153131318,"maxx":-114.05422081994627},"total":4,"data":{"Oregon":{"total":"2","fips":"41"},"British
         Columbia Canada":{"total":"1","fips":"BC"},"California":{"total":"4412","fips":"06"},"Washington":{"total":"2","fips":"53"}},"legend":{"0":"0
         - 275","15":"4125 - 4412"}}}'
-  recorded_at: 2020-02-02 23:41:49 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
+  recorded_at: 2020-05-28 22:35:15 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: https://bison.usgs.gov/api/search.json?species=Quercus%20lobata&type=scientific_name&start=1000&count=10
@@ -2078,7 +2077,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -2091,7 +2090,7 @@ http_interactions:
       connection: keep-alive
       content-language: en-US
       content-type: application/json;charset=UTF-8
-      date: Sun, 02 Feb 2020 23:41:49 GMT
+      date: Thu, 28 May 2020 22:35:14 GMT
       expires: Thu, 01 Jan 1970 00:00:00 GMT
       pragma: no-cache
       status: 'HTTP/1.1 200 '
@@ -2101,13 +2100,12 @@ http_interactions:
       - max-age=31536000
       transfer-encoding: chunked
       x-application: bison
-      x-frame-options: SAMEORIGIN
       x-node-name: not shown
       x-upstream-member: not shown
     body:
       encoding: UTF-8
       file: no
-      string: '{"occurrences":{"legend":{"living":2,"fossil":2,"observation":2590,"centroid":1,"specimen":1804,"unknown":50}},"total":4448,"searchTime":0,"offset":1000,"data":[{"geo":"Yes","provider":"BISON","name":"Quercus
+      string: '{"occurrences":{"legend":{"living":2,"fossil":2,"observation":2590,"centroid":1,"specimen":1804,"unknown":50}},"total":4448,"searchTime":50,"offset":1000,"data":[{"geo":"Yes","provider":"BISON","name":"Quercus
         lobata","decimalLongitude":"-119.91285705566406","decimalLatitude":"37.57003402709961","occurrenceID":"2087196033","common_name":"California
         white oak, valley oak","basis":"Observation"},{"geo":"Yes","provider":"BISON","name":"Quercus
         lobata","decimalLongitude":"-123.44287872314453","decimalLatitude":"39.43238830566406","occurrenceID":"2087196034","common_name":"California
@@ -2161,5 +2159,5 @@ http_interactions:
         - 588","5":"180 - 216","6":"216 - 252","9":"324 - 360"}},"type":"scientific_name","georeferenced":3973,"states":{"extent":{"miny":32.528832000205156,"minx":-139.05220104128725,"maxy":60.00006153131318,"maxx":-114.05422081994627},"total":4,"data":{"Oregon":{"total":"2","fips":"41"},"British
         Columbia Canada":{"total":"1","fips":"BC"},"California":{"total":"4412","fips":"06"},"Washington":{"total":"2","fips":"53"}},"legend":{"0":"0
         - 275","15":"4125 - 4412"}}}'
-  recorded_at: 2020-02-02 23:41:49 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
+  recorded_at: 2020-05-28 22:35:15 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
