@@ -4,13 +4,15 @@
 \name{fips}
 \alias{fips}
 \title{Fips codes for states and counties}
-\format{A data frame with 3142 rows and 4 variables:
+\format{
+A data frame with 3142 rows and 4 variables:
 \describe{
 \item{state}{State name}
 \item{county}{County name}
 \item{fips_state}{State FIPS code}
 \item{fips_county}{County FIPS code}
-}}
+}
+}
 \description{
 See
 https://www.census.gov/geo/reference/codes/cou.html and
