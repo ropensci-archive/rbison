@@ -10,7 +10,7 @@ rbison
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbison?color=E664A4)](https://github.com/metacran/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/rbison)](https://cran.r-project.org/package=rbison)
 
-Wrapper for the [USGS Bison](https://bison.usgs.gov) API
+Wrapper for the USGS Bison (https://bison.usgs.gov) API
 
 ## Description
 
@@ -20,9 +20,9 @@ BISON is the US Node of GBIF and regularly updates from GBIF to have full covera
 
 `rbison` allows one to pull species occurrence data from these datasets, inspect species occurance summaries, and then map species occurance within the US, within the contiguous 48 states, and/or at county or state level.
 
-Current data providers for BISON can be found at <https://bison.usgs.gov/providers.jsp>
+Current data providers for BISON can be found at https://bison.usgs.gov/providers.jsp
 
-See <https://bison.usgs.gov/doc/api.jsp> for API docs for the BISON API.
+See https://bison.usgs.gov/doc/api.jsp for API docs for the BISON API.
 
 
 ## Installation
@@ -38,9 +38,7 @@ Or the development version from Github
 
 
 ```r
-install.packages("devtools")
-devtools::install_github("ropensci/rbison")
-library('rbison')
+remotes::install_github("ropensci/rbison")
 ```
 
 Load package
