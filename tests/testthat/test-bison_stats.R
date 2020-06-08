@@ -1,4 +1,6 @@
 test_that("bison_stats", {
+  skip_on_cran()
+  
   vcr::use_cassette("bison_stats", {
     aa <- bison_stats()
   }, preserve_exact_body_bytes = TRUE)

@@ -19,3 +19,4 @@ vignettes/figure
 ^codemeta\.json$
 .github
 ^revdep$
+Rplots.pdf
