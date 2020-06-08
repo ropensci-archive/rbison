@@ -13,8 +13,7 @@ knitr::opts_chunk$set(
 ```
 
 [![cran checks](https://cranchecks.info/badges/worst/rbison)](https://cranchecks.info/pkgs/rbison)
-[![Build Status](https://api.travis-ci.org/ropensci/rbison.png)](https://travis-ci.org/ropensci/rbison)
-[![Build status](https://ci.appveyor.com/api/projects/status/cba5mqg33hakour1?svg=true)](https://ci.appveyor.com/project/sckott/rbison)
+[![R-CMD-check](https://github.com/ropensci/rbison/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/rbison/actions/)
 [![codecov.io](https://codecov.io/github/ropensci/rbison/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rbison?branch=master)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbison?color=E664A4)](https://github.com/metacran/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/rbison)](https://cran.r-project.org/package=rbison)
