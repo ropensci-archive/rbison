@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.6.0 patched
-* ubuntu 14.04 (on travis-ci), R 3.6.0
+* local OS X install, R 4.0.1 patched
+* ubuntu 16.04 (on travis-ci), R 4.0.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -15,7 +15,7 @@ Summary at <https://github.com/ropensci/rbison/blob/master/revdep/README.md>
 
 -----
 
-This release improves documentation and changes a test fixture to store binary instead of raw text.
+This release makes a documentation improvement and fixes a bug.
 
 Thanks!
 Scott Chamberlain

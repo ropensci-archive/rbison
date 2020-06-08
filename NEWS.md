@@ -1,3 +1,16 @@
+rbison 1.0.0
+============
+
+### MINOR IMPROVEMENTS
+
+* add explanation to `bison_solr()` docs on the `start` parameter for offsetting pagination results (#65)
+* vignette/readme figures location change within package (#66)
+
+### BUG FIXES
+
+* `bison_stats()` fixes: returned data structure had slightly changed, fixes for that; and add unit tests (#67)
+
+
 rbison 0.8.0
 ============
 
