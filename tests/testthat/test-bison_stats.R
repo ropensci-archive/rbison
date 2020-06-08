@@ -1,7 +1,7 @@
 test_that("bison_stats", {
   vcr::use_cassette("bison_stats", {
     aa <- bison_stats()
-  })
+  }, preserve_exact_body_bytes = TRUE)
     
   expect_is(aa, "list")
   expect_named(aa)
