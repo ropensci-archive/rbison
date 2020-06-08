@@ -31,7 +31,7 @@ BISON is the US Node of GBIF and regularly updates from GBIF to have full covera
 
 ## Info
 
-See <https://bison.usgs.gov/doc/api.jsp> for API docs for the BISON API.
+See https://bison.usgs.gov/doc/api.jsp for API docs for the BISON API.
 
 
 ## Install rbison
@@ -141,7 +141,7 @@ bisonmap(out, tomap="state")
 
 ### Constrain search to a certain county.
 
-Check out [this site](http://www.epa.gov/enviro/html/codes/state.html) to get state and county fips codes. Fips codes are like so: First two digits are the state code - last three are the county code. For example the *06* in  06037 is the state of California, and the *037* is the Los Angeles county.
+Check out https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code to get state and county fips codes. Fips codes are like so: First two digits are the state code - last three are the county code. For example the *06* in  06037 is the state of California, and the *037* is the Los Angeles county.
 
 ```{r countyfips}
 out <- bison(species="Helianthus annuus", countyFips = "06037")
@@ -185,7 +185,7 @@ bison(species="Helianthus annuus", county = "Los")
 
 ### Constrain search to a amorphous area.
 
-Check out the Wikipedia page [here](http://en.wikipedia.org/wiki/Well-known_text) for an in depth look at the options, terminology, etc.
+Check out http://en.wikipedia.org/wiki/Well-known_text for an in depth look at the options, terminology, etc.
 
 ```{r}
 out <- bison(species="Helianthus annuus", aoi = "POLYGON((-111.06360117772908 38.84001566645886,-110.80542246679359 39.37707771107983,-110.20117441992392 39.17722368276862,-110.20666758398464 38.90844075244811,-110.63513438085685 38.67724220095734,-111.06360117772908 38.84001566645886))")
