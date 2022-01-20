@@ -2,7 +2,7 @@ rbison
 ======
 
 
-
+[![Project Status: Abandoned – Initial development has started, but there has not yet been a stable, usable release; the project has been abandoned and the author(s) do not intend on continuing development.](https://www.repostatus.org/badges/latest/abandoned.svg)](https://www.repostatus.org/#abandoned)
 [![cran checks](https://cranchecks.info/badges/worst/rbison)](https://cranchecks.info/pkgs/rbison)
 [![R-CMD-check](https://github.com/ropensci/rbison/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/rbison/actions/)
 [![codecov.io](https://codecov.io/github/ropensci/rbison/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rbison?branch=master)
